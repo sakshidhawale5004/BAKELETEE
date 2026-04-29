@@ -46,29 +46,6 @@ export const products: Product[] = [
     notes: ["Real blueberry chunks", "Greek yogurt base", "Lightly sweetened with jaggery"],
     weight: "Box of 6",
   },
-  {
-    name: "Burnt Butter Jaggery",
-    price: 320,
-    category: "Cookies",
-    img: burnt,
-    tagline: "Caramel Whispers, Burnt-Butter Soul.",
-    description:
-      "Slow-browned butter meets organic jaggery in a chewy-crisp cookie that tastes like nostalgia. Toffee-deep, buttery, unforgettable.",
-    notes: ["Hand-browned French butter", "Organic cane jaggery", "Sea salt finish"],
-    weight: "Box of 6",
-  },
-  {
-    name: "Mumbai Spice Brew Cookie",
-    price: 330,
-    category: "Cookies",
-    img: mumbai,
-    badge: "New",
-    tagline: "Cutting Chai, Reimagined.",
-    description:
-      "Inspired by tapri masala chai — cardamom, ginger, clove, and a hit of black pepper baked into a buttery cookie. A sip of Mumbai in every bite.",
-    notes: ["Hand-pounded chai masala", "Ginger & cardamom", "Best with hot chai"],
-    weight: "Box of 6",
-  },
 
   // Loaves
   {
@@ -120,29 +97,6 @@ export const products: Product[] = [
     notes: ["Hand-cut & double-baked", "Mamra almond slivers", "Subtle vanilla"],
     weight: "180g pack",
   },
-  {
-    name: "Pistachio Sticks",
-    price: 380,
-    category: "Bites",
-    img: pistachioSticks,
-    tagline: "Emerald Crunch in Every Bite.",
-    description:
-      "Buttery biscotti-style sticks studded with whole pistachios. Crisp, fragrant, and ridiculously elegant on a cheese board.",
-    notes: ["Whole roasted pistachios", "Twice-baked crunch", "Cardamom hint"],
-    weight: "180g pack",
-  },
-  {
-    name: "Ragi Nibbles",
-    price: 290,
-    category: "Bites",
-    img: ragi,
-    badge: "Healthy",
-    tagline: "Old-School Grain. New-School Crunch.",
-    description:
-      "Nutty finger millet nibbles with a hint of jaggery and ghee. Iron-rich, gut-friendly, and the smartest snack in your pantry.",
-    notes: ["Sprouted ragi flour", "Cow ghee", "Naturally gluten-aware"],
-    weight: "200g jar",
-  },
 
   // Brownies
   {
@@ -168,10 +122,67 @@ export const products: Product[] = [
     notes: ["Kashmiri walnut chunks", "Dark Kolhapuri jaggery", "Whole wheat base"],
     weight: "Box of 4",
   },
+
+  // Bundles
+  {
+    name: "Cookie Lover's Box",
+    price: 899,
+    category: "Bundles",
+    img: blueberry,
+    badge: "Combo",
+    tagline: "All The Cookies. Zero Regrets.",
+    description:
+      "A curated tasting of our bestseller cookies. Sharing optional.",
+    notes: ["12 assorted cookies", "4 signature flavours", "Gift-ready box"],
+    weight: "Box of 12",
+  },
+  {
+    name: "Tea-Time Bundle",
+    price: 749,
+    category: "Bundles",
+    img: oats,
+    tagline: "Steep. Dunk. Repeat.",
+    description:
+      "Built for that golden 5 PM hour — almond sticks, oats nibbles, and a half-loaf of pistachio-lime.",
+    notes: ["3 tea-time staples", "Perfect for 2–4 people", "Hand-tied with jute"],
+    weight: "Mixed bundle",
+  },
+
+  // Gift Hampers
+  {
+    name: "Signature Celebration Hamper",
+    price: 1499,
+    category: "Gift Hampers",
+    img: roseLoaf,
+    badge: "Premium",
+    tagline: "Gifting, Elevated.",
+    description:
+      "Our signature loaf, a tin of cookies, and artisan bites — wrapped in linen and ribbon.",
+    notes: ["Hand-curated assortment", "Linen-wrapped premium box", "Handwritten card"],
+    weight: "Premium hamper",
+  },
+  {
+    name: "Festive Luxury Hamper",
+    price: 2299,
+    category: "Gift Hampers",
+    img: roseLoaf,
+    badge: "Luxury",
+    tagline: "The Showstopper.",
+    description:
+      "Two signature loaves, premium cookies, nut bites and brownies in a wooden keepsake tray.",
+    notes: ["Wooden keepsake tray", "Loaves + cookies + bites", "Custom ribbon & note"],
+    weight: "Luxury hamper",
+  },
 ];
 
-const Products = () => {
+interface ProductsProps {
+  selected: Category;
+  onSelect: (c: Category) => void;
+}
+
+const Products = ({ selected, onSelect }: ProductsProps) => {
   const [active, setActive] = useState<Product | null>(null);
+  const filtered = selected === "All" ? products : products.filter((p) => p.category === selected);
 
   return (
     <section id="products" className="py-24 md:py-32 bg-background scroll-mt-24">
@@ -182,12 +193,14 @@ const Products = () => {
             Signature <em className="font-script text-primary">Bakes</em>
           </h2>
           <p className="mt-6 text-muted-foreground text-lg">
-            Tap any bake for the full story — then order in one tap on WhatsApp.
+            {selected === "All"
+              ? "Tap any bake for the full story — then order in one tap on WhatsApp."
+              : `Showing our ${selected.toLowerCase()} — tap any card for the full story.`}
           </p>
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">
-          {products.map((p, i) => (
+          {filtered.map((p, i) => (
             <article
               key={p.name}
               className="card-3d group bg-gradient-card rounded-3xl overflow-hidden shadow-soft border border-border/60 fade-up flex flex-col"
@@ -242,6 +255,10 @@ const Products = () => {
             </article>
           ))}
         </div>
+
+        {filtered.length === 0 && (
+          <p className="text-center text-muted-foreground mt-10">No items in this category yet.</p>
+        )}
       </div>
 
       <QuickViewDialog product={active} onClose={() => setActive(null)} />
@@ -250,4 +267,5 @@ const Products = () => {
 };
 
 export default Products;
+
 

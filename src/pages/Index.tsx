@@ -1,7 +1,9 @@
+import { useState } from "react";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import OurPromise from "@/components/Promise";
-import Products from "@/components/Products";
+import Products, { type Category } from "@/components/Products";
+import Categories from "@/components/Categories";
 import Gifting from "@/components/Gifting";
 import HowItWorks from "@/components/HowItWorks";
 import Testimonials from "@/components/Testimonials";
@@ -10,12 +12,15 @@ import Footer from "@/components/Footer";
 import WhatsAppPopup from "@/components/WhatsAppPopup";
 
 const Index = () => {
+  const [selected, setSelected] = useState<Category>("All");
+
   return (
     <main className="min-h-screen bg-background">
       <Header />
       <Hero />
       <OurPromise />
-      <Products />
+      <Categories onSelect={setSelected} />
+      <Products selected={selected} onSelect={setSelected} />
       <Gifting />
       <HowItWorks />
       <Testimonials />
