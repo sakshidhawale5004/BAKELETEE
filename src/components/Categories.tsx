@@ -9,16 +9,9 @@ const cats: { name: Exclude<Category, "All">; count: string; desc: string; icon:
   { name: "Gift Hampers", count: "2 hampers", desc: "Premium gifting solutions", icon: "🎀" },
 ];
 
-interface Props {
-  onSelect: (c: Category) => void;
-}
-
-const Categories = ({ onSelect }: Props) => {
-  const handle = (c: Exclude<Category, "All">) => {
-    onSelect(c);
-    setTimeout(() => {
-      document.getElementById("products")?.scrollIntoView({ behavior: "smooth" });
-    }, 50);
+const Categories = () => {
+  const handle = () => {
+    document.getElementById("products")?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
@@ -29,13 +22,13 @@ const Categories = ({ onSelect }: Props) => {
           <h2 className="mt-4 text-4xl md:text-6xl">
             <em className="font-script text-primary">Categories</em>
           </h2>
-          <p className="mt-5 text-muted-foreground text-lg">Tap a category to see only those bakes.</p>
+          <p className="mt-5 text-muted-foreground text-lg">Our curated selection of premium bakes.</p>
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {cats.map((c, i) => (
             <button
               key={c.name}
-              onClick={() => handle(c.name)}
+              onClick={handle}
               className="card-3d text-left bg-gradient-card rounded-3xl p-8 shadow-soft border border-border/60 flex items-center gap-5 fade-up hover:border-primary transition-colors"
               style={{ animationDelay: `${i * 0.08}s` }}
             >

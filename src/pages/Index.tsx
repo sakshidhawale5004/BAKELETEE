@@ -12,15 +12,13 @@ import Footer from "@/components/Footer";
 import WhatsAppPopup from "@/components/WhatsAppPopup";
 
 const Index = () => {
-  const [selected, setSelected] = useState<Category>("All");
-
   return (
     <main className="min-h-screen bg-background">
       <Header />
       <Hero />
       <OurPromise />
-      <Categories onSelect={setSelected} />
-      <Products selected={selected} onSelect={setSelected} />
+      <Categories />
+      <Products />
       <Gifting />
       <HowItWorks />
       <Testimonials />
