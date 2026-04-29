@@ -19,8 +19,8 @@ const Index = () => {
       <Header />
       <Hero />
       <OurPromise />
-      <Categories onSelect={setSelected} />
       <Products selected={selected} onSelect={setSelected} />
+      <Categories onSelect={setSelected} />
       <Gifting />
       <HowItWorks />
       <Testimonials />
