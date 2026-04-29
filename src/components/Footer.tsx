@@ -20,22 +20,34 @@ const Footer = () => (
         </ul>
       </div>
       <div>
-        <h4 className="text-primary-glow font-display text-xl mb-4">Get in touch</h4>
-        <ul className="space-y-2 text-primary-foreground/80">
+        <h4 className="text-primary-glow font-display text-xl mb-4">Get in Touch</h4>
+        <ul className="space-y-3 text-primary-foreground/80 text-sm">
           <li>
-            <a href={waLink()} target="_blank" rel="noreferrer" className="hover:text-primary-glow">
-              WhatsApp · {PHONE_DISPLAY}
+            <a href="mailto:contact@bakelette.in" className="hover:text-primary-glow">
+              ✉️ contact@bakelette.in
             </a>
           </li>
           <li>
-            <a href={telLink} className="hover:text-primary-glow">Call · {PHONE_DISPLAY}</a>
+            <a href="tel:+918369424099" className="hover:text-primary-glow">📞 +91 8369424099</a>
+          </li>
+          <li>
+            <a href="tel:+919920144632" className="hover:text-primary-glow">📞 +91 9920144632</a>
+          </li>
+          <li className="leading-relaxed">
+            📍 Building No. 2/212, Seva Samiti CHS Ltd.,<br />
+            Near Shanmukhananda Hall,<br />
+            Gandhi Market, Mumbai – 400037
+          </li>
+          <li>
+            <a href={waLink()} target="_blank" rel="noreferrer" className="hover:text-primary-glow">
+              💬 WhatsApp · {PHONE_DISPLAY}
+            </a>
           </li>
           <li>
             <a href={INSTAGRAM_URL} target="_blank" rel="noreferrer" className="hover:text-primary-glow">
               Instagram · @bakelette.official
             </a>
           </li>
-          <li>Same-city delivery · 24–48 hrs</li>
         </ul>
       </div>
     </div>

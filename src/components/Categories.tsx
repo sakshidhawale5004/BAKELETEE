@@ -71,45 +71,7 @@ const Categories = ({ onSelect }: Props) => {
           })}
         </div>
 
-        {/* Contact Info Block */}
-        <div className="mt-20 max-w-4xl mx-auto bg-gradient-card rounded-3xl p-8 md:p-12 shadow-soft border border-border/60 text-center fade-up">
-          <h3 className="text-2xl md:text-3xl text-foreground mb-6">
-            <em className="font-script text-primary">Get in Touch</em>
-          </h3>
-          <div className="grid md:grid-cols-3 gap-8 text-muted-foreground">
-            <div>
-              <div className="w-12 h-12 rounded-full bg-primary/10 text-primary flex items-center justify-center mx-auto mb-4 text-xl">
-                ✉️
-              </div>
-              <h4 className="font-semibold text-foreground mb-2">Email</h4>
-              <a href="mailto:contact@bakelette.in" className="hover:text-primary transition-colors">
-                contact@bakelette.in
-              </a>
-            </div>
-            <div>
-              <div className="w-12 h-12 rounded-full bg-primary/10 text-primary flex items-center justify-center mx-auto mb-4 text-xl">
-                📞
-              </div>
-              <h4 className="font-semibold text-foreground mb-2">Phone</h4>
-              <p>
-                <a href="tel:+918369424099" className="hover:text-primary transition-colors">+91 8369424099</a>
-                <br />
-                <a href="tel:+919920144632" className="hover:text-primary transition-colors">+91 9920144632</a>
-              </p>
-            </div>
-            <div>
-              <div className="w-12 h-12 rounded-full bg-primary/10 text-primary flex items-center justify-center mx-auto mb-4 text-xl">
-                📍
-              </div>
-              <h4 className="font-semibold text-foreground mb-2">Address</h4>
-              <p className="text-sm">
-                Building Number 2/212, Seva Samiti CHS Ltd.,<br />
-                Near Shanmukhananda Hall,<br />
-                Gandhi Market, Mumbai - 400037
-              </p>
-            </div>
-          </div>
-        </div>
+
       </div>
     </section>
   );
