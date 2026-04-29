@@ -2,8 +2,10 @@ import { useState } from "react";
 import { waLink } from "@/lib/contact";
 import QuickViewDialog, { type Product } from "./QuickViewDialog";
 import nutella from "@/assets/products/Nutella_Stuffed_Chocochip.jpeg";
+import nutellaChoco from "@/assets/products/Nutella_chocochip_cookies.jpeg";
 import blueberry from "@/assets/products/Blueberry_Yogurt.jpeg";
 import burnt from "@/assets/products/Burnt_Butter_Style_Jaggery.jpeg";
+import burntJaggery from "@/assets/products/Burnt_butter_jaggery.jpeg";
 import oats from "@/assets/products/Oats_and_Nuts_Nibbles_.jpeg";
 import pistachioLoaf from "@/assets/products/Pistachio___Lime_Loaf_Cake.jpeg";
 import roseLoaf from "@/assets/products/Rose___Saffron_Celebration_Loaf_Cake.jpeg";
@@ -30,9 +32,18 @@ export const products: Product[] = [
     img: nutella,
     badge: "Bestseller",
     tagline: "One Bite. Pure Drama.",
-    description:
-      "A golden chocochip cookie hiding a molten heart of Nutella. Crack it open and watch hazelnut-cocoa lava ooze out — warm, rich, ridiculously good.",
+    description: "A golden chocochip cookie hiding a molten heart of Nutella. Crack it open and watch hazelnut-cocoa lava ooze out — warm, rich, ridiculously good.",
     notes: ["Molten Nutella core", "Belgian dark choco chips", "Whole wheat & jaggery"],
+    weight: "Box of 6",
+  },
+  {
+    name: "Nutella Chocochip Cookies",
+    price: 350,
+    category: "Cookies",
+    img: nutellaChoco,
+    tagline: "Classic. Gooey. Irresistible.",
+    description: "Our classic Nutella chocochip cookies — rich, buttery, loaded with chocolate chips and a hidden Nutella swirl.",
+    notes: ["Choco chips", "Nutella swirl", "Soft-baked"],
     weight: "Box of 6",
   },
   {
@@ -41,10 +52,84 @@ export const products: Product[] = [
     category: "Cookies",
     img: blueberry,
     tagline: "Berry Sweet. Cloud Soft.",
-    description:
-      "Tangy wild blueberries folded into a pillow-soft yogurt cookie. Light, fragrant, and dangerously snackable with chai or coffee.",
+    description: "Tangy wild blueberries folded into a pillow-soft yogurt cookie. Light, fragrant, and dangerously snackable with chai or coffee.",
     notes: ["Real blueberry chunks", "Greek yogurt base", "Lightly sweetened with jaggery"],
     weight: "Box of 6",
+  },
+  {
+    name: "Burnt Butter Style Jaggery",
+    price: 320,
+    category: "Cookies",
+    img: burnt,
+    tagline: "Caramel Whispers, Burnt-Butter Soul.",
+    description: "Slow-browned butter meets organic jaggery in a chewy-crisp cookie that tastes like nostalgia. Toffee-deep, buttery, unforgettable.",
+    notes: ["Hand-browned French butter", "Organic cane jaggery", "Sea salt finish"],
+    weight: "Box of 6",
+  },
+  {
+    name: "Burnt Butter Jaggery",
+    price: 320,
+    category: "Cookies",
+    img: burntJaggery,
+    tagline: "Rustic. Rich. Rewarding.",
+    description: "A wholesome, rustic cookie crafted with brown butter and artisanal jaggery — the perfect companion for your evening chai.",
+    notes: ["Artisanal jaggery", "Brown butter", "No refined sugar"],
+    weight: "Box of 6",
+  },
+  {
+    name: "Mumbai Spice Brew Cookie",
+    price: 330,
+    category: "Cookies",
+    img: mumbai,
+    badge: "New",
+    tagline: "Cutting Chai, Reimagined.",
+    description: "Inspired by tapri masala chai — cardamom, ginger, clove, and a hit of black pepper baked into a buttery cookie.",
+    notes: ["Hand-pounded chai masala", "Ginger & cardamom", "Best with hot chai"],
+    weight: "Box of 6",
+  },
+
+  // Bites
+  {
+    name: "Oats and Nuts Nibbles",
+    price: 280,
+    category: "Bites",
+    img: oats,
+    badge: "Wholesome",
+    tagline: "Tiny Bites, Big Energy.",
+    description: "Crunchy clusters of toasted oats, almonds, walnuts and seeds bound with jaggery. Your guilt-free 4 PM hero.",
+    notes: ["5 nuts & seeds", "Jaggery-bound", "No refined sugar"],
+    weight: "200g jar",
+  },
+  {
+    name: "Almond Sticks",
+    price: 360,
+    category: "Bites",
+    img: almond,
+    tagline: "Snap. Crunch. Repeat.",
+    description: "Slim, golden sticks loaded with toasted almond slivers. The perfect crisp-buttery match for your morning coffee.",
+    notes: ["Hand-cut & double-baked", "Mamra almond slivers", "Subtle vanilla"],
+    weight: "180g pack",
+  },
+  {
+    name: "Pistachio Sticks",
+    price: 380,
+    category: "Bites",
+    img: pistachioSticks,
+    tagline: "Emerald Crunch in Every Bite.",
+    description: "Buttery biscotti-style sticks studded with whole pistachios. Crisp, fragrant, and ridiculously elegant on a cheese board.",
+    notes: ["Whole roasted pistachios", "Twice-baked crunch", "Cardamom hint"],
+    weight: "180g pack",
+  },
+  {
+    name: "Ragi Nibbles",
+    price: 290,
+    category: "Bites",
+    img: ragi,
+    badge: "Healthy",
+    tagline: "Old-School Grain. New-School Crunch.",
+    description: "Nutty finger millet nibbles with a hint of jaggery and ghee. Iron-rich, gut-friendly, and the smartest snack in your pantry.",
+    notes: ["Sprouted ragi flour", "Cow ghee", "Naturally gluten-aware"],
+    weight: "200g jar",
   },
 
   // Loaves
@@ -55,123 +140,20 @@ export const products: Product[] = [
     img: pistachioLoaf,
     badge: "Fresh Today",
     tagline: "Green Gold. Citrus Spark.",
-    description:
-      "Stone-ground Iranian pistachios meet a bright lime glaze on a tender, moist loaf. Earthy, zesty, elegant — your new tea-time obsession.",
+    description: "Stone-ground Iranian pistachios meet a bright lime glaze on a tender, moist loaf. Earthy, zesty, elegant.",
     notes: ["Iranian pistachio paste", "Fresh lime zest glaze", "Whole wheat sponge"],
     weight: "450g loaf",
   },
   {
-    name: "Rose & Saffron Loaf Cake",
+    name: "Rose & Saffron Celebration Loaf Cake",
     price: 520,
     category: "Loaves",
     img: roseLoaf,
     badge: "Limited",
     tagline: "A Love Letter, Baked.",
-    description:
-      "Kashmiri saffron and Damask rose petals folded into a celebration loaf. Romantic, fragrant, jewel-toned — made for the moments that matter.",
+    description: "Kashmiri saffron and Damask rose petals folded into a celebration loaf. Romantic, fragrant, jewel-toned.",
     notes: ["Pure Kashmiri saffron", "Edible rose petals", "Pistachio crown"],
     weight: "500g loaf",
-  },
-
-  // Bites
-  {
-    name: "Oats & Nuts Nibbles",
-    price: 280,
-    category: "Bites",
-    img: oats,
-    badge: "Wholesome",
-    tagline: "Tiny Bites, Big Energy.",
-    description:
-      "Crunchy clusters of toasted oats, almonds, walnuts and seeds bound with jaggery. Your guilt-free 4 PM hero — wholesome and addictive.",
-    notes: ["5 nuts & seeds", "Jaggery-bound", "No refined sugar"],
-    weight: "200g jar",
-  },
-  {
-    name: "Almond Sticks",
-    price: 360,
-    category: "Bites",
-    img: almond,
-    tagline: "Snap. Crunch. Repeat.",
-    description:
-      "Slim, golden sticks loaded with toasted almond slivers. The perfect crisp-buttery match for your morning coffee or evening wine.",
-    notes: ["Hand-cut & double-baked", "Mamra almond slivers", "Subtle vanilla"],
-    weight: "180g pack",
-  },
-
-  // Brownies
-  {
-    name: "Classic Fudge Brownie",
-    price: 380,
-    category: "Brownies",
-    img: burnt,
-    badge: "Fudgy",
-    tagline: "Dense. Dark. Devastating.",
-    description:
-      "A square of pure indulgence — crackly top, gooey middle, deep cocoa soul. The brownie all other brownies are trying to be.",
-    notes: ["72% Belgian cocoa", "Gooey molten centre", "Sea-salt finish"],
-    weight: "Box of 4",
-  },
-  {
-    name: "Walnut Jaggery Brownie",
-    price: 410,
-    category: "Brownies",
-    img: nutella,
-    tagline: "Wholesome Goes Wicked.",
-    description:
-      "Toasted Kashmiri walnuts and dark jaggery turn this brownie into a caramel-deep, nutty masterpiece. Rustic, rich, refined.",
-    notes: ["Kashmiri walnut chunks", "Dark Kolhapuri jaggery", "Whole wheat base"],
-    weight: "Box of 4",
-  },
-
-  // Bundles
-  {
-    name: "Cookie Lover's Box",
-    price: 899,
-    category: "Bundles",
-    img: blueberry,
-    badge: "Combo",
-    tagline: "All The Cookies. Zero Regrets.",
-    description:
-      "A curated tasting of our bestseller cookies. Sharing optional.",
-    notes: ["12 assorted cookies", "4 signature flavours", "Gift-ready box"],
-    weight: "Box of 12",
-  },
-  {
-    name: "Tea-Time Bundle",
-    price: 749,
-    category: "Bundles",
-    img: oats,
-    tagline: "Steep. Dunk. Repeat.",
-    description:
-      "Built for that golden 5 PM hour — almond sticks, oats nibbles, and a half-loaf of pistachio-lime.",
-    notes: ["3 tea-time staples", "Perfect for 2–4 people", "Hand-tied with jute"],
-    weight: "Mixed bundle",
-  },
-
-  // Gift Hampers
-  {
-    name: "Signature Celebration Hamper",
-    price: 1499,
-    category: "Gift Hampers",
-    img: roseLoaf,
-    badge: "Premium",
-    tagline: "Gifting, Elevated.",
-    description:
-      "Our signature loaf, a tin of cookies, and artisan bites — wrapped in linen and ribbon.",
-    notes: ["Hand-curated assortment", "Linen-wrapped premium box", "Handwritten card"],
-    weight: "Premium hamper",
-  },
-  {
-    name: "Festive Luxury Hamper",
-    price: 2299,
-    category: "Gift Hampers",
-    img: roseLoaf,
-    badge: "Luxury",
-    tagline: "The Showstopper.",
-    description:
-      "Two signature loaves, premium cookies, nut bites and brownies in a wooden keepsake tray.",
-    notes: ["Wooden keepsake tray", "Loaves + cookies + bites", "Custom ribbon & note"],
-    weight: "Luxury hamper",
   },
 ];
 
