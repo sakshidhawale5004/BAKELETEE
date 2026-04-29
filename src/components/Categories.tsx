@@ -9,9 +9,16 @@ const cats: { name: Exclude<Category, "All">; count: string; desc: string; icon:
   { name: "Gift Hampers", count: "2 hampers", desc: "Premium gifting solutions", icon: "🎀" },
 ];
 
-const Categories = () => {
-  const handle = () => {
-    document.getElementById("products")?.scrollIntoView({ behavior: "smooth" });
+interface Props {
+  onSelect: (c: Category) => void;
+}
+
+const Categories = ({ onSelect }: Props) => {
+  const handle = (c: Exclude<Category, "All">) => {
+    onSelect(c);
+    setTimeout(() => {
+      document.getElementById("products")?.scrollIntoView({ behavior: "smooth" });
+    }, 50);
   };
 
   return (
@@ -26,21 +33,26 @@ const Categories = () => {
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {cats.map((c, i) => (
-            <button
+            <div
               key={c.name}
-              onClick={handle}
-              className="card-3d text-left bg-gradient-card rounded-3xl p-8 shadow-soft border border-border/60 flex items-center gap-5 fade-up hover:border-primary transition-colors"
+              className="card-3d text-left bg-gradient-card rounded-3xl p-8 shadow-soft border border-border/60 flex items-center gap-5 fade-up hover:border-primary transition-colors group"
               style={{ animationDelay: `${i * 0.08}s` }}
             >
               <div className="w-20 h-20 rounded-2xl bg-gradient-primary flex items-center justify-center text-4xl shadow-glow shrink-0">
                 {c.icon}
               </div>
-              <div>
+              <div className="flex-1">
                 <h3 className="text-2xl text-foreground">{c.name}</h3>
                 <p className="text-primary text-sm font-semibold mt-1">{c.count}</p>
                 <p className="text-muted-foreground text-sm mt-1">{c.desc}</p>
+                <button
+                  onClick={() => handle(c.name)}
+                  className="mt-4 text-primary text-sm font-bold flex items-center gap-1 hover:gap-2 transition-all"
+                >
+                  Know More <span className="text-lg">→</span>
+                </button>
               </div>
-            </button>
+            </div>
           ))}
         </div>
       </div>

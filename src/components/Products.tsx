@@ -175,8 +175,14 @@ export const products: Product[] = [
   },
 ];
 
-const Products = () => {
+interface ProductsProps {
+  selected: Category;
+  onSelect: (c: Category) => void;
+}
+
+const Products = ({ selected, onSelect }: ProductsProps) => {
   const [active, setActive] = useState<Product | null>(null);
+  const filtered = selected === "All" ? products : products.filter((p) => p.category === selected);
 
   return (
     <section id="products" className="py-24 md:py-32 bg-background scroll-mt-24">
@@ -187,12 +193,14 @@ const Products = () => {
             Signature <em className="font-script text-primary">Bakes</em>
           </h2>
           <p className="mt-6 text-muted-foreground text-lg">
-            Tap any bake for the full story — then order in one tap on WhatsApp.
+            {selected === "All"
+              ? "Tap any bake for the full story — then order in one tap on WhatsApp."
+              : `Showing our ${selected.toLowerCase()} — tap any card for the full story.`}
           </p>
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">
-          {products.map((p, i) => (
+          {filtered.map((p, i) => (
             <article
               key={p.name}
               className="card-3d group bg-gradient-card rounded-3xl overflow-hidden shadow-soft border border-border/60 fade-up flex flex-col"
@@ -248,7 +256,7 @@ const Products = () => {
           ))}
         </div>
 
-        {products.length === 0 && (
+        {filtered.length === 0 && (
           <p className="text-center text-muted-foreground mt-10">No items in this category yet.</p>
         )}
       </div>
