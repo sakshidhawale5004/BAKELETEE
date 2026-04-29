@@ -248,7 +248,7 @@ const Products = () => {
           ))}
         </div>
 
-        {filtered.length === 0 && (
+        {products.length === 0 && (
           <p className="text-center text-muted-foreground mt-10">No items in this category yet.</p>
         )}
       </div>
