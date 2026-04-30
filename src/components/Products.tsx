@@ -197,23 +197,22 @@ const Products = ({ selected, onSelect }: ProductsProps) => {
           </p>
         </div>
 
-        {/* Category Tabs for Mobile/All */}
-        <div className="flex overflow-x-auto pb-8 gap-3 no-scrollbar -mx-4 px-4 md:hidden">
-          {(["All", "Cookies", "Loaves", "Bites", "Brownies", "Bundles", "Gift Hampers"] as Category[]).map((c) => (
+        {/* Filter Tabs — visible on all screens */}
+        <div className="flex flex-wrap justify-center gap-3 mb-12">
+          {(["All", "Cookies", "Loaves", "Bites"] as Category[]).map((c) => (
             <button
               key={c}
               onClick={() => onSelect(c)}
-              className={`whitespace-nowrap px-6 py-2.5 rounded-full text-sm font-semibold transition-all ${
+              className={`px-6 py-2.5 rounded-full text-sm font-semibold border transition-all duration-200 ${
                 selected === c
-                  ? "bg-gradient-primary text-primary-foreground shadow-glow"
-                  : "bg-muted text-muted-foreground hover:bg-muted/80"
+                  ? "bg-gradient-primary text-primary-foreground border-primary shadow-glow"
+                  : "bg-background text-foreground border-border hover:border-primary hover:text-primary"
               }`}
             >
               {c}
             </button>
           ))}
         </div>
-
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">
           {filtered.map((p, i) => {
