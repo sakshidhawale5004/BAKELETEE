@@ -57,10 +57,11 @@ const Header = () => {
         <div className="flex items-center gap-3">
           <a
             href={telLink}
-            className="hidden lg:inline text-sm font-semibold text-foreground hover:text-primary transition-colors"
+            className="hidden sm:inline text-sm font-semibold text-primary hover:text-primary-glow transition-colors"
           >
             {PHONE_DISPLAY}
           </a>
+
           <a
             href={waLink("Hi Bakelette! I'd like to order.")}
             target="_blank"
