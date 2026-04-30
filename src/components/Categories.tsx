@@ -31,45 +31,51 @@ const Categories = ({ onSelect }: Props) => {
           </h2>
           <p className="mt-5 text-muted-foreground text-lg">Our curated selection of premium bakes.</p>
         </div>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10">
           {cats.map((c, i) => {
             const categoryProducts = products.filter((p) => p.category === c.name);
+            const mainImg = categoryProducts[0]?.img || "";
+            
             return (
               <div
                 key={c.name}
-                className="card-3d text-left bg-gradient-card rounded-3xl p-6 shadow-soft border border-border/60 flex flex-col fade-up hover:border-primary transition-colors group"
-                style={{ animationDelay: `${i * 0.08}s` }}
+                className="group relative h-[400px] rounded-[2.5rem] overflow-hidden shadow-elegant border border-border/40 fade-up"
+                style={{ animationDelay: `${i * 0.1}s` }}
               >
-                <div className="flex -space-x-4 mb-4 overflow-hidden py-2 px-1">
-                  {categoryProducts.slice(0, 4).map((p, j) => (
-                    <img
-                      key={p.name}
-                      src={p.img}
-                      alt={p.name}
-                      className="w-14 h-14 rounded-full object-cover border-2 border-background shadow-sm group-hover:-translate-y-1 transition-transform"
-                      style={{ transitionDelay: `${j * 0.05}s`, zIndex: 10 - j }}
-                    />
-                  ))}
-                  {categoryProducts.length > 4 && (
-                    <div className="w-14 h-14 rounded-full border-2 border-background bg-primary/10 flex items-center justify-center text-primary text-xs font-bold shadow-sm z-0">
-                      +{categoryProducts.length - 4}
-                    </div>
-                  )}
-                </div>
-                <div>
-                  <h3 className="text-2xl text-foreground">{c.name}</h3>
-                  <p className="text-muted-foreground text-sm mt-1">{c.desc}</p>
-                  <button
-                    onClick={() => handle(c.name)}
-                    className="mt-4 text-primary text-sm font-bold flex items-center gap-1 hover:gap-2 transition-all"
-                  >
-                    Know More <span className="text-lg">→</span>
-                  </button>
+                {/* Background Image */}
+                <img 
+                  src={mainImg} 
+                  alt={c.name}
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                />
+                
+                {/* Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
+                
+                {/* Content */}
+                <div className="absolute inset-0 p-8 flex flex-col justify-end">
+                  <div className="translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                    <span className="text-primary-foreground/70 text-xs uppercase tracking-[0.3em] font-semibold">
+                      {c.count}
+                    </span>
+                    <h3 className="text-3xl md:text-4xl text-white mt-2 font-display">{c.name}</h3>
+                    <p className="text-white/70 mt-3 text-sm line-clamp-2 max-w-[240px] opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                      {c.desc}
+                    </p>
+                    
+                    <button
+                      onClick={() => handle(c.name)}
+                      className="mt-6 w-full py-4 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-sm font-bold flex items-center justify-center gap-2 hover:bg-primary hover:border-primary transition-all shadow-glow"
+                    >
+                      Browse {c.name} <span className="text-lg">→</span>
+                    </button>
+                  </div>
                 </div>
               </div>
             );
           })}
         </div>
+
 
 
       </div>

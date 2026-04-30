@@ -1,4 +1,3 @@
-import roseLoaf from "@/assets/products/Rose___Saffron_Celebration_Loaf_Cake.jpeg";
 import { waLink } from "@/lib/contact";
 
 const Gifting = () => (
@@ -7,12 +6,13 @@ const Gifting = () => (
       <div className="relative">
         <div className="absolute -inset-6 bg-gradient-primary rounded-[2rem] opacity-20 blur-2xl" />
         <img
-          src={roseLoaf}
+          src="/gift-hamper.png"
           alt="Bakelette premium gift hamper"
           loading="lazy"
-          className="relative rounded-[2rem] shadow-3d w-full aspect-[4/5] object-cover card-3d"
+          className="relative rounded-[2rem] shadow-3d w-full aspect-square md:aspect-[4/5] object-cover card-3d"
         />
       </div>
+
       <div className="fade-up">
         <span className="text-primary uppercase tracking-[0.25em] text-xs font-semibold">Premium Gifting</span>
         <h2 className="mt-4 text-4xl md:text-6xl text-balance leading-[1.05]">

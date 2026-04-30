@@ -1,18 +1,19 @@
-import nutella from "@/assets/products/Nutella_Stuffed_Chocochip.jpeg";
-import nutellaChoco from "@/assets/products/Nutella_chocochip_cookies.jpeg";
-import blueberry from "@/assets/products/Blueberry_Yogurt.jpeg";
-import burnt from "@/assets/products/Burnt_Butter_Style_Jaggery.jpeg";
-import burntJaggery from "@/assets/products/Burnt_butter_jaggery.jpeg";
-import mumbai from "@/assets/products/Mumbai_spice_brew_cookie.jpeg";
+import nutella from "@/assets/products/nutella.jpeg";
+import nutellaChoco from "@/assets/products/nutella-choco.png";
+import blueberry from "@/assets/products/blueberry.jpeg";
+import burnt from "@/assets/products/burnt.jpeg";
+import mumbai from "@/assets/products/mumbai.png";
+import pistachioLoaf from "@/assets/products/pistachio-loaf.png";
 
 const reels = [
-  { url: "https://www.instagram.com/reel/DXTQnJOE4pT/?igsh=MWxidXR5Y25wd3Z3Ng==", thumb: nutella, caption: "Fresh batch dropping" },
-  { url: "https://www.instagram.com/reel/DXlTUiniLsq/?igsh=amx2OGFnYXhmcmJy", thumb: blueberry, caption: "Behind the oven" },
-  { url: "https://www.instagram.com/reel/DXdjWFHioAS/?igsh=eHJ6a2phZ3Vkajd4", thumb: burnt, caption: "Crumbs in motion" },
-  { url: "https://www.instagram.com/reel/DXYZhN6jVNJ/?igsh=MWd3dnRrN2RqaDVvdA==", thumb: mumbai, caption: "Weekly bake" },
-  { url: "https://www.instagram.com/reel/DXBQen2jMTU/?igsh=MXg4OWljdG1mOXlxcQ==", thumb: burntJaggery, caption: "From our kitchen" },
-  { url: "https://www.instagram.com/reel/DW6FI4Tk0g9/?igsh=MXAzbHh0a3I2ZWJmYg==", thumb: nutellaChoco, caption: "Fresh drop" },
+  { url: "https://www.instagram.com/reel/DXTQnJOE4pT/", thumb: nutella, caption: "Inside the molten heart" },
+  { url: "https://www.instagram.com/reel/DXlTUiniLsq/", thumb: blueberry, caption: "Blueberry burst" },
+  { url: "https://www.instagram.com/reel/DXdjWFHioAS/", thumb: burnt, caption: "Golden brown goodness" },
+  { url: "https://www.instagram.com/reel/DXYZhN6jVNJ/", thumb: mumbai, caption: "Chai time companion" },
+  { url: "https://www.instagram.com/reel/DXBQen2jMTU/", thumb: pistachioLoaf, caption: "Zesty pistachio vibes" },
+  { url: "https://www.instagram.com/reel/DW6FI4Tk0g9/", thumb: nutellaChoco, caption: "Gooey chocolate swirls" },
 ];
+
 
 const FollowCrumbs = () => (
   <section id="follow" className="py-24 md:py-32 bg-gradient-warm">
