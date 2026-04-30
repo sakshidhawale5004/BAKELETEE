@@ -11,6 +11,8 @@ import FollowCrumbs from "@/components/FollowCrumbs";
 import Footer from "@/components/Footer";
 import WhatsAppPopup from "@/components/WhatsAppPopup";
 
+import Cart from "@/components/Cart";
+
 const Index = () => {
   const [selected, setSelected] = useState<Category>("All");
 
@@ -27,8 +29,10 @@ const Index = () => {
       <FollowCrumbs />
       <Footer />
       <WhatsAppPopup />
+      <Cart />
     </main>
   );
 };
+
 
 export default Index;

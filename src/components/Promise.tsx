@@ -2,31 +2,29 @@ const OurPromise = () => (
   <section className="py-24 md:py-32 bg-gradient-warm">
     <div className="container px-4">
       <div className="max-w-3xl mx-auto text-center mb-16">
-        <span className="text-primary uppercase tracking-[0.25em] text-xs font-semibold">Our Philosophy</span>
+        <span className="text-primary uppercase tracking-[0.25em] text-xs font-semibold">Ingredients</span>
         <h2 className="mt-4 text-4xl md:text-6xl text-foreground text-balance font-serif">
-          The <em className="font-script text-primary">Systematic Indulgence Plan</em>
+          Ingredients that <em className="font-script text-primary">tell a story</em>
         </h2>
         <p className="mt-6 text-muted-foreground text-lg leading-relaxed">
-          Bakelette fits every moment — without slowing you down. Experience the joy of indulgence with our thoughtfully crafted bakes that prioritize your well-being.
+          Wholesome ingredients on the left, refined on the right. See why our bakes are better for you.
         </p>
       </div>
 
-      <div className="grid md:grid-cols-2 gap-10 items-center max-w-6xl mx-auto">
-        <div className="rounded-[2.5rem] overflow-hidden shadow-2xl border border-border/40 fade-up bg-white/50 backdrop-blur-sm p-4 hover:scale-[1.02] transition-transform duration-500">
+
+      <div className="max-w-5xl mx-auto">
+        <div className="rounded-[2.5rem] overflow-hidden shadow-2xl border border-border/40 fade-up bg-white/50 backdrop-blur-sm p-4 md:p-8 hover:scale-[1.01] transition-transform duration-500">
           <img 
-            src="/sip-comparison.png" 
-            alt="Systematic Indulgence Plan vs Regular Cookie" 
-            className="w-full h-auto rounded-3xl"
+            src="/split-cookie.png" 
+            alt="Wholesome vs Refined: Ingredients that tell a story" 
+            className="w-full h-auto rounded-3xl shadow-soft"
           />
         </div>
-        <div className="rounded-[2.5rem] overflow-hidden shadow-2xl border border-border/40 fade-up bg-white/50 backdrop-blur-sm p-4 hover:scale-[1.02] transition-transform duration-500" style={{ animationDelay: "0.2s" }}>
-          <img 
-            src="/sip-plan.png" 
-            alt="Start your SIP today" 
-            className="w-full h-auto rounded-3xl"
-          />
-        </div>
+        <p className="mt-8 text-center text-muted-foreground text-sm uppercase tracking-widest">
+          The 50:50 Concept: Real Food vs Refined Fillers
+        </p>
       </div>
+
     </div>
   </section>
 );

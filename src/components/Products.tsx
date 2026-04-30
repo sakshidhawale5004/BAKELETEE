@@ -8,7 +8,8 @@ import burnt from "@/assets/products/Burnt_Butter_Style_Jaggery.jpeg";
 import burntJaggery from "@/assets/products/Burnt_butter_jaggery.jpeg";
 import oats from "@/assets/products/Oats_and_Nuts_Nibbles_.jpeg";
 import pistachioLoaf from "@/assets/products/Pistachio___Lime_Loaf_Cake.jpeg";
-import roseLoaf from "@/assets/products/Rose___Saffron_Celebration_Loaf_Cake.jpeg";
+import roseLoaf from "@/assets/products/rose-saffron.png";
+
 import almond from "@/assets/products/Almond_Sticks.jpeg";
 import pistachioSticks from "@/assets/products/Pistachio_sticks.jpeg";
 import mumbai from "@/assets/products/Mumbai_spice_brew_cookie.jpeg";
@@ -157,6 +158,9 @@ export const products: Product[] = [
   },
 ];
 
+import { useCart } from "@/contexts/CartContext";
+
+
 interface ProductsProps {
   selected: Category;
   onSelect: (c: Category) => void;
@@ -164,7 +168,17 @@ interface ProductsProps {
 
 const Products = ({ selected, onSelect }: ProductsProps) => {
   const [active, setActive] = useState<Product | null>(null);
+  const { addToCart } = useCart();
+  const [quantities, setQuantities] = useState<Record<string, number>>({});
+
   const filtered = selected === "All" ? products : products.filter((p) => p.category === selected);
+
+  const handleQuantity = (name: string, delta: number) => {
+    setQuantities(prev => ({
+      ...prev,
+      [name]: Math.max(1, (prev[name] || 1) + delta)
+    }));
+  };
 
   return (
     <section id="products" className="py-24 md:py-32 bg-background scroll-mt-24">
@@ -174,69 +188,106 @@ const Products = ({ selected, onSelect }: ProductsProps) => {
           <h2 className="mt-4 text-4xl md:text-6xl text-balance">
             Signature <em className="font-script text-primary">Bakes</em>
           </h2>
-          <p className="mt-6 text-muted-foreground text-lg">
+          <p className="mt-6 text-muted-foreground text-lg italic">
             {selected === "All"
-              ? "Tap any bake for the full story — then order in one tap on WhatsApp."
-              : `Showing our ${selected.toLowerCase()} — tap any card for the full story.`}
+              ? "A symphony of flavours, baked to perfection. Each bite tells a story of artisanal mastery and wholesome ingredients."
+              : `Showing our ${selected.toLowerCase()} — handcrafted with love and curated for your soul.`}
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">
-          {filtered.map((p, i) => (
-            <article
-              key={p.name}
-              className="card-3d group bg-gradient-card rounded-3xl overflow-hidden shadow-soft border border-border/60 fade-up flex flex-col"
-              style={{ animationDelay: `${(i % 4) * 0.08}s` }}
+        {/* Category Tabs for Mobile/All */}
+        <div className="flex overflow-x-auto pb-8 gap-3 no-scrollbar -mx-4 px-4 md:hidden">
+          {(["All", "Cookies", "Loaves", "Bites", "Brownies", "Bundles", "Gift Hampers"] as Category[]).map((c) => (
+            <button
+              key={c}
+              onClick={() => onSelect(c)}
+              className={`whitespace-nowrap px-6 py-2.5 rounded-full text-sm font-semibold transition-all ${
+                selected === c
+                  ? "bg-gradient-primary text-primary-foreground shadow-glow"
+                  : "bg-muted text-muted-foreground hover:bg-muted/80"
+              }`}
             >
-              <button
-                type="button"
-                onClick={() => setActive(p)}
-                className="relative aspect-[4/5] overflow-hidden bg-warm text-left"
-                aria-label={`Quick view ${p.name}`}
-              >
-                <img
-                  src={p.img}
-                  alt={p.name}
-                  loading="lazy"
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                />
-                {p.badge && (
-                  <span className="absolute top-4 left-4 bg-gradient-primary text-primary-foreground text-xs font-semibold px-3 py-1.5 rounded-full shadow-glow">
-                    {p.badge}
-                  </span>
-                )}
-                <span className="absolute inset-x-4 bottom-4 bg-background/95 backdrop-blur-md text-foreground text-sm font-semibold py-3 rounded-full text-center opacity-0 translate-y-3 group-hover:opacity-100 group-hover:translate-y-0 transition-all shadow-elegant">
-                  Quick View →
-                </span>
-              </button>
-              <div className="p-5 flex flex-col flex-1">
-                <h3 className="mt-2 text-xl text-foreground leading-tight">{p.name}</h3>
-                <p className="mt-2 text-sm font-script text-primary italic leading-snug">{p.tagline}</p>
-                <div className="mt-4 flex items-baseline justify-between">
-                  <span className="text-2xl font-display font-semibold text-primary">₹{p.price}</span>
-                  <span className="text-xs text-muted-foreground">{p.weight ?? "per box"}</span>
-                </div>
-                <div className="mt-4 grid grid-cols-2 gap-2">
-                  <button
-                    type="button"
-                    onClick={() => setActive(p)}
-                    className="rounded-full border-2 border-border text-foreground text-sm font-semibold py-2.5 hover:border-primary hover:text-primary transition-colors"
-                  >
-                    Quick View
-                  </button>
-                  <a
-                    href={waLink(`Hi Bakelette! I'd like to order: ${p.name} (₹${p.price})`)}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="rounded-full bg-gradient-primary text-primary-foreground text-sm font-semibold py-2.5 text-center shadow-glow hover:-translate-y-0.5 transition-all"
-                  >
-                    Order
-                  </a>
-                </div>
-              </div>
-            </article>
+              {c}
+            </button>
           ))}
         </div>
+
+
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">
+          {filtered.map((p, i) => {
+            const qty = quantities[p.name] || 1;
+            return (
+              <article
+                key={p.name}
+                className="card-3d group bg-gradient-card rounded-3xl overflow-hidden shadow-soft border border-border/60 fade-up flex flex-col"
+                style={{ animationDelay: `${(i % 4) * 0.08}s` }}
+              >
+                <button
+                  type="button"
+                  onClick={() => setActive(p)}
+                  className="relative aspect-[4/5] overflow-hidden bg-warm text-left"
+                  aria-label={`Quick view ${p.name}`}
+                >
+                  <img
+                    src={p.img}
+                    alt={p.name}
+                    loading="lazy"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                  />
+                  {p.badge && (
+                    <span className="absolute top-4 left-4 bg-gradient-primary text-primary-foreground text-xs font-semibold px-3 py-1.5 rounded-full shadow-glow">
+                      {p.badge}
+                    </span>
+                  )}
+                  <span className="absolute inset-x-4 bottom-4 bg-background/95 backdrop-blur-md text-foreground text-sm font-semibold py-3 rounded-full text-center opacity-0 translate-y-3 group-hover:opacity-100 group-hover:translate-y-0 transition-all shadow-elegant">
+                    Quick View →
+                  </span>
+                </button>
+                <div className="p-5 flex flex-col flex-1">
+                  <h3 className="mt-2 text-xl text-foreground leading-tight">{p.name}</h3>
+                  <p className="mt-2 text-sm font-script text-primary italic leading-snug">{p.tagline}</p>
+                  <div className="mt-4 flex items-baseline justify-between">
+                    <div className="flex flex-col">
+                      <span className="text-2xl font-display font-semibold text-primary">₹{p.price}</span>
+                      <span className="text-[10px] text-muted-foreground uppercase tracking-wider">{p.weight ?? "per box"}</span>
+                    </div>
+                    <div className="flex items-center bg-muted rounded-full p-1 border border-border/50">
+                      <button 
+                        onClick={() => handleQuantity(p.name, -1)}
+                        className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-background transition-colors"
+                      >
+                        -
+                      </button>
+                      <span className="w-8 text-center text-sm font-bold">{qty}</span>
+                      <button 
+                        onClick={() => handleQuantity(p.name, 1)}
+                        className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-background transition-colors"
+                      >
+                        +
+                      </button>
+                    </div>
+                  </div>
+                  <div className="mt-6 grid grid-cols-2 gap-3">
+                    <button
+                      type="button"
+                      onClick={() => setActive(p)}
+                      className="rounded-full border-2 border-border text-foreground text-sm font-semibold py-2.5 hover:border-primary hover:text-primary transition-colors"
+                    >
+                      Details
+                    </button>
+                    <button
+                      onClick={() => addToCart(p, qty)}
+                      className="rounded-full bg-gradient-primary text-primary-foreground text-sm font-semibold py-2.5 text-center shadow-glow hover:-translate-y-0.5 transition-all"
+                    >
+                      Add to Cart
+                    </button>
+                  </div>
+                </div>
+              </article>
+            );
+          })}
+        </div>
+
 
         {filtered.length === 0 && (
           <p className="text-center text-muted-foreground mt-10">No items in this category yet.</p>

@@ -16,7 +16,7 @@ const Hero = () => (
       <div className="max-w-2xl reveal">
         <span className="inline-flex items-center gap-2 text-primary-glow uppercase tracking-[0.25em] text-xs md:text-sm font-medium">
           <span className="h-px w-10 bg-primary-glow" />
-          Artisan Bakery · Est. 2024
+          Artisanal Bakery. Est. 2025
         </span>
         <h1 className="mt-6 text-5xl md:text-7xl lg:text-8xl text-primary-foreground leading-[1.05] text-balance">
           Wholesome Bakes,
@@ -26,9 +26,9 @@ const Hero = () => (
           </em>
         </h1>
         <p className="mt-6 text-lg md:text-xl text-primary-foreground/85 max-w-xl leading-relaxed">
-          Cookies, loaves, brownies and curated bundles — made with whole wheat,
-          jaggery, and wood-pressed oil. Baked fresh, served with soul.
+          Because Your Bakes Should Uplift You, Not Weigh You Down.
         </p>
+
 
         <div className="mt-10 flex flex-wrap gap-4">
           <a
