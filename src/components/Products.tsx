@@ -1,19 +1,20 @@
 import { useState } from "react";
 import { waLink } from "@/lib/contact";
 import QuickViewDialog, { type Product } from "./QuickViewDialog";
-import nutella from "@/assets/products/Nutella_Stuffed_Chocochip.jpeg";
-import nutellaChoco from "@/assets/products/Nutella_chocochip_cookies.jpeg";
-import blueberry from "@/assets/products/Blueberry_Yogurt.jpeg";
-import burnt from "@/assets/products/Burnt_Butter_Style_Jaggery.jpeg";
-import burntJaggery from "@/assets/products/Burnt_butter_jaggery.jpeg";
-import oats from "@/assets/products/Oats_and_Nuts_Nibbles_.jpeg";
-import pistachioLoaf from "@/assets/products/Pistachio___Lime_Loaf_Cake.jpeg";
-import roseLoaf from "@/assets/products/rose-saffron.png";
+import nutella from "@/assets/products/nutella.jpeg";
+import nutellaChoco from "@/assets/products/nutella-choco.png";
+import blueberry from "@/assets/products/blueberry.jpeg";
+import burnt from "@/assets/products/burnt.jpeg";
+import burntJaggery from "@/assets/products/burnt-jaggery.png";
+import oats from "@/assets/products/oats.jpeg";
+import pistachioLoaf from "@/assets/products/pistachio-loaf.png";
+import roseLoaf from "@/assets/products/rose-loaf.jpeg";
 
-import almond from "@/assets/products/Almond_Sticks.jpeg";
-import pistachioSticks from "@/assets/products/Pistachio_sticks.jpeg";
-import mumbai from "@/assets/products/Mumbai_spice_brew_cookie.jpeg";
-import ragi from "@/assets/products/Ragi_nibbles.jpeg";
+import almond from "@/assets/products/almond.jpeg";
+import pistachioSticks from "@/assets/products/pistachio-sticks.png";
+import mumbai from "@/assets/products/mumbai.png";
+import ragi from "@/assets/products/ragi.png";
+
 
 export type Category =
   | "All"
