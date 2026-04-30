@@ -6,7 +6,7 @@ const Gifting = () => (
       <div className="relative">
         <div className="absolute -inset-6 bg-gradient-primary rounded-[2rem] opacity-20 blur-2xl" />
         <img
-          src="/gift-hamper.png"
+          src="/gift-hamper-branded.png"
           alt="Bakelette premium gift hamper"
           loading="lazy"
           className="relative rounded-[2rem] shadow-3d w-full aspect-square md:aspect-[4/5] object-cover card-3d"

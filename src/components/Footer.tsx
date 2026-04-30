@@ -5,11 +5,18 @@ const Footer = () => (
   <footer className="bg-ink text-primary-foreground py-16">
     <div className="container grid md:grid-cols-3 gap-10">
       <div>
-        <img src={logo} alt="Bakelette" className="h-12 w-auto mb-4 brightness-0 invert opacity-90" />
-        <p className="text-primary-foreground/70 max-w-sm">
+        <div className="flex items-center gap-3 mb-4">
+          <img src={logo} alt="Bakelette" className="h-14 w-auto brightness-0 invert opacity-95" />
+          <div>
+            <div className="text-2xl font-display font-bold text-primary-foreground tracking-wide">Bakelette</div>
+            <div className="text-xs text-primary uppercase tracking-[0.2em] font-semibold">Joy Alchemy in every bite.</div>
+          </div>
+        </div>
+        <p className="text-primary-foreground/70 max-w-sm text-sm leading-relaxed">
           Wholesome, handcrafted bakes made with whole wheat, jaggery and wood-pressed oil. Baked fresh, with love.
         </p>
       </div>
+
       <div>
         <h4 className="text-primary-glow font-display text-xl mb-4">Explore</h4>
         <ul className="space-y-2 text-primary-foreground/80">
