@@ -225,9 +225,10 @@ const Products = ({ selected, onSelect }: ProductsProps) => {
                 <button
                   type="button"
                   onClick={() => setActive(p)}
-                  className="relative aspect-[4/5] overflow-hidden bg-warm text-left"
+                  className="relative aspect-square sm:aspect-[4/5] overflow-hidden bg-warm text-left"
                   aria-label={`Quick view ${p.name}`}
                 >
+
                   <img
                     src={p.img}
                     alt={p.name}

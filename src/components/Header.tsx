@@ -86,7 +86,8 @@ const Header = () => {
       </div>
 
       {/* Mobile Menu */}
-      <div className={`md:hidden absolute top-full inset-x-0 bg-background/95 backdrop-blur-xl border-b border-border transition-all duration-300 overflow-hidden ${isOpen ? "max-h-[80vh] py-6 shadow-elegant" : "max-h-0 py-0"}`}>
+      <div className={`md:hidden absolute top-full inset-x-0 bg-background/95 backdrop-blur-xl border-b border-border transition-all duration-300 overflow-y-auto no-scrollbar ${isOpen ? "max-h-[80vh] py-6 shadow-elegant" : "max-h-0 py-0"}`}>
+
         <nav className="container flex flex-col gap-6 text-lg font-semibold text-primary">
           <a href="#products" onClick={() => setIsOpen(false)} className="hover:translate-x-2 transition-transform">Bakes</a>
           <a href="#categories" onClick={() => setIsOpen(false)} className="hover:translate-x-2 transition-transform">Categories</a>

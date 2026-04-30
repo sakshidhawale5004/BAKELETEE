@@ -96,10 +96,13 @@
     transform-style: preserve-3d;
     transition: transform 0.6s var(--transition-spring), box-shadow 0.6s var(--transition-smooth);
   }
-  .card-3d:hover {
-    transform: translateY(-8px) rotateX(3deg) rotateY(-3deg);
-    box-shadow: var(--shadow-3d);
+  @media (min-width: 768px) {
+    .card-3d:hover {
+      transform: translateY(-8px) rotateX(3deg) rotateY(-3deg);
+      box-shadow: var(--shadow-3d);
+    }
   }
+
 
   .float-anim { animation: float 6s ease-in-out infinite; }
   .pulse-soft { animation: pulse-soft 2.4s ease-in-out infinite; }

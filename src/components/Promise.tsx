@@ -18,8 +18,9 @@ const OurPromise = () => (
           <img 
             src="/split-cookie.png" 
             alt="Wholesome vs Refined: Ingredients that tell a story" 
-            className="w-full h-auto rounded-3xl shadow-soft"
+            className="w-full h-auto rounded-3xl shadow-soft mx-auto block"
           />
+
         </div>
         <p className="mt-8 text-center text-muted-foreground text-sm uppercase tracking-widest">
           The 50:50 Concept: Real Food vs Refined Fillers

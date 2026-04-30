@@ -21,7 +21,8 @@ const Cart = () => {
         onClick={() => setIsOpen(false)}
       />
       
-      <div className="absolute inset-y-0 right-0 w-full max-w-md bg-background shadow-3d flex flex-col animate-in slide-in-from-right duration-300">
+    <div className="absolute inset-y-0 right-0 w-full md:max-w-md bg-background shadow-3d flex flex-col animate-in slide-in-from-right duration-300">
+
         <div className="flex items-center justify-between p-6 border-b border-border">
           <h2 className="text-2xl font-serif">Your Cart</h2>
           <button 
@@ -97,10 +98,11 @@ const Cart = () => {
             </p>
             <button
               onClick={handleCheckout}
-              className="w-full bg-gradient-primary text-primary-foreground py-4 rounded-full font-bold shadow-glow hover:shadow-elegant hover:-translate-y-1 transition-all"
+              className="w-full bg-gradient-primary text-primary-foreground py-4 rounded-full font-bold shadow-glow hover:shadow-elegant hover:-translate-y-1 transition-all mb-4 md:mb-0"
             >
               Checkout on WhatsApp
             </button>
+
           </div>
         )}
       </div>
