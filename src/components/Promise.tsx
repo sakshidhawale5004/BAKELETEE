@@ -13,7 +13,8 @@ const OurPromise = () => (
 
 
       <div className="max-w-5xl mx-auto">
-        <div className="rounded-[2.5rem] overflow-hidden shadow-2xl border border-border/40 fade-up bg-white/50 backdrop-blur-sm p-4 md:p-8 hover:scale-[1.01] transition-transform duration-500">
+        <div className="rounded-3xl md:rounded-[2.5rem] overflow-hidden shadow-2xl border border-border/40 fade-up bg-white/50 backdrop-blur-sm p-3 md:p-8 hover:scale-[1.01] transition-transform duration-500">
+
           <img 
             src="/split-cookie.png" 
             alt="Wholesome vs Refined: Ingredients that tell a story" 

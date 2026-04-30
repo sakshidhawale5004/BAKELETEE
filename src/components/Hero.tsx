@@ -18,16 +18,17 @@ const Hero = () => (
           <span className="h-px w-10 bg-primary-glow" />
           Artisanal Bakery. Est. 2025
         </span>
-        <h1 className="mt-6 text-5xl md:text-7xl lg:text-8xl text-primary-foreground leading-[1.05] text-balance">
+        <h1 className="mt-6 text-4xl md:text-6xl lg:text-7xl text-primary-foreground leading-[1.1] text-balance font-bold">
           Wholesome Bakes,
           <br />
           <em className="font-script text-primary-glow not-italic font-medium">
             <span className="italic">Crafted with Love</span>
           </em>
         </h1>
-        <p className="mt-6 text-lg md:text-xl text-primary-foreground/85 max-w-xl leading-relaxed">
+        <p className="mt-6 text-base md:text-lg text-primary-foreground/85 max-w-xl leading-relaxed">
           Because Your Bakes Should Uplift You, Not Weigh You Down.
         </p>
+
 
 
         <div className="mt-10 flex flex-wrap gap-4">
