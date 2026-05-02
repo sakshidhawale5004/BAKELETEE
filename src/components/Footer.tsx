@@ -13,7 +13,7 @@ const Footer = () => (
           </div>
         </div>
         <p className="text-primary-foreground/70 max-w-sm text-sm leading-relaxed">
-          Wholesome, handcrafted bakes made with whole wheat, jaggery and wood-pressed oil. Baked fresh, with love.
+          Wholesome, handcrafted bakes. Baked fresh, with love.
         </p>
       </div>
 
