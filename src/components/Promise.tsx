@@ -16,6 +16,9 @@ const OurPromise = () => (
             className="w-full h-auto rounded-3xl shadow-soft mx-auto block"
           />
         </div>
+        <p className="mt-8 text-center text-lg md:text-xl text-muted-foreground font-medium tracking-wide fade-up">
+          Whole wheat, Wood press Oil, Organic jaggery
+        </p>
       </div>
 
     </div>
