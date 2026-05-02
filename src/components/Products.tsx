@@ -241,7 +241,6 @@ const Products = ({ selected, onSelect }: ProductsProps) => {
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">
           {filtered.map((p, i) => {
-            const qty = quantities[p.name] || 1;
             return (
               <article
                 key={p.name}
