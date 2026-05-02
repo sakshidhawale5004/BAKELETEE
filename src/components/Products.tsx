@@ -178,8 +178,7 @@ const Products = ({ selected, onSelect }: ProductsProps) => {
     const currentQty = getQuantity(p.name);
     if (currentQty > 0) {
       updateQuantity(p.name, currentQty + delta);
-    } else {
-      // If not in cart, we can still use local state or just add 1
+    } else if (delta > 0) {
       addToCart(p, 1);
     }
   };
