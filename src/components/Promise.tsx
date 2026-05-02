@@ -6,8 +6,8 @@ const OurPromise = () => (
         <h2 className="mt-4 text-4xl md:text-6xl text-foreground text-balance font-serif">
           Ingredients that <em className="font-script text-primary">tell a story</em>
         </h2>
-        <p className="mt-6 text-muted-foreground text-lg leading-relaxed">
-          Wholesome ingredients on the left, refined on the right. See why our bakes are better for you.
+        <p className="mt-6 text-muted-foreground text-lg leading-relaxed max-w-2xl mx-auto">
+          We believe in the power of small changes. Our <strong>50:50 Concept</strong> swaps 50% of refined ingredients with wholesome alternatives like <strong>Whole wheat, Wood-pressed Oil, and Organic jaggery</strong>. Better for you, still incredibly delicious.
         </p>
       </div>
 

@@ -157,6 +157,28 @@ export const products: Product[] = [
     notes: ["Pure Kashmiri saffron", "Edible rose petals", "Pistachio crown"],
     weight: "500g loaf",
   },
+  {
+    name: "The Signature Hamper",
+    price: 1250,
+    category: "Gift Hampers",
+    img: "/gift-hamper-branded.png",
+    badge: "Premium",
+    tagline: "The Ultimate Bakelette Experience.",
+    description: "A thoughtfully curated collection of our bestsellers. Includes a mix of stuffed cookies, artisanal sticks, and a mini loaf cake, all beautifully packaged in our signature eco-friendly box.",
+    notes: ["Assorted bestsellers", "Custom gift card", "Eco-friendly premium box"],
+    weight: "Full Box",
+  },
+  {
+    name: "Daily Delight Bundle",
+    price: 850,
+    category: "Bundles",
+    img: "/gift-hamper.png",
+    badge: "Most Popular",
+    tagline: "Your Weekly Dose of Joy.",
+    description: "Can't decide? Get a bit of everything. This bundle includes 4 stuffed cookies, 1 box of almond sticks, and a mini jar of ragi nibbles. Perfectly balanced for your weekly snacking.",
+    notes: ["Mixed variety pack", "Weekly special", "Great value"],
+    weight: "Assorted Box",
+  },
 ];
 
 
@@ -170,16 +192,18 @@ interface ProductsProps {
 
 const Products = ({ selected, onSelect }: ProductsProps) => {
   const [active, setActive] = useState<Product | null>(null);
-  const { addToCart } = useCart();
-  const [quantities, setQuantities] = useState<Record<string, number>>({});
+  const { addToCart, updateQuantity, getQuantity } = useCart();
 
   const filtered = selected === "All" ? products : products.filter((p) => p.category === selected);
 
-  const handleQuantity = (name: string, delta: number) => {
-    setQuantities(prev => ({
-      ...prev,
-      [name]: Math.max(1, (prev[name] || 1) + delta)
-    }));
+  const handleQuantity = (p: Product, delta: number) => {
+    const currentQty = getQuantity(p.name);
+    if (currentQty > 0) {
+      updateQuantity(p.name, currentQty + delta);
+    } else {
+      // If not in cart, we can still use local state or just add 1
+      addToCart(p, 1);
+    }
   };
 
   return (
@@ -190,20 +214,21 @@ const Products = ({ selected, onSelect }: ProductsProps) => {
           <h2 className="mt-4 text-4xl md:text-6xl text-balance">
             Signature <em className="font-script text-primary">Bakes</em>
           </h2>
-          <p className="mt-6 text-muted-foreground text-lg italic">
+          <p className="mt-6 text-muted-foreground text-lg font-medium">
             {selected === "All"
-              ? "A symphony of flavours, baked to perfection. Each bite tells a story of artisanal mastery and wholesome ingredients."
+              ? "A handcrafted collection where tradition meets modern artistry. Every bake is a labor of love, using heritage grains and artisanal techniques to create moments of pure indulgence."
               : `Showing our ${selected.toLowerCase()} — handcrafted with love and curated for your soul.`}
           </p>
         </div>
 
         {/* Filter Tabs — visible on all screens */}
-        <div className="flex flex-wrap justify-center gap-3 mb-12">
-          {(["All", "Cookies", "Loaves", "Bites"] as Category[]).map((c) => (
+        {/* Filter Tabs — scrollable on mobile, centered on desktop */}
+        <div className="flex overflow-x-auto no-scrollbar md:flex-wrap md:justify-center gap-3 mb-12 pb-4 md:pb-0 px-4 md:px-0 -mx-4 md:mx-0">
+          {(["All", "Cookies", "Loaves", "Bites", "Brownies", "Bundles", "Gift Hampers"] as Category[]).map((c) => (
             <button
               key={c}
               onClick={() => onSelect(c)}
-              className={`px-6 py-2.5 rounded-full text-sm font-semibold border transition-all duration-200 ${
+              className={`whitespace-nowrap px-6 py-2.5 rounded-full text-sm font-semibold border transition-all duration-200 ${
                 selected === c
                   ? "bg-gradient-primary text-primary-foreground border-primary shadow-glow"
                   : "bg-background text-foreground border-border hover:border-primary hover:text-primary"
@@ -255,14 +280,14 @@ const Products = ({ selected, onSelect }: ProductsProps) => {
                     </div>
                     <div className="flex items-center bg-muted rounded-full p-1 border border-border/50">
                       <button 
-                        onClick={() => handleQuantity(p.name, -1)}
+                        onClick={() => handleQuantity(p, -1)}
                         className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-background transition-colors"
                       >
                         -
                       </button>
-                      <span className="w-8 text-center text-sm font-bold">{qty}</span>
+                      <span className="w-8 text-center text-sm font-bold">{getQuantity(p.name) || 1}</span>
                       <button 
-                        onClick={() => handleQuantity(p.name, 1)}
+                        onClick={() => handleQuantity(p, 1)}
                         className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-background transition-colors"
                       >
                         +
@@ -272,16 +297,19 @@ const Products = ({ selected, onSelect }: ProductsProps) => {
                   <div className="mt-6 grid grid-cols-2 gap-3">
                     <button
                       type="button"
-                      onClick={() => setActive(p)}
+                      onClick={() => {
+                        const qty = getQuantity(p.name) || 1;
+                        window.open(waLink(`Hi Bakelette! I'd like to order ${p.name} x ${qty}`), "_blank");
+                      }}
                       className="rounded-full border-2 border-border text-foreground text-sm font-semibold py-2.5 hover:border-primary hover:text-primary transition-colors"
                     >
-                      Details
+                      Buy Now
                     </button>
                     <button
-                      onClick={() => addToCart(p, qty)}
+                      onClick={() => addToCart(p, 1)}
                       className="rounded-full bg-gradient-primary text-primary-foreground text-sm font-semibold py-2.5 text-center shadow-glow hover:-translate-y-0.5 transition-all"
                     >
-                      Add to Cart
+                      {getQuantity(p.name) > 0 ? "Add More" : "Add to Cart"}
                     </button>
                   </div>
                 </div>

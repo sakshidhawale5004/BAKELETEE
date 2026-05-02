@@ -106,58 +106,8 @@ const QuickViewDialog = ({ product, onClose }: Props) => {
             <div className="h-24 md:hidden" />
           </div>
 
-          {/* Sticky Footer on Mobile, Normal on Desktop */}
-          <div className="sticky bottom-0 md:relative bg-background/95 backdrop-blur-md md:backdrop-blur-none border-t border-border/50 p-6 md:p-10 md:pt-0 md:border-t-0 space-y-6 z-50">
-            <div className="flex items-center justify-between gap-4">
-              <div>
-                <div className="text-2xl md:text-3xl font-display font-semibold text-primary">₹{product.price}</div>
-                {product.weight && (
-                  <div className="text-[10px] md:text-xs text-muted-foreground mt-0.5 uppercase tracking-wider">{product.weight}</div>
-                )}
-              </div>
-              
-              <div className="flex items-center bg-muted rounded-full p-0.5 border border-border/50">
-                <button 
-                  onClick={() => setQty(Math.max(1, qty - 1))}
-                  className="w-8 h-8 md:w-10 md:h-10 flex items-center justify-center rounded-full hover:bg-background transition-colors font-bold"
-                >
-                  -
-                </button>
-                <span className="w-10 md:w-12 text-center font-bold text-base md:text-lg">{qty}</span>
-                <button 
-                  onClick={() => setQty(qty + 1)}
-                  className="w-8 h-8 md:w-10 md:h-10 flex items-center justify-center rounded-full hover:bg-background transition-colors font-bold"
-                >
-                  +
-                </button>
-              </div>
-            </div>
-
-            <div className="grid grid-cols-2 gap-3 md:gap-4">
-              <button
-                onClick={() => {
-                  addToCart(product, qty);
-                  onClose();
-                }}
-                className="rounded-full border-2 border-primary text-primary py-3 md:py-4 text-sm md:text-base font-bold hover:bg-primary/5 transition-all"
-              >
-                Add to Cart
-              </button>
-              <a
-                href={waLink(
-                  `Hi Bakelette! 🧁\nI'd like to order:\n• ${product.name} x ${qty} — ₹${product.price * qty}${
-                    product.weight ? ` (${product.weight})` : ""
-                  }\n\nCould you share availability & delivery details?`
-                )}
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-primary text-primary-foreground py-3 md:py-4 text-sm md:text-base font-bold shadow-glow hover:-translate-y-0.5 transition-all"
-              >
-                Buy Now
-              </a>
-            </div>
-            
-          </div>
+          {/* Empty space for consistency */}
+          <div className="h-10" />
         </div>
       </div>
     </div>
