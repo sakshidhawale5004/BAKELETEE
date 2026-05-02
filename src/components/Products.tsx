@@ -157,7 +157,6 @@ export const products: Product[] = [
     notes: ["Pure Kashmiri saffron", "Edible rose petals", "Pistachio crown"],
     weight: "500g loaf",
   },
-  },
 ];
 
 
