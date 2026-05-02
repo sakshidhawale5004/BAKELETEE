@@ -6,7 +6,7 @@ const Footer = () => (
     <div className="container grid md:grid-cols-3 gap-10">
       <div>
         <div className="flex items-center gap-3 mb-4">
-          <img src={logo} alt="Bakelette" className="h-14 w-auto brightness-0 invert opacity-95" />
+          <img src={logo} alt="Bakelette" className="h-14 w-auto object-contain" />
           <div>
             <div className="text-2xl font-display font-bold text-primary-foreground tracking-wide">Bakelette</div>
             <div className="text-xs text-primary uppercase tracking-[0.2em] font-semibold">Joy Alchemy in every bite.</div>

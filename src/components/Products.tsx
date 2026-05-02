@@ -157,27 +157,6 @@ export const products: Product[] = [
     notes: ["Pure Kashmiri saffron", "Edible rose petals", "Pistachio crown"],
     weight: "500g loaf",
   },
-  {
-    name: "The Signature Hamper",
-    price: 1250,
-    category: "Gift Hampers",
-    img: "/gift-hamper-branded.png",
-    badge: "Premium",
-    tagline: "The Ultimate Bakelette Experience.",
-    description: "A thoughtfully curated collection of our bestsellers. Includes a mix of stuffed cookies, artisanal sticks, and a mini loaf cake, all beautifully packaged in our signature eco-friendly box.",
-    notes: ["Assorted bestsellers", "Custom gift card", "Eco-friendly premium box"],
-    weight: "Full Box",
-  },
-  {
-    name: "Daily Delight Bundle",
-    price: 850,
-    category: "Bundles",
-    img: "/gift-hamper.png",
-    badge: "Most Popular",
-    tagline: "Your Weekly Dose of Joy.",
-    description: "Can't decide? Get a bit of everything. This bundle includes 4 stuffed cookies, 1 box of almond sticks, and a mini jar of ragi nibbles. Perfectly balanced for your weekly snacking.",
-    notes: ["Mixed variety pack", "Weekly special", "Great value"],
-    weight: "Assorted Box",
   },
 ];
 

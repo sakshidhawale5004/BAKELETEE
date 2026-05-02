@@ -7,7 +7,7 @@ const OurPromise = () => (
           Ingredients that <em className="font-script text-primary">tell a story</em>
         </h2>
         <p className="mt-6 text-muted-foreground text-lg leading-relaxed max-w-2xl mx-auto">
-          We believe in the power of small changes. Our <strong>50:50 Concept</strong> swaps 50% of refined ingredients with wholesome alternatives like <strong>Whole wheat, Wood-pressed Oil, and Organic jaggery</strong>. Better for you, still incredibly delicious.
+          We believe in the power of small changes. Better for you, still incredibly delicious.
         </p>
       </div>
 
@@ -23,7 +23,7 @@ const OurPromise = () => (
 
         </div>
         <p className="mt-8 text-center text-muted-foreground text-sm uppercase tracking-widest">
-          The 50:50 Concept: Real Food vs Refined Fillers
+          Real Food vs Refined Fillers
         </p>
       </div>
 
