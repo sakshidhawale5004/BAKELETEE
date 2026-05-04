@@ -96,7 +96,6 @@ export const products: Product[] = [
     price: 280,
     category: "Bites",
     img: oats,
-    badge: "Wholesome",
     tagline: "Your Daily Dose of Kindness.",
     description: "Treating yourself shouldn't be a compromise. These crunchy nibbles are a high-five from your future self—packed with wholesome nuts and seeds to keep you fueled and feeling loved all day long.",
     notes: ["5 nuts & seeds", "Jaggery-bound", "No refined sugar"],
@@ -127,7 +126,6 @@ export const products: Product[] = [
     price: 290,
     category: "Bites",
     img: ragi,
-    badge: "Healthy",
     tagline: "Rooted in Love and Strength.",
     description: "A humble tribute to our heritage. Sprouted ragi and pure ghee come together to nourish your body and soothe your heart. It’s the kind of snack that feels like a warm hug from Grandma—grounded and fulfilling.",
     notes: ["Sprouted ragi flour", "Cow ghee", "Naturally gluten-aware"],
@@ -170,7 +168,7 @@ interface ProductsProps {
 
 const Products = ({ selected, onSelect }: ProductsProps) => {
   const [active, setActive] = useState<Product | null>(null);
-  const { addToCart, updateQuantity, getQuantity } = useCart();
+  const { addToCart, updateQuantity, getQuantity, setIsOpen } = useCart();
 
   const filtered = selected === "All" ? products : products.filter((p) => p.category === selected);
 
@@ -242,7 +240,7 @@ const Products = ({ selected, onSelect }: ProductsProps) => {
                       {p.badge}
                     </span>
                   )}
-                  <span className="absolute inset-x-4 bottom-4 bg-background/95 backdrop-blur-md text-foreground text-sm font-semibold py-3 rounded-full text-center opacity-0 translate-y-3 group-hover:opacity-100 group-hover:translate-y-0 transition-all shadow-elegant">
+                  <span className="absolute inset-x-4 bottom-4 bg-background/95 backdrop-blur-md text-foreground text-sm font-semibold py-3 rounded-full text-center shadow-elegant">
                     Quick View →
                   </span>
                 </button>
@@ -274,19 +272,27 @@ const Products = ({ selected, onSelect }: ProductsProps) => {
                     <button
                       type="button"
                       onClick={() => {
-                        const qty = getQuantity(p.name) || 1;
-                        window.open(waLink(`Hi Bakelette! I'd like to order ${p.name} x ${qty}`), "_blank");
+                        window.open(waLink("Hi Bakelette! I'd like to order."), "_blank");
                       }}
                       className="rounded-full border-2 border-border text-foreground text-sm font-semibold py-2.5 hover:border-primary hover:text-primary transition-colors"
                     >
                       Buy Now
                     </button>
-                    <button
-                      onClick={() => addToCart(p, 1)}
-                      className="rounded-full bg-gradient-primary text-primary-foreground text-sm font-semibold py-2.5 text-center shadow-glow hover:-translate-y-0.5 transition-all"
-                    >
-                      {getQuantity(p.name) > 0 ? "Add More" : "Add to Cart"}
-                    </button>
+                    {getQuantity(p.name) > 0 ? (
+                      <button
+                        onClick={() => setIsOpen(true)}
+                        className="rounded-full bg-gradient-primary text-primary-foreground text-sm font-semibold py-2.5 text-center shadow-glow hover:-translate-y-0.5 transition-all"
+                      >
+                        View Cart
+                      </button>
+                    ) : (
+                      <button
+                        onClick={() => addToCart(p, 1)}
+                        className="rounded-full bg-gradient-primary text-primary-foreground text-sm font-semibold py-2.5 text-center shadow-glow hover:-translate-y-0.5 transition-all"
+                      >
+                        Add to Cart
+                      </button>
+                    )}
                   </div>
                 </div>
               </article>

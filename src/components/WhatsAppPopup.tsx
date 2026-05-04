@@ -7,13 +7,16 @@ const WhatsAppPopup = () => {
 
   useEffect(() => {
     const t = setTimeout(() => {
-      if (!shown) setOpen(true);
+      if (!shown) {
+        setOpen(true);
+        setTimeout(() => setOpen(false), 5000);
+      }
       setShown(true);
     }, 6000);
     return () => clearTimeout(t);
   }, [shown]);
 
-  const link = waLink("Hi Bakelette! I'd like to place an order.");
+  const link = waLink("Hi Bakelette! I have an enquiry.");
 
   return (
     <>
@@ -51,7 +54,7 @@ const WhatsAppPopup = () => {
           </div>
           <div className="p-5">
             <div className="bg-muted rounded-2xl rounded-tl-sm p-3 text-sm text-foreground">
-              Hi there! 👋 Hungry for something fresh from the oven? Tap below to place your order on WhatsApp.
+              Hi there! 👋 Have any queries or enquiries? Tap below to connect with us on WhatsApp.
             </div>
             <a
               href={link}
@@ -59,7 +62,7 @@ const WhatsAppPopup = () => {
               rel="noreferrer"
               className="mt-4 block text-center bg-[#25D366] text-white font-semibold py-3 rounded-full hover:brightness-110 transition-all"
             >
-              Start Chat
+              Connect on WhatsApp
             </a>
           </div>
         </div>

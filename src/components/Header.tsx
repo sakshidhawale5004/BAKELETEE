@@ -21,20 +21,22 @@ const Header = () => {
         scrolled || isOpen ? "bg-background/95 backdrop-blur-xl shadow-soft" : "bg-transparent"
       }`}
     >
-      <div className="bg-primary text-primary-foreground py-2 px-4 text-center text-[10px] md:text-xs font-bold uppercase tracking-[0.2em] shadow-inner">
-        ✨ Free delivery on all orders above ₹1000 ✨
+      <div className="bg-primary text-primary-foreground py-2 px-4 flex flex-col md:flex-row items-center justify-center gap-2 md:gap-8 text-[10px] md:text-xs font-bold uppercase tracking-[0.2em] shadow-inner">
+        <span>✨ Free delivery on all orders above ₹1000 ✨</span>
+        <span className="hidden md:inline">|</span>
+        <span>FOR CORPORATE GIFTING AND BULK ORDERS, KINDLY CONNECT ON +91 83694 24099.</span>
       </div>
       <div className={`container flex items-center justify-between gap-4 transition-all duration-500 ${scrolled || isOpen ? "py-2" : "py-4"}`}>
-        <a href="#top" className="flex flex-col gap-0 group shrink-0">
-          <div className="flex items-center gap-3">
+        <a href="#top" className="flex flex-col items-center gap-0 group shrink-0">
+          <div className="flex items-center justify-center gap-3">
             <img
               src={logo}
               alt="Bakelette artisan bakery logo"
               className="h-10 md:h-12 w-auto object-contain transition-transform duration-500 group-hover:scale-105"
             />
           </div>
-          <p className="text-[10px] md:text-xs font-medium text-primary mt-1 tracking-wider leading-none">
-            <span className="text-sm md:text-base font-serif font-bold">Joy Alchemy</span> in every bite.
+          <p className="text-[10px] md:text-[11px] font-medium text-primary mt-1 tracking-widest leading-none text-center">
+            Joy Alchemy in every bite.
           </p>
         </a>
 
@@ -92,20 +94,15 @@ const Header = () => {
       <div className={`md:hidden absolute top-full inset-x-0 bg-background/95 backdrop-blur-xl border-b border-border transition-all duration-300 overflow-y-auto no-scrollbar ${isOpen ? "max-h-[80vh] py-6 shadow-elegant" : "max-h-0 py-0"}`}>
 
         <nav className="container flex flex-col gap-6 text-lg font-semibold text-primary">
-          <div className="flex flex-col gap-1 border-b border-border pb-6">
-            <span className="text-[10px] uppercase tracking-widest text-muted-foreground font-bold mb-2">Shop by Category</span>
-            <div className="grid grid-cols-2 gap-2">
-              <a href="#products" onClick={() => setIsOpen(false)} className="bg-muted/50 p-3 rounded-2xl text-sm font-bold hover:bg-primary/10 transition-colors">Cookies</a>
-              <a href="#products" onClick={() => setIsOpen(false)} className="bg-muted/50 p-3 rounded-2xl text-sm font-bold hover:bg-primary/10 transition-colors">Loaves</a>
-              <a href="#products" onClick={() => setIsOpen(false)} className="bg-muted/50 p-3 rounded-2xl text-sm font-bold hover:bg-primary/10 transition-colors">Bites</a>
-              <a href="#gifting" onClick={() => setIsOpen(false)} className="bg-muted/50 p-3 rounded-2xl text-sm font-bold hover:bg-primary/10 transition-colors">Gifting</a>
-            </div>
+          <div className="flex flex-col gap-4 border-b border-border pb-6 pt-2">
+            <a href="#products" onClick={() => setIsOpen(false)} className="hover:translate-x-2 transition-transform">Bakes</a>
+            <a href="#categories" onClick={() => setIsOpen(false)} className="hover:translate-x-2 transition-transform">Categories</a>
+            <a href="#gifting" onClick={() => setIsOpen(false)} className="hover:translate-x-2 transition-transform">Gifting</a>
+            <a href="#follow" onClick={() => setIsOpen(false)} className="hover:translate-x-2 transition-transform">Follow</a>
           </div>
 
-          <a href="#follow" onClick={() => setIsOpen(false)} className="hover:translate-x-2 transition-transform">Follow the Crumbs</a>
-          
           <button onClick={() => { setIsOpen(false); setOpenCart(true); }} className="flex items-center justify-between bg-primary/5 p-4 rounded-2xl w-full text-left">
-            <span className="font-bold text-primary">Your Cart</span>
+            <span className="font-bold text-primary">Cart</span>
             <div className="flex items-center gap-2">
               {totalItems > 0 && (
                 <span className="bg-primary text-primary-foreground text-xs w-6 h-6 rounded-full flex items-center justify-center">
