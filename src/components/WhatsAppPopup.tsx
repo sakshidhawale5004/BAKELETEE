@@ -6,15 +6,12 @@ const WhatsAppPopup = () => {
   const [shown, setShown] = useState(false);
 
   useEffect(() => {
-    const t = setTimeout(() => {
-      if (!shown) {
-        setOpen(true);
-        setTimeout(() => setOpen(false), 5000);
-      }
-      setShown(true);
-    }, 6000);
-    return () => clearTimeout(t);
-  }, [shown]);
+    const showTimer = setTimeout(() => {
+      setOpen(true);
+      setTimeout(() => setOpen(false), 4000);
+    }, 3000);
+    return () => clearTimeout(showTimer);
+  }, []);
 
   const link = waLink("Hi Bakelette! I have an enquiry.");
 

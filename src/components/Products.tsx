@@ -32,7 +32,7 @@ export const products: Product[] = [
     price: 350,
     category: "Cookies",
     img: nutella,
-    badge: "Bestseller",
+    badge: "Unique",
     tagline: "A Molten Hug for Your Soul.",
     description: "Remember the joy of discovering a hidden treasure? That's the magic here. A golden, buttery embrace that gives way to a warm, velvety Nutella heart. It’s more than a treat; it’s that sweet, comforting moment you’ve been waiting for all day.",
     notes: ["Molten Nutella core", "Belgian dark choco chips", "Whole wheat & jaggery"],

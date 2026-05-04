@@ -35,7 +35,7 @@ const Header = () => {
               className="h-10 md:h-12 w-auto object-contain transition-transform duration-500 group-hover:scale-105"
             />
           </div>
-          <p className="text-[10px] md:text-[11px] font-medium text-primary mt-1 tracking-widest leading-none text-center">
+          <p className="text-[10px] md:text-[11px] font-medium text-primary mt-1 tracking-widest leading-none ml-10 md:ml-12 text-left">
             Joy Alchemy in every bite.
           </p>
         </a>
