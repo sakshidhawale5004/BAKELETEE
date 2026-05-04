@@ -1,4 +1,7 @@
 import type { Category } from "./Products";
+import nutella from "@/assets/products/nutella.jpeg";
+import roseLoaf from "@/assets/products/rose-loaf.jpeg";
+import pistachioSticks from "@/assets/products/pistachio-sticks.png";
 
 const cats: {
   name: Exclude<Category, "All">;
@@ -9,44 +12,21 @@ const cats: {
 }[] = [
   {
     name: "Cookies",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8">
-        <circle cx="12" cy="12" r="9"/>
-        <circle cx="9" cy="10" r="1" fill="currentColor" stroke="none"/>
-        <circle cx="14" cy="8" r="0.8" fill="currentColor" stroke="none"/>
-        <circle cx="15" cy="13" r="1" fill="currentColor" stroke="none"/>
-        <circle cx="10" cy="14.5" r="0.8" fill="currentColor" stroke="none"/>
-        <path d="M12 3c0 1.1-.9 2-2 2"/>
-        <path d="M21 12c-1.1 0-2-.9-2-2"/>
-      </svg>
-    ),
+    icon: <img src={nutella} alt="Cookies" className="w-full h-full object-cover rounded-2xl" />,
     count: "6 Varieties",
     desc: "Crunchy, chewy, stuffed",
     tagline: "One bite. Pure drama.",
   },
   {
     name: "Loaves",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8">
-        <path d="M4 14c0-4.4 3.6-8 8-8s8 3.6 8 8v2H4v-2z"/>
-        <path d="M4 16h16"/>
-        <path d="M4 19h16"/>
-        <path d="M8 16v3"/>
-        <path d="M12 16v3"/>
-        <path d="M16 16v3"/>
-      </svg>
-    ),
+    icon: <img src={roseLoaf} alt="Loaves" className="w-full h-full object-cover rounded-2xl" />,
     count: "2 Flavours",
     desc: "Pistachio-lime, rose-saffron",
     tagline: "Slow afternoons, sliced.",
   },
   {
     name: "Bites",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8">
-        <path d="M3 11l19-9-9 19-2-8-8-2z"/>
-      </svg>
-    ),
+    icon: <img src={pistachioSticks} alt="Bites" className="w-full h-full object-cover rounded-2xl" />,
     count: "4 Options",
     desc: "Perfect snack-sized treats",
     tagline: "Tiny bites, big energy.",
@@ -87,8 +67,8 @@ const Categories = ({ onSelect }: Props) => {
               onClick={() => handle(c.name)}
             >
               <div className="flex items-start justify-between mb-4">
-                {/* SVG Icon in turquoise box */}
-                <div className="w-16 h-16 rounded-2xl bg-gradient-primary flex items-center justify-center text-primary-foreground shadow-glow shrink-0">
+                {/* Category Image */}
+                <div className="w-16 h-16 rounded-2xl bg-gradient-primary flex items-center justify-center shadow-glow shrink-0 overflow-hidden border border-border/50">
                   {c.icon}
                 </div>
                 {/* Count Badge */}
