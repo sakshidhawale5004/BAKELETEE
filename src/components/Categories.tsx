@@ -2,6 +2,9 @@ import type { Category } from "./Products";
 import nutella from "@/assets/products/nutella.jpeg";
 import roseLoaf from "@/assets/products/rose-loaf.jpeg";
 import pistachioSticks from "@/assets/products/pistachio-sticks.png";
+import nutellaChoco from "@/assets/products/nutella-choco.png";
+import almond from "@/assets/products/almond.jpeg";
+import blueberry from "@/assets/products/blueberry.jpeg";
 
 const cats: {
   name: Exclude<Category, "All">;
@@ -31,6 +34,27 @@ const cats: {
     desc: "Perfect snack-sized treats",
     tagline: "Tiny bites, big energy.",
   },
+  {
+    name: "Brownies",
+    icon: <img src={nutellaChoco} alt="Brownies" className="w-full h-full object-cover rounded-2xl" />,
+    count: "2 Kinds",
+    desc: "Fudgy, gooey, rich",
+    tagline: "Decadence in a square.",
+  },
+  {
+    name: "Bundles",
+    icon: <img src={almond} alt="Bundles" className="w-full h-full object-cover rounded-2xl" />,
+    count: "Curated Sets",
+    desc: "Perfectly paired bakes",
+    tagline: "More to love, more to share.",
+  },
+  {
+    name: "Gift Hampers",
+    icon: <img src={blueberry} alt="Gift Hampers" className="w-full h-full object-cover rounded-2xl" />,
+    count: "Premium Boxes",
+    desc: "Artisanal gifting",
+    tagline: "Make their day special.",
+  },
 ];
 
 interface Props {
@@ -54,7 +78,7 @@ const Categories = ({ onSelect }: Props) => {
             <em className="font-script text-primary">Categories</em>
           </h2>
           <p className="mt-5 text-muted-foreground text-lg">
-            Three little universes of flavour. Tap one — we'll take you straight to the good stuff.
+            A universe of flavour. Tap one — we'll take you straight to the good stuff.
           </p>
         </div>
 
