@@ -3,18 +3,17 @@ import { PHONE_DISPLAY, telLink, waLink, INSTAGRAM_URL } from "@/lib/contact";
 
 const Footer = () => (
   <footer className="bg-ink text-primary-foreground py-16">
-    <div className="container grid md:grid-cols-3 gap-10">
-      <div>
-        <div className="flex flex-col items-start gap-1 mb-4">
-          <img src={logo} alt="Bakelette" className="h-14 w-auto object-contain" />
-          <div className="text-[11px] text-primary uppercase tracking-[0.2em] font-semibold ml-[4.5rem]">Joy Alchemy in every bite.</div>
+    <div className="container grid grid-cols-1 md:grid-cols-12 gap-10 lg:gap-16">
+      <div className="md:col-span-4 lg:col-span-5">
+        <div className="mb-6">
+          <img src={logo} alt="Bakelette" className="h-14 md:h-16 w-auto object-contain" />
         </div>
-        <p className="text-primary-foreground/70 max-w-sm text-sm leading-relaxed">
+        <p className="text-primary-foreground/70 max-w-xs text-sm leading-relaxed">
           Wholesome, handcrafted bakes. Baked fresh, with love.
         </p>
       </div>
 
-      <div>
+      <div className="md:col-span-3 lg:col-span-3">
         <h4 className="text-primary-glow font-display text-xl mb-4">Explore</h4>
         <ul className="space-y-2 text-primary-foreground/80">
           <li><a href="#products" className="hover:text-primary-glow">Bakes</a></li>
@@ -23,7 +22,7 @@ const Footer = () => (
           <li><a href="#follow" className="hover:text-primary-glow">Follow the Crumbs</a></li>
         </ul>
       </div>
-      <div>
+      <div className="md:col-span-5 lg:col-span-4">
         <h4 className="text-primary-glow font-display text-xl mb-4">Get in Touch</h4>
         <ul className="space-y-3 text-primary-foreground/80 text-sm">
           <li>
