@@ -21,10 +21,10 @@ const Header = () => {
         scrolled || isOpen ? "bg-background/95 backdrop-blur-xl shadow-soft" : "bg-transparent"
       }`}
     >
-      <div className="bg-primary text-primary-foreground py-2 px-4 flex flex-col md:flex-row items-center justify-center gap-2 md:gap-8 text-[10px] md:text-xs font-bold uppercase tracking-[0.2em] shadow-inner">
+      <div className="bg-primary text-primary-foreground py-2 md:py-2 px-2 md:px-4 flex flex-col md:flex-row items-center justify-center gap-1 md:gap-8 text-[9px] md:text-xs font-bold uppercase tracking-wider md:tracking-[0.2em] shadow-inner text-center leading-tight">
         <span>✨ Free delivery on all orders above ₹1000 ✨</span>
         <span className="hidden md:inline">|</span>
-        <span>FOR CORPORATE GIFTING AND BULK ORDERS, KINDLY CONNECT ON +91 83694 24099.</span>
+        <span className="max-w-[90vw] md:max-w-none">FOR CORPORATE GIFTING AND BULK ORDERS, KINDLY CONNECT ON +91 83694 24099.</span>
       </div>
       <div className={`container flex items-center justify-between gap-4 transition-all duration-500 ${scrolled || isOpen ? "py-2" : "py-4"}`}>
         <a href="#top" className="flex flex-col items-center gap-0 group shrink-0">
