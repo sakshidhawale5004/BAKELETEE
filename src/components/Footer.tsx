@@ -5,12 +5,9 @@ const Footer = () => (
   <footer className="bg-ink text-primary-foreground py-16">
     <div className="container grid md:grid-cols-3 gap-10">
       <div>
-        <div className="flex items-center gap-3 mb-4">
+        <div className="flex flex-col items-start gap-1 mb-4">
           <img src={logo} alt="Bakelette" className="h-14 w-auto object-contain" />
-          <div>
-            <div className="text-2xl font-display font-bold text-primary-foreground tracking-wide">Bakelette</div>
-            <div className="text-xs text-primary uppercase tracking-[0.2em] font-semibold">Joy Alchemy in every bite.</div>
-          </div>
+          <div className="text-[11px] text-primary uppercase tracking-[0.2em] font-semibold ml-[4.5rem]">Joy Alchemy in every bite.</div>
         </div>
         <p className="text-primary-foreground/70 max-w-sm text-sm leading-relaxed">
           Wholesome, handcrafted bakes. Baked fresh, with love.
