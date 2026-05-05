@@ -16,10 +16,12 @@ const Footer = () => (
       <div className="md:col-span-3 lg:col-span-3">
         <h4 className="text-primary-glow font-display text-xl mb-4">Explore</h4>
         <ul className="space-y-2 text-primary-foreground/80">
-          <li><a href="#products" className="hover:text-primary-glow">Bakes</a></li>
-          <li><a href="#categories" className="hover:text-primary-glow">Categories</a></li>
-          <li><a href="#gifting" className="hover:text-primary-glow">Gifting</a></li>
-          <li><a href="#follow" className="hover:text-primary-glow">Follow the Crumbs</a></li>
+          <li><a href="/#products" className="hover:text-primary-glow">Bakes</a></li>
+          <li><a href="/#categories" className="hover:text-primary-glow">Categories</a></li>
+          <li><a href="/#gifting" className="hover:text-primary-glow">Gifting</a></li>
+          <li><a href="/#blog" className="hover:text-primary-glow">Blog</a></li>
+          <li><a href="/founders-letter" className="hover:text-primary-glow">Founder's Letter</a></li>
+          <li><a href="/terms" className="hover:text-primary-glow">Terms & Conditions</a></li>
         </ul>
       </div>
       <div className="md:col-span-5 lg:col-span-4">
@@ -37,7 +39,7 @@ const Footer = () => (
             <a href="tel:+919920144632" className="hover:text-primary-glow">📞 +91 9920144632</a>
           </li>
           <li className="leading-relaxed">
-            📍 Building No. 2/212, Seva Samiti CHS Ltd.,<br />
+            📍 Seva Samiti CHS Ltd.,<br />
             Near Shanmukhananda Hall,<br />
             Gandhi Market, Mumbai – 400037
           </li>
@@ -47,9 +49,20 @@ const Footer = () => (
             </a>
           </li>
           <li>
-            <a href={INSTAGRAM_URL} target="_blank" rel="noreferrer" className="hover:text-primary-glow">
-              Instagram · @bakelette.official
-            </a>
+            <div className="flex flex-col gap-2 mt-2">
+              <a href={INSTAGRAM_URL} target="_blank" rel="noreferrer" className="hover:text-primary-glow">
+                Instagram · @bakelette.official
+              </a>
+              <a href="https://www.facebook.com/share/18WjsbYLsS/" target="_blank" rel="noreferrer" className="hover:text-primary-glow">
+                Facebook · @bakelette.official
+              </a>
+              <a href="https://www.linkedin.com/company/bakelette/" target="_blank" rel="noreferrer" className="hover:text-primary-glow">
+                LinkedIn · Bakelette
+              </a>
+              <a href="https://share.google/QM3vrylCI2OkWzygP" target="_blank" rel="noreferrer" className="hover:text-primary-glow">
+                Google · Bakelette
+              </a>
+            </div>
           </li>
         </ul>
       </div>

@@ -280,7 +280,10 @@ const Products = ({ selected, onSelect }: ProductsProps) => {
                     <button
                       type="button"
                       onClick={() => {
-                        window.open(waLink("Hi Bakelette! I'd like to order."), "_blank");
+                        const qty = Math.max(1, getQuantity(p.name));
+                        const itemTotal = p.price * qty;
+                        const message = `Hi Bakelette! I'd like to order the following:\n\n- ${p.name} x ${qty} (₹${itemTotal})\n\nTotal: ₹${itemTotal}\n\nThank you!`;
+                        window.open(waLink(message), "_blank");
                       }}
                       className="rounded-full border-2 border-border text-foreground text-sm font-semibold py-2.5 hover:border-primary hover:text-primary transition-colors"
                     >

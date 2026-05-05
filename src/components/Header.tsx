@@ -44,6 +44,7 @@ const Header = () => {
           <a href="#products" className="text-primary hover:text-primary-glow transition-colors">Bakes</a>
           <a href="#categories" className="text-primary hover:text-primary-glow transition-colors">Categories</a>
           <a href="#gifting" className="text-primary hover:text-primary-glow transition-colors">Gifting</a>
+          <a href="#blog" className="text-primary hover:text-primary-glow transition-colors">Blog</a>
           <a href="#follow" className="text-primary hover:text-primary-glow transition-colors">Follow</a>
           <button 
             onClick={() => setOpenCart(true)}
@@ -98,6 +99,7 @@ const Header = () => {
             <a href="#products" onClick={() => setIsOpen(false)} className="hover:translate-x-2 transition-transform">Bakes</a>
             <a href="#categories" onClick={() => setIsOpen(false)} className="hover:translate-x-2 transition-transform">Categories</a>
             <a href="#gifting" onClick={() => setIsOpen(false)} className="hover:translate-x-2 transition-transform">Gifting</a>
+            <a href="#blog" onClick={() => setIsOpen(false)} className="hover:translate-x-2 transition-transform">Blog</a>
             <a href="#follow" onClick={() => setIsOpen(false)} className="hover:translate-x-2 transition-transform">Follow</a>
           </div>
 
