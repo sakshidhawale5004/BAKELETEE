@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import OurPromise from "@/components/Promise";
@@ -15,7 +16,20 @@ import WhatsAppPopup from "@/components/WhatsAppPopup";
 import Cart from "@/components/Cart";
 
 const Index = () => {
+  const { hash } = useLocation();
   const [selected, setSelected] = useState<Category>("All");
+
+  useEffect(() => {
+    if (hash) {
+      const id = hash.replace("#", "");
+      const element = document.getElementById(id);
+      if (element) {
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: "smooth" });
+        }, 100);
+      }
+    }
+  }, [hash]);
 
   return (
     <main className="min-h-screen bg-background">

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
@@ -5,7 +6,7 @@ const BlogBrownButter = () => (
   <main className="min-h-screen bg-background flex flex-col">
     <Header />
     <div className="container mx-auto py-32 px-4 max-w-3xl flex-1 mt-16">
-      <a href="/#blog" className="text-sm text-primary hover:underline mb-8 inline-block">← Back to Blog</a>
+      <Link to="/#blog" className="text-sm text-primary hover:underline mb-8 inline-block">← Back to Blog</Link>
       <span className="text-primary uppercase tracking-[0.25em] text-xs font-semibold">Baking Science</span>
       <h1 className="mt-4 text-4xl md:text-5xl font-display text-foreground mb-4 leading-tight">The Magic of Brown Butter</h1>
       <div className="flex items-center gap-3 text-sm text-muted-foreground mb-10">
