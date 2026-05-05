@@ -2,7 +2,6 @@ import { useState } from "react";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import OurPromise from "@/components/Promise";
-import FoundersLetterSection from "@/components/FoundersLetterSection";
 import Products, { type Category } from "@/components/Products";
 import Categories from "@/components/Categories";
 import Gifting from "@/components/Gifting";
@@ -23,7 +22,6 @@ const Index = () => {
       <Header />
       <Hero />
       <OurPromise />
-      <FoundersLetterSection />
       <Products selected={selected} onSelect={setSelected} />
       <Categories onSelect={setSelected} />
       <Gifting />

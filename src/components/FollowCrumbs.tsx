@@ -1,10 +1,17 @@
+import nutella from "@/assets/products/nutella.jpeg";
+import nutellaChoco from "@/assets/products/nutella-choco.png";
+import blueberry from "@/assets/products/blueberry.jpeg";
+import burnt from "@/assets/products/burnt.jpeg";
+import mumbai from "@/assets/products/mumbai.png";
+import pistachioLoaf from "@/assets/products/pistachio-loaf.png";
+
 const reels = [
-  { url: "https://www.instagram.com/reel/DXTQnJOE4pT/", caption: "Inside the molten heart" },
-  { url: "https://www.instagram.com/reel/DXlTUiniLsq/", caption: "Blueberry burst" },
-  { url: "https://www.instagram.com/reel/DXdjWFHioAS/", caption: "Golden brown goodness" },
-  { url: "https://www.instagram.com/reel/DXYZhN6jVNJ/", caption: "Chai time companion" },
-  { url: "https://www.instagram.com/reel/DXBQen2jMTU/", caption: "Zesty pistachio vibes" },
-  { url: "https://www.instagram.com/reel/DW6FI4Tk0g9/", caption: "Gooey chocolate swirls" },
+  { url: "https://www.instagram.com/reel/DXTQnJOE4pT/", thumb: nutella, caption: "Inside the molten heart" },
+  { url: "https://www.instagram.com/reel/DXlTUiniLsq/", thumb: blueberry, caption: "Blueberry burst" },
+  { url: "https://www.instagram.com/reel/DXdjWFHioAS/", thumb: burnt, caption: "Golden brown goodness" },
+  { url: "https://www.instagram.com/reel/DXYZhN6jVNJ/", thumb: mumbai, caption: "Chai time companion" },
+  { url: "https://www.instagram.com/reel/DXBQen2jMTU/", thumb: pistachioLoaf, caption: "Zesty pistachio vibes" },
+  { url: "https://www.instagram.com/reel/DW6FI4Tk0g9/", thumb: nutellaChoco, caption: "Gooey chocolate swirls" },
 ];
 
 const FollowCrumbs = () => (
@@ -29,21 +36,28 @@ const FollowCrumbs = () => (
 
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
         {reels.map((r, i) => (
-          <div
+          <a
             key={r.url}
-            className="fade-up rounded-2xl overflow-hidden shadow-soft"
+            href={r.url}
+            target="_blank"
+            rel="noreferrer"
+            className="card-3d group relative aspect-[9/16] rounded-2xl overflow-hidden shadow-soft block fade-up"
             style={{ animationDelay: `${i * 0.07}s` }}
           >
-            <iframe
-              src={`${r.url}embed/`}
-              className="w-full"
-              style={{ height: "480px", border: "none", display: "block" }}
-              title={r.caption}
+            <img
+              src={r.thumb}
+              alt={r.caption}
               loading="lazy"
-              allowFullScreen
-              scrolling="no"
+              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
             />
-          </div>
+            <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-transparent to-transparent" />
+            <div className="absolute top-3 right-3 w-9 h-9 rounded-full bg-background/90 backdrop-blur flex items-center justify-center text-primary shadow-soft">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+            <div className="absolute bottom-3 inset-x-3 text-primary-foreground text-sm font-medium drop-shadow-lg">
+              ▶ {r.caption}
+            </div>
+          </a>
         ))}
       </div>
 

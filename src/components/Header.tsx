@@ -27,7 +27,7 @@ const Header = () => {
         <span className="max-w-[90vw] md:max-w-none">FOR CORPORATE GIFTING AND BULK ORDERS, KINDLY CONNECT ON +91 83694 24099.</span>
       </div>
       <div className={`container flex items-center justify-between gap-4 transition-all duration-500 ${scrolled || isOpen ? "py-2" : "py-4"}`}>
-        <a href="#top" className="flex flex-col items-center gap-0 group shrink-0">
+        <a href="/" className="flex flex-col items-center gap-0 group shrink-0">
           <div className="flex items-center justify-center gap-3">
             <img
               src={logo}
@@ -41,11 +41,11 @@ const Header = () => {
         </a>
 
         <nav className="hidden md:flex items-center gap-8 text-sm font-semibold">
-          <a href="#products" className="text-primary hover:text-primary-glow transition-colors">Bakes</a>
-          <a href="#categories" className="text-primary hover:text-primary-glow transition-colors">Categories</a>
-          <a href="#gifting" className="text-primary hover:text-primary-glow transition-colors">Gifting</a>
-          <a href="#blog" className="text-primary hover:text-primary-glow transition-colors">Blog</a>
-          <a href="#follow" className="text-primary hover:text-primary-glow transition-colors">Follow</a>
+          <a href="/#products" className="text-primary hover:text-primary-glow transition-colors">Bakes</a>
+          <a href="/#categories" className="text-primary hover:text-primary-glow transition-colors">Categories</a>
+          <a href="/#gifting" className="text-primary hover:text-primary-glow transition-colors">Gifting</a>
+          <a href="/#blog" className="text-primary hover:text-primary-glow transition-colors">Blog</a>
+          <a href="/#follow" className="text-primary hover:text-primary-glow transition-colors">Follow</a>
           <button 
             onClick={() => setOpenCart(true)}
             className="text-primary hover:text-primary-glow transition-colors relative"
@@ -96,11 +96,11 @@ const Header = () => {
 
         <nav className="container flex flex-col gap-6 text-lg font-semibold text-primary">
           <div className="flex flex-col gap-4 border-b border-border pb-6 pt-2">
-            <a href="#products" onClick={() => setIsOpen(false)} className="hover:translate-x-2 transition-transform">Bakes</a>
-            <a href="#categories" onClick={() => setIsOpen(false)} className="hover:translate-x-2 transition-transform">Categories</a>
-            <a href="#gifting" onClick={() => setIsOpen(false)} className="hover:translate-x-2 transition-transform">Gifting</a>
-            <a href="#blog" onClick={() => setIsOpen(false)} className="hover:translate-x-2 transition-transform">Blog</a>
-            <a href="#follow" onClick={() => setIsOpen(false)} className="hover:translate-x-2 transition-transform">Follow</a>
+            <a href="/#products" onClick={() => setIsOpen(false)} className="hover:translate-x-2 transition-transform">Bakes</a>
+            <a href="/#categories" onClick={() => setIsOpen(false)} className="hover:translate-x-2 transition-transform">Categories</a>
+            <a href="/#gifting" onClick={() => setIsOpen(false)} className="hover:translate-x-2 transition-transform">Gifting</a>
+            <a href="/#blog" onClick={() => setIsOpen(false)} className="hover:translate-x-2 transition-transform">Blog</a>
+            <a href="/#follow" onClick={() => setIsOpen(false)} className="hover:translate-x-2 transition-transform">Follow</a>
           </div>
 
           <button onClick={() => { setIsOpen(false); setOpenCart(true); }} className="flex items-center justify-between bg-primary/5 p-4 rounded-2xl w-full text-left">
