@@ -1,5 +1,3 @@
-import cookieImage from "@/assets/bakeletee-cookie.png";
-
 const OurPromise = () => (
   <section className="py-24 md:py-32 bg-gradient-warm relative overflow-hidden">
     <div className="container relative">
@@ -12,11 +10,13 @@ const OurPromise = () => (
         </a>
 
         <div className="relative fade-up w-full" style={{ animationDelay: "0.2s" }}>
-          <img 
-            src={cookieImage} 
-            alt="Split bakelette cookie showing its wholesome ingredients" 
-            className="w-full max-w-2xl mx-auto drop-shadow-2xl"
-          />
+          <div className="rounded-3xl md:rounded-[2.5rem] overflow-hidden shadow-2xl border border-border/40 fade-up bg-white/50 backdrop-blur-sm p-3 md:p-8 hover:scale-[1.01] transition-transform duration-500">
+            <img 
+              src="/split-cookie.png" 
+              alt="Wholesome vs Refined: Ingredients that tell a story" 
+              className="w-full h-auto rounded-3xl shadow-soft mx-auto block"
+            />
+          </div>
         </div>
       </div>
     </div>
