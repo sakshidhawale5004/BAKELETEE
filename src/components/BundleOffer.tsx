@@ -16,9 +16,7 @@ const BundleOffer = () => {
                   alt="Premium Curations Bundle - Pistachio Lime Loaf, Mumbai Spice Brew Cookie, Blueberry Yogurt Cookie" 
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
-                <div className="absolute top-6 left-6 bg-gradient-primary text-primary-foreground text-xs font-bold px-4 py-2 rounded-full shadow-glow">
-                  EXCLUSIVE OFFER
-                </div>
+
               </div>
             </div>
           </div>

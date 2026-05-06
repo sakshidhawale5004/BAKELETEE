@@ -9,19 +9,16 @@ import burntJaggery from "@/assets/products/burnt-jaggery.png";
 import oats from "@/assets/products/oats.jpeg";
 import pistachioLoaf from "@/assets/products/pistachio-loaf.png";
 import roseLoaf from "@/assets/products/rose-loaf.jpeg";
-
 import almond from "@/assets/products/almond.jpeg";
 import pistachioSticks from "@/assets/products/pistachio-sticks.png";
 import mumbai from "@/assets/products/mumbai.png";
 import ragi from "@/assets/products/ragi.png";
-
 
 export type Category =
   | "All"
   | "Cookies"
   | "Loaves"
   | "Bites"
-  | "Brownies"
   | "Bundles"
   | "Gift Hampers";
 
@@ -164,40 +161,16 @@ export const products: Product[] = [
     weight: "500g loaf",
   },
 
-  // Brownies
-  {
-    name: "Fudgy Belgian Brownie",
-    price: 400,
-    category: "Brownies",
-    img: nutellaChoco,
-    badge: "Rich & Decadent",
-    tagline: "The Ultimate Fudgy Experience.",
-    description: "Intensely chocolatey, rich and fudgy Belgian chocolate brownies with a perfectly crackly top.",
-    notes: ["Belgian dark chocolate", "Fudgy center", "Crackly crust"],
-    weight: "Box of 4",
-  },
-  {
-    name: "Sea Salt Caramel Brownie",
-    price: 450,
-    category: "Brownies",
-    img: nutella,
-    badge: "Sweet & Salty",
-    tagline: "A Perfect Balance of Flavors.",
-    description: "Our signature fudgy brownie swirled with house-made salted caramel for a sweet and salty indulgence.",
-    notes: ["House-made caramel", "Sea salt flakes", "Fudgy base"],
-    weight: "Box of 4",
-  },
-
   // Bundles
   {
     name: "Premium Curations Bundle",
-    price: 1000,
+    price: 1800,
     category: "Bundles",
-    img: "/gift-hamper.png",
+    img: "/bundle-offer.jpeg",
     badge: "Best Value",
     tagline: "The Ultimate Bakelette Experience.",
     description: "Our signature bundle featuring a curated selection of our best-selling cookies, artisanal nibbles, and a classic loaf cake. The perfect way to explore the heart of Bakelette Bliss.",
-    notes: ["Assorted cookies (Box of 6)", "Signature Loaf Cake", "Artisanal Nibbles (200g)", "Premium Gift Box"],
+    notes: ["Pistachio Lime Loaf (500g)", "Mumbai Spice Brew Cookie (8 Pcs)", "Blueberry Yogurt Cookie (8 Pcs)"],
     weight: "Assorted Selection",
   },
   // Gift Hampers
@@ -256,7 +229,7 @@ const Products = ({ selected, onSelect }: ProductsProps) => {
         {/* Filter Tabs — visible on all screens */}
         {/* Filter Tabs — scrollable on mobile, centered on desktop */}
         <div className="flex overflow-x-auto no-scrollbar md:flex-wrap md:justify-center gap-3 mb-12 pb-4 md:pb-0 px-4 md:px-0 -mx-4 md:mx-0">
-          {(["All", "Cookies", "Loaves", "Bites", "Brownies", "Bundles", "Gift Hampers"] as Category[]).map((c) => (
+          {(["All", "Cookies", "Loaves", "Bites", "Bundles", "Gift Hampers"] as Category[]).map((c) => (
             <button
               key={c}
               onClick={() => onSelect(c)}
