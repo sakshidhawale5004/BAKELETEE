@@ -179,7 +179,7 @@ export const products: Product[] = [
     name: "Premium Curations Bundle",
     price: 1800,
     category: "Bundles",
-    img: "/bundlenewimage.jpeg",
+    img: "/bundleimagenew.jpeg",
     badge: "Best Value",
     tagline: "The Ultimate Bakelette Experience.",
     description: "Our signature bundle featuring a curated selection of our best-selling cookies, artisanal nibbles, and a classic loaf cake. The perfect way to explore the heart of Bakelette Bliss.",
