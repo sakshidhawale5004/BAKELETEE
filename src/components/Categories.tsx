@@ -41,6 +41,20 @@ const cats: {
     desc: "Perfect snack-sized treats",
     tagline: "Tiny bites, big energy.",
   },
+  {
+    name: "Bundles",
+    icon: <img src={almond} alt="Bundles" className="w-full h-full object-cover rounded-2xl" />,
+    count: "Curated Sets",
+    desc: "Perfectly paired bakes",
+    tagline: "More to love, more to share.",
+  },
+  {
+    name: "Gift Hampers",
+    icon: <img src={blueberry} alt="Gift Hampers" className="w-full h-full object-cover rounded-2xl" />,
+    count: "Premium Boxes",
+    desc: "Artisanal gifting",
+    tagline: "Make their day special.",
+  },
 ];
 
 interface Props {
@@ -48,11 +62,15 @@ interface Props {
 }
 
 const Categories = ({ onSelect }: Props) => {
-  const handle = (c: Exclude<Category, "All">) => {
-    onSelect(c);
-    setTimeout(() => {
-      document.getElementById("products")?.scrollIntoView({ behavior: "smooth" });
-    }, 50);
+  const handle = (c: string) => {
+    if (c === "Bundles" || c === "Gift Hampers") {
+      document.getElementById("gifting")?.scrollIntoView({ behavior: "smooth" });
+    } else {
+      onSelect(c as Exclude<Category, "All">);
+      setTimeout(() => {
+        document.getElementById("products")?.scrollIntoView({ behavior: "smooth" });
+      }, 50);
+    }
   };
 
   return (
