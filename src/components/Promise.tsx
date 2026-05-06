@@ -1,5 +1,5 @@
 const OurPromise = () => (
-  <section className="py-24 md:py-32 bg-gradient-warm relative overflow-hidden">
+  <section id="promise" className="py-24 md:py-32 bg-gradient-warm relative overflow-hidden">
     <div className="container relative">
       <div className="flex flex-col items-center justify-center text-center max-w-4xl mx-auto fade-up">
         <span className="text-primary uppercase tracking-[0.25em] text-xs font-semibold mb-4">From the Kitchen</span>

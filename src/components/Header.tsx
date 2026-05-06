@@ -40,10 +40,13 @@ const Header = () => {
           </p>
         </a>
 
-        <nav className="hidden md:flex items-center gap-8 text-sm font-semibold">
+        <nav className="hidden md:flex items-center gap-6 text-sm font-semibold">
+          <a href="/#promise" className="text-primary hover:text-primary-glow transition-colors">Our Story</a>
           <a href="/#products" className="text-primary hover:text-primary-glow transition-colors">Bakes</a>
           <a href="/#categories" className="text-primary hover:text-primary-glow transition-colors">Categories</a>
           <a href="/#gifting" className="text-primary hover:text-primary-glow transition-colors">Gifting</a>
+          <a href="/#how-it-works" className="text-primary hover:text-primary-glow transition-colors">How It Works</a>
+          <a href="/#testimonials" className="text-primary hover:text-primary-glow transition-colors">Reviews</a>
           <a href="/#blog" className="text-primary hover:text-primary-glow transition-colors">Blog</a>
           <a href="/#follow" className="text-primary hover:text-primary-glow transition-colors">Follow</a>
           <button 
@@ -96,9 +99,12 @@ const Header = () => {
 
         <nav className="container flex flex-col gap-6 text-lg font-semibold text-primary">
           <div className="flex flex-col gap-4 border-b border-border pb-6 pt-2">
+            <a href="/#promise" onClick={() => setIsOpen(false)} className="hover:translate-x-2 transition-transform">Our Story</a>
             <a href="/#products" onClick={() => setIsOpen(false)} className="hover:translate-x-2 transition-transform">Bakes</a>
             <a href="/#categories" onClick={() => setIsOpen(false)} className="hover:translate-x-2 transition-transform">Categories</a>
             <a href="/#gifting" onClick={() => setIsOpen(false)} className="hover:translate-x-2 transition-transform">Gifting</a>
+            <a href="/#how-it-works" onClick={() => setIsOpen(false)} className="hover:translate-x-2 transition-transform">How It Works</a>
+            <a href="/#testimonials" onClick={() => setIsOpen(false)} className="hover:translate-x-2 transition-transform">Reviews</a>
             <a href="/#blog" onClick={() => setIsOpen(false)} className="hover:translate-x-2 transition-transform">Blog</a>
             <a href="/#follow" onClick={() => setIsOpen(false)} className="hover:translate-x-2 transition-transform">Follow</a>
           </div>

@@ -51,7 +51,7 @@ const Testimonials = () => {
   }, []);
 
   return (
-    <section className="py-24 md:py-32 bg-background overflow-hidden">
+    <section id="testimonials" className="py-24 md:py-32 bg-background overflow-hidden">
       <div className="container">
         <div className="text-center mb-16">
           <span className="text-primary uppercase tracking-[0.25em] text-xs font-semibold">Love Letters</span>
