@@ -25,7 +25,7 @@ const BlogBrownButter = () => (
         <p>They call it <em>beurre noisette</em> — hazelnut butter — named for the colour and the flavour it develops. It's been a cornerstone of pastry for centuries, and we've brought it into our artisan kitchen at Bakelette.</p>
 
         <h2 className="text-2xl font-bold text-foreground mt-8 mb-4">Why We Use It</h2>
-        <p>Our Burnt Butter Jaggery cookie starts with hand-browned butter. We brown it low and slow, watching every shade shift from cream to amber, then immediately cool it to stop the process at exactly the right moment. This gives the cookie a complex, layered flavour — warm, nutty, slightly caramel — that you can't get from any shortcut.</p>
+        <p>Our Brown Butter Jaggery cookie starts with hand-browned butter. We brown it low and slow, watching every shade shift from cream to amber, then immediately cool it to stop the process at exactly the right moment. This gives the cookie a complex, layered flavour — warm, nutty, slightly caramel — that you can't get from any shortcut.</p>
         <p>Paired with our artisanal jaggery (which itself carries notes of molasses and earthiness), the result is a cookie that tastes like comfort itself. No refined sugar, no shortcuts. Just real ingredients doing what they do best.</p>
 
         <h2 className="text-2xl font-bold text-foreground mt-8 mb-4">Try It at Home</h2>

@@ -25,7 +25,7 @@ const BlogJaggery = () => (
 
         <h2 className="text-2xl font-bold text-foreground mt-8 mb-4">Why We Prefer Jaggery in Baking</h2>
         <p>Refined white sugar is a pure carbohydrate that offers empty calories. It digests rapidly, causing a sharp spike in blood sugar followed by an inevitable crash. Jaggery, on the other hand, is a more complex carbohydrate. It digests slower, providing a steadier release of energy.</p>
-        <p>But beyond the health benefits, jaggery offers something refined sugar simply cannot: <em>character</em>. White sugar only provides sweetness. Jaggery provides a deep, caramel-like flavour profile with hints of toffee and earthiness. It doesn't just sweeten a cookie; it adds depth to it.</p>
+        <p>But beyond the health benefits, jaggery offers something refined sugar simply cannot: <em>character</em>. White sugar only provides sweetness. Jaggery provides a deep, toffee-like flavour profile with hints of caramel and earthiness. It doesn't just sweeten a cookie; it adds depth to it.</p>
 
         <h2 className="text-2xl font-bold text-foreground mt-8 mb-4">The Baking Challenge</h2>
         <p>Baking with jaggery isn't always straightforward. It contains more moisture than white sugar and is slightly acidic. This means we had to carefully adjust our flour ratios and leavening agents to ensure our cookies still achieved that perfect texture—crispy on the edges, chewy in the center.</p>

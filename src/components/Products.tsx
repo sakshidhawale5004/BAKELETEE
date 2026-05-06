@@ -65,7 +65,7 @@ export const products: Product[] = [
     badge: "Refined Sugar-Free",
     tagline: "Soulful, Toffee-Sweet Memories.",
     description: "There’s a deep, artisanal magic in browned butter. It’s the scent of cozy rainy afternoons and the rich, toffee-like sweetness of jaggery that lingers like a fond memory you never want to end.",
-    notes: ["Hand-browned French butter", "Organic cane jaggery", "Sea salt finish"],
+    notes: ["Hand-browned butter", "Organic cane jaggery", "Sea salt finish"],
     weight: "Box of 6",
   },
   {
