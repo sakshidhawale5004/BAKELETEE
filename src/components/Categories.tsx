@@ -21,6 +21,13 @@ const cats: {
     tagline: "One bite. Pure drama.",
   },
   {
+    name: "Brownie",
+    icon: <img src={nutellaChoco} alt="Brownie" className="w-full h-full object-cover rounded-2xl" />,
+    count: "Coming Soon",
+    desc: "Rich, fudgy, decadent",
+    tagline: "The ultimate indulgence.",
+  },
+  {
     name: "Loaves",
     icon: <img src={roseLoaf} alt="Loaves" className="w-full h-full object-cover rounded-2xl" />,
     count: "2 Flavours",

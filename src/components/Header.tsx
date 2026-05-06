@@ -27,7 +27,7 @@ const Header = () => {
         <span className="max-w-[90vw] md:max-w-none">FOR CORPORATE GIFTING AND BULK ORDERS, KINDLY CONNECT ON +91 83694 24099.</span>
       </div>
       <div className={`container flex items-center justify-between gap-4 transition-all duration-500 ${scrolled || isOpen ? "py-2" : "py-4"}`}>
-        <a href="/" className="flex flex-col items-center gap-0 group shrink-0">
+        <a href="/" className="flex flex-col items-start gap-0 group shrink-0">
           <div className="flex items-center justify-center gap-3">
             <img
               src={logo}
@@ -35,7 +35,7 @@ const Header = () => {
               className="h-10 md:h-12 w-auto object-contain transition-transform duration-500 group-hover:scale-105"
             />
           </div>
-          <p className="text-[10px] md:text-[11px] font-medium text-primary mt-1 tracking-widest leading-none ml-10 md:ml-12 text-left">
+          <p className="text-[10px] md:text-[11px] font-medium text-primary mt-1 tracking-widest leading-none ml-0 text-left">
             Joy Alchemy in every bite.
           </p>
         </a>

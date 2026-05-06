@@ -17,6 +17,7 @@ import ragi from "@/assets/products/ragi.png";
 export type Category =
   | "All"
   | "Cookies"
+  | "Brownie"
   | "Loaves"
   | "Bites"
   | "Bundles"
@@ -65,7 +66,7 @@ export const products: Product[] = [
     badge: "Refined Sugar-Free",
     tagline: "Soulful, Toffee-Sweet Memories.",
     description: "There’s a deep, artisanal magic in browned butter. It’s the scent of cozy rainy afternoons and the rich, toffee-like sweetness of jaggery that lingers like a fond memory you never want to end.",
-    notes: ["Hand-browned butter", "Organic cane jaggery", "Sea salt finish"],
+    notes: ["Hand-browned butter", "Organic cane jaggery", "Regular Salt"],
     weight: "Box of 6",
   },
   {
@@ -86,8 +87,21 @@ export const products: Product[] = [
     img: mumbai,
     badge: "Immunity Boosting",
     tagline: "A Love Letter to the Streets.",
-    description: "The chaotic beauty of a Mumbai tapri, captured in a crumb. Warm ginger and bold cardamom dance together, reminding you of shared laughs and the comfort of a hot cup of chai on a busy day.",
-    notes: ["Hand-pounded chai masala", "Ginger & cardamom", "Best with hot chai"],
+    description: "The chaotic beauty of a Mumbai cafe, captured in a crumb. Warm ginger and bold cardamom dance together with coffee-infused depth, reminding you of shared laughs and comfort.",
+    notes: ["Coffee infused", "Ginger & cardamom", "Best with hot brew"],
+    weight: "Box of 6",
+  },
+
+  // Brownies
+  {
+    name: "Classic Fudgy Brownie",
+    price: 420,
+    category: "Brownie",
+    img: nutellaChoco,
+    badge: "Coming Soon",
+    tagline: "The Ultimate Fudgy Escape.",
+    description: "Intensely chocolatey, remarkably fudgy, and crafted with the finest Belgian cocoa. A decadent treat that melts in your mouth and stays in your heart.",
+    notes: ["Belgian Dark Cocoa", "Fudgy Center", "Crackly Top"],
     weight: "Box of 6",
   },
 
@@ -99,8 +113,8 @@ export const products: Product[] = [
     img: oats,
     badge: "Fiber Rich",
     tagline: "Your Daily Dose of Kindness.",
-    description: "Treating yourself shouldn't be a compromise. These crunchy nibbles are a high-five from your future self—packed with wholesome nuts and seeds to keep you fueled and feeling loved all day long.",
-    notes: ["5 nuts & seeds", "Jaggery-bound", "No refined sugar"],
+    description: "Treating yourself shouldn't be a compromise. These crunchy nibbles are a high-five from your future self—packed with wholesome nuts and roasted oats to keep you fueled and feeling loved all day long.",
+    notes: ["5 nuts & oats", "Jaggery-bound", "No refined sugar"],
     weight: "200g jar",
   },
   {
@@ -166,7 +180,7 @@ export const products: Product[] = [
     name: "Premium Curations Bundle",
     price: 1800,
     category: "Bundles",
-    img: "/bundle-offer.jpeg",
+    img: "/bundlenewimage.png",
     badge: "Best Value",
     tagline: "The Ultimate Bakelette Experience.",
     description: "Our signature bundle featuring a curated selection of our best-selling cookies, artisanal nibbles, and a classic loaf cake. The perfect way to explore the heart of Bakelette Bliss.",
@@ -200,7 +214,9 @@ const Products = ({ selected, onSelect }: ProductsProps) => {
   const [active, setActive] = useState<Product | null>(null);
   const { addToCart, updateQuantity, getQuantity, setIsOpen } = useCart();
 
-  const filtered = selected === "All" ? products : products.filter((p) => p.category === selected);
+  const filtered = selected === "All" 
+    ? products.filter(p => p.category !== "Bundles" && p.category !== "Gift Hampers") 
+    : products.filter((p) => p.category === selected);
 
   const handleQuantity = (p: Product, delta: number) => {
     const currentQty = getQuantity(p.name);
@@ -229,7 +245,7 @@ const Products = ({ selected, onSelect }: ProductsProps) => {
         {/* Filter Tabs — visible on all screens */}
         {/* Filter Tabs — scrollable on mobile, centered on desktop */}
         <div className="flex overflow-x-auto no-scrollbar md:flex-wrap md:justify-center gap-3 mb-12 pb-4 md:pb-0 px-4 md:px-0 -mx-4 md:mx-0">
-          {(["All", "Cookies", "Loaves", "Bites", "Bundles", "Gift Hampers"] as Category[]).map((c) => (
+          {(["All", "Cookies", "Brownie", "Loaves", "Bites", "Bundles", "Gift Hampers"] as Category[]).map((c) => (
             <button
               key={c}
               onClick={() => onSelect(c)}
