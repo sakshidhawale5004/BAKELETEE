@@ -41,8 +41,6 @@ const cats: {
     desc: "Perfect snack-sized treats",
     tagline: "Tiny bites, big energy.",
   },
-
-  },
   {
     name: "Bundles",
     icon: <img src={almond} alt="Bundles" className="w-full h-full object-cover rounded-2xl" />,
