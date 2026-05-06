@@ -19,7 +19,9 @@ export type Category =
   | "Cookies"
   | "Brownie"
   | "Loaves"
-  | "Bites";
+  | "Bites"
+  | "Bundles"
+  | "Gift Hampers";
 
 export const products: Product[] = [
   // Cookies
@@ -123,7 +125,7 @@ export const products: Product[] = [
     badge: "Nutrient Dense",
     tagline: "Elegance in Every Snap.",
     description: "Refined, crisp, and effortlessly beautiful. These golden slivers are for those quiet moments of reflection. Let the delicate crunch of Mamra almonds slow down time and turn your break into a celebration of you.",
-    notes: ["Hand-cut & double-baked", "Mamra almond slivers", "Subtle vanilla"],
+    notes: ["Hand-cut", "Mamra almond slivers", "Subtle vanilla"],
     weight: "180g pack",
   },
   {
@@ -133,8 +135,8 @@ export const products: Product[] = [
     img: pistachioSticks,
     badge: "Heart Healthy",
     tagline: "The Jewel of Shared Moments.",
-    description: "Emerald pistachios studded in a buttery crunch, meant for those long conversations that go late into the night. It's a sophisticated treat that says 'you deserve the best,' shared with those who matter most.",
-    notes: ["Whole roasted pistachios", "Twice-baked crunch", "Cardamom hint"],
+    description: "Emerald pistachios studded in a ghee crunch, meant for those long conversations that go late into the night. It's a sophisticated treat that says 'you deserve the best,' shared with those who matter most.",
+    notes: ["Whole pistachios", "Organic ghee"],
     weight: "180g pack",
   },
   {
@@ -144,8 +146,8 @@ export const products: Product[] = [
     img: ragi,
     badge: "Calcium Powerhouse",
     tagline: "Rooted in Love and Strength.",
-    description: "A humble tribute to our heritage. Sprouted ragi and pure ghee come together to nourish your body and soothe your heart. It’s the kind of snack that feels like a warm hug from Grandma—grounded and fulfilling.",
-    notes: ["Sprouted ragi flour", "Cow ghee", "Naturally gluten-aware"],
+    description: "A humble tribute to our heritage. Ragi and organic ghee come together to nourish your body and soothe your heart. It’s the kind of snack that feels like a warm hug from Grandma—grounded and fulfilling.",
+    notes: ["Ragi flour", "Organic ghee"],
     weight: "200g jar",
   },
 
@@ -157,8 +159,8 @@ export const products: Product[] = [
     img: pistachioLoaf,
     badge: "Fresh & Natural",
     tagline: "Zesty Joy, Baked Fresh.",
-    description: "A bright, citrusy spark that wakes up your spirit. Imagine the earthy depth of Iranian pistachios meeting a sunshine-filled lime glaze. It’s a moist, tender celebration of life’s most vibrant, happy flavors.",
-    notes: ["Iranian pistachio paste", "Fresh lime zest glaze", "Whole wheat sponge"],
+    description: "A bright, citrusy spark that wakes up your spirit. Imagine the earthy depth of pistachios meeting a sunshine-filled lime zest. It’s a moist, tender celebration of life’s most vibrant, happy flavors.",
+    notes: ["Pistachio", "Fresh lime zest", "Whole wheat sponge"],
     weight: "450g loaf",
   },
   {
@@ -172,7 +174,29 @@ export const products: Product[] = [
     notes: ["Pure Kashmiri saffron", "Edible rose petals", "Pistachio crown"],
     weight: "500g loaf",
   },
-
+  // Bundles
+  {
+    name: "Premium Curations Bundle",
+    price: 1800,
+    category: "Bundles",
+    img: "/bundlenewimage.jpeg",
+    badge: "Best Value",
+    tagline: "The Ultimate Bakelette Experience.",
+    description: "Our signature bundle featuring a curated selection of our best-selling cookies, artisanal nibbles, and a classic loaf cake. The perfect way to explore the heart of Bakelette Bliss.",
+    notes: ["Pistachio Lime Loaf (500g)", "Mumbai Spice Brew Cookie (8 Pcs)", "Blueberry Yogurt Cookie (8 Pcs)"],
+    weight: "Assorted Selection",
+  },
+  // Gift Hampers
+  {
+    name: "Signature Celebration Hamper",
+    price: 1500,
+    category: "Gift Hampers",
+    img: "/gift-hamper-branded.png",
+    badge: "Premium Gift",
+    tagline: "Celebrate with Elegance.",
+    description: "A beautifully curated premium gift hamper featuring our finest selection of bakes, perfect for special occasions.",
+    notes: ["Premium packaging", "Assorted cookies & loaves", "Personalized note"],
+    weight: "Large Hamper",
   },
 ];
 
@@ -218,7 +242,7 @@ const Products = ({ selected, onSelect }: ProductsProps) => {
         {/* Filter Tabs — visible on all screens */}
         {/* Filter Tabs — scrollable on mobile, centered on desktop */}
         <div className="flex overflow-x-auto no-scrollbar md:flex-wrap md:justify-center gap-3 mb-12 pb-4 md:pb-0 px-4 md:px-0 -mx-4 md:mx-0">
-          {(["All", "Cookies", "Brownie", "Loaves", "Bites"] as Category[]).map((c) => (
+          {(["All", "Cookies", "Brownie", "Loaves", "Bites", "Bundles", "Gift Hampers"] as Category[]).map((c) => (
             <button
               key={c}
               onClick={() => onSelect(c)}

@@ -43,6 +43,20 @@ const cats: {
   },
 
   },
+  {
+    name: "Bundles",
+    icon: <img src={almond} alt="Bundles" className="w-full h-full object-cover rounded-2xl" />,
+    count: "Curated Sets",
+    desc: "Perfectly paired bakes",
+    tagline: "More to love, more to share.",
+  },
+  {
+    name: "Gift Hampers",
+    icon: <img src={blueberry} alt="Gift Hampers" className="w-full h-full object-cover rounded-2xl" />,
+    count: "Premium Boxes",
+    desc: "Artisanal gifting",
+    tagline: "Make their day special.",
+  },
 ];
 
 interface Props {
