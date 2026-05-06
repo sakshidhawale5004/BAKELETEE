@@ -7,6 +7,10 @@ const items = [
   { q: "Finally a bakery that uses real ingredients. The banana walnut loaf had actual walnuts! Refreshingly honest baking.", who: "Rohit D.", item: "Banana Walnut Loaf" },
   { q: "Placed an order for my office team and everyone loved it! The packaging is premium and the taste is exceptional.", who: "Sneha R.", item: "Corporate Gifting" },
   { q: "The burnt butter jaggery cookies are my absolute weakness. I keep a box on my desk at all times!", who: "Kavya T.", item: "Burnt Butter Jaggery" },
+  { q: "The Mumbai Spice Brew cookie with ginger tea is the best rainy day combination. Pure comfort.", who: "Rahul V.", item: "Mumbai Spice Brew" },
+  { q: "I'm impressed by the quality of ingredients. You can really taste the difference when someone uses pure jaggery instead of white sugar.", who: "Ananya P.", item: "Jaggery Bakes" },
+  { q: "The Ragi Nibbles are my go-to healthy snack. Crunchy, satisfying, and not too sweet. Perfect for work breaks.", who: "Vikram L.", item: "Ragi Nibbles" },
+  { q: "Bakelette is my favorite find this year. Everything from the website to the packaging to the last crumb is perfect.", who: "Ishita B.", item: "All-time Favorite" },
 ];
 
 // Duplicate for seamless infinite loop

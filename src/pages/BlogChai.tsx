@@ -8,13 +8,13 @@ const BlogChai = () => (
     <div className="container mx-auto py-32 px-4 max-w-3xl flex-1 mt-16">
       <Link to="/#blog" className="text-sm text-primary hover:underline mb-8 inline-block">← Back to Blog</Link>
       <span className="text-primary uppercase tracking-[0.25em] text-xs font-semibold">Pairings</span>
-      <h1 className="mt-4 text-4xl md:text-5xl font-display text-foreground mb-4 leading-tight">Our Favorite Chai Pairings</h1>
+      <h1 className="mt-4 text-4xl md:text-5xl font-display text-foreground mb-4 leading-tight tracking-wide">Our Favorite Chai Pairings</h1>
       <div className="flex items-center gap-3 text-sm text-muted-foreground mb-10">
         <span>April 15, 2026</span>
         <span className="w-1 h-1 rounded-full bg-primary/40"></span>
         <span>2 min read</span>
       </div>
-      <div className="prose prose-lg text-muted-foreground leading-relaxed space-y-6">
+      <div className="prose prose-lg text-muted-foreground leading-relaxed space-y-8">
         <p>In India, a cup of tea is never just a cup of tea. It's a pause in a chaotic day, a warm welcome to a guest, or a comforting companion during a rainy afternoon. And what is chai without the perfect accompaniment to dip into it?</p>
 
         <p>At Bakelette, we designed our Mumbai Spice Brew cookie specifically with chai in mind. It's an homage to the bustling streets of Mumbai and the iconic 'cutting chai'. Here are our favorite ways to pair our bakes with different types of tea.</p>

@@ -163,6 +163,19 @@ export const products: Product[] = [
     notes: ["Pure Kashmiri saffron", "Edible rose petals", "Pistachio crown"],
     weight: "500g loaf",
   },
+
+  // Bundles
+  {
+    name: "Premium Curations Bundle",
+    price: 1000,
+    category: "Bundles",
+    img: "/gift-hamper.png",
+    badge: "Best Value",
+    tagline: "The Ultimate Bakelette Experience.",
+    description: "Our signature bundle featuring a curated selection of our best-selling cookies, artisanal nibbles, and a classic loaf cake. The perfect way to explore the heart of Bakelette Bliss.",
+    notes: ["Assorted cookies (Box of 6)", "Signature Loaf Cake", "Artisanal Nibbles (200g)", "Premium Gift Box"],
+    weight: "Assorted Selection",
+  },
 ];
 
 
@@ -323,5 +336,3 @@ const Products = ({ selected, onSelect }: ProductsProps) => {
 };
 
 export default Products;
-
-
