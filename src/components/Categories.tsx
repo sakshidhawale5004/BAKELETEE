@@ -34,13 +34,7 @@ const cats: {
     desc: "Perfect snack-sized treats",
     tagline: "Tiny bites, big energy.",
   },
-  {
-    name: "Brownies",
-    icon: <img src={nutellaChoco} alt="Brownies" className="w-full h-full object-cover rounded-2xl" />,
-    count: "2 Kinds",
-    desc: "Fudgy, gooey, rich",
-    tagline: "Decadence in a square.",
-  },
+
   {
     name: "Bundles",
     icon: <img src={almond} alt="Bundles" className="w-full h-full object-cover rounded-2xl" />,

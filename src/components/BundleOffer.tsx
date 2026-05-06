@@ -3,7 +3,8 @@ import { waLink } from "@/lib/contact";
 const BundleOffer = () => {
   return (
     <section id="bundle-offer" className="py-24 md:py-32 bg-warm/30 overflow-hidden relative">
-      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-primary" />
+      
+
       
       <div className="container relative">
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
