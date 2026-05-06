@@ -5,7 +5,7 @@ import Hero from "@/components/Hero";
 import OurPromise from "@/components/Promise";
 import Products, { type Category } from "@/components/Products";
 import Categories from "@/components/Categories";
-import Gifting from "@/components/Gifting";
+
 import BundleOffer from "@/components/BundleOffer";
 import HowItWorks from "@/components/HowItWorks";
 import Testimonials from "@/components/Testimonials";
@@ -41,7 +41,6 @@ const Index = () => {
       <Products selected={selected} onSelect={setSelected} />
       <Categories onSelect={setSelected} />
       <BundleOffer />
-      <Gifting />
       <HowItWorks />
       <Testimonials />
       <Blog />
