@@ -48,22 +48,18 @@ const FollowCrumbs = () => {
           {reels.map((url, i) => (
             <div
               key={i}
-              className="fade-up flex justify-center w-full"
+              className="fade-up flex justify-center w-full aspect-[4/5] overflow-hidden rounded-xl border border-border/50 shadow-soft bg-white"
               style={{ animationDelay: `${i * 0.1}s` }}
             >
               <blockquote
                 className="instagram-media"
-                data-instgrm-captioned={false}
                 data-instgrm-permalink={url}
                 data-instgrm-version="14"
                 style={{
                   background: "#FFF",
                   border: "0",
-                  borderRadius: "12px",
-                  boxShadow: "0 0 1px 0 rgba(0,0,0,0.5), 0 1px 10px 0 rgba(0,0,0,0.15)",
+                  borderRadius: "0",
                   margin: "0",
-                  minWidth: "100%",
-                  padding: "0",
                   width: "100%",
                 }}
               ></blockquote>
