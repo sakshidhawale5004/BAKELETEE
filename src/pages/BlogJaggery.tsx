@@ -6,8 +6,11 @@ const BlogJaggery = () => (
   <main className="min-h-screen bg-background flex flex-col">
     <Header />
     <div className="container mx-auto py-32 px-4 max-w-3xl flex-1 mt-16">
-      <Link to="/#blog" className="text-sm text-primary hover:underline mb-8 inline-block">← Back to Blog</Link>
-      <span className="text-primary uppercase tracking-[0.25em] text-xs font-semibold">Ingredients</span>
+      <div className="mb-8">
+        <Link to="/#blog" className="text-sm text-primary hover:underline inline-block mr-4">← Back to Blog</Link>
+        <span className="text-primary/40 text-xs">|</span>
+        <span className="ml-4 text-primary uppercase tracking-[0.25em] text-xs font-semibold">Ingredients</span>
+      </div>
       <h1 className="mt-4 text-4xl md:text-5xl font-display text-foreground mb-4 leading-tight tracking-wide">Baking with Jaggery vs Refined Sugar</h1>
       <div className="flex items-center gap-3 text-sm text-muted-foreground mb-10">
         <span>April 28, 2026</span>
