@@ -164,6 +164,30 @@ export const products: Product[] = [
     weight: "500g loaf",
   },
 
+  // Brownies
+  {
+    name: "Fudgy Belgian Brownie",
+    price: 400,
+    category: "Brownies",
+    img: nutellaChoco,
+    badge: "Rich & Decadent",
+    tagline: "The Ultimate Fudgy Experience.",
+    description: "Intensely chocolatey, rich and fudgy Belgian chocolate brownies with a perfectly crackly top.",
+    notes: ["Belgian dark chocolate", "Fudgy center", "Crackly crust"],
+    weight: "Box of 4",
+  },
+  {
+    name: "Sea Salt Caramel Brownie",
+    price: 450,
+    category: "Brownies",
+    img: nutella,
+    badge: "Sweet & Salty",
+    tagline: "A Perfect Balance of Flavors.",
+    description: "Our signature fudgy brownie swirled with house-made salted caramel for a sweet and salty indulgence.",
+    notes: ["House-made caramel", "Sea salt flakes", "Fudgy base"],
+    weight: "Box of 4",
+  },
+
   // Bundles
   {
     name: "Premium Curations Bundle",
@@ -175,6 +199,18 @@ export const products: Product[] = [
     description: "Our signature bundle featuring a curated selection of our best-selling cookies, artisanal nibbles, and a classic loaf cake. The perfect way to explore the heart of Bakelette Bliss.",
     notes: ["Assorted cookies (Box of 6)", "Signature Loaf Cake", "Artisanal Nibbles (200g)", "Premium Gift Box"],
     weight: "Assorted Selection",
+  },
+  // Gift Hampers
+  {
+    name: "Signature Celebration Hamper",
+    price: 1500,
+    category: "Gift Hampers",
+    img: "/gift-hamper-branded.png",
+    badge: "Premium Gift",
+    tagline: "Celebrate with Elegance.",
+    description: "A beautifully curated premium gift hamper featuring our finest selection of bakes, perfect for special occasions.",
+    notes: ["Premium packaging", "Assorted cookies & loaves", "Personalized note"],
+    weight: "Large Hamper",
   },
 ];
 
