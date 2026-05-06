@@ -55,7 +55,7 @@ const BundleOffer = () => {
                 ))}
               </div>
 
-              <div className="mt-8 flex flex-col sm:flex-row items-center gap-4 pt-6 border-t border-primary/10">
+              <div className="mt-auto flex flex-col sm:flex-row items-center gap-4 pt-8 border-t border-primary/10">
                 <div className="flex flex-col items-center sm:items-start">
                   <span className="text-xs text-muted-foreground uppercase tracking-wider">Special Bundle Price</span>
                   <span className="text-3xl font-display font-bold text-primary">₹1,800</span>
@@ -111,7 +111,7 @@ const BundleOffer = () => {
                 ))}
               </ul>
 
-              <div className="mt-8 flex flex-col sm:flex-row items-center gap-4 pt-6 border-t border-primary/10">
+              <div className="mt-auto flex flex-col sm:flex-row items-center gap-4 pt-8 border-t border-primary/10">
                 <span className="text-muted-foreground text-sm">Starting at <strong className="text-foreground text-lg">₹999</strong></span>
                 <a
                   href={waLink("Hi! I'd like to order a gift hamper")}
