@@ -47,10 +47,10 @@ const OurPromise = () => (
                 </div>
               </div>
 
-              {/* Central Image (Hidden on mobile grid, shown separately or as part of a layout) */}
+              {/* Central Image */}
               <div className="order-1 md:order-none md:absolute md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 w-full max-w-[300px] md:max-w-[450px] mx-auto z-10 pointer-events-none">
                 <img 
-                  src="/split-cookie-new.png" 
+                  src="/split-cookie.png" 
                   alt="Wholesome vs Refined" 
                   className="w-full h-auto drop-shadow-2xl scale-110"
                 />
