@@ -229,6 +229,15 @@ const Products = ({ selected, onSelect }: ProductsProps) => {
               {c}
             </button>
           ))}
+          {["Bundles", "Gift Hampers"].map((label) => (
+            <button
+              key={label}
+              onClick={() => document.getElementById("gifting")?.scrollIntoView({ behavior: "smooth" })}
+              className="whitespace-nowrap px-6 py-2.5 rounded-full text-sm font-semibold border bg-background text-foreground border-border hover:border-primary hover:text-primary transition-all duration-200"
+            >
+              {label}
+            </button>
+          ))}
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">
