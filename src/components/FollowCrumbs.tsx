@@ -52,14 +52,14 @@ const ReelCard = ({ reel, isActive, onPlay, index }: { reel: typeof reels[0], is
 };
 
 const FollowCrumbs = () => {
-  const [activeReel, setActiveReel] = useState<string | null>(null);
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   return (
     <section id="follow" className="py-24 md:py-32 bg-gradient-warm overflow-hidden">
       <div className="container">
         <div className="text-center mb-14">
           <span className="text-primary uppercase tracking-[0.25em] text-[10px] font-bold">@BAKELETTE.OFFICIAL</span>
-          <h2 className="mt-4 text-4xl md:text-6xl text-foreground">
+          <h2 className="mt-4 text-4xl md:text-6xl text-foreground text-balance">
             Follow the <em className="font-script text-primary">Crumbs</em>
           </h2>
           <p className="mt-5 text-muted-foreground text-sm md:text-base max-w-xl mx-auto leading-relaxed">
@@ -70,11 +70,11 @@ const FollowCrumbs = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-4">
           {reels.map((r, i) => (
             <ReelCard
-              key={r.url}
+              key={i}
               reel={r}
               index={i}
-              isActive={activeReel === r.url}
-              onPlay={() => setActiveReel(r.url)}
+              isActive={activeIndex === i}
+              onPlay={() => setActiveIndex(i)}
             />
           ))}
         </div>

@@ -1,4 +1,4 @@
-import founder from "@/assets/founder.png";
+import founder from "@/assets/founders.jpeg";
 
 const FoundersLetterSection = () => (
   <section className="py-24 md:py-32 bg-ink text-primary-foreground overflow-hidden relative">

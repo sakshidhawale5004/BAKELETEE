@@ -1,6 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import founder from "@/assets/founder.png";
+import founder from "@/assets/founders.jpeg";
 
 const FoundersLetter = () => {
   return (

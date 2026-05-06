@@ -1,16 +1,16 @@
 import { useEffect, useRef } from "react";
 
 const items = [
-  { q: "The Nutella cookies are absolutely divine! My kids can't get enough. Love that it's made with jaggery — guilt-free indulgence!", who: "Priya M.", item: "Nutella Stuffed Chocochip" },
-  { q: "Ordered the gift hamper for Diwali. The packaging was gorgeous and every item tasted homemade in the best way. Will order again!", who: "Arjun S.", item: "Gift Hamper" },
-  { q: "The Pistachio Lime Loaf is unlike anything I've tasted. So fresh, so flavourful. Bakelette has set a new standard for me.", who: "Meera K.", item: "Pistachio Lime Loaf" },
-  { q: "Finally a bakery that uses real ingredients. The banana walnut loaf had actual walnuts! Refreshingly honest baking.", who: "Rohit D.", item: "Banana Walnut Loaf" },
-  { q: "Placed an order for my office team and everyone loved it! The packaging is premium and the taste is exceptional.", who: "Sneha R.", item: "Corporate Gifting" },
-  { q: "The burnt butter jaggery cookies are my absolute weakness. I keep a box on my desk at all times!", who: "Kavya T.", item: "Burnt Butter Jaggery" },
-  { q: "The Mumbai Spice Brew cookie with ginger tea is the best rainy day combination. Pure comfort.", who: "Rahul V.", item: "Mumbai Spice Brew" },
-  { q: "I'm impressed by the quality of ingredients. You can really taste the difference when someone uses pure jaggery instead of white sugar.", who: "Ananya P.", item: "Jaggery Bakes" },
-  { q: "The Ragi Nibbles are my go-to healthy snack. Crunchy, satisfying, and not too sweet. Perfect for work breaks.", who: "Vikram L.", item: "Ragi Nibbles" },
-  { q: "Bakelette is my favorite find this year. Everything from the website to the packaging to the last crumb is perfect.", who: "Ishita B.", item: "All-time Favorite" },
+  { q: "Ordered Vanilla cake for my son’s birthday celebration at school. It was everything it should be... couldn't have done it any other way.", who: "Tanvi L.", item: "Birthday Vanilla Cake" },
+  { q: "Excellently baked walnut and pista loaf... no added sugar... very organic... what i really liked along with the product a small personalised msg given for you.", who: "Kajal S.", item: "Walnut & Pista Loaf" },
+  { q: "Tried the Nutella Bombolini here and it was absolutely amazing! Perfectly soft, fluffy, and generously filled with rich Nutella. Not overly sweet.", who: "Kunal C.", item: "Nutella Bombolini" },
+  { q: "Matcha and Oatmeal-carrot cookies... the flavours are very subtle. I requested the cookies to be less sweet and they were made exactly as needed.", who: "Saurabha B.", item: "Matcha & Oatmeal Cookies" },
+  { q: "Ordered a ghee cake. The cake was made according to my need as I'm diabetic. The cake was simply delicious. I am looking forward to more such delicacies.", who: "Sanjay M.", item: "Custom Ghee Cake" },
+  { q: "Cookies were not only having a tempting look but also at the same time they were fabulous in taste... and the cakes were soft and delicious.", who: "Kavita P.", item: "Classic Cookies" },
+  { q: "Nice blended healthy ingredients in the cookies. Ate it happily and that too guilt-free as it is made of dates and other good organic ingredients.", who: "Anantha K.", item: "Date-Based Cookies" },
+  { q: "Your Matcha cookies was beyond amazing! So crispy and perfectly balanced in sweetness. Loved every bite!", who: "Swati D.", item: "Matcha Cookies" },
+  { q: "I have tried bakelette's banana walnut cake and it tastes really good. Cake is soft with loads of walnut and a peculiar taste of banana.", who: "Khushboo", item: "Banana Walnut Cake" },
+  { q: "A crunchy delight on the inside with a super soft bite. The cookies are a gustatory treat. It satiates both the craving and the hunger.", who: "Violet D.", item: "Crunchy Soft Cookies" },
 ];
 
 // Duplicate for seamless infinite loop
