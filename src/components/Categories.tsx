@@ -41,7 +41,6 @@ const cats: {
     desc: "Perfect snack-sized treats",
     tagline: "Tiny bites, big energy.",
   },
-  },
 ];
 
 interface Props {
