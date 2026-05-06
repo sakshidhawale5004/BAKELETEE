@@ -43,12 +43,12 @@ const FollowCrumbs = () => {
 
         <div
           ref={containerRef}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4 items-start"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-6 gap-6 items-start"
         >
           {reels.map((url, i) => (
             <div
               key={i}
-              className="fade-up flex justify-center w-full aspect-[4/5] overflow-hidden rounded-xl border border-border/50 shadow-soft bg-white"
+              className="fade-up flex justify-center w-full min-h-[450px]"
               style={{ animationDelay: `${i * 0.1}s` }}
             >
               <blockquote
@@ -58,7 +58,7 @@ const FollowCrumbs = () => {
                 style={{
                   background: "#FFF",
                   border: "0",
-                  borderRadius: "0",
+                  borderRadius: "12px",
                   margin: "0",
                   width: "100%",
                 }}
