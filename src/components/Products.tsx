@@ -19,9 +19,7 @@ export type Category =
   | "Cookies"
   | "Brownie"
   | "Loaves"
-  | "Bites"
-  | "Bundles"
-  | "Gift Hampers";
+  | "Bites";
 
 export const products: Product[] = [
   // Cookies
@@ -175,29 +173,6 @@ export const products: Product[] = [
     weight: "500g loaf",
   },
 
-  // Bundles
-  {
-    name: "Premium Curations Bundle",
-    price: 1800,
-    category: "Bundles",
-    img: "/bundlenewimage.png",
-    badge: "Best Value",
-    tagline: "The Ultimate Bakelette Experience.",
-    description: "Our signature bundle featuring a curated selection of our best-selling cookies, artisanal nibbles, and a classic loaf cake. The perfect way to explore the heart of Bakelette Bliss.",
-    notes: ["Pistachio Lime Loaf (500g)", "Mumbai Spice Brew Cookie (8 Pcs)", "Blueberry Yogurt Cookie (8 Pcs)"],
-    weight: "Assorted Selection",
-  },
-  // Gift Hampers
-  {
-    name: "Signature Celebration Hamper",
-    price: 1500,
-    category: "Gift Hampers",
-    img: "/gift-hamper-branded.png",
-    badge: "Premium Gift",
-    tagline: "Celebrate with Elegance.",
-    description: "A beautifully curated premium gift hamper featuring our finest selection of bakes, perfect for special occasions.",
-    notes: ["Premium packaging", "Assorted cookies & loaves", "Personalized note"],
-    weight: "Large Hamper",
   },
 ];
 
@@ -214,9 +189,7 @@ const Products = ({ selected, onSelect }: ProductsProps) => {
   const [active, setActive] = useState<Product | null>(null);
   const { addToCart, updateQuantity, getQuantity, setIsOpen } = useCart();
 
-  const filtered = selected === "All" 
-    ? products.filter(p => p.category !== "Bundles" && p.category !== "Gift Hampers") 
-    : products.filter((p) => p.category === selected);
+  const filtered = selected === "All" ? products : products.filter((p) => p.category === selected);
 
   const handleQuantity = (p: Product, delta: number) => {
     const currentQty = getQuantity(p.name);
@@ -245,7 +218,7 @@ const Products = ({ selected, onSelect }: ProductsProps) => {
         {/* Filter Tabs — visible on all screens */}
         {/* Filter Tabs — scrollable on mobile, centered on desktop */}
         <div className="flex overflow-x-auto no-scrollbar md:flex-wrap md:justify-center gap-3 mb-12 pb-4 md:pb-0 px-4 md:px-0 -mx-4 md:mx-0">
-          {(["All", "Cookies", "Brownie", "Loaves", "Bites", "Bundles", "Gift Hampers"] as Category[]).map((c) => (
+          {(["All", "Cookies", "Brownie", "Loaves", "Bites"] as Category[]).map((c) => (
             <button
               key={c}
               onClick={() => onSelect(c)}
