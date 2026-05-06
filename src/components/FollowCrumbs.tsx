@@ -14,7 +14,6 @@ const FollowCrumbs = () => {
 
   useEffect(() => {
     if (activeReel !== null) {
-      // Load Instagram embed script if an active reel is set
       const existingScript = document.querySelector('script[src="https://www.instagram.com/embed.js"]');
       if (!existingScript) {
         const script = document.createElement("script");
@@ -40,19 +39,20 @@ const FollowCrumbs = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-6 items-start">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4">
           {reels.map((reel, i) => (
             <div
               key={i}
-              className="fade-up relative w-full aspect-[9/16] rounded-2xl overflow-hidden shadow-soft group"
+              className="fade-up relative w-full bg-white rounded-xl overflow-hidden shadow-soft border border-border/50 transition-all duration-300"
               style={{ animationDelay: `${i * 0.1}s` }}
             >
               {activeReel === i ? (
-                <div className="w-full h-full overflow-y-auto no-scrollbar bg-white">
+                <div className="w-full h-full min-h-[450px]">
                   <blockquote
                     className="instagram-media"
                     data-instgrm-permalink={reel.url}
                     data-instgrm-version="14"
+                    data-instgrm-captioned={false}
                     style={{
                       background: "#FFF",
                       border: "0",
@@ -60,29 +60,63 @@ const FollowCrumbs = () => {
                       margin: "0",
                       padding: "0",
                       width: "100%",
-                      minHeight: "100%",
                     }}
                   ></blockquote>
                 </div>
               ) : (
-                <button
-                  onClick={() => setActiveReel(i)}
-                  className="w-full h-full relative group"
-                  aria-label="Play Reel"
-                >
-                  <img
-                    src={reel.thumb}
-                    alt="Instagram Reel Thumbnail"
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors flex items-center justify-center">
-                    <div className="w-14 h-14 rounded-full bg-white/90 flex items-center justify-center shadow-elegant group-hover:scale-110 transition-transform">
-                      <svg className="w-6 h-6 text-primary ml-1" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M8 5v14l11-7z" />
-                      </svg>
+                <div className="flex flex-col h-full cursor-pointer" onClick={() => setActiveReel(i)}>
+                  {/* Instagram Header Mockup */}
+                  <div className="p-3 flex items-center justify-between border-b border-border/10 bg-white">
+                    <div className="flex items-center gap-2">
+                      <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-yellow-400 via-red-500 to-purple-600 p-[1.5px]">
+                        <div className="w-full h-full rounded-full bg-white p-[1px]">
+                           <div className="w-full h-full rounded-full bg-primary/20 flex items-center justify-center text-[8px] font-bold text-primary">B</div>
+                        </div>
+                      </div>
+                      <div className="flex flex-col">
+                        <span className="text-[10px] font-bold leading-none">bakelette.official</span>
+                        <span className="text-[8px] text-muted-foreground">Original audio</span>
+                      </div>
+                    </div>
+                    <button className="text-[10px] bg-[#0095F6] text-white px-3 py-1 rounded-md font-semibold">
+                      View profile
+                    </button>
+                  </div>
+
+                  {/* Thumbnail with Play Button */}
+                  <div className="relative aspect-square sm:aspect-[4/5] bg-muted overflow-hidden">
+                    <img
+                      src={reel.thumb}
+                      alt="Instagram Reel"
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-black/10 flex items-center justify-center">
+                      <div className="w-12 h-12 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center border border-white/30">
+                        <svg className="w-6 h-6 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M8 5v14l11-7z" />
+                        </svg>
+                      </div>
                     </div>
                   </div>
-                </button>
+
+                  {/* Instagram Footer Mockup */}
+                  <div className="p-3 space-y-2 bg-white">
+                    <div className="text-[10px] font-medium text-primary mb-2">View more on Instagram</div>
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-3">
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" /></svg>
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" /></svg>
+                      </div>
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" /></svg>
+                    </div>
+                    <div className="text-[9px] font-bold">{10 + Math.floor(Math.random() * 20)} likes</div>
+                    <div className="text-[9px] font-bold text-muted-foreground pt-1 border-t border-border/5 flex items-center justify-between">
+                      <span>Add a comment...</span>
+                      <svg className="w-3 h-3 opacity-50" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                    </div>
+                  </div>
+                </div>
               )}
             </div>
           ))}
