@@ -5,7 +5,7 @@ import nutella from "@/assets/products/nutella.jpeg";
 import nutellaChoco from "@/assets/products/nutella-choco.png";
 import blueberry from "@/assets/products/blueberry.jpeg";
 import burnt from "@/assets/products/burnt.jpeg";
-import burntJaggery from "@/assets/products/burnt-jaggery.png";
+
 import oats from "@/assets/products/oats.jpeg";
 import pistachioLoaf from "@/assets/products/pistachio-loaf.png";
 import roseLoaf from "@/assets/products/rose-loaf.jpeg";
@@ -35,17 +35,6 @@ export const products: Product[] = [
     weight: "8 pcs",
   },
   {
-    name: "Nutella Chocochip Cookies",
-    price: 450,
-    category: "Cookies",
-    img: nutellaChoco,
-    badge: "Wholesome Wheat",
-    tagline: "The Timeless Comfort of Home.",
-    description: "Every bite is a nostalgic trip back to simpler times. We’ve captured that classic, gooey goodness of melted chocolate swirls to remind you that some things in life are simply, perfectly sweet—just like home.",
-    notes: ["Choco chips", "Nutella swirl", "Soft-baked"],
-    weight: "8 pcs",
-  },
-  {
     name: "Blueberry Yogurt Cookies",
     price: 340,
     category: "Cookies",
@@ -67,17 +56,7 @@ export const products: Product[] = [
     notes: ["Hand-browned butter", "Organic cane jaggery", "Regular Salt"],
     weight: "8 pcs",
   },
-  {
-    name: "Burnt Butter Jaggery",
-    price: 360,
-    category: "Cookies",
-    img: burntJaggery,
-    badge: "Pure Jaggery",
-    tagline: "Rustic Roots, Pure Joy.",
-    description: "A wholesome, rustic tribute to tradition. Crafted with the nutty depth of brown butter and artisanal jaggery, this cookie is a grounded reminder to find happiness in the simplest, purest ingredients.",
-    notes: ["Artisanal jaggery", "Brown butter", "No refined sugar"],
-    weight: "8 pcs",
-  },
+
   {
     name: "Mumbai Spice Brew Cookie",
     price: 330,
