@@ -198,7 +198,6 @@ export const products: Product[] = [
     price: 785,
     category: "Loaves",
     img: bananaWalnut,
-    badge: "Bestseller",
     tagline: "The Ultimate Comfort Classic.",
     description: "A timeless favorite, perfected. Super moist banana sponge studded with the crunch of premium walnuts. It’s the kind of cake that makes the whole house smell like love and home.",
     notes: ["Caramelized bananas", "Toasted walnuts", "Whole wheat base"],
