@@ -15,13 +15,11 @@ const OurPromise = () => (
         </a>
 
         <div className="relative fade-up w-full" style={{ animationDelay: "0.2s" }}>
-          <div className="rounded-3xl md:rounded-[2.5rem] overflow-hidden shadow-2xl border border-border/40 bg-white/50 backdrop-blur-sm p-3 md:p-8 hover:scale-[1.01] transition-transform duration-500">
-            <img 
-              src="/splitbiscuit.png" 
-              alt="The Bakelette Way vs Regular Way: Ingredients comparison" 
-              className="w-full h-auto rounded-3xl shadow-soft mx-auto block"
-            />
-          </div>
+          <img 
+            src="/splitbiscuit.png" 
+            alt="The Bakelette Way vs Regular Way: Ingredients comparison" 
+            className="w-full h-auto rounded-[2rem] shadow-elegant mx-auto block"
+          />
         </div>
       </div>
     </div>
