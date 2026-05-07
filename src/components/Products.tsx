@@ -76,7 +76,7 @@ export const products: Product[] = [
   },
   {
     name: "Matcha White Choco Cookies",
-    price: 420,
+    price: 435,
     category: "Cookies",
     img: matcha,
     badge: "Zen Moment",
@@ -86,8 +86,8 @@ export const products: Product[] = [
     weight: "8 pcs",
   },
   {
-    name: "Warm Ginger & Molasses",
-    price: 380,
+    name: "Ginger Bread",
+    price: 395,
     category: "Cookies",
     img: gingerbread,
     badge: "Seasonal Favorite",
@@ -97,21 +97,21 @@ export const products: Product[] = [
     weight: "8 pcs",
   },
   {
-    name: "Oatmeal Carrot Cookies",
-    price: 360,
+    name: "Oatmeal & Carrot Cake",
+    price: 465,
     category: "Cookies",
     img: oatmealCarrot,
     badge: "Fiber Rich",
     tagline: "Wholesome, Hearty, and Humble.",
-    description: "A breakfast-inspired cookie that feels like a warm bowl of sunshine. Packed with fiber-rich oats and the natural sweetness of fresh carrots, it's the perfect guilt-free companion for your morning brew.",
+    description: "A breakfast-inspired cookie cake that feels like a warm bowl of sunshine. Packed with fiber-rich oats and the natural sweetness of fresh carrots, it's the perfect guilt-free companion for your morning brew.",
     notes: ["Fresh carrots", "Roasted oats", "Whole wheat & jaggery"],
     weight: "8 pcs",
   },
 
   // Brownies
   {
-    name: "Classic Fudgy Brownie",
-    price: 320,
+    name: "Chocolate Brownie",
+    price: 275,
     category: "Brownie",
     img: chocolateBrownie,
     tagline: "The Ultimate Fudgy Escape.",
@@ -191,7 +191,7 @@ export const products: Product[] = [
   },
   {
     name: "Signature Banana Walnut Loaf",
-    price: 480,
+    price: 785,
     category: "Loaves",
     img: bananaWalnut,
     badge: "Bestseller",
@@ -202,7 +202,7 @@ export const products: Product[] = [
   },
   {
     name: "Traditional Ghee Cake",
-    price: 450,
+    price: 645,
     category: "Loaves",
     img: gheeCake,
     badge: "Heritage Bake",
