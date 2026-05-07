@@ -13,6 +13,12 @@ import almond from "@/assets/products/almond.jpeg";
 import pistachioSticks from "@/assets/products/pistachio-sticks.png";
 import mumbai from "@/assets/products/mumbai.png";
 import ragi from "@/assets/products/ragi.png";
+import bananaWalnut from "@/assets/products/banana-walnut.png";
+import matcha from "@/assets/products/matcha.png";
+import gingerbread from "@/assets/products/gingerbread.png";
+import gheeCake from "@/assets/products/ghee-cake.png";
+import oatmealCarrot from "@/assets/products/oatmeal-carrot.png";
+import chocolateBrownie from "@/assets/products/chocolate-brownie.png";
 
 export type Category =
   | "All"
@@ -68,17 +74,49 @@ export const products: Product[] = [
     notes: ["Coffee infused", "Ginger & cardamom", "Best with hot brew"],
     weight: "8 pcs",
   },
+  {
+    name: "Matcha White Choco Cookies",
+    price: 420,
+    category: "Cookies",
+    img: matcha,
+    badge: "Zen Moment",
+    tagline: "A Serene Green Escape.",
+    description: "Premium Japanese Matcha meets the creamy sweetness of white chocolate chunks. A sophisticated, earthy treat that’s as beautiful to look at as it is to eat. Perfect for a mindful tea break.",
+    notes: ["Premium Japanese Matcha", "White choco chunks", "Whole wheat & jaggery"],
+    weight: "8 pcs",
+  },
+  {
+    name: "Warm Ginger & Molasses",
+    price: 380,
+    category: "Cookies",
+    img: gingerbread,
+    badge: "Seasonal Favorite",
+    tagline: "A Hug of Winter Sunshine.",
+    description: "Classic, warming, and nostalgic. Our gingerbread cookies are a spice-rich journey through ginger, cinnamon, and molasses. They bring the warmth of a crackling fireplace to your tea time.",
+    notes: ["Fresh ginger", "Organic molasses", "Spiced whole wheat"],
+    weight: "8 pcs",
+  },
+  {
+    name: "Oatmeal Carrot Cookies",
+    price: 360,
+    category: "Cookies",
+    img: oatmealCarrot,
+    badge: "Fiber Rich",
+    tagline: "Wholesome, Hearty, and Humble.",
+    description: "A breakfast-inspired cookie that feels like a warm bowl of sunshine. Packed with fiber-rich oats and the natural sweetness of fresh carrots, it's the perfect guilt-free companion for your morning brew.",
+    notes: ["Fresh carrots", "Roasted oats", "Whole wheat & jaggery"],
+    weight: "8 pcs",
+  },
 
   // Brownies
   {
     name: "Classic Fudgy Brownie",
-    price: 275,
+    price: 320,
     category: "Brownie",
-    img: nutellaChoco,
-    badge: "Coming Soon",
+    img: chocolateBrownie,
     tagline: "The Ultimate Fudgy Escape.",
     description: "Intensely chocolatey, remarkably fudgy, and crafted with the finest Belgian cocoa. A decadent treat that melts in your mouth and stays in your heart.",
-    notes: ["Belgian Dark Cocoa", "Fudgy Center", "Crackly Top"],
+    notes: ["70% Belgian Cocoa", "Gooey center", "Refined sugar-free"],
     weight: "4 pcs",
   },
 
@@ -149,6 +187,28 @@ export const products: Product[] = [
     tagline: "A Royal Romance in Every Slice.",
     description: "Indulge in a love story thousands of years in the making. Pure Kashmiri saffron and delicate rose petals weave a fragrant tapestry of luxury. Every slice is a gift to yourself—a moment of pure, floral elegance.",
     notes: ["Pure Kashmiri saffron", "Edible rose petals", "Pistachio crown"],
+    weight: "500 gms",
+  },
+  {
+    name: "Signature Banana Walnut Loaf",
+    price: 480,
+    category: "Loaves",
+    img: bananaWalnut,
+    badge: "Bestseller",
+    tagline: "The Ultimate Comfort Classic.",
+    description: "A timeless favorite, perfected. Super moist banana sponge studded with the crunch of premium walnuts. It’s the kind of cake that makes the whole house smell like love and home.",
+    notes: ["Caramelized bananas", "Toasted walnuts", "Whole wheat base"],
+    weight: "500 gms",
+  },
+  {
+    name: "Traditional Ghee Cake",
+    price: 450,
+    category: "Loaves",
+    img: gheeCake,
+    badge: "Heritage Bake",
+    tagline: "Pure, Aromatic Heritage.",
+    description: "A tribute to traditional flavors. Infused with the golden aroma of organic ghee, this cake is incredibly soft, buttery, and carries a fragrance that takes you back to simpler times.",
+    notes: ["Organic grass-fed ghee", "Melt-in-mouth", "Subtle cardamom"],
     weight: "500 gms",
   },
 ];

@@ -2,7 +2,8 @@ import type { Category } from "./Products";
 import nutella from "@/assets/products/nutella.jpeg";
 import roseLoaf from "@/assets/products/rose-loaf.jpeg";
 import pistachioSticks from "@/assets/products/pistachio-sticks.png";
-import nutellaChoco from "@/assets/products/nutella-choco.png";
+import chocolateBrownie from "@/assets/products/chocolate-brownie.png";
+import bananaWalnut from "@/assets/products/banana-walnut.png";
 import almond from "@/assets/products/almond.jpeg";
 import blueberry from "@/assets/products/blueberry.jpeg";
 
@@ -16,22 +17,22 @@ const cats: {
   {
     name: "Cookies",
     icon: <img src={nutella} alt="Cookies" className="w-full h-full object-cover rounded-2xl" />,
-    count: "6 Varieties",
+    count: "7 Varieties",
     desc: "Crunchy, chewy, stuffed",
     tagline: "One bite. Pure drama.",
   },
   {
     name: "Brownie",
-    icon: <img src={nutellaChoco} alt="Brownie" className="w-full h-full object-cover rounded-2xl" />,
-    count: "Coming Soon",
+    icon: <img src={chocolateBrownie} alt="Brownie" className="w-full h-full object-cover rounded-2xl" />,
+    count: "Classic Fudgy",
     desc: "Rich, fudgy, decadent",
     tagline: "The ultimate indulgence.",
   },
   {
     name: "Loaves",
-    icon: <img src={roseLoaf} alt="Loaves" className="w-full h-full object-cover rounded-2xl" />,
-    count: "2 Flavours",
-    desc: "Pistachio-lime, rose-saffron",
+    icon: <img src={bananaWalnut} alt="Loaves" className="w-full h-full object-cover rounded-2xl" />,
+    count: "4 Flavours",
+    desc: "Banana walnut, Ghee cake & more",
     tagline: "Slow afternoons, sliced.",
   },
   {
