@@ -19,13 +19,17 @@ import gingerbread from "@/assets/products/gingerbread.png";
 import gheeCake from "@/assets/products/ghee-cake.png";
 import oatmealCarrot from "@/assets/products/oatmeal-carrot.png";
 import chocolateBrownie from "@/assets/products/chocolate-brownie.png";
+import bundle from "@/assets/products/bundle.png";
+import hamper from "@/assets/products/hamper.png";
 
 export type Category =
   | "All"
   | "Cookies"
   | "Brownie"
   | "Loaves"
-  | "Bites";
+  | "Bites"
+  | "Bundles"
+  | "Gift Hampers";
 
 export const products: Product[] = [
   // Cookies
@@ -211,6 +215,28 @@ export const products: Product[] = [
     notes: ["Organic grass-fed ghee", "Melt-in-mouth", "Subtle cardamom"],
     weight: "500 gms",
   },
+  {
+    name: "Premium Curations Bundle",
+    price: 1800,
+    category: "Bundles",
+    img: bundle,
+    badge: "Limited Edition",
+    tagline: "A curated tasting of our finest bakes.",
+    description: "The ultimate Bakelette experience. This bundle features our signature Pistachio Lime Loaf (500g), the bold Mumbai Spice Brew cookies (8pcs), and refreshing Blueberry Yogurt cookies (8pcs). Perfect for sharing or gifting.",
+    notes: ["Pistachio Lime Loaf", "Mumbai Spice Cookies", "Blueberry Yogurt Cookies"],
+    weight: "Full Set",
+  },
+  {
+    name: "Signature Gift Hamper",
+    price: 999,
+    category: "Gift Hampers",
+    img: hamper,
+    badge: "Premium Gifting",
+    tagline: "Baked with Love, Wrapped with Care.",
+    description: "Thoughtfully curated with our bestsellers and seasonal specials. Packaged in premium eco-friendly boxes with ribbons and a personalised handwritten note.",
+    notes: ["Custom assortments", "Eco-friendly packaging", "Handwritten note"],
+    weight: "Customizable",
+  },
 ];
 
 
@@ -255,7 +281,7 @@ const Products = ({ selected, onSelect }: ProductsProps) => {
         {/* Filter Tabs — visible on all screens */}
         {/* Filter Tabs — scrollable on mobile, centered on desktop */}
         <div className="flex overflow-x-auto no-scrollbar md:flex-wrap md:justify-center gap-3 mb-12 pb-4 md:pb-0 px-4 md:px-0 -mx-4 md:mx-0">
-          {(["All", "Cookies", "Brownie", "Loaves", "Bites"] as Category[]).map((c) => (
+          {(["All", "Cookies", "Brownie", "Loaves", "Bites", "Bundles", "Gift Hampers"] as Category[]).map((c) => (
             <button
               key={c}
               onClick={() => onSelect(c)}
@@ -266,15 +292,6 @@ const Products = ({ selected, onSelect }: ProductsProps) => {
               }`}
             >
               {c}
-            </button>
-          ))}
-          {["Bundles", "Gift Hampers"].map((label) => (
-            <button
-              key={label}
-              onClick={() => document.getElementById("gifting")?.scrollIntoView({ behavior: "smooth" })}
-              className="whitespace-nowrap px-6 py-2.5 rounded-full text-sm font-semibold border bg-background text-foreground border-border hover:border-primary hover:text-primary transition-all duration-200"
-            >
-              {label}
             </button>
           ))}
         </div>
