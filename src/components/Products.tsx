@@ -345,27 +345,48 @@ const Products = ({ selected, onSelect, searchQuery = "" }: ProductsProps) => {
                   <div className="mt-4 flex items-baseline justify-between">
                     <div className="flex flex-col">
                       <span className="text-2xl font-display font-semibold text-primary">
-                        {p.variants ? `Starting at ₹${p.variants[0].price}` : `₹${p.price}`}
+                        ₹{p.price}
                       </span>
-                      <span className="text-[10px] text-muted-foreground uppercase tracking-wider">{p.weight ?? "per box"}</span>
+                      <span className="text-[10px] text-muted-foreground uppercase tracking-wider">
+                        {p.variants ? p.variants.map(v => v.weight.replace(" grams", "g")).join(" | ") : (p.weight ?? "per box")}
+                      </span>
                     </div>
-                    {!p.variants && (
-                      <div className="flex items-center bg-muted rounded-full p-1 border border-border/50">
-                        <button 
-                          onClick={() => handleQuantity(p, -1)}
-                          className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-background transition-colors"
-                        >
-                          -
-                        </button>
-                        <span className="w-8 text-center text-sm font-bold">{getQuantity(p.name) || 1}</span>
-                        <button 
-                          onClick={() => handleQuantity(p, 1)}
-                          className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-background transition-colors"
-                        >
-                          +
-                        </button>
-                      </div>
-                    )}
+                    <div className="flex items-center bg-muted rounded-full p-1 border border-border/50">
+                      <button 
+                        onClick={() => {
+                          const targetName = p.variants ? `${p.name} (${p.variants[1].weight})` : p.name;
+                          const currentQty = getQuantity(targetName);
+                          if (currentQty > 0) {
+                            updateQuantity(targetName, currentQty - 1);
+                          }
+                        }}
+                        className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-background transition-colors"
+                      >
+                        -
+                      </button>
+                      <span className="w-8 text-center text-sm font-bold">
+                        {p.variants ? getQuantity(`${p.name} (${p.variants[1].weight})`) || 1 : getQuantity(p.name) || 1}
+                      </span>
+                      <button 
+                        onClick={() => {
+                          const targetProduct = p.variants ? {
+                            ...p,
+                            price: p.variants[1].price,
+                            weight: p.variants[1].weight,
+                            name: `${p.name} (${p.variants[1].weight})`
+                          } : p;
+                          const currentQty = getQuantity(targetProduct.name);
+                          if (currentQty > 0) {
+                            updateQuantity(targetProduct.name, currentQty + 1);
+                          } else {
+                            addToCart(targetProduct, 1);
+                          }
+                        }}
+                        className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-background transition-colors"
+                      >
+                        +
+                      </button>
+                    </div>
                   </div>
                   <div className="mt-6 grid grid-cols-2 gap-3">
                     <button
@@ -382,31 +403,28 @@ const Products = ({ selected, onSelect, searchQuery = "" }: ProductsProps) => {
                       }}
                       className="rounded-full border-2 border-border text-foreground text-sm font-semibold py-2.5 hover:border-primary hover:text-primary transition-colors"
                     >
-                      {p.variants ? "Select Size" : "Buy Now"}
+                      Buy Now
                     </button>
-                    {p.variants ? (
+                    {getQuantity(p.variants ? `${p.name} (${p.variants[1].weight})` : p.name) > 0 ? (
                       <button
-                        onClick={() => setActive(p)}
+                        onClick={() => setIsOpen(true)}
+                        className="rounded-full bg-gradient-primary text-primary-foreground text-sm font-semibold py-2.5 text-center shadow-glow hover:-translate-y-0.5 transition-all"
+                      >
+                        View Cart
+                      </button>
+                    ) : (
+                      <button
+                        onClick={() => {
+                          if (p.variants) {
+                            setActive(p);
+                          } else {
+                            addToCart(p, 1);
+                          }
+                        }}
                         className="rounded-full bg-gradient-primary text-primary-foreground text-sm font-semibold py-2.5 text-center shadow-glow hover:-translate-y-0.5 transition-all"
                       >
                         Add to Cart
                       </button>
-                    ) : (
-                      getQuantity(p.name) > 0 ? (
-                        <button
-                          onClick={() => setIsOpen(true)}
-                          className="rounded-full bg-gradient-primary text-primary-foreground text-sm font-semibold py-2.5 text-center shadow-glow hover:-translate-y-0.5 transition-all"
-                        >
-                          View Cart
-                        </button>
-                      ) : (
-                        <button
-                          onClick={() => addToCart(p, 1)}
-                          className="rounded-full bg-gradient-primary text-primary-foreground text-sm font-semibold py-2.5 text-center shadow-glow hover:-translate-y-0.5 transition-all"
-                        >
-                          Add to Cart
-                        </button>
-                      )
                     )}
                   </div>
                 </div>
