@@ -28,13 +28,12 @@ export type Category =
   | "Brownie"
   | "Loaves"
   | "Bites"
-  | "Bundles"
-  | "Gift Hampers";
+  | "Bundles";
 
 export const products: Product[] = [
   // Cookies
   {
-    name: "Nutella Stuffed Chocochip",
+    name: "Nutella Stuffed Chocochip Cookies",
     price: 450,
     category: "Cookies",
     img: nutella,
@@ -42,7 +41,7 @@ export const products: Product[] = [
     tagline: "A Molten Hug for Your Soul.",
     description: "Remember the joy of discovering a hidden treasure? That's the magic here. A golden, buttery embrace that gives way to a warm, velvety Nutella heart. It’s more than a treat; it’s that sweet, comforting moment you’ve been waiting for all day.",
     notes: ["Molten Nutella core", "Belgian dark choco chips", "Whole wheat & jaggery"],
-    weight: "8 pcs",
+    weight: "250 grams",
   },
   {
     name: "Blueberry Yogurt Cookies",
@@ -53,33 +52,33 @@ export const products: Product[] = [
     tagline: "A Soft Morning Sunbeam.",
     description: "Light, tangy, and refreshingly gentle. Real blueberries meet silky yogurt for a treat that feels like a whispered secret between you and your tea. It’s the gentle wake-up call your spirit needs.",
     notes: ["Real blueberry chunks", "Greek yogurt base", "Lightly sweetened with jaggery"],
-    weight: "8 pcs",
+    weight: "250 grams",
   },
   {
-    name: "Burnt Butter Style Jaggery",
+    name: "Burnt Butter Style Jaggery Cookies",
     price: 360,
     category: "Cookies",
     img: burnt,
     badge: "Refined Sugar-Free",
     tagline: "Soulful, Toffee-Sweet Memories.",
     description: "There’s a deep, artisanal magic in browned butter. It’s the scent of cozy rainy afternoons and the rich, toffee-like sweetness of jaggery that lingers like a fond memory you never want to end.",
-    notes: ["Hand-browned butter", "Organic cane jaggery", "Regular Salt"],
-    weight: "8 pcs",
+    notes: ["Hand-browned butter", "Organic cane jaggery"],
+    weight: "250 grams",
   },
 
   {
-    name: "Mumbai Spice Brew Cookie",
+    name: "Mumbai Spice Brew Cookies",
     price: 330,
     category: "Cookies",
     img: mumbai,
-    badge: "Immunity Boosting",
+    badge: "Culture Infused",
     tagline: "A Love Letter to the Streets.",
-    description: "The chaotic beauty of a Mumbai cafe, captured in a crumb. Warm ginger and bold cardamom dance together with coffee-infused depth, reminding you of shared laughs and comfort.",
+    description: "The chaotic beauty of a Mumbai Culture, captured in a crumb. Warm ginger and bold cardamom dance together with coffee-infused depth, reminding you of shared laughs and comfort.",
     notes: ["Coffee infused", "Ginger & cardamom", "Best with hot brew"],
-    weight: "8 pcs",
+    weight: "250 grams",
   },
   {
-    name: "Matcha White Choco Cookies",
+    name: "Matcha Cookies",
     price: 435,
     category: "Cookies",
     img: matcha,
@@ -87,10 +86,10 @@ export const products: Product[] = [
     tagline: "A Serene Green Escape.",
     description: "Premium Japanese Matcha meets the creamy sweetness of white chocolate chunks. A sophisticated, earthy treat that’s as beautiful to look at as it is to eat. Perfect for a mindful tea break.",
     notes: ["Premium Japanese Matcha", "White choco chunks", "Whole wheat & jaggery"],
-    weight: "8 pcs",
+    weight: "250 grams",
   },
   {
-    name: "Ginger Bread",
+    name: "Ginger Bread Cookies",
     price: 395,
     category: "Cookies",
     img: gingerbread,
@@ -98,18 +97,18 @@ export const products: Product[] = [
     tagline: "A Hug of Winter Sunshine.",
     description: "Classic, warming, and nostalgic. Our gingerbread cookies are a spice-rich journey through ginger, cinnamon, and molasses. They bring the warmth of a crackling fireplace to your tea time.",
     notes: ["Fresh ginger", "Organic molasses", "Spiced whole wheat"],
-    weight: "8 pcs",
+    weight: "250 grams",
   },
   {
-    name: "Oatmeal & Carrot Cake",
+    name: "Oatmeal & Carrot Cookies",
     price: 465,
     category: "Cookies",
     img: oatmealCarrot,
     badge: "Fiber Rich",
     tagline: "Wholesome, Hearty, and Humble.",
-    description: "A breakfast-inspired cookie cake that feels like a warm bowl of sunshine. Packed with fiber-rich oats and the natural sweetness of fresh carrots, it's the perfect guilt-free companion for your morning brew.",
+    description: "A breakfast-inspired bake that feels like a warm bowl of sunshine. Packed with fiber-rich oats and the natural sweetness of fresh carrots, it's a wholesome companion for your morning brew that feels just as good as it tastes.",
     notes: ["Fresh carrots", "Roasted oats", "Whole wheat & jaggery"],
-    weight: "8 pcs",
+    weight: "250 grams",
   },
 
   // Brownies
@@ -118,22 +117,23 @@ export const products: Product[] = [
     price: 275,
     category: "Brownie",
     img: chocolateBrownie,
+    badge: "Fudgy Goodness",
     tagline: "The Ultimate Fudgy Escape.",
-    description: "Intensely chocolatey, remarkably fudgy, and crafted with the finest Belgian cocoa. A decadent treat that melts in your mouth and stays in your heart.",
-    notes: ["70% Belgian Cocoa", "Gooey center", "Refined sugar-free"],
+    description: "Intensely chocolatey, remarkably fudgy, and crafted with naturally unsweetened cocoa powder. A decadent treat that melts in your mouth and stays in your heart.",
+    notes: ["Naturally unsweetened cocoa powder", "Gooey center", "Refined sugar-free", "Khapli Atta"],
     weight: "4 pcs",
   },
 
   // Bites
   {
-    name: "Oats and Nuts Nibbles",
+    name: "Oats & Nuts Nibbles",
     price: 400,
     category: "Bites",
     img: oats,
     badge: "Fiber Rich",
     tagline: "Your Daily Dose of Kindness.",
     description: "Treating yourself shouldn't be a compromise. These crunchy nibbles are a high-five from your future self—packed with wholesome nuts and roasted oats to keep you fueled and feeling loved all day long.",
-    notes: ["5 nuts & oats", "Jaggery-bound", "No refined sugar"],
+    notes: ["Nuts & oats", "Jaggery-bound", "No refined sugar"],
     weight: "250 gms",
   },
   {
@@ -172,48 +172,92 @@ export const products: Product[] = [
 
   // Loaves
   {
-    name: "Pistachio & Lime Loaf Cake",
+    name: "Pistachio & Lime Loaf Cake (250g)",
+    price: 245,
+    category: "Loaves",
+    img: pistachioLoaf,
+    badge: "Fresh & Natural",
+    tagline: "Zesty Joy, Baked Fresh.",
+    description: "A bright, citrusy spark that wakes up your spirit. Imagine the earthy depth of pistachios meeting a sunshine-filled lime zest. It’s a moist, tender celebration of life’s most vibrant, happy flavors.",
+    notes: ["Pistachio", "Fresh lime zest", "Khapli Atta base"],
+    weight: "250 grams",
+  },
+  {
+    name: "Pistachio & Lime Loaf Cake (500g)",
     price: 450,
     category: "Loaves",
     img: pistachioLoaf,
     badge: "Fresh & Natural",
     tagline: "Zesty Joy, Baked Fresh.",
     description: "A bright, citrusy spark that wakes up your spirit. Imagine the earthy depth of pistachios meeting a sunshine-filled lime zest. It’s a moist, tender celebration of life’s most vibrant, happy flavors.",
-    notes: ["Pistachio", "Fresh lime zest", "Whole wheat sponge"],
-    weight: "500 gms",
+    notes: ["Pistachio", "Fresh lime zest", "Khapli Atta base"],
+    weight: "500 grams",
   },
   {
-    name: "Rose & Saffron Celebration Loaf Cake",
+    name: "Rose & Saffron Celebration Loaf Cake (250g)",
+    price: 365,
+    category: "Loaves",
+    img: roseLoaf,
+    badge: "Antioxidant Rich",
+    tagline: "A Royal Romance in Every Slice.",
+    description: "Indulge in a love story thousands of years in the making. Pure Kashmiri saffron and delicate rose petals weave a fragrant tapestry of luxury. Every slice is a gift to yourself—a moment of pure, floral elegance.",
+    notes: ["Pure Kashmiri saffron", "Edible rose petals", "Pistachio crown", "Khapli Atta"],
+    weight: "250 grams",
+  },
+  {
+    name: "Rose & Saffron Celebration Loaf Cake (500g)",
     price: 670,
     category: "Loaves",
     img: roseLoaf,
     badge: "Antioxidant Rich",
     tagline: "A Royal Romance in Every Slice.",
     description: "Indulge in a love story thousands of years in the making. Pure Kashmiri saffron and delicate rose petals weave a fragrant tapestry of luxury. Every slice is a gift to yourself—a moment of pure, floral elegance.",
-    notes: ["Pure Kashmiri saffron", "Edible rose petals", "Pistachio crown"],
-    weight: "500 gms",
+    notes: ["Pure Kashmiri saffron", "Edible rose petals", "Pistachio crown", "Khapli Atta"],
+    weight: "500 grams",
   },
   {
-    name: "Signature Banana Walnut Loaf",
+    name: "Signature Banana Walnut Loaf Cake (250g)",
+    price: 425,
+    category: "Loaves",
+    img: bananaWalnut,
+    badge: "Timeless Favorite",
+    tagline: "The Ultimate Comfort Classic.",
+    description: "A timeless favorite, perfected. Super moist banana sponge studded with the crunch of premium walnuts. It’s the kind of cake that makes the whole house smell like love and home.",
+    notes: ["Bananas", "Toasted walnuts", "Khapli Atta base"],
+    weight: "250 grams",
+  },
+  {
+    name: "Signature Banana Walnut Loaf Cake (500g)",
     price: 785,
     category: "Loaves",
     img: bananaWalnut,
     badge: "Timeless Favorite",
     tagline: "The Ultimate Comfort Classic.",
     description: "A timeless favorite, perfected. Super moist banana sponge studded with the crunch of premium walnuts. It’s the kind of cake that makes the whole house smell like love and home.",
-    notes: ["Caramelized bananas", "Toasted walnuts", "Whole wheat base"],
-    weight: "500 gms",
+    notes: ["Bananas", "Toasted walnuts", "Khapli Atta base"],
+    weight: "500 grams",
   },
   {
-    name: "Traditional Ghee Cake",
+    name: "Traditional Ghee Loaf Cake (250g)",
+    price: 350,
+    category: "Loaves",
+    img: gheeCake,
+    badge: "Heritage Bake",
+    tagline: "Pure, Aromatic Heritage.",
+    description: "A tribute to traditional flavors. Infused with the golden aroma of organic ghee, this cake is incredibly soft, buttery, and carries a fragrance that takes you back to simpler times.",
+    notes: ["Organic grass-fed ghee", "Melt-in-mouth", "Subtle cardamom", "Khapli Atta"],
+    weight: "250 grams",
+  },
+  {
+    name: "Traditional Ghee Loaf Cake (500g)",
     price: 645,
     category: "Loaves",
     img: gheeCake,
     badge: "Heritage Bake",
     tagline: "Pure, Aromatic Heritage.",
     description: "A tribute to traditional flavors. Infused with the golden aroma of organic ghee, this cake is incredibly soft, buttery, and carries a fragrance that takes you back to simpler times.",
-    notes: ["Organic grass-fed ghee", "Melt-in-mouth", "Subtle cardamom"],
-    weight: "500 gms",
+    notes: ["Organic grass-fed ghee", "Melt-in-mouth", "Subtle cardamom", "Khapli Atta"],
+    weight: "500 grams",
   },
   {
     name: "Premium Curations Bundle",
@@ -222,20 +266,9 @@ export const products: Product[] = [
     img: bundle,
     badge: "Limited Edition",
     tagline: "A curated tasting of our finest bakes.",
-    description: "The ultimate Bakelette experience. This bundle features our signature Pistachio Lime Loaf (500g), the bold Mumbai Spice Brew cookies (8pcs), and refreshing Blueberry Yogurt cookies (8pcs). Perfect for sharing or gifting.",
+    description: "The ultimate Bakelette experience. This bundle features our signature Pistachio Lime Loaf (500g), the bold Mumbai Spice Brew cookies (250g), and refreshing Blueberry Yogurt cookies (250g). Perfect for sharing or gifting.",
     notes: ["Pistachio Lime Loaf", "Mumbai Spice Cookies", "Blueberry Yogurt Cookies"],
     weight: "Full Set",
-  },
-  {
-    name: "Signature Gift Hamper",
-    price: 999,
-    category: "Gift Hampers",
-    img: hamper,
-    badge: "Premium Gifting",
-    tagline: "Baked with Love, Wrapped with Care.",
-    description: "Thoughtfully curated with our bestsellers and seasonal specials. Packaged in premium eco-friendly boxes with ribbons and a personalised handwritten note.",
-    notes: ["Custom assortments", "Eco-friendly packaging", "Handwritten note"],
-    weight: "Customizable",
   },
 ];
 
@@ -246,13 +279,21 @@ import { useCart } from "@/contexts/CartContext";
 interface ProductsProps {
   selected: Category;
   onSelect: (c: Category) => void;
+  searchQuery?: string;
 }
 
-const Products = ({ selected, onSelect }: ProductsProps) => {
+const Products = ({ selected, onSelect, searchQuery = "" }: ProductsProps) => {
   const [active, setActive] = useState<Product | null>(null);
   const { addToCart, updateQuantity, getQuantity, setIsOpen } = useCart();
 
-  const filtered = selected === "All" ? products : products.filter((p) => p.category === selected);
+  const filtered = products
+    .filter((p) => (selected === "All" ? true : p.category === selected))
+    .filter((p) => 
+      searchQuery === "" || 
+      p.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
+      p.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      p.tagline.toLowerCase().includes(searchQuery.toLowerCase())
+    );
 
   const handleQuantity = (p: Product, delta: number) => {
     const currentQty = getQuantity(p.name);
@@ -281,7 +322,7 @@ const Products = ({ selected, onSelect }: ProductsProps) => {
         {/* Filter Tabs — visible on all screens */}
         {/* Filter Tabs — scrollable on mobile, centered on desktop */}
         <div className="flex overflow-x-auto no-scrollbar md:flex-wrap md:justify-center gap-3 mb-12 pb-4 md:pb-0 px-4 md:px-0 -mx-4 md:mx-0">
-          {(["All", "Cookies", "Brownie", "Loaves", "Bites", "Bundles", "Gift Hampers"] as Category[]).map((c) => (
+          {(["All", "Cookies", "Brownie", "Loaves", "Bites", "Bundles"] as Category[]).map((c) => (
             <button
               key={c}
               onClick={() => onSelect(c)}

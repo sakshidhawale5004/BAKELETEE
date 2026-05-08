@@ -3,8 +3,14 @@ import logo from "@/assets/bakelette-logo.png";
 import { waLink, telLink, PHONE_DISPLAY } from "@/lib/contact";
 import { useCart } from "@/contexts/CartContext";
 
-const Header = () => {
+interface HeaderProps {
+  searchQuery?: string;
+  onSearchChange?: (val: string) => void;
+}
+
+const Header = ({ searchQuery = "", onSearchChange }: HeaderProps) => {
   const { totalItems, setIsOpen: setOpenCart } = useCart();
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
 
   const [scrolled, setScrolled] = useState(false);
   useEffect(() => {
@@ -21,10 +27,17 @@ const Header = () => {
         scrolled || isOpen ? "bg-background/95 backdrop-blur-xl shadow-soft" : "bg-transparent"
       }`}
     >
-      <div className="bg-primary text-primary-foreground py-2 md:py-2 px-2 md:px-4 flex flex-col md:flex-row items-center justify-center gap-1 md:gap-8 text-[9px] md:text-xs font-bold uppercase tracking-wider md:tracking-[0.2em] shadow-inner text-center leading-tight">
-        <span>✨ Free delivery on all orders above ₹1000 ✨</span>
-        <span className="hidden md:inline">|</span>
-        <span className="max-w-[90vw] md:max-w-none">FOR CORPORATE GIFTING AND BULK ORDERS, KINDLY CONNECT ON +91 83694 24099.</span>
+      <div className="bg-primary text-primary-foreground py-2 overflow-hidden whitespace-nowrap shadow-inner border-b border-primary-deep/20">
+        <div className="flex animate-marquee">
+          {[...Array(4)].map((_, i) => (
+            <div key={i} className="flex items-center gap-8 px-4 text-[10px] md:text-xs font-bold uppercase tracking-wider md:tracking-[0.2em]">
+              <span>✨ Free delivery on all orders above ₹1000 ✨</span>
+              <span className="opacity-50">|</span>
+              <span>FOR CORPORATE GIFTING & BULK ORDERS, KINDLY CONNECT ON +91 83694 24099.</span>
+              <span className="opacity-50">|</span>
+            </div>
+          ))}
+        </div>
       </div>
       <div className={`container flex items-center justify-between gap-4 transition-all duration-500 ${scrolled || isOpen ? "py-2" : "py-4"}`}>
         <a href="/" className="flex flex-col items-start gap-0 group shrink-0">
@@ -41,14 +54,36 @@ const Header = () => {
         </a>
 
         <nav className="hidden md:flex items-center gap-6 text-sm font-semibold">
-          <a href="/#promise" className="text-primary hover:text-primary-glow transition-colors">Our Story</a>
-          <a href="/#products" className="text-primary hover:text-primary-glow transition-colors">Bakes</a>
+          <a href="/#promise" className="text-primary hover:text-primary-glow transition-colors">Founder's Letter</a>
+          <a href="/#products" className="text-primary hover:text-primary-glow transition-colors">Signature Bakes</a>
           <a href="/#categories" className="text-primary hover:text-primary-glow transition-colors">Categories</a>
-          <a href="/#gifting" className="text-primary hover:text-primary-glow transition-colors">Gifting</a>
-          <a href="/#how-it-works" className="text-primary hover:text-primary-glow transition-colors">How It Works</a>
-          <a href="/#testimonials" className="text-primary hover:text-primary-glow transition-colors">Reviews</a>
           <a href="/#blog" className="text-primary hover:text-primary-glow transition-colors">Blog</a>
           <a href="/#follow" className="text-primary hover:text-primary-glow transition-colors">Follow</a>
+          
+          <div className="relative flex items-center">
+            {isSearchOpen ? (
+              <div className="flex items-center bg-muted rounded-full px-3 py-1 animate-scale-in">
+                <input 
+                  autoFocus
+                  type="text"
+                  placeholder="Search bakes..."
+                  value={searchQuery}
+                  onChange={(e) => onSearchChange?.(e.target.value)}
+                  className="bg-transparent border-none focus:ring-0 text-xs w-32 md:w-48 text-primary placeholder:text-primary/50"
+                />
+                <button onClick={() => { setIsSearchOpen(false); onSearchChange?.(""); }} className="text-primary/70 hover:text-primary">✕</button>
+              </div>
+            ) : (
+              <button 
+                onClick={() => setIsSearchOpen(true)}
+                className="text-primary hover:text-primary-glow transition-colors"
+                aria-label="Search"
+              >
+                🔍
+              </button>
+            )}
+          </div>
+
           <button 
             onClick={() => setOpenCart(true)}
             className="text-primary hover:text-primary-glow transition-colors relative"
@@ -99,12 +134,19 @@ const Header = () => {
 
         <nav className="container flex flex-col gap-6 text-lg font-semibold text-primary">
           <div className="flex flex-col gap-4 border-b border-border pb-6 pt-2">
-            <a href="/#promise" onClick={() => setIsOpen(false)} className="hover:translate-x-2 transition-transform">Our Story</a>
-            <a href="/#products" onClick={() => setIsOpen(false)} className="hover:translate-x-2 transition-transform">Bakes</a>
+            <div className="relative mb-2">
+              <input 
+                type="text"
+                placeholder="Search bakes..."
+                value={searchQuery}
+                onChange={(e) => onSearchChange?.(e.target.value)}
+                className="w-full bg-primary/5 border-none rounded-2xl px-4 py-3 text-sm focus:ring-1 focus:ring-primary/20"
+              />
+              <span className="absolute right-4 top-1/2 -translate-y-1/2 opacity-50">🔍</span>
+            </div>
+            <a href="/#promise" onClick={() => setIsOpen(false)} className="hover:translate-x-2 transition-transform">Founder's Letter</a>
+            <a href="/#products" onClick={() => setIsOpen(false)} className="hover:translate-x-2 transition-transform">Signature Bakes</a>
             <a href="/#categories" onClick={() => setIsOpen(false)} className="hover:translate-x-2 transition-transform">Categories</a>
-            <a href="/#gifting" onClick={() => setIsOpen(false)} className="hover:translate-x-2 transition-transform">Gifting</a>
-            <a href="/#how-it-works" onClick={() => setIsOpen(false)} className="hover:translate-x-2 transition-transform">How It Works</a>
-            <a href="/#testimonials" onClick={() => setIsOpen(false)} className="hover:translate-x-2 transition-transform">Reviews</a>
             <a href="/#blog" onClick={() => setIsOpen(false)} className="hover:translate-x-2 transition-transform">Blog</a>
             <a href="/#follow" onClick={() => setIsOpen(false)} className="hover:translate-x-2 transition-transform">Follow</a>
           </div>

@@ -15,7 +15,7 @@ const blogs = [
   },
   {
     title: "Our Favorite Chai Pairings",
-    excerpt: "Pairing our Mumbai Spice Brew cookie with different types of chai for the ultimate rainy day comfort.",
+    excerpt: "From Mumbai Spice Brew cookies with Adrak Chai to pairing Banana Walnut loaf cake with Masala tea—discover our favorite tea-time combinations.",
     date: "April 15, 2026",
     readTime: "2 min read",
     url: "/blog/chai-pairings",

@@ -20,6 +20,7 @@ import Cart from "@/components/Cart";
 const Index = () => {
   const { hash } = useLocation();
   const [selected, setSelected] = useState<Category>("All");
+  const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
     if (hash) {
@@ -35,10 +36,10 @@ const Index = () => {
 
   return (
     <main className="min-h-screen bg-background">
-      <Header />
+      <Header searchQuery={searchQuery} onSearchChange={setSearchQuery} />
       <Hero />
       <OurPromise />
-      <Products selected={selected} onSelect={setSelected} />
+      <Products selected={selected} onSelect={setSelected} searchQuery={searchQuery} />
       <Categories onSelect={setSelected} />
       <BundleOffer />
       <HowItWorks />

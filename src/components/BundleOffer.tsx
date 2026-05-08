@@ -15,10 +15,8 @@ const BundleOffer = () => {
           </p>
         </div>
 
-        {/* Two cards side by side */}
-        <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
-
-          {/* Card 1: Bundle Offer */}
+        {/* Single Bundle Card */}
+        <div className="max-w-xl mx-auto">
           <div className="bg-white/60 backdrop-blur-sm rounded-[2rem] border border-primary/10 shadow-elegant overflow-hidden flex flex-col">
             <div className="relative group">
               <div className="absolute -inset-4 bg-primary/20 blur-2xl rounded-[2rem] opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -41,9 +39,9 @@ const BundleOffer = () => {
 
               <div className="mt-6 grid grid-cols-1 gap-3 flex-1">
                 {[
-                  { item: "Pistachio Lime Loaf", qty: "500 gms" },
-                  { item: "Mumbai Spice Brew Cookie", qty: "8 Pcs" },
-                  { item: "Blueberry Yogurt Cookie", qty: "8 Pcs" },
+                  { item: "Pistachio Lime Loaf", qty: "500 grams" },
+                  { item: "Mumbai Spice Brew Cookie", qty: "250 grams" },
+                  { item: "Blueberry Yogurt Cookie", qty: "250 grams" },
                 ].map(({ item, qty }) => (
                   <div key={item} className="flex items-center justify-between bg-white/50 backdrop-blur-sm p-3 rounded-xl border border-primary/5">
                     <div className="flex items-center gap-3">
@@ -66,65 +64,11 @@ const BundleOffer = () => {
                   rel="noreferrer"
                   className="w-full sm:w-auto text-center rounded-full bg-gradient-primary text-primary-foreground px-8 py-3 font-bold shadow-glow hover:shadow-3d hover:-translate-y-1 transition-all text-sm"
                 >
-                  Claim Bundle Offer
+                  Order Bundle
                 </a>
               </div>
             </div>
           </div>
-
-          {/* Card 2: Premium Gifting */}
-          <div className="bg-white/60 backdrop-blur-sm rounded-[2rem] border border-primary/10 shadow-elegant overflow-hidden flex flex-col">
-            <div className="relative group">
-              <div className="absolute -inset-6 bg-gradient-primary rounded-[2rem] opacity-20 blur-2xl" />
-              <div className="relative aspect-[3/4] overflow-hidden">
-                <img
-                  src="/gift-hamper-branded.png"
-                  alt="Bakelette premium gift hamper"
-                  loading="lazy"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                />
-              </div>
-            </div>
-            <div className="p-8 flex flex-col flex-1">
-              <span className="text-primary uppercase tracking-[0.25em] text-xs font-bold">Premium Gifting</span>
-              <h3 className="mt-3 text-2xl md:text-3xl font-display leading-tight">
-                Baked with Love,<br />
-                <em className="font-script text-primary">Wrapped with Care</em>
-              </h3>
-              <p className="mt-4 text-muted-foreground text-sm leading-relaxed">
-                Our signature gift hampers are perfect for festivals, celebrations, and corporate
-                gifting. Each hamper is thoughtfully curated with our bestsellers and seasonal specials,
-                packaged in premium eco-friendly boxes with handwritten notes.
-              </p>
-
-              <ul className="mt-6 space-y-3 flex-1">
-                {[
-                  "Custom assortment — pick your favourites",
-                  "Premium eco-packaging with ribbons",
-                  "Personalised handwritten note included",
-                  "Corporate bulk orders welcome",
-                ].map((t) => (
-                  <li key={t} className="flex items-start gap-3">
-                    <span className="mt-0.5 w-5 h-5 rounded-full bg-gradient-primary flex items-center justify-center text-primary-foreground text-[10px] shrink-0">✓</span>
-                    <span className="text-sm text-foreground">{t}</span>
-                  </li>
-                ))}
-              </ul>
-
-              <div className="mt-auto flex flex-col sm:flex-row items-center gap-4 pt-8 border-t border-primary/10">
-                <span className="text-muted-foreground text-sm">Starting at <strong className="text-foreground text-lg">₹999</strong></span>
-                <a
-                  href={waLink("Hi! I'd like to order a gift hamper")}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="w-full sm:w-auto text-center rounded-full bg-gradient-primary text-primary-foreground px-8 py-3 font-bold shadow-glow hover:shadow-3d hover:-translate-y-1 transition-all text-sm"
-                >
-                  Customise Hamper
-                </a>
-              </div>
-            </div>
-          </div>
-
         </div>
       </div>
     </section>

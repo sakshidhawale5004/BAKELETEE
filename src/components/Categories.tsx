@@ -33,8 +33,8 @@ const cats: {
   {
     name: "Loaves",
     icon: <img src={bananaWalnut} alt="Loaves" className="w-full h-full object-cover rounded-2xl" />,
-    count: "4 Flavours",
-    desc: "Banana walnut, Ghee cake & more",
+    count: "2 Sizes Available",
+    desc: "Soft, moist, artisanal loaf cakes",
     tagline: "Slow afternoons, sliced.",
   },
   {
@@ -50,13 +50,6 @@ const cats: {
     count: "Curated Sets",
     desc: "Perfectly paired bakes",
     tagline: "More to love, more to share.",
-  },
-  {
-    name: "Gift Hampers",
-    icon: <img src={hamper} alt="Gift Hampers" className="w-full h-full object-cover rounded-2xl" />,
-    count: "Premium Boxes",
-    desc: "Artisanal gifting",
-    tagline: "Make their day special.",
   },
 ];
 
