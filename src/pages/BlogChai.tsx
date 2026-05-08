@@ -23,18 +23,18 @@ const BlogChai = () => (
         <p>At Bakelette, we designed our Mumbai Spice Brew cookie specifically with chai in mind. It's an homage to the bustling streets of Mumbai and the iconic 'cutting chai'. Here are our favorite ways to pair our bakes with different types of tea.</p>
 
         <h2 className="text-2xl font-bold text-foreground mt-8 mb-4">1. The Classic Adrak (Ginger) Chai</h2>
-        <p><strong>The Pairing:</strong> Mumbai Spice Brew Cookie</p>
-        <p>A strong ginger chai needs a cookie that can hold its own. The hand-pounded chai masala, ginger, and cardamom in our Mumbai Spice Brew cookie elevate the warmth of the ginger in the tea. The sturdy texture of the cookie makes it perfect for a quick dunk.</p>
+        <p><strong>The Pairings:</strong> Mumbai Spice Brew Cookie, Banana Walnut Loaf, or Ghee Cake</p>
+        <p>A strong ginger chai needs a companion that can hold its own. While our Mumbai Spice Brew cookie is a classic dunking choice, a warm slice of our moist <strong>Banana Walnut Loaf</strong> or <strong>Traditional Ghee Cake</strong> offers a soulful, buttery contrast to the spice. For those who love a crunch, our <strong>Almond</strong> or <strong>Pistachio Sticks</strong> provide a sophisticated, nutty snap with every sip.</p>
 
         <h2 className="text-2xl font-bold text-foreground mt-8 mb-4">2. Mild Green Tea or Chamomile</h2>
-        <p><strong>The Pairing:</strong> Blueberry Yogurt Cookies</p>
-        <p>When sipping a light, floral, or herbal tea, you want a gentle treat that won't overpower the delicate flavors of the beverage. Our Blueberry Yogurt Cookies, with their soft texture and light tanginess, are the ideal companion. They offer a refreshing bite without being overly sweet.</p>
+        <p><strong>The Pairings:</strong> Blueberry Yogurt Cookies or Rose & Saffron Loaf</p>
+        <p>When sipping a light, floral, or herbal tea, you want a gentle treat that won't overpower the delicate flavors. Our <strong>Blueberry Yogurt Cookies</strong> are the ideal companion, but for a truly royal experience, try a slice of our <strong>Rose & Saffron Celebration Loaf</strong>. Its floral notes dance beautifully with the lightness of green tea.</p>
 
         <h2 className="text-2xl font-bold text-foreground mt-8 mb-4">3. Strong Black Coffee or Espresso</h2>
-        <p><strong>The Pairing:</strong> Burnt Butter Jaggery Cookies</p>
-        <p>While this isn't a chai pairing, we couldn't leave out coffee lovers! The deep, roasted, nutty flavors of our burnt butter perfectly complement the bitterness of a strong black coffee. The natural jaggery provides just the right amount of sweetness to balance the cup.</p>
+        <p><strong>The Pairings:</strong> Burnt Butter Jaggery Cookies or Chocolate Brownie</p>
+        <p>The deep, roasted, nutty flavors of our <strong>Burnt Butter Cookies</strong> perfectly complement the bitterness of a strong black coffee. If you're in the mood for something more decadent, our fudgy <strong>Chocolate Brownie</strong> creates a rich, mocha-like experience that melts on the palate.</p>
 
-        <p className="mt-8">What's your favorite pairing? Let us know the next time you order!</p>
+        <p className="mt-8">What's your favorite pairing? Don't limit yourself to cookies—our cakes and bites are crafted to turn every tea time into a celebration. Let us know your favorite combo the next time you order!</p>
       </div>
     </div>
     <Footer />
