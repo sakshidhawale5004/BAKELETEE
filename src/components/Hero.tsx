@@ -42,7 +42,7 @@ const Hero = () => (
             href="#gifting"
             className="rounded-full border-2 border-primary-foreground/40 text-primary-foreground px-8 py-4 font-semibold backdrop-blur-md hover:bg-primary-foreground/10 hover:border-primary-foreground transition-all"
           >
-            Order Bundle
+            Gift Hampers
           </a>
         </div>
       </div>
