@@ -2,10 +2,8 @@ import { useState } from "react";
 import { waLink } from "@/lib/contact";
 import QuickViewDialog, { type Product } from "./QuickViewDialog";
 import nutella from "@/assets/products/nutella.jpeg";
-import nutellaChoco from "@/assets/products/nutella-choco.png";
 import blueberry from "@/assets/products/blueberry.jpeg";
 import burnt from "@/assets/products/burnt.jpeg";
-
 import oats from "@/assets/products/oats.jpeg";
 import pistachioLoaf from "@/assets/products/pistachio-loaf.png";
 import roseLoaf from "@/assets/products/rose-loaf.jpeg";
@@ -20,7 +18,6 @@ import gheeCake from "@/assets/products/ghee-cake.png";
 import oatmealCarrot from "@/assets/products/oatmeal-carrot.png";
 import chocolateBrownie from "@/assets/products/chocolate-brownie.png";
 import bundle from "@/assets/products/bundle.png";
-import hamper from "@/assets/products/hamper.png";
 
 export type Category =
   | "All"
@@ -244,9 +241,7 @@ export const products: Product[] = [
   },
 ];
 
-
 import { useCart } from "@/contexts/CartContext";
-
 
 interface ProductsProps {
   selected: Category;
@@ -256,7 +251,6 @@ interface ProductsProps {
 
 const Products = ({ selected, onSelect, searchQuery = "" }: ProductsProps) => {
   const [active, setActive] = useState<Product | null>(null);
-  const { addToCart, updateQuantity, getQuantity, setIsOpen } = useCart();
 
   const filtered = products
     .filter((p) => (selected === "All" ? true : p.category === selected))
@@ -266,15 +260,6 @@ const Products = ({ selected, onSelect, searchQuery = "" }: ProductsProps) => {
       p.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
       p.tagline.toLowerCase().includes(searchQuery.toLowerCase())
     );
-
-  const handleQuantity = (p: Product, delta: number) => {
-    const currentQty = getQuantity(p.name);
-    if (currentQty > 0) {
-      updateQuantity(p.name, currentQty + delta);
-    } else if (delta > 0) {
-      addToCart(p, 1);
-    }
-  };
 
   return (
     <section id="products" className="py-24 md:py-32 bg-background scroll-mt-24">
@@ -291,8 +276,6 @@ const Products = ({ selected, onSelect, searchQuery = "" }: ProductsProps) => {
           </p>
         </div>
 
-        {/* Filter Tabs — visible on all screens */}
-        {/* Filter Tabs — scrollable on mobile, centered on desktop */}
         <div className="flex overflow-x-auto no-scrollbar md:flex-wrap md:justify-center gap-3 mb-12 pb-4 md:pb-0 px-4 md:px-0 -mx-4 md:mx-0">
           {(["All", "Cookies", "Brownie", "Loaves", "Bites", "Bundles"] as Category[]).map((c) => (
             <button
@@ -340,12 +323,11 @@ const ProductCard = ({
   onQuickView: () => void 
 }) => {
   const { addToCart, updateQuantity, getQuantity, setIsOpen } = useCart();
-  const [selectedVariant, setSelectedVariant] = useState(p.variants ? p.variants[1] : null); // Default to 500g
+  const [selectedVariant, setSelectedVariant] = useState(p.variants ? p.variants[1] : null);
 
   const currentPrice = selectedVariant ? selectedVariant.price : p.price;
   const currentWeight = selectedVariant ? selectedVariant.weight : p.weight;
   const targetName = selectedVariant ? `${p.name} (${selectedVariant.weight})` : p.name;
-  
   const currentInCart = getQuantity(targetName);
 
   const handleQuantity = (delta: number) => {
@@ -370,14 +352,8 @@ const ProductCard = ({
         type="button"
         onClick={onQuickView}
         className="relative aspect-square sm:aspect-[4/5] overflow-hidden bg-warm text-left"
-        aria-label={`Quick view ${p.name}`}
       >
-        <img
-          src={p.img}
-          alt={p.name}
-          loading="lazy"
-          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-        />
+        <img src={p.img} alt={p.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
         {p.badge && (
           <span className="absolute top-4 left-4 bg-gradient-primary text-primary-foreground text-xs font-semibold px-3 py-1.5 rounded-full shadow-glow">
             {p.badge}
@@ -394,9 +370,7 @@ const ProductCard = ({
         
         <div className="mt-4 flex items-baseline justify-between">
           <div className="flex flex-col">
-            <span className="text-2xl font-display font-semibold text-primary">
-              ₹{currentPrice}
-            </span>
+            <span className="text-2xl font-display font-semibold text-primary">₹{currentPrice}</span>
             <div className="flex items-center gap-1.5 mt-1">
               {p.variants ? (
                 p.variants.map((v) => (
@@ -413,35 +387,20 @@ const ProductCard = ({
                   </button>
                 ))
               ) : (
-                <span className="text-[10px] text-muted-foreground uppercase tracking-wider">
-                  {p.weight ?? "per box"}
-                </span>
+                <span className="text-[10px] text-muted-foreground uppercase tracking-wider">{p.weight ?? "per box"}</span>
               )}
             </div>
           </div>
 
           <div className="flex items-center bg-muted rounded-full p-1 border border-border/50">
-            <button 
-              onClick={() => handleQuantity(-1)}
-              className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-background transition-colors"
-            >
-              -
-            </button>
-            <span className="w-8 text-center text-sm font-bold">
-              {currentInCart || 1}
-            </span>
-            <button 
-              onClick={() => handleQuantity(1)}
-              className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-background transition-colors"
-            >
-              +
-            </button>
+            <button onClick={() => handleQuantity(-1)} className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-background transition-colors">-</button>
+            <span className="w-8 text-center text-sm font-bold">{currentInCart || 1}</span>
+            <button onClick={() => handleQuantity(1)} className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-background transition-colors">+</button>
           </div>
         </div>
 
         <div className="mt-6 grid grid-cols-2 gap-3">
           <button
-            type="button"
             onClick={() => {
               const qty = Math.max(1, currentInCart);
               const itemTotal = currentPrice * qty;
@@ -453,34 +412,13 @@ const ProductCard = ({
             Buy Now
           </button>
           {currentInCart > 0 ? (
-            <button
-              onClick={() => setIsOpen(true)}
-              className="rounded-full bg-gradient-primary text-primary-foreground text-sm font-semibold py-2.5 text-center shadow-glow hover:-translate-y-0.5 transition-all"
-            >
-              View Cart
-            </button>
+            <button onClick={() => setIsOpen(true)} className="rounded-full bg-gradient-primary text-primary-foreground text-sm font-semibold py-2.5 text-center shadow-glow hover:-translate-y-0.5 transition-all">View Cart</button>
           ) : (
-            <button
-              onClick={() => handleQuantity(1)}
-              className="rounded-full bg-gradient-primary text-primary-foreground text-sm font-semibold py-2.5 text-center shadow-glow hover:-translate-y-0.5 transition-all"
-            >
-              Add to Cart
-            </button>
+            <button onClick={() => handleQuantity(1)} className="rounded-full bg-gradient-primary text-primary-foreground text-sm font-semibold py-2.5 text-center shadow-glow hover:-translate-y-0.5 transition-all">Add to Cart</button>
           )}
         </div>
       </div>
     </article>
-  );
-};
-
-
-        {filtered.length === 0 && (
-          <p className="text-center text-muted-foreground mt-10">No items in this category yet.</p>
-        )}
-      </div>
-
-      <QuickViewDialog product={active} onClose={() => setActive(null)} />
-    </section>
   );
 };
 
