@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import logo from "@/assets/bakelette-logo.png";
 import { waLink, telLink, PHONE_DISPLAY } from "@/lib/contact";
 import { useCart } from "@/contexts/CartContext";
+import { Search, X, ShoppingBag, Menu } from "lucide-react";
 
 interface HeaderProps {
   searchQuery?: string;
@@ -60,37 +61,48 @@ const Header = ({ searchQuery = "", onSearchChange }: HeaderProps) => {
           <a href="/#blog" className="text-primary hover:text-primary-glow transition-colors">Blog</a>
           <a href="/#follow" className="text-primary hover:text-primary-glow transition-colors">Follow</a>
           
-          <div className="relative flex items-center">
-            {isSearchOpen ? (
-              <div className="flex items-center bg-muted rounded-full px-3 py-1 animate-scale-in">
+          <div className="relative flex items-center group">
+            <div 
+              className={`flex items-center transition-all duration-500 ease-out overflow-hidden ${
+                isSearchOpen 
+                  ? "w-48 md:w-64 bg-background/40 backdrop-blur-md border border-primary/20 px-4 py-2 rounded-full shadow-elegant" 
+                  : "w-10 h-10 justify-center rounded-full hover:bg-primary/5 cursor-pointer"
+              }`}
+              onClick={() => !isSearchOpen && setIsSearchOpen(true)}
+            >
+              <Search 
+                className={`w-4 h-4 text-primary shrink-0 transition-transform duration-300 ${isSearchOpen ? "mr-2 scale-90" : "group-hover:scale-110"}`} 
+              />
+              {isSearchOpen && (
                 <input 
                   autoFocus
                   type="text"
-                  placeholder="Search bakes..."
+                  placeholder="Search our bakes..."
                   value={searchQuery}
                   onChange={(e) => onSearchChange?.(e.target.value)}
-                  className="bg-transparent border-none focus:ring-0 text-xs w-32 md:w-48 text-primary placeholder:text-primary/50"
+                  onBlur={() => !searchQuery && setIsSearchOpen(false)}
+                  className="bg-transparent border-none focus:ring-0 text-xs w-full text-primary placeholder:text-primary/40 p-0"
                 />
-                <button onClick={() => { setIsSearchOpen(false); onSearchChange?.(""); }} className="text-primary/70 hover:text-primary">✕</button>
-              </div>
-            ) : (
-              <button 
-                onClick={() => setIsSearchOpen(true)}
-                className="text-primary hover:text-primary-glow transition-colors"
-                aria-label="Search"
-              >
-                🔍
-              </button>
-            )}
+              )}
+              {isSearchOpen && searchQuery && (
+                <button 
+                  onClick={(e) => { e.stopPropagation(); onSearchChange?.(""); }} 
+                  className="ml-2 text-primary/50 hover:text-primary transition-colors"
+                >
+                  <X className="w-3 h-3" />
+                </button>
+              )}
+            </div>
           </div>
 
           <button 
             onClick={() => setOpenCart(true)}
-            className="text-primary hover:text-primary-glow transition-colors relative"
+            className="group flex items-center gap-2 text-primary hover:text-primary-glow transition-all relative px-3 py-2 rounded-full hover:bg-primary/5"
           >
-            Cart
+            <ShoppingBag className="w-5 h-5 group-hover:-rotate-12 transition-transform" />
+            <span className="hidden lg:inline">Cart</span>
             {totalItems > 0 && (
-              <span className="absolute -top-2 -right-4 bg-primary text-primary-foreground text-[10px] w-4 h-4 rounded-full flex items-center justify-center">
+              <span className="absolute -top-1 -right-1 bg-primary text-primary-foreground text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center shadow-glow animate-in zoom-in">
                 {totalItems}
               </span>
             )}
@@ -116,15 +128,11 @@ const Header = ({ searchQuery = "", onSearchChange }: HeaderProps) => {
           </a>
           
           <button 
-            className="md:hidden p-2 text-primary"
+            className="md:hidden p-2 text-primary bg-primary/5 rounded-full hover:bg-primary/10 transition-colors"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
           >
-            <div className="w-6 h-5 flex flex-col justify-between items-center relative">
-              <span className={`w-full h-0.5 bg-current transition-all duration-300 ${isOpen ? "rotate-45 translate-y-2.5" : ""}`} />
-              <span className={`w-full h-0.5 bg-current transition-opacity duration-300 ${isOpen ? "opacity-0" : ""}`} />
-              <span className={`w-full h-0.5 bg-current transition-all duration-300 ${isOpen ? "-rotate-45 -translate-y-2" : ""}`} />
-            </div>
+            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
       </div>
@@ -140,9 +148,17 @@ const Header = ({ searchQuery = "", onSearchChange }: HeaderProps) => {
                 placeholder="Search bakes..."
                 value={searchQuery}
                 onChange={(e) => onSearchChange?.(e.target.value)}
-                className="w-full bg-primary/5 border-none rounded-2xl px-4 py-3 text-sm focus:ring-1 focus:ring-primary/20"
+                className="w-full bg-primary/5 border border-primary/10 rounded-2xl px-12 py-4 text-sm focus:ring-2 focus:ring-primary/20 focus:bg-background transition-all outline-none"
               />
-              <span className="absolute right-4 top-1/2 -translate-y-1/2 opacity-50">🔍</span>
+              <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-primary opacity-50" />
+              {searchQuery && (
+                <button 
+                  onClick={() => onSearchChange?.("")}
+                  className="absolute right-4 top-1/2 -translate-y-1/2 p-1"
+                >
+                  <X className="w-4 h-4 text-primary opacity-50" />
+                </button>
+              )}
             </div>
             <a href="/#promise" onClick={() => setIsOpen(false)} className="hover:translate-x-2 transition-transform">Founder's Letter</a>
             <a href="/#products" onClick={() => setIsOpen(false)} className="hover:translate-x-2 transition-transform">Signature Bakes</a>
