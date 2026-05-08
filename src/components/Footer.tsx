@@ -24,9 +24,9 @@ const Footer = () => (
         </ul>
       </div>
 
-      <div className="md:col-span-4 lg:col-span-3">
+      <div className="md:col-span-6 lg:col-span-5">
         <h4 className="text-primary-glow font-display text-xl mb-4">Get in Touch</h4>
-        <ul className="space-y-3 text-primary-foreground/80 text-sm">
+        <ul className="space-y-3 text-primary-foreground/80 text-sm mb-8">
           <li>
             <a href="mailto:contact@bakelette.in" className="hover:text-primary-glow">
               ✉️ contact@bakelette.in
@@ -47,9 +47,7 @@ const Footer = () => (
             </a>
           </li>
         </ul>
-      </div>
 
-      <div className="md:col-span-2 lg:col-span-3">
         <h4 className="text-primary-glow font-display text-xl mb-4">Follow Us</h4>
         <div className="flex items-center gap-3 mb-6">
           {/* Instagram */}
@@ -101,9 +99,6 @@ const Footer = () => (
             </svg>
           </a>
         </div>
-        <a href={waLink()} target="_blank" rel="noreferrer" className="text-primary-foreground/80 hover:text-primary-glow text-sm flex items-center gap-2">
-          💬 WhatsApp · {PHONE_DISPLAY}
-        </a>
       </div>
     </div>
     <div className="container mt-12 pt-8 border-t border-primary-foreground/10 text-center text-primary-foreground/50 text-sm">
