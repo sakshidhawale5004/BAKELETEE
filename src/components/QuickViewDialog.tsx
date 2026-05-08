@@ -82,8 +82,8 @@ const QuickViewDialog = ({ product, onClose }: Props) => {
         </button>
 
         {/* Image - Shorter on mobile */}
-        <div className="relative aspect-[4/3] md:aspect-auto md:min-h-[520px] overflow-hidden bg-warm shrink-0">
-          <img src={product.img} alt={product.name} className="w-full h-full object-cover" />
+        <div className="relative aspect-[4/3] md:aspect-auto md:min-h-[520px] overflow-hidden bg-white p-4 md:p-8 shrink-0 flex items-center justify-center">
+          <img src={product.img} alt={product.name} className="w-full h-full object-contain drop-shadow-elegant" />
           {product.badge && (
             <span className="absolute top-4 left-4 bg-gradient-primary text-primary-foreground text-xs font-semibold px-3 py-1.5 rounded-full shadow-glow">
               {product.badge}
