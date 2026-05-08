@@ -87,11 +87,9 @@ const Categories = ({ onSelect }: Props) => {
               onClick={() => handle(c.name)}
             >
               <div className="flex items-start justify-between mb-4">
-                {/* Category Image */}
-                <div className="w-16 h-16 rounded-2xl bg-gradient-primary flex items-center justify-center shadow-glow shrink-0 overflow-hidden border border-border/50">
+                <div className="w-16 h-16 rounded-2xl bg-warm flex items-center justify-center shadow-glow shrink-0 overflow-hidden border border-border/50">
                   {c.icon}
                 </div>
-                {/* Count Badge */}
                 <span className="text-[10px] font-bold uppercase tracking-widest text-primary bg-primary/10 px-3 py-1 rounded-full">
                   {c.count}
                 </span>
@@ -103,7 +101,6 @@ const Categories = ({ onSelect }: Props) => {
                 <p className="text-primary font-script italic text-base mt-2">{c.tagline}</p>
               </div>
 
-              {/* Explore CTA */}
               <div className="flex items-center justify-between pt-4 border-t border-border/50">
                 <span className="text-xs font-bold uppercase tracking-[0.2em] text-foreground/60 group-hover:text-primary transition-colors">
                   Explore the {c.name}
@@ -114,6 +111,37 @@ const Categories = ({ onSelect }: Props) => {
               </div>
             </div>
           ))}
+
+          {/* Gift Hampers Section Link */}
+          <div
+            className="group bg-background rounded-3xl p-6 shadow-soft border border-border/60 hover:border-primary hover:shadow-elegant transition-all duration-300 fade-up cursor-pointer"
+            style={{ animationDelay: "0.5s" }}
+            onClick={() => document.getElementById("gifting")?.scrollIntoView({ behavior: "smooth" })}
+          >
+            <div className="flex items-start justify-between mb-4">
+              <div className="w-16 h-16 rounded-2xl bg-warm flex items-center justify-center shadow-glow shrink-0 overflow-hidden border border-border/50">
+                <img src={hamper} alt="Gift Hampers" className="w-full h-full object-cover rounded-2xl" />
+              </div>
+              <span className="text-[10px] font-bold uppercase tracking-widest text-primary bg-primary/10 px-3 py-1 rounded-full">
+                3 Collections
+              </span>
+            </div>
+
+            <div className="mb-6">
+              <h3 className="text-2xl font-display text-foreground">Gift Hampers</h3>
+              <p className="text-muted-foreground text-sm mt-1">Premium artisanal hampers</p>
+              <p className="text-primary font-script italic text-base mt-2">Gifting, made soulful.</p>
+            </div>
+
+            <div className="flex items-center justify-between pt-4 border-t border-border/50">
+              <span className="text-xs font-bold uppercase tracking-[0.2em] text-foreground/60 group-hover:text-primary transition-colors">
+                Explore the Hampers
+              </span>
+              <div className="w-8 h-8 rounded-full border border-border/60 group-hover:border-primary group-hover:bg-primary group-hover:text-primary-foreground flex items-center justify-center transition-all text-muted-foreground">
+                →
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
