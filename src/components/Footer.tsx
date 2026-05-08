@@ -101,8 +101,9 @@ const Footer = () => (
         </div>
       </div>
     </div>
-    <div className="container mt-12 pt-8 border-t border-primary-foreground/10 text-center text-primary-foreground/50 text-sm">
-      © {new Date().getFullYear()} Bakelette · Crafted with love
+    <div className="container mt-12 pt-8 border-t border-primary-foreground/10 text-center text-primary-foreground/50 text-sm flex flex-col md:flex-row justify-between items-center gap-4">
+      <span>© {new Date().getFullYear()} Bakelette · Crafted with love</span>
+      <span>Designed by <a href="#" className="text-primary hover:text-primary-glow transition-colors">Digital Coyotes</a></span>
     </div>
   </footer>
 );
