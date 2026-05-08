@@ -19,13 +19,7 @@ import oatmealCarrot from "@/assets/products/oatmeal-carrot.png";
 import chocolateBrownie from "@/assets/products/chocolate-brownie.png";
 import bundle from "@/assets/products/bundle.png";
 
-export type Category =
-  | "All"
-  | "Cookies"
-  | "Brownie"
-  | "Loaves"
-  | "Bites"
-  | "Bundles";
+
 
 export const products: Product[] = [
   // Cookies
@@ -243,6 +237,15 @@ export const products: Product[] = [
 
 import { useCart } from "@/contexts/CartContext";
 
+export type Category =
+  | "All"
+  | "Cookies"
+  | "Brownie"
+  | "Loaves"
+  | "Bites"
+  | "Bundles"
+  | "Gift Hamper";
+
 interface ProductsProps {
   selected: Category;
   onSelect: (c: Category) => void;
@@ -277,7 +280,7 @@ const Products = ({ selected, onSelect, searchQuery = "" }: ProductsProps) => {
         </div>
 
         <div className="flex overflow-x-auto no-scrollbar md:flex-wrap md:justify-center gap-3 mb-12 pb-4 md:pb-0 px-4 md:px-0 -mx-4 md:mx-0">
-          {(["All", "Cookies", "Brownie", "Loaves", "Bites", "Bundles", "Gift Hamper"] as (Category | "Gift Hamper")[]).map((c) => (
+          {(["All", "Cookies", "Brownie", "Loaves", "Bites", "Bundles", "Gift Hamper"] as Category[]).map((c) => (
             <button
               key={c}
               onClick={() => {

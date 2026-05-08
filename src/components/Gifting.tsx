@@ -117,5 +117,3 @@ const Gifting = () => {
 };
 
 export default Gifting;
-
-export default Gifting;
