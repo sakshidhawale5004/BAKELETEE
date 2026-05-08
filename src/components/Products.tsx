@@ -172,18 +172,18 @@ export const products: Product[] = [
 
   // Loaves
   {
-    name: "Pistachio & Lime Loaf Cake",
-    price: 450,
+    name: "Signature Banana Walnut Loaf Cake",
+    price: 785,
     category: "Loaves",
-    img: pistachioLoaf,
-    badge: "Fresh & Natural",
-    tagline: "Zesty Joy, Baked Fresh.",
-    description: "A bright, citrusy spark that wakes up your spirit. Imagine the earthy depth of pistachios meeting a sunshine-filled lime zest. It’s a moist, tender celebration of life’s most vibrant, happy flavors.",
-    notes: ["Pistachio", "Fresh lime zest", "Khapli Atta base"],
+    img: bananaWalnut,
+    badge: "Timeless Favorite",
+    tagline: "The Ultimate Comfort Classic.",
+    description: "A timeless favorite, perfected. Super moist banana sponge studded with the crunch of premium walnuts. It’s the kind of cake that makes the whole house smell like love and home.",
+    notes: ["Bananas", "Toasted walnuts", "Khapli Atta base"],
     weight: "500 grams",
     variants: [
-      { weight: "250 grams", price: 245 },
-      { weight: "500 grams", price: 450 },
+      { weight: "250 grams", price: 475 },
+      { weight: "500 grams", price: 785 },
     ],
   },
   {
@@ -197,23 +197,8 @@ export const products: Product[] = [
     notes: ["Pure Kashmiri saffron", "Edible rose petals", "Pistachio crown", "Khapli Atta"],
     weight: "500 grams",
     variants: [
-      { weight: "250 grams", price: 365 },
+      { weight: "250 grams", price: 405 },
       { weight: "500 grams", price: 670 },
-    ],
-  },
-  {
-    name: "Signature Banana Walnut Loaf Cake",
-    price: 785,
-    category: "Loaves",
-    img: bananaWalnut,
-    badge: "Timeless Favorite",
-    tagline: "The Ultimate Comfort Classic.",
-    description: "A timeless favorite, perfected. Super moist banana sponge studded with the crunch of premium walnuts. It’s the kind of cake that makes the whole house smell like love and home.",
-    notes: ["Bananas", "Toasted walnuts", "Khapli Atta base"],
-    weight: "500 grams",
-    variants: [
-      { weight: "250 grams", price: 425 },
-      { weight: "500 grams", price: 785 },
     ],
   },
   {
@@ -227,8 +212,23 @@ export const products: Product[] = [
     notes: ["Organic grass-fed ghee", "Melt-in-mouth", "Subtle cardamom", "Khapli Atta"],
     weight: "500 grams",
     variants: [
-      { weight: "250 grams", price: 350 },
+      { weight: "250 grams", price: 390 },
       { weight: "500 grams", price: 645 },
+    ],
+  },
+  {
+    name: "Pistachio & Lime Loaf Cake",
+    price: 450,
+    category: "Loaves",
+    img: pistachioLoaf,
+    badge: "Fresh & Natural",
+    tagline: "Zesty Joy, Baked Fresh.",
+    description: "A bright, citrusy spark that wakes up your spirit. Imagine the earthy depth of pistachios meeting a sunshine-filled lime zest. It’s a moist, tender celebration of life’s most vibrant, happy flavors.",
+    notes: ["Pistachio", "Fresh lime zest", "Khapli Atta base"],
+    weight: "500 grams",
+    variants: [
+      { weight: "250 grams", price: 245 },
+      { weight: "500 grams", price: 450 },
     ],
   },
   {
@@ -310,128 +310,168 @@ const Products = ({ selected, onSelect, searchQuery = "" }: ProductsProps) => {
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">
-          {filtered.map((p, i) => {
-            return (
-              <article
-                key={p.name}
-                className="card-3d group bg-gradient-card rounded-3xl overflow-hidden shadow-soft border border-border/60 fade-up flex flex-col"
-                style={{ animationDelay: `${(i % 4) * 0.08}s` }}
-              >
-                <button
-                  type="button"
-                  onClick={() => setActive(p)}
-                  className="relative aspect-square sm:aspect-[4/5] overflow-hidden bg-warm text-left"
-                  aria-label={`Quick view ${p.name}`}
-                >
-
-                  <img
-                    src={p.img}
-                    alt={p.name}
-                    loading="lazy"
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                  />
-                  {p.badge && (
-                    <span className="absolute top-4 left-4 bg-gradient-primary text-primary-foreground text-xs font-semibold px-3 py-1.5 rounded-full shadow-glow">
-                      {p.badge}
-                    </span>
-                  )}
-                  <span className="absolute inset-x-4 bottom-4 bg-background/95 backdrop-blur-md text-foreground text-sm font-semibold py-3 rounded-full text-center shadow-elegant">
-                    Quick View →
-                  </span>
-                </button>
-                <div className="p-5 flex flex-col flex-1">
-                  <h3 className="mt-2 text-xl text-foreground leading-tight">{p.name}</h3>
-                  <p className="mt-2 text-sm font-script text-primary italic leading-snug">{p.tagline}</p>
-                  <div className="mt-4 flex items-baseline justify-between">
-                    <div className="flex flex-col">
-                      <span className="text-2xl font-display font-semibold text-primary">
-                        ₹{p.price}
-                      </span>
-                      <span className="text-[10px] text-muted-foreground uppercase tracking-wider">
-                        {p.variants ? p.variants.map(v => v.weight.replace(" grams", "g")).join(" | ") : (p.weight ?? "per box")}
-                      </span>
-                    </div>
-                    <div className="flex items-center bg-muted rounded-full p-1 border border-border/50">
-                      <button 
-                        onClick={() => {
-                          const targetName = p.variants ? `${p.name} (${p.variants[1].weight})` : p.name;
-                          const currentQty = getQuantity(targetName);
-                          if (currentQty > 0) {
-                            updateQuantity(targetName, currentQty - 1);
-                          }
-                        }}
-                        className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-background transition-colors"
-                      >
-                        -
-                      </button>
-                      <span className="w-8 text-center text-sm font-bold">
-                        {p.variants ? getQuantity(`${p.name} (${p.variants[1].weight})`) || 1 : getQuantity(p.name) || 1}
-                      </span>
-                      <button 
-                        onClick={() => {
-                          const targetProduct = p.variants ? {
-                            ...p,
-                            price: p.variants[1].price,
-                            weight: p.variants[1].weight,
-                            name: `${p.name} (${p.variants[1].weight})`
-                          } : p;
-                          const currentQty = getQuantity(targetProduct.name);
-                          if (currentQty > 0) {
-                            updateQuantity(targetProduct.name, currentQty + 1);
-                          } else {
-                            addToCart(targetProduct, 1);
-                          }
-                        }}
-                        className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-background transition-colors"
-                      >
-                        +
-                      </button>
-                    </div>
-                  </div>
-                  <div className="mt-6 grid grid-cols-2 gap-3">
-                    <button
-                      type="button"
-                      onClick={() => {
-                        if (p.variants) {
-                          setActive(p);
-                        } else {
-                          const qty = Math.max(1, getQuantity(p.name));
-                          const itemTotal = p.price * qty;
-                          const message = `Hi Bakelette! I'd like to order the following:\n\n- ${p.name} x ${qty} (₹${itemTotal})\n\nTotal: ₹${itemTotal}\n\nThank you!`;
-                          window.open(waLink(message), "_blank");
-                        }
-                      }}
-                      className="rounded-full border-2 border-border text-foreground text-sm font-semibold py-2.5 hover:border-primary hover:text-primary transition-colors"
-                    >
-                      Buy Now
-                    </button>
-                    {getQuantity(p.variants ? `${p.name} (${p.variants[1].weight})` : p.name) > 0 ? (
-                      <button
-                        onClick={() => setIsOpen(true)}
-                        className="rounded-full bg-gradient-primary text-primary-foreground text-sm font-semibold py-2.5 text-center shadow-glow hover:-translate-y-0.5 transition-all"
-                      >
-                        View Cart
-                      </button>
-                    ) : (
-                      <button
-                        onClick={() => {
-                          if (p.variants) {
-                            setActive(p);
-                          } else {
-                            addToCart(p, 1);
-                          }
-                        }}
-                        className="rounded-full bg-gradient-primary text-primary-foreground text-sm font-semibold py-2.5 text-center shadow-glow hover:-translate-y-0.5 transition-all"
-                      >
-                        Add to Cart
-                      </button>
-                    )}
-                  </div>
-                </div>
-              </article>
-            );
-          })}
+          {filtered.map((p, i) => (
+            <ProductCard 
+              key={p.name} 
+              product={p} 
+              index={i} 
+              onQuickView={() => setActive(p)} 
+            />
+          ))}
         </div>
+
+        {filtered.length === 0 && (
+          <p className="text-center text-muted-foreground mt-10">No items in this category yet.</p>
+        )}
+      </div>
+
+      <QuickViewDialog product={active} onClose={() => setActive(null)} />
+    </section>
+  );
+};
+
+const ProductCard = ({ 
+  product: p, 
+  index: i, 
+  onQuickView 
+}: { 
+  product: Product; 
+  index: number; 
+  onQuickView: () => void 
+}) => {
+  const { addToCart, updateQuantity, getQuantity, setIsOpen } = useCart();
+  const [selectedVariant, setSelectedVariant] = useState(p.variants ? p.variants[1] : null); // Default to 500g
+
+  const currentPrice = selectedVariant ? selectedVariant.price : p.price;
+  const currentWeight = selectedVariant ? selectedVariant.weight : p.weight;
+  const targetName = selectedVariant ? `${p.name} (${selectedVariant.weight})` : p.name;
+  
+  const currentInCart = getQuantity(targetName);
+
+  const handleQuantity = (delta: number) => {
+    if (currentInCart > 0) {
+      updateQuantity(targetName, currentInCart + delta);
+    } else if (delta > 0) {
+      addToCart({
+        ...p,
+        price: currentPrice,
+        weight: currentWeight,
+        name: targetName
+      }, 1);
+    }
+  };
+
+  return (
+    <article
+      className="card-3d group bg-gradient-card rounded-3xl overflow-hidden shadow-soft border border-border/60 fade-up flex flex-col"
+      style={{ animationDelay: `${(i % 4) * 0.08}s` }}
+    >
+      <button
+        type="button"
+        onClick={onQuickView}
+        className="relative aspect-square sm:aspect-[4/5] overflow-hidden bg-warm text-left"
+        aria-label={`Quick view ${p.name}`}
+      >
+        <img
+          src={p.img}
+          alt={p.name}
+          loading="lazy"
+          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+        />
+        {p.badge && (
+          <span className="absolute top-4 left-4 bg-gradient-primary text-primary-foreground text-xs font-semibold px-3 py-1.5 rounded-full shadow-glow">
+            {p.badge}
+          </span>
+        )}
+        <span className="absolute inset-x-4 bottom-4 bg-background/95 backdrop-blur-md text-foreground text-sm font-semibold py-3 rounded-full text-center shadow-elegant">
+          Quick View →
+        </span>
+      </button>
+
+      <div className="p-5 flex flex-col flex-1">
+        <h3 className="mt-2 text-xl text-foreground leading-tight">{p.name}</h3>
+        <p className="mt-2 text-sm font-script text-primary italic leading-snug">{p.tagline}</p>
+        
+        <div className="mt-4 flex items-baseline justify-between">
+          <div className="flex flex-col">
+            <span className="text-2xl font-display font-semibold text-primary">
+              ₹{currentPrice}
+            </span>
+            <div className="flex items-center gap-1.5 mt-1">
+              {p.variants ? (
+                p.variants.map((v) => (
+                  <button
+                    key={v.weight}
+                    onClick={() => setSelectedVariant(v)}
+                    className={`text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-md transition-all ${
+                      selectedVariant?.weight === v.weight
+                        ? "bg-primary text-primary-foreground font-bold"
+                        : "bg-muted text-muted-foreground hover:bg-muted-foreground/20"
+                    }`}
+                  >
+                    {v.weight.replace(" grams", "g")}
+                  </button>
+                ))
+              ) : (
+                <span className="text-[10px] text-muted-foreground uppercase tracking-wider">
+                  {p.weight ?? "per box"}
+                </span>
+              )}
+            </div>
+          </div>
+
+          <div className="flex items-center bg-muted rounded-full p-1 border border-border/50">
+            <button 
+              onClick={() => handleQuantity(-1)}
+              className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-background transition-colors"
+            >
+              -
+            </button>
+            <span className="w-8 text-center text-sm font-bold">
+              {currentInCart || 1}
+            </span>
+            <button 
+              onClick={() => handleQuantity(1)}
+              className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-background transition-colors"
+            >
+              +
+            </button>
+          </div>
+        </div>
+
+        <div className="mt-6 grid grid-cols-2 gap-3">
+          <button
+            type="button"
+            onClick={() => {
+              const qty = Math.max(1, currentInCart);
+              const itemTotal = currentPrice * qty;
+              const message = `Hi Bakelette! I'd like to order the following:\n\n- ${targetName} x ${qty} (₹${itemTotal})\n\nTotal: ₹${itemTotal}\n\nThank you!`;
+              window.open(waLink(message), "_blank");
+            }}
+            className="rounded-full border-2 border-border text-foreground text-sm font-semibold py-2.5 hover:border-primary hover:text-primary transition-colors"
+          >
+            Buy Now
+          </button>
+          {currentInCart > 0 ? (
+            <button
+              onClick={() => setIsOpen(true)}
+              className="rounded-full bg-gradient-primary text-primary-foreground text-sm font-semibold py-2.5 text-center shadow-glow hover:-translate-y-0.5 transition-all"
+            >
+              View Cart
+            </button>
+          ) : (
+            <button
+              onClick={() => handleQuantity(1)}
+              className="rounded-full bg-gradient-primary text-primary-foreground text-sm font-semibold py-2.5 text-center shadow-glow hover:-translate-y-0.5 transition-all"
+            >
+              Add to Cart
+            </button>
+          )}
+        </div>
+      </div>
+    </article>
+  );
+};
 
 
         {filtered.length === 0 && (
