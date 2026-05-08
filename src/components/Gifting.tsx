@@ -34,27 +34,27 @@ const Gifting = () => (
         </p>
       </div>
 
-      <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+      <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
         {hampers.map((h) => (
-          <div key={h.name} className="group relative bg-gradient-card rounded-3xl p-4 border border-border/50 shadow-soft hover:shadow-elegant transition-all duration-500 hover:-translate-y-2">
-            <div className="relative aspect-[4/5] rounded-2xl overflow-hidden mb-6">
+          <div key={h.name} className="group relative bg-gradient-card rounded-2xl p-3 border border-border/50 shadow-soft hover:shadow-elegant transition-all duration-500 hover:-translate-y-1">
+            <div className="relative aspect-square rounded-xl overflow-hidden mb-4">
               <img 
                 src={h.img} 
                 alt={h.name} 
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-ink/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="absolute inset-0 bg-gradient-to-t from-ink/40 via-transparent to-transparent" />
             </div>
-            <div className="px-2 pb-2">
-              <h3 className="text-2xl font-display text-foreground">{h.name}</h3>
-              <p className="mt-2 text-sm text-muted-foreground line-clamp-2">{h.tagline}</p>
-              <div className="mt-6 flex items-center justify-between">
-                <span className="text-xl font-semibold text-primary">Starting at ₹{h.price}</span>
+            <div className="px-1 pb-1">
+              <h3 className="text-xl font-display text-foreground">{h.name}</h3>
+              <p className="mt-1 text-xs text-muted-foreground line-clamp-2">{h.tagline}</p>
+              <div className="mt-4 flex items-center justify-between">
+                <span className="text-lg font-semibold text-primary">Starting at ₹{h.price}</span>
                 <a
                   href={waLink(`Hi! I'd like to order ${h.name} hamper`)}
                   target="_blank"
                   rel="noreferrer"
-                  className="w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center hover:bg-primary-glow transition-colors shadow-glow"
+                  className="w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center hover:bg-primary-glow transition-colors shadow-glow text-sm"
                 >
                   →
                 </a>
