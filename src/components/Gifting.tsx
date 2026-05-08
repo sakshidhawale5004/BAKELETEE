@@ -5,19 +5,19 @@ const hampers = [
     name: "The Muse",
     price: "999",
     tagline: "A graceful introduction to artisan bakes.",
-    img: "https://images.unsplash.com/photo-1549462111-80a18d322429?w=800&q=80",
+    img: "/assets/hampers/muse.png",
   },
   {
     name: "The Darling",
     price: "1499",
     tagline: "A beloved collection of our bestsellers.",
-    img: "https://images.unsplash.com/photo-1544480542-1428b093f664?w=800&q=80",
+    img: "/assets/hampers/darling.png",
   },
   {
     name: "The Icon",
     price: "1999",
     tagline: "The ultimate expression of Bakelette luxury.",
-    img: "https://images.unsplash.com/photo-1513201099705-a9746e1e201f?w=800&q=80",
+    img: "/assets/hampers/icon.png",
   },
 ];
 
