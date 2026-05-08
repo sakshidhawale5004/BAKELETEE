@@ -36,15 +36,15 @@ const Gifting = () => (
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-6xl mx-auto px-4">
         {hampers.map((h) => (
-          <div key={h.name} className="group flex flex-col bg-white rounded-[2.5rem] p-6 border border-warm-200/50 shadow-soft hover:shadow-elegant transition-all duration-500 hover:-translate-y-2">
-            <div className="relative aspect-[3/4] rounded-[2rem] overflow-hidden mb-8 bg-warm-50 p-2 shadow-inner border border-warm-100">
-              <div className="w-full h-full rounded-[1.6rem] overflow-hidden bg-white relative">
+          <div key={h.name} className="group flex flex-col bg-white rounded-[2.5rem] p-5 border border-warm-200/50 shadow-soft hover:shadow-elegant transition-all duration-500 hover:-translate-y-2">
+            <div className="relative aspect-square rounded-[2rem] overflow-hidden mb-8 shadow-inner border border-warm-100">
+              <div className="w-full h-full rounded-[2rem] overflow-hidden bg-white relative">
                 <img 
                   src={h.img} 
                   alt={h.name} 
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/5 via-transparent to-transparent pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent pointer-events-none" />
               </div>
             </div>
             <div className="px-2 flex-1 flex flex-col">

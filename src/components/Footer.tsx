@@ -24,6 +24,31 @@ const Footer = () => (
         </ul>
       </div>
 
+      <div className="md:col-span-4 lg:col-span-3">
+        <h4 className="text-primary-glow font-display text-xl mb-4">Get in Touch</h4>
+        <ul className="space-y-3 text-primary-foreground/80 text-sm">
+          <li>
+            <a href="mailto:contact@bakelette.in" className="hover:text-primary-glow">
+              ✉️ contact@bakelette.in
+            </a>
+          </li>
+          <li>
+            <a href="tel:+918369424099" className="hover:text-primary-glow">📞 +91 8369424099</a>
+          </li>
+          <li>
+            <a href="tel:+919920144632" className="hover:text-primary-glow">📞 +91 9920144632</a>
+          </li>
+          <li className="leading-relaxed">
+            📍 Seva Samiti CHS Ltd., Mumbai – 400037
+          </li>
+          <li>
+            <a href={waLink()} target="_blank" rel="noreferrer" className="hover:text-primary-glow">
+              💬 WhatsApp · {PHONE_DISPLAY}
+            </a>
+          </li>
+        </ul>
+      </div>
+
       <div className="md:col-span-2 lg:col-span-3">
         <h4 className="text-primary-glow font-display text-xl mb-4">Follow Us</h4>
         <div className="flex items-center gap-3 mb-6">
@@ -79,31 +104,6 @@ const Footer = () => (
         <a href={waLink()} target="_blank" rel="noreferrer" className="text-primary-foreground/80 hover:text-primary-glow text-sm flex items-center gap-2">
           💬 WhatsApp · {PHONE_DISPLAY}
         </a>
-      </div>
-
-      <div className="md:col-span-4 lg:col-span-3">
-        <h4 className="text-primary-glow font-display text-xl mb-4">Get in Touch</h4>
-        <ul className="space-y-3 text-primary-foreground/80 text-sm">
-          <li>
-            <a href="mailto:contact@bakelette.in" className="hover:text-primary-glow">
-              ✉️ contact@bakelette.in
-            </a>
-          </li>
-          <li>
-            <a href="tel:+918369424099" className="hover:text-primary-glow">📞 +91 8369424099</a>
-          </li>
-          <li>
-            <a href="tel:+919920144632" className="hover:text-primary-glow">📞 +91 9920144632</a>
-          </li>
-          <li className="leading-relaxed">
-            📍 Seva Samiti CHS Ltd., Mumbai – 400037
-          </li>
-          <li>
-            <a href={waLink()} target="_blank" rel="noreferrer" className="hover:text-primary-glow">
-              💬 WhatsApp · {PHONE_DISPLAY}
-            </a>
-          </li>
-        </ul>
       </div>
     </div>
     <div className="container mt-12 pt-8 border-t border-primary-foreground/10 text-center text-primary-foreground/50 text-sm">
