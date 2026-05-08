@@ -60,41 +60,6 @@ const FollowCrumbs = () => {
             </div>
           ))}
         </div>
-
-        <div className="mt-16 flex flex-wrap justify-center gap-6">
-          <a
-            href="https://instagram.com/bakelette.official"
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex items-center gap-2 rounded-full border border-primary/20 text-primary px-8 py-3 font-semibold hover:bg-primary hover:text-primary-foreground transition-all text-sm"
-          >
-            Instagram
-          </a>
-          <a
-            href="https://www.facebook.com/share/18WjsbYLsS/"
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex items-center gap-2 rounded-full border border-primary/20 text-primary px-8 py-3 font-semibold hover:bg-primary hover:text-primary-foreground transition-all text-sm"
-          >
-            Facebook
-          </a>
-          <a
-            href="https://www.linkedin.com/company/bakelette/"
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex items-center gap-2 rounded-full border border-primary/20 text-primary px-8 py-3 font-semibold hover:bg-primary hover:text-primary-foreground transition-all text-sm"
-          >
-            LinkedIn
-          </a>
-          <a
-            href="https://share.google/QM3vrylCI2OkWzygP"
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex items-center gap-2 rounded-full border border-primary/20 text-primary px-8 py-3 font-semibold hover:bg-primary hover:text-primary-foreground transition-all text-sm"
-          >
-            Google
-          </a>
-        </div>
       </div>
     </section>
   );

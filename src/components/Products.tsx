@@ -233,7 +233,7 @@ export const products: Product[] = [
     price: 1800,
     category: "Bundles",
     img: bundle,
-    badge: "Limited Edition",
+    badge: "Artisanal Choice",
     tagline: "A curated tasting of our finest bakes.",
     description: "The ultimate Bakelette experience. This bundle features our signature Pistachio Lime Loaf (500g), the bold Mumbai Spice Brew cookies (250g), and refreshing Blueberry Yogurt cookies (250g). Perfect for sharing or gifting.",
     notes: ["Pistachio Lime Loaf", "Mumbai Spice Cookies", "Blueberry Yogurt Cookies"],
