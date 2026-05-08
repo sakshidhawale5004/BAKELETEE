@@ -21,7 +21,7 @@ const hampers: Product[] = [
     img: "/assets/hampers/The-darling-new.png",
     description: "Our most popular choice. The Darling brings together the bakes that have captured the hearts of our community. A balanced mix of sweet, savory, and wholesome that promises to delight every recipient.",
     notes: ["Signature Banana Loaf", "Nutella Stuffed Cookies", "Almond Sticks", "Premium Gift Box"],
-    badge: "Bestseller",
+    badge: "Community Choice",
   },
   {
     name: "The Icon",
