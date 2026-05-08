@@ -12,6 +12,10 @@ export interface Product {
   description: string;
   notes: string[];
   weight?: string;
+  variants?: {
+    weight: string;
+    price: number;
+  }[];
 }
 
 interface Props {
@@ -21,11 +25,13 @@ interface Props {
 
 const QuickViewDialog = ({ product, onClose }: Props) => {
   const [qty, setQty] = useState(1);
+  const [selectedVariant, setSelectedVariant] = useState(product?.variants?.[1] || null); // Default to 500g if exists
   const { addToCart } = useCart();
 
   useEffect(() => {
     if (!product) return;
-    setQty(1); // Reset qty when product changes
+    setQty(1); 
+    setSelectedVariant(product.variants?.[1] || null);
     const onKey = (e: KeyboardEvent) => e.key === "Escape" && onClose();
     document.body.style.overflow = "hidden";
     window.addEventListener("keydown", onKey);
@@ -36,6 +42,21 @@ const QuickViewDialog = ({ product, onClose }: Props) => {
   }, [product, onClose]);
 
   if (!product) return null;
+
+  const currentPrice = selectedVariant ? selectedVariant.price : product.price;
+  const currentWeight = selectedVariant ? selectedVariant.weight : product.weight;
+
+  const handleAddToCart = () => {
+    const finalProduct = {
+      ...product,
+      price: currentPrice,
+      weight: currentWeight,
+      // If it's a variant, we modify the name to make it unique in the cart
+      name: selectedVariant ? `${product.name} (${selectedVariant.weight})` : product.name,
+    };
+    addToCart(finalProduct, qty);
+    onClose();
+  };
 
   return (
     <div
@@ -85,6 +106,30 @@ const QuickViewDialog = ({ product, onClose }: Props) => {
               {product.name}
             </h2>
 
+            {product.variants && (
+              <div className="mt-6">
+                <h4 className="text-xs uppercase tracking-widest text-foreground/70 font-semibold mb-3">
+                  Select Size
+                </h4>
+                <div className="flex gap-3">
+                  {product.variants.map((v) => (
+                    <button
+                      key={v.weight}
+                      onClick={() => setSelectedVariant(v)}
+                      className={`px-4 py-2 rounded-xl border-2 transition-all ${
+                        selectedVariant?.weight === v.weight
+                          ? "border-primary bg-primary/5 text-primary"
+                          : "border-border hover:border-primary/50 text-muted-foreground"
+                      }`}
+                    >
+                      <div className="text-sm font-bold">{v.weight}</div>
+                      <div className="text-[10px]">₹{v.price}</div>
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
+
             <p className="mt-5 text-muted-foreground leading-relaxed">{product.description}</p>
 
             <div className="mt-6">
@@ -102,12 +147,28 @@ const QuickViewDialog = ({ product, onClose }: Props) => {
                 ))}
               </ul>
             </div>
-            {/* Spacer for sticky footer on mobile */}
-            <div className="h-24 md:hidden" />
           </div>
 
-          {/* Empty space for consistency */}
-          <div className="h-10" />
+          {/* Fixed Footer for Action */}
+          <div className="p-6 md:p-10 bg-muted/30 border-t border-border mt-auto">
+            <div className="flex items-center justify-between gap-6">
+              <div>
+                <span className="text-xs text-muted-foreground uppercase tracking-wider block mb-1">Total Price</span>
+                <span className="text-3xl font-display font-bold text-primary">₹{currentPrice * qty}</span>
+              </div>
+              <div className="flex items-center bg-background rounded-full p-1 border border-border">
+                <button onClick={() => setQty(Math.max(1, qty - 1))} className="w-8 h-8 rounded-full hover:bg-muted transition-colors">-</button>
+                <span className="w-8 text-center font-bold">{qty}</span>
+                <button onClick={() => setQty(qty + 1)} className="w-8 h-8 rounded-full hover:bg-muted transition-colors">+</button>
+              </div>
+            </div>
+            <button
+              onClick={handleAddToCart}
+              className="w-full mt-6 bg-gradient-primary text-primary-foreground py-4 rounded-full font-bold shadow-glow hover:shadow-elegant transition-all active:scale-[0.98]"
+            >
+              Add to Cart
+            </button>
+          </div>
         </div>
       </div>
     </div>

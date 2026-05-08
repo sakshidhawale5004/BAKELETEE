@@ -172,18 +172,7 @@ export const products: Product[] = [
 
   // Loaves
   {
-    name: "Pistachio & Lime Loaf Cake (250g)",
-    price: 245,
-    category: "Loaves",
-    img: pistachioLoaf,
-    badge: "Fresh & Natural",
-    tagline: "Zesty Joy, Baked Fresh.",
-    description: "A bright, citrusy spark that wakes up your spirit. Imagine the earthy depth of pistachios meeting a sunshine-filled lime zest. It’s a moist, tender celebration of life’s most vibrant, happy flavors.",
-    notes: ["Pistachio", "Fresh lime zest", "Khapli Atta base"],
-    weight: "250 grams",
-  },
-  {
-    name: "Pistachio & Lime Loaf Cake (500g)",
+    name: "Pistachio & Lime Loaf Cake",
     price: 450,
     category: "Loaves",
     img: pistachioLoaf,
@@ -192,20 +181,13 @@ export const products: Product[] = [
     description: "A bright, citrusy spark that wakes up your spirit. Imagine the earthy depth of pistachios meeting a sunshine-filled lime zest. It’s a moist, tender celebration of life’s most vibrant, happy flavors.",
     notes: ["Pistachio", "Fresh lime zest", "Khapli Atta base"],
     weight: "500 grams",
+    variants: [
+      { weight: "250 grams", price: 245 },
+      { weight: "500 grams", price: 450 },
+    ],
   },
   {
-    name: "Rose & Saffron Celebration Loaf Cake (250g)",
-    price: 365,
-    category: "Loaves",
-    img: roseLoaf,
-    badge: "Antioxidant Rich",
-    tagline: "A Royal Romance in Every Slice.",
-    description: "Indulge in a love story thousands of years in the making. Pure Kashmiri saffron and delicate rose petals weave a fragrant tapestry of luxury. Every slice is a gift to yourself—a moment of pure, floral elegance.",
-    notes: ["Pure Kashmiri saffron", "Edible rose petals", "Pistachio crown", "Khapli Atta"],
-    weight: "250 grams",
-  },
-  {
-    name: "Rose & Saffron Celebration Loaf Cake (500g)",
+    name: "Rose & Saffron Celebration Loaf Cake",
     price: 670,
     category: "Loaves",
     img: roseLoaf,
@@ -214,20 +196,13 @@ export const products: Product[] = [
     description: "Indulge in a love story thousands of years in the making. Pure Kashmiri saffron and delicate rose petals weave a fragrant tapestry of luxury. Every slice is a gift to yourself—a moment of pure, floral elegance.",
     notes: ["Pure Kashmiri saffron", "Edible rose petals", "Pistachio crown", "Khapli Atta"],
     weight: "500 grams",
+    variants: [
+      { weight: "250 grams", price: 365 },
+      { weight: "500 grams", price: 670 },
+    ],
   },
   {
-    name: "Signature Banana Walnut Loaf Cake (250g)",
-    price: 425,
-    category: "Loaves",
-    img: bananaWalnut,
-    badge: "Timeless Favorite",
-    tagline: "The Ultimate Comfort Classic.",
-    description: "A timeless favorite, perfected. Super moist banana sponge studded with the crunch of premium walnuts. It’s the kind of cake that makes the whole house smell like love and home.",
-    notes: ["Bananas", "Toasted walnuts", "Khapli Atta base"],
-    weight: "250 grams",
-  },
-  {
-    name: "Signature Banana Walnut Loaf Cake (500g)",
+    name: "Signature Banana Walnut Loaf Cake",
     price: 785,
     category: "Loaves",
     img: bananaWalnut,
@@ -236,20 +211,13 @@ export const products: Product[] = [
     description: "A timeless favorite, perfected. Super moist banana sponge studded with the crunch of premium walnuts. It’s the kind of cake that makes the whole house smell like love and home.",
     notes: ["Bananas", "Toasted walnuts", "Khapli Atta base"],
     weight: "500 grams",
+    variants: [
+      { weight: "250 grams", price: 425 },
+      { weight: "500 grams", price: 785 },
+    ],
   },
   {
-    name: "Traditional Ghee Loaf Cake (250g)",
-    price: 350,
-    category: "Loaves",
-    img: gheeCake,
-    badge: "Heritage Bake",
-    tagline: "Pure, Aromatic Heritage.",
-    description: "A tribute to traditional flavors. Infused with the golden aroma of organic ghee, this cake is incredibly soft, buttery, and carries a fragrance that takes you back to simpler times.",
-    notes: ["Organic grass-fed ghee", "Melt-in-mouth", "Subtle cardamom", "Khapli Atta"],
-    weight: "250 grams",
-  },
-  {
-    name: "Traditional Ghee Loaf Cake (500g)",
+    name: "Traditional Ghee Loaf Cake",
     price: 645,
     category: "Loaves",
     img: gheeCake,
@@ -258,6 +226,10 @@ export const products: Product[] = [
     description: "A tribute to traditional flavors. Infused with the golden aroma of organic ghee, this cake is incredibly soft, buttery, and carries a fragrance that takes you back to simpler times.",
     notes: ["Organic grass-fed ghee", "Melt-in-mouth", "Subtle cardamom", "Khapli Atta"],
     weight: "500 grams",
+    variants: [
+      { weight: "250 grams", price: 350 },
+      { weight: "500 grams", price: 645 },
+    ],
   },
   {
     name: "Premium Curations Bundle",
@@ -372,52 +344,69 @@ const Products = ({ selected, onSelect, searchQuery = "" }: ProductsProps) => {
                   <p className="mt-2 text-sm font-script text-primary italic leading-snug">{p.tagline}</p>
                   <div className="mt-4 flex items-baseline justify-between">
                     <div className="flex flex-col">
-                      <span className="text-2xl font-display font-semibold text-primary">₹{p.price}</span>
+                      <span className="text-2xl font-display font-semibold text-primary">
+                        {p.variants ? `Starting at ₹${p.variants[0].price}` : `₹${p.price}`}
+                      </span>
                       <span className="text-[10px] text-muted-foreground uppercase tracking-wider">{p.weight ?? "per box"}</span>
                     </div>
-                    <div className="flex items-center bg-muted rounded-full p-1 border border-border/50">
-                      <button 
-                        onClick={() => handleQuantity(p, -1)}
-                        className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-background transition-colors"
-                      >
-                        -
-                      </button>
-                      <span className="w-8 text-center text-sm font-bold">{getQuantity(p.name) || 1}</span>
-                      <button 
-                        onClick={() => handleQuantity(p, 1)}
-                        className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-background transition-colors"
-                      >
-                        +
-                      </button>
-                    </div>
+                    {!p.variants && (
+                      <div className="flex items-center bg-muted rounded-full p-1 border border-border/50">
+                        <button 
+                          onClick={() => handleQuantity(p, -1)}
+                          className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-background transition-colors"
+                        >
+                          -
+                        </button>
+                        <span className="w-8 text-center text-sm font-bold">{getQuantity(p.name) || 1}</span>
+                        <button 
+                          onClick={() => handleQuantity(p, 1)}
+                          className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-background transition-colors"
+                        >
+                          +
+                        </button>
+                      </div>
+                    )}
                   </div>
                   <div className="mt-6 grid grid-cols-2 gap-3">
                     <button
                       type="button"
                       onClick={() => {
-                        const qty = Math.max(1, getQuantity(p.name));
-                        const itemTotal = p.price * qty;
-                        const message = `Hi Bakelette! I'd like to order the following:\n\n- ${p.name} x ${qty} (₹${itemTotal})\n\nTotal: ₹${itemTotal}\n\nThank you!`;
-                        window.open(waLink(message), "_blank");
+                        if (p.variants) {
+                          setActive(p);
+                        } else {
+                          const qty = Math.max(1, getQuantity(p.name));
+                          const itemTotal = p.price * qty;
+                          const message = `Hi Bakelette! I'd like to order the following:\n\n- ${p.name} x ${qty} (₹${itemTotal})\n\nTotal: ₹${itemTotal}\n\nThank you!`;
+                          window.open(waLink(message), "_blank");
+                        }
                       }}
                       className="rounded-full border-2 border-border text-foreground text-sm font-semibold py-2.5 hover:border-primary hover:text-primary transition-colors"
                     >
-                      Buy Now
+                      {p.variants ? "Select Size" : "Buy Now"}
                     </button>
-                    {getQuantity(p.name) > 0 ? (
+                    {p.variants ? (
                       <button
-                        onClick={() => setIsOpen(true)}
-                        className="rounded-full bg-gradient-primary text-primary-foreground text-sm font-semibold py-2.5 text-center shadow-glow hover:-translate-y-0.5 transition-all"
-                      >
-                        View Cart
-                      </button>
-                    ) : (
-                      <button
-                        onClick={() => addToCart(p, 1)}
+                        onClick={() => setActive(p)}
                         className="rounded-full bg-gradient-primary text-primary-foreground text-sm font-semibold py-2.5 text-center shadow-glow hover:-translate-y-0.5 transition-all"
                       >
                         Add to Cart
                       </button>
+                    ) : (
+                      getQuantity(p.name) > 0 ? (
+                        <button
+                          onClick={() => setIsOpen(true)}
+                          className="rounded-full bg-gradient-primary text-primary-foreground text-sm font-semibold py-2.5 text-center shadow-glow hover:-translate-y-0.5 transition-all"
+                        >
+                          View Cart
+                        </button>
+                      ) : (
+                        <button
+                          onClick={() => addToCart(p, 1)}
+                          className="rounded-full bg-gradient-primary text-primary-foreground text-sm font-semibold py-2.5 text-center shadow-glow hover:-translate-y-0.5 transition-all"
+                        >
+                          Add to Cart
+                        </button>
+                      )
                     )}
                   </div>
                 </div>
