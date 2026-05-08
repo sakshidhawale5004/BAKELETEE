@@ -277,10 +277,16 @@ const Products = ({ selected, onSelect, searchQuery = "" }: ProductsProps) => {
         </div>
 
         <div className="flex overflow-x-auto no-scrollbar md:flex-wrap md:justify-center gap-3 mb-12 pb-4 md:pb-0 px-4 md:px-0 -mx-4 md:mx-0">
-          {(["All", "Cookies", "Brownie", "Loaves", "Bites", "Bundles"] as Category[]).map((c) => (
+          {(["All", "Cookies", "Brownie", "Loaves", "Bites", "Bundles", "Gift Hamper"] as (Category | "Gift Hamper")[]).map((c) => (
             <button
               key={c}
-              onClick={() => onSelect(c)}
+              onClick={() => {
+                if (c === "Gift Hamper") {
+                  document.getElementById("gifting")?.scrollIntoView({ behavior: "smooth" });
+                } else {
+                  onSelect(c as Category);
+                }
+              }}
               className={`whitespace-nowrap px-6 py-2.5 rounded-full text-sm font-semibold border transition-all duration-200 ${
                 selected === c
                   ? "bg-gradient-primary text-primary-foreground border-primary shadow-glow"
