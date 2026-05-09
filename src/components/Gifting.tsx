@@ -51,6 +51,9 @@ const Gifting = () => {
           <p className="mt-6 text-muted-foreground text-lg max-w-2xl mx-auto">
             Thoughtfully curated hampers for every celebration, wrapped in elegance and baked with love.
           </p>
+          <p className="mt-4 text-xs text-primary/60 font-medium italic">
+            Note: Images are for representation only. Our gift hampers are bespoke curations that evolve with the festive season to bring you the freshest artisanal experience.
+          </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-6xl mx-auto px-4">

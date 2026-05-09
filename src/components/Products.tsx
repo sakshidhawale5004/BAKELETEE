@@ -228,9 +228,14 @@ export const products: Product[] = [
     category: "Bundles",
     img: bundle,
     badge: "Artisanal Choice",
-    tagline: "Make it special.",
-    description: "Make it special.",
-    notes: [],
+    tagline: "The Zenith of Artisanal Craft.",
+    description: "An exquisite symphony of our finest bakes, meticulously curated to offer an unparalleled sensory journey. This bundle is more than just a selection—it is an invitation to explore the very heart of Bakelette Bliss. Each item is chosen for its unique story, texture, and flavor, coming together to create an elevated experience that transcends the ordinary.",
+    notes: [
+      "A bespoke collection of our master-crafted bakes",
+      "Curated for a perfect harmony of flavors and textures",
+      "Elegant presentation for a truly elevated gifting or tasting experience",
+      "The definitive Bakelette discovery journey"
+    ],
     weight: "Full Set",
   },
 ];
@@ -256,12 +261,17 @@ const Products = ({ selected, onSelect, searchQuery = "" }: ProductsProps) => {
   const [active, setActive] = useState<Product | null>(null);
 
   const filtered = products
-    .filter((p) => (selected === "All" ? true : p.category === selected))
+    .filter((p) => {
+      // If there's a search query, we show all matching products regardless of category
+      if (searchQuery) return true;
+      return selected === "All" ? true : p.category === selected;
+    })
     .filter((p) => 
       searchQuery === "" || 
       p.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
       p.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      p.tagline.toLowerCase().includes(searchQuery.toLowerCase())
+      p.tagline.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      p.category.toLowerCase().includes(searchQuery.toLowerCase())
     );
 
   return (

@@ -19,7 +19,6 @@ const Footer = () => (
           <li><a href="/#products" className="hover:text-primary-glow">Bakes</a></li>
           <li><a href="/#categories" className="hover:text-primary-glow">Categories</a></li>
           <li><a href="/#blog" className="hover:text-primary-glow">Blog</a></li>
-          <li><a href="/#society" className="hover:text-primary-glow">The Society</a></li>
           <li><a href="/#promise" className="hover:text-primary-glow">Founder's Letter</a></li>
           <li><a href="/terms" className="hover:text-primary-glow">Terms & Conditions</a></li>
         </ul>
