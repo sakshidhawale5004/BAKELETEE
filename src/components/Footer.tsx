@@ -43,7 +43,7 @@ const Footer = () => (
           </li>
           <li>
             <a href={waLink()} target="_blank" rel="noreferrer" className="hover:text-primary-glow">
-              💬 WhatsApp; {PHONE_DISPLAY}
+              💬 WhatsApp: {PHONE_DISPLAY}
             </a>
           </li>
         </ul>

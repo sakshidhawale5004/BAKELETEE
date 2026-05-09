@@ -76,7 +76,7 @@ export const products: Product[] = [
     badge: "Zen Moment",
     tagline: "A Serene Green Escape.",
     description: "Premium Japanese Matcha meets the creamy sweetness of white chocolate chunks. A sophisticated, earthy treat that’s as beautiful to look at as it is to eat. Perfect for a mindful tea break.",
-    notes: ["Premium Japanese Matcha", "White Choco Chunks", "Whole Wheat & Jaggery"],
+    notes: ["White Choco Chunks", "Whole Wheat & Jaggery"],
     weight: "250 grams",
   },
   {
@@ -378,7 +378,7 @@ const ProductCard = ({
             {p.badge}
           </span>
         )}
-        <span className="absolute inset-x-4 bottom-4 bg-background/95 backdrop-blur-md text-foreground text-sm font-semibold py-3 rounded-full text-center shadow-elegant">
+        <span className={`absolute inset-x-4 ${p.category === 'Bundles' ? 'top-4' : 'bottom-4'} bg-background/95 backdrop-blur-md text-foreground text-sm font-semibold py-3 rounded-full text-center shadow-elegant`}>
           Quick View →
         </span>
       </button>
