@@ -34,29 +34,31 @@ const FollowCrumbs = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12 max-w-6xl mx-auto items-start">
           {reels.map((url, i) => (
             <div
               key={i}
               className="fade-up w-full flex justify-center"
               style={{ animationDelay: `${i * 0.1}s` }}
             >
-              <blockquote
-                className="instagram-media"
-                data-instgrm-permalink={url}
-                data-instgrm-version="14"
-                style={{
-                  background: "#FFF",
-                  border: "0",
-                  borderRadius: "12px",
-                  boxShadow: "0 0 1px 0 rgba(0,0,0,0.5), 0 1px 10px 0 rgba(0,0,0,0.15)",
-                  margin: "1px",
-                  maxWidth: "100%",
-                  minWidth: "100%",
-                  padding: "0",
-                  width: "100%",
-                }}
-              ></blockquote>
+              <div className="w-full max-w-[320px] md:max-w-none">
+                <blockquote
+                  className="instagram-media"
+                  data-instgrm-permalink={url}
+                  data-instgrm-version="14"
+                  style={{
+                    background: "#FFF",
+                    border: "0",
+                    borderRadius: "12px",
+                    boxShadow: "0 0 1px 0 rgba(0,0,0,0.5), 0 1px 10px 0 rgba(0,0,0,0.15)",
+                    margin: "1px",
+                    maxWidth: "100%",
+                    minWidth: "100%",
+                    padding: "0",
+                    width: "100%",
+                  }}
+                ></blockquote>
+              </div>
             </div>
           ))}
         </div>
