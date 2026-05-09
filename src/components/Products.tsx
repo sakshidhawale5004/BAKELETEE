@@ -224,7 +224,7 @@ export const products: Product[] = [
   },
   {
     name: "Premium Curations Bundle",
-    price: 1550,
+    price: 1800,
     category: "Bundles",
     img: bundle,
     badge: "Artisanal Choice",
