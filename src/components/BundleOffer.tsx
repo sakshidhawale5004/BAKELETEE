@@ -47,16 +47,15 @@ const BundleOffer = () => {
                 </div>
               </div>
 
-              <div className="mt-auto flex flex-col sm:flex-row items-center gap-4 pt-8 border-t border-primary/10">
-                <div className="flex flex-col items-center sm:items-start">
-                  <span className="text-xs text-muted-foreground uppercase tracking-wider">Special Bundle Price</span>
-                  <span className="text-3xl font-display font-bold text-primary">₹1,800</span>
-                </div>
+              <div className="mt-8 flex flex-col items-center gap-4 pt-8 border-t border-primary/10 text-center">
+                <p className="text-sm font-medium text-ink/80">
+                  Includes: Pistachio Lime Loaf, Mumbai Spice Brew Cookie & Blueberry Yogurt Cookie
+                </p>
                 <a
-                  href={waLink("Hi! I'd like to order the Premium Curations Bundle for ₹1,800.")}
+                  href={waLink("Hi! I'd like to order the Premium Curations Bundle.")}
                   target="_blank"
                   rel="noreferrer"
-                  className="w-full sm:w-auto text-center rounded-full bg-gradient-primary text-primary-foreground px-8 py-3 font-bold shadow-glow hover:shadow-3d hover:-translate-y-1 transition-all text-sm"
+                  className="w-full sm:w-auto text-center rounded-full bg-gradient-primary text-primary-foreground px-8 py-3 font-bold shadow-glow hover:shadow-3d hover:-translate-y-1 transition-all text-sm mt-2"
                 >
                   Order Bundle
                 </a>

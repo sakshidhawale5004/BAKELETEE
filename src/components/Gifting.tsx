@@ -10,8 +10,8 @@ const hampers: Product[] = [
     category: "Gift Hamper",
     tagline: "A gentle whisper of affection.",
     img: "/assets/hampers/THE-MUSE-FINAL.jpeg",
-    description: "Sometimes, the smallest gestures carry the deepest meaning. The Muse is a delicate collection of four hand-picked bakes, designed to be a gentle whisper of affection. Whether it's a quiet 'thank you' or a simple 'I'm thinking of you,' these treats are crafted to turn a fleeting moment into a lasting memory of warmth.",
-    notes: ["4 Hand-picked Artisanal Treats", "Elegant Handcrafted Packaging", "Perfect for Thoughtful Gestures"],
+    description: "Sometimes, the smallest gestures carry the deepest meaning. The Muse is a delicate collection of hand-picked bakes, designed to be a gentle whisper of affection. Whether it's a quiet 'thank you' or a simple 'I'm thinking of you,' these treats are crafted to turn a fleeting moment into a lasting memory of warmth.",
+    notes: ["Hand-picked Artisanal Treats", "Elegant Handcrafted Packaging", "Perfect for Thoughtful Gestures"],
     badge: "Signature Choice",
   },
   {
@@ -20,8 +20,8 @@ const hampers: Product[] = [
     category: "Gift Hamper",
     tagline: "A warm embrace in a box.",
     img: "/assets/hampers/THE-DARLING-FINAL.jpeg",
-    description: "Our most cherished collection, for the ones who hold a special place in your heart. The Darling brings together six of our most-loved bakes—the ones that have sparked conversations and shared smiles. It's more than a gift; it's a warm embrace in a box, meant for sharing stories and creating new traditions with the people who matter most.",
-    notes: ["6 Signature Bestsellers", "Premium Keepsake Gift Box", "Designed for Shared Moments"],
+    description: "Our most cherished collection, for the ones who hold a special place in your heart. The Darling brings together some of our most-loved bakes—the ones that have sparked conversations and shared smiles. It's more than a gift; it's a warm embrace in a box, meant for sharing stories and creating new traditions with the people who matter most.",
+    notes: ["Signature Bestsellers", "Premium Keepsake Gift Box", "Designed for Shared Moments"],
     badge: "Community Choice",
   },
   {
@@ -30,8 +30,8 @@ const hampers: Product[] = [
     category: "Gift Hamper",
     tagline: "The ultimate expression of artisanal love.",
     img: "/assets/hampers/THE-ICON-FINAL.jpeg",
-    description: "A lavish tribute to life’s grandest celebrations and most profound connections. The Icon is our ultimate expression of artisanal love, featuring eight of our most indulgent and sophisticated bakes. It is a grand gesture of abundance, designed to honor the milestones that define us and the people who inspire us. A truly iconic gift for truly iconic moments.",
-    notes: ["8 Indulgent Masterpieces", "Luxury Commemorative Packaging", "The Full Bakelette Experience"],
+    description: "A lavish tribute to life’s grandest celebrations and most profound connections. The Icon is our ultimate expression of artisanal love, featuring some of our most indulgent and sophisticated bakes. It is a grand gesture of abundance, designed to honor the milestones that define us and the people who inspire us. A truly iconic gift for truly iconic moments.",
+    notes: ["Indulgent Masterpieces", "Luxury Commemorative Packaging", "The Full Bakelette Experience"],
     badge: "Luxury Edition",
   },
 ];

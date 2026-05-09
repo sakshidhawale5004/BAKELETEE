@@ -31,7 +31,7 @@ export const products: Product[] = [
     badge: "Must Try",
     tagline: "A Molten Hug for Your Soul.",
     description: "Remember the joy of discovering a hidden treasure? That's the magic here. A golden, buttery embrace that gives way to a warm, velvety Nutella heart. It’s more than a treat; it’s that sweet, comforting moment you’ve been waiting for all day.",
-    notes: ["Molten Nutella core", "Belgian dark choco chips", "Whole wheat & jaggery"],
+    notes: ["Molten Nutella Core", "Belgian Dark Choco Chips", "Whole Wheat & Jaggery"],
     weight: "250 grams",
   },
   {
@@ -42,7 +42,7 @@ export const products: Product[] = [
     badge: "Probiotic Goodness",
     tagline: "A Soft Morning Sunbeam.",
     description: "Light, tangy, and refreshingly gentle. Real blueberries meet silky yogurt for a treat that feels like a whispered secret between you and your tea. It’s the gentle wake-up call your spirit needs.",
-    notes: ["Real blueberry chunks", "Greek yogurt base", "Lightly sweetened with jaggery"],
+    notes: ["Real Blueberry Chunks", "Greek Yogurt Base", "Lightly Sweetened with Jaggery"],
     weight: "250 grams",
   },
   {
@@ -53,7 +53,7 @@ export const products: Product[] = [
     badge: "Refined Sugar-Free",
     tagline: "Soulful, Toffee-Sweet Memories.",
     description: "There’s a deep, artisanal magic in browned butter. It’s the scent of cozy rainy afternoons and the rich, toffee-like sweetness of jaggery that lingers like a fond memory you never want to end.",
-    notes: ["Hand-browned butter", "Organic cane jaggery"],
+    notes: ["Hand-browned Butter", "Organic Cane Jaggery"],
     weight: "250 grams",
   },
 
@@ -65,7 +65,7 @@ export const products: Product[] = [
     badge: "Culture Infused",
     tagline: "A Love Letter to the Streets.",
     description: "The chaotic beauty of a Mumbai Culture, captured in a crumb. Warm ginger and bold cardamom dance together with coffee-infused depth, reminding you of shared laughs and comfort.",
-    notes: ["Coffee infused", "Ginger & cardamom", "Best with hot brew"],
+    notes: ["Coffee Infused", "Ginger & Cardamom", "Best with Hot Brew"],
     weight: "250 grams",
   },
   {
@@ -76,18 +76,18 @@ export const products: Product[] = [
     badge: "Zen Moment",
     tagline: "A Serene Green Escape.",
     description: "Premium Japanese Matcha meets the creamy sweetness of white chocolate chunks. A sophisticated, earthy treat that’s as beautiful to look at as it is to eat. Perfect for a mindful tea break.",
-    notes: ["Premium Japanese Matcha", "White choco chunks", "Whole wheat & jaggery"],
+    notes: ["Premium Japanese Matcha", "White Choco Chunks", "Whole Wheat & Jaggery"],
     weight: "250 grams",
   },
   {
-    name: "Ginger Bread Cookies",
+    name: "Gingerbread Cookies",
     price: 395,
     category: "Cookies",
     img: gingerbread,
     badge: "Seasonal Favorite",
     tagline: "A Hug of Winter Sunshine.",
     description: "Classic, warming, and nostalgic. Our gingerbread cookies are a spice-rich journey through ginger, cinnamon, and molasses. They bring the warmth of a crackling fireplace to your tea time.",
-    notes: ["Fresh ginger", "Organic molasses", "Spiced whole wheat"],
+    notes: ["Fresh Ginger", "Organic Molasses", "Spiced Whole Wheat"],
     weight: "250 grams",
   },
   {
@@ -98,7 +98,7 @@ export const products: Product[] = [
     badge: "Fiber Rich",
     tagline: "Wholesome, Hearty, and Humble.",
     description: "A breakfast-inspired bake that feels like a warm bowl of sunshine. Packed with fiber-rich oats and the natural sweetness of fresh carrots, it's a wholesome companion for your morning brew that feels just as good as it tastes.",
-    notes: ["Fresh carrots", "Roasted oats", "Whole wheat & jaggery"],
+    notes: ["Fresh Carrots", "Roasted Oats", "Whole Wheat & Jaggery"],
     weight: "250 grams",
   },
 
@@ -111,7 +111,7 @@ export const products: Product[] = [
     badge: "Fudgy Goodness",
     tagline: "The Ultimate Fudgy Escape.",
     description: "Intensely chocolatey, remarkably fudgy, and crafted with naturally unsweetened cocoa powder. A decadent treat that melts in your mouth and stays in your heart.",
-    notes: ["Naturally unsweetened cocoa powder", "Gooey center", "Refined sugar-free", "Khapli Atta"],
+    notes: ["Naturally Unsweetened Cocoa Powder", "Gooey Center", "Refined Sugar-Free", "Khapli Atta"],
     weight: "4 pcs",
   },
 
@@ -124,7 +124,7 @@ export const products: Product[] = [
     badge: "Fiber Rich",
     tagline: "Your Daily Dose of Kindness.",
     description: "Treating yourself shouldn't be a compromise. These crunchy nibbles are a high-five from your future self—packed with wholesome nuts and roasted oats to keep you fueled and feeling loved all day long.",
-    notes: ["Nuts & oats", "Jaggery-bound", "No refined sugar"],
+    notes: ["Nuts & Oats", "Jaggery-Bound", "No Refined Sugar"],
     weight: "250 gms",
   },
   {
@@ -135,7 +135,7 @@ export const products: Product[] = [
     badge: "Nutrient Dense",
     tagline: "Elegance in Every Snap.",
     description: "Refined, crisp, and effortlessly beautiful. These golden slivers are for those quiet moments of reflection. Let the delicate crunch of Mamra almonds slow down time and turn your break into a celebration of you.",
-    notes: ["Hand-cut", "Mamra almond slivers", "Subtle vanilla"],
+    notes: ["Hand-Cut", "Mamra Almond Slivers", "Subtle Vanilla"],
     weight: "250 gms",
   },
   {
@@ -146,7 +146,7 @@ export const products: Product[] = [
     badge: "Heart Healthy",
     tagline: "The Jewel of Shared Moments.",
     description: "Emerald pistachios studded in a ghee crunch, meant for those long conversations that go late into the night. It's a sophisticated treat that says 'you deserve the best,' shared with those who matter most.",
-    notes: ["Whole pistachios", "Organic ghee"],
+    notes: ["Whole Pistachios", "Organic Ghee"],
     weight: "250 gms",
   },
   {
@@ -157,7 +157,7 @@ export const products: Product[] = [
     badge: "Calcium Powerhouse",
     tagline: "Rooted in Love and Strength.",
     description: "A humble tribute to our heritage. Ragi and organic ghee come together to nourish your body and soothe your heart. It’s the kind of snack that feels like a warm hug from Grandma—grounded and fulfilling.",
-    notes: ["Ragi flour", "Organic ghee"],
+    notes: ["Ragi Flour", "Organic Ghee"],
     weight: "250 gms",
   },
 
@@ -170,7 +170,7 @@ export const products: Product[] = [
     badge: "Timeless Favorite",
     tagline: "The Ultimate Comfort Classic.",
     description: "A timeless favorite, perfected. Super moist banana sponge studded with the crunch of premium walnuts. It’s the kind of cake that makes the whole house smell like love and home.",
-    notes: ["Bananas", "Toasted walnuts", "Khapli Atta"],
+    notes: ["Bananas", "Toasted Walnuts", "Khapli Atta"],
     weight: "500 grams",
     variants: [
       { weight: "250 grams", price: 475 },
@@ -185,7 +185,7 @@ export const products: Product[] = [
     badge: "Antioxidant Rich",
     tagline: "A Royal Romance in Every Slice.",
     description: "Indulge in a love story thousands of years in the making. Pure Kashmiri saffron and delicate rose petals weave a fragrant tapestry of luxury. Every slice is a gift to yourself—a moment of pure, floral elegance.",
-    notes: ["Pure Kashmiri saffron", "Edible rose petals", "Pistachio crown", "Khapli Atta"],
+    notes: ["Pure Kashmiri Saffron", "Edible Rose Petals", "Pistachio Crown", "Khapli Atta"],
     weight: "500 grams",
     variants: [
       { weight: "250 grams", price: 405 },
@@ -200,7 +200,7 @@ export const products: Product[] = [
     badge: "Heritage Bake",
     tagline: "Pure, Aromatic Heritage.",
     description: "A tribute to traditional flavors. Infused with the golden aroma of organic ghee, this cake is incredibly soft, buttery, and carries a fragrance that takes you back to simpler times.",
-    notes: ["Organic grass-fed ghee", "Melt-in-mouth", "Subtle cardamom", "Khapli Atta"],
+    notes: ["Organic Grass-Fed Ghee", "Melt-In-Mouth", "Subtle Cardamom", "Khapli Atta"],
     weight: "500 grams",
     variants: [
       { weight: "250 grams", price: 390 },
@@ -215,7 +215,7 @@ export const products: Product[] = [
     badge: "Fresh & Natural",
     tagline: "Zesty Joy, Baked Fresh.",
     description: "A bright, citrusy spark that wakes up your spirit. Imagine the earthy depth of pistachios meeting a sunshine-filled lime zest. It’s a moist, tender celebration of life’s most vibrant, happy flavors.",
-    notes: ["Pistachio", "Fresh lime zest", "Khapli Atta"],
+    notes: ["Pistachio", "Fresh Lime Zest", "Khapli Atta"],
     weight: "500 grams",
     variants: [
       { weight: "250 grams", price: 465 },
@@ -290,7 +290,7 @@ const Products = ({ selected, onSelect, searchQuery = "" }: ProductsProps) => {
         </div>
 
         <div className="flex overflow-x-auto no-scrollbar md:flex-wrap md:justify-center gap-3 mb-12 pb-4 md:pb-0 px-4 md:px-0 -mx-4 md:mx-0">
-          {(["All", "Cookies", "Brownie", "Loaves", "Bites", "Bundles", "Gift Hamper"] as Category[]).map((c) => (
+          {(["All", "Cookies", "Brownie", "Loaves", "Bites", "Bundles"] as Category[]).map((c) => (
             <button
               key={c}
               onClick={() => {
@@ -389,7 +389,9 @@ const ProductCard = ({
         
         <div className="mt-4 flex items-baseline justify-between">
           <div className="flex flex-col">
-            <span className="text-2xl font-display font-semibold text-primary">₹{currentPrice}</span>
+            {p.category !== "Bundles" && (
+              <span className="text-2xl font-display font-semibold text-primary">₹{currentPrice}</span>
+            )}
             <div className="flex items-center gap-1.5 mt-1">
               {p.variants ? (
                 p.variants.map((v) => (

@@ -100,7 +100,7 @@ const Header = ({ searchQuery = "", onSearchChange }: HeaderProps) => {
                 <button
                   key={item.title + item.section}
                   onClick={() => handleResultClick(item)}
-                  className="w-full text-left px-4 py-3 hover:bg-primary/5 transition-colors flex items-start gap-3 border-b border-border/20 last:border-b-0 group"
+                  className="w-full text-left px-4 py-3 hover:bg-primary/5 transition-colors flex items-start gap-3 border-b border-border/20 last:border-b-0 group cursor-pointer"
                 >
                   <div className="flex-1 min-w-0">
                     <p className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors truncate">{item.title}</p>
