@@ -59,6 +59,10 @@ interface Props {
 
 const Categories = ({ onSelect }: Props) => {
   const handle = (c: string) => {
+    if (c === "Bundles") {
+      document.getElementById("bundles")?.scrollIntoView({ behavior: "smooth" });
+      return;
+    }
     onSelect(c as Category);
     setTimeout(() => {
       document.getElementById("products")?.scrollIntoView({ behavior: "smooth" });

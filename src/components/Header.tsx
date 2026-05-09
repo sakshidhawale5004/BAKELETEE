@@ -65,13 +65,13 @@ const Header = ({ searchQuery = "", onSearchChange }: HeaderProps) => {
             <div 
               className={`flex items-center transition-all duration-500 ease-out overflow-hidden ${
                 isSearchOpen 
-                  ? "w-48 md:w-64 bg-background/40 backdrop-blur-md border border-primary/20 px-4 py-2 rounded-full shadow-elegant" 
+                  ? "w-48 md:w-72 bg-white/90 backdrop-blur-md border border-primary/30 px-4 py-2.5 rounded-full shadow-elegant" 
                   : "w-10 h-10 justify-center rounded-full hover:bg-primary/5 cursor-pointer"
               }`}
               onClick={() => !isSearchOpen && setIsSearchOpen(true)}
             >
               <Search 
-                className={`w-4 h-4 text-primary shrink-0 transition-transform duration-300 ${isSearchOpen ? "mr-2 scale-90" : "group-hover:scale-110"}`} 
+                className={`w-4.5 h-4.5 text-primary shrink-0 transition-transform duration-300 ${isSearchOpen ? "mr-3 scale-90" : "group-hover:scale-110"}`} 
               />
               {isSearchOpen && (
                 <input 
@@ -81,15 +81,15 @@ const Header = ({ searchQuery = "", onSearchChange }: HeaderProps) => {
                   value={searchQuery}
                   onChange={(e) => onSearchChange?.(e.target.value)}
                   onBlur={() => !searchQuery && setIsSearchOpen(false)}
-                  className="bg-transparent border-none focus:ring-0 text-xs w-full text-ink font-medium placeholder:text-ink/70 p-0"
+                  className="bg-transparent border-none focus:ring-0 text-[13px] w-full text-ink font-semibold placeholder:text-muted-foreground/60 p-0"
                 />
               )}
               {isSearchOpen && searchQuery && (
                 <button 
                   onClick={(e) => { e.stopPropagation(); onSearchChange?.(""); }} 
-                  className="ml-2 text-ink/50 hover:text-ink transition-colors"
+                  className="ml-2 text-primary/40 hover:text-primary transition-colors"
                 >
-                  <X className="w-3 h-3" />
+                  <X className="w-4 h-4" />
                 </button>
               )}
             </div>
@@ -148,7 +148,7 @@ const Header = ({ searchQuery = "", onSearchChange }: HeaderProps) => {
                 placeholder="Search bakes..."
                 value={searchQuery}
                 onChange={(e) => onSearchChange?.(e.target.value)}
-                className="w-full bg-primary/5 border border-primary/10 rounded-2xl px-12 py-4 text-sm focus:ring-2 focus:ring-primary/20 focus:bg-background transition-all outline-none text-ink placeholder:text-ink/60"
+                className="w-full bg-white/80 border border-primary/20 rounded-2xl px-12 py-4 text-sm focus:ring-2 focus:ring-primary/20 focus:bg-background transition-all outline-none text-ink font-semibold placeholder:text-muted-foreground/60 shadow-soft"
               />
               <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-primary opacity-50" />
               {searchQuery && (

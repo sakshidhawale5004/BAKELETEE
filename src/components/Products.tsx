@@ -36,7 +36,7 @@ export const products: Product[] = [
   },
   {
     name: "Blueberry Yogurt Cookies",
-    price: 340,
+    price: 510,
     category: "Cookies",
     img: blueberry,
     badge: "Probiotic Goodness",
@@ -59,7 +59,7 @@ export const products: Product[] = [
 
   {
     name: "Mumbai Spice Brew Cookies",
-    price: 330,
+    price: 500,
     category: "Cookies",
     img: mumbai,
     badge: "Culture Infused",
@@ -170,7 +170,7 @@ export const products: Product[] = [
     badge: "Timeless Favorite",
     tagline: "The Ultimate Comfort Classic.",
     description: "A timeless favorite, perfected. Super moist banana sponge studded with the crunch of premium walnuts. It’s the kind of cake that makes the whole house smell like love and home.",
-    notes: ["Bananas", "Toasted walnuts", "Khapli Atta base"],
+    notes: ["Bananas", "Toasted walnuts", "Khapli Atta"],
     weight: "500 grams",
     variants: [
       { weight: "250 grams", price: 475 },
@@ -209,17 +209,17 @@ export const products: Product[] = [
   },
   {
     name: "Pistachio & Lime Loaf Cake",
-    price: 450,
+    price: 930,
     category: "Loaves",
     img: pistachioLoaf,
     badge: "Fresh & Natural",
     tagline: "Zesty Joy, Baked Fresh.",
     description: "A bright, citrusy spark that wakes up your spirit. Imagine the earthy depth of pistachios meeting a sunshine-filled lime zest. It’s a moist, tender celebration of life’s most vibrant, happy flavors.",
-    notes: ["Pistachio", "Fresh lime zest", "Khapli Atta base"],
+    notes: ["Pistachio", "Fresh lime zest", "Khapli Atta"],
     weight: "500 grams",
     variants: [
-      { weight: "250 grams", price: 245 },
-      { weight: "500 grams", price: 450 },
+      { weight: "250 grams", price: 465 },
+      { weight: "500 grams", price: 930 },
     ],
   },
   {
@@ -228,9 +228,9 @@ export const products: Product[] = [
     category: "Bundles",
     img: bundle,
     badge: "Artisanal Choice",
-    tagline: "A curated tasting of our finest bakes.",
-    description: "The ultimate Bakelette experience. This bundle features our signature Pistachio Lime Loaf (500g), the bold Mumbai Spice Brew cookies (250g), and refreshing Blueberry Yogurt cookies (250g). Perfect for sharing or gifting.",
-    notes: ["Pistachio Lime Loaf", "Mumbai Spice Cookies", "Blueberry Yogurt Cookies"],
+    tagline: "Make it special.",
+    description: "Make it special.",
+    notes: [],
     weight: "Full Set",
   },
 ];
@@ -286,6 +286,8 @@ const Products = ({ selected, onSelect, searchQuery = "" }: ProductsProps) => {
               onClick={() => {
                 if (c === "Gift Hamper") {
                   document.getElementById("gifting")?.scrollIntoView({ behavior: "smooth" });
+                } else if (c === "Bundles") {
+                  document.getElementById("bundles")?.scrollIntoView({ behavior: "smooth" });
                 } else {
                   onSelect(c as Category);
                 }

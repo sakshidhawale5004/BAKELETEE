@@ -2,7 +2,7 @@ import { waLink } from "@/lib/contact";
 
 const BundleOffer = () => {
   return (
-    <section id="gifting" className="py-24 md:py-32 bg-warm/30 overflow-hidden relative">
+    <section id="bundles" className="py-24 md:py-32 bg-warm/30 overflow-hidden relative scroll-mt-24">
       <div className="container relative">
         {/* Section Header */}
         <div className="max-w-3xl mx-auto text-center mb-16">
@@ -37,20 +37,14 @@ const BundleOffer = () => {
                 "A curated tasting of our finest bakes."
               </p>
 
-              <div className="mt-6 grid grid-cols-1 gap-3 flex-1">
-                {[
-                  { item: "Pistachio Lime Loaf", qty: "500 grams" },
-                  { item: "Mumbai Spice Brew Cookie", qty: "250 grams" },
-                  { item: "Blueberry Yogurt Cookie", qty: "250 grams" },
-                ].map(({ item, qty }) => (
-                  <div key={item} className="flex items-center justify-between bg-white/50 backdrop-blur-sm p-3 rounded-xl border border-primary/5">
-                    <div className="flex items-center gap-3">
-                      <div className="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center text-primary text-[10px] shrink-0">✨</div>
-                      <span className="text-sm font-medium text-foreground/80">{item}</span>
-                    </div>
-                    <span className="text-sm font-bold text-primary">{qty}</span>
+              <div className="mt-6 flex-1">
+                <div className="flex items-center justify-between bg-white/50 backdrop-blur-sm p-4 rounded-xl border border-primary/5">
+                  <div className="flex items-center gap-3">
+                    <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center text-primary text-xs shrink-0">✨</div>
+                    <span className="text-base font-medium text-foreground/80">3 Signature Bakes</span>
                   </div>
-                ))}
+                  <span className="text-sm font-bold text-primary">Full Set</span>
+                </div>
               </div>
 
               <div className="mt-auto flex flex-col sm:flex-row items-center gap-4 pt-8 border-t border-primary/10">

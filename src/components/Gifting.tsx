@@ -9,8 +9,8 @@ const hampers: Product[] = [
     category: "Gift Hamper",
     tagline: "A graceful introduction to artisan bakes.",
     img: "/assets/hampers/The-muse-new.png",
-    description: "Perfect for a thoughtful gesture, The Muse features a curated selection of our signature bakes, offering a gentle taste of Bakelette's artisanal craft. Ideal for birthdays, thank-you notes, or just because.",
-    notes: ["Pistachio Lime Loaf", "Mumbai Spice Brew Cookies", "Artisanal Packaging"],
+    description: "4 items curated for a thoughtful gesture.",
+    notes: ["4 Premium Items"],
     badge: "Most Popular",
   },
   {
@@ -19,8 +19,8 @@ const hampers: Product[] = [
     category: "Gift Hamper",
     tagline: "A beloved collection of our bestsellers.",
     img: "/assets/hampers/The-darling-new.png",
-    description: "Our most popular choice. The Darling brings together the bakes that have captured the hearts of our community. A balanced mix of sweet, savory, and wholesome that promises to delight every recipient.",
-    notes: ["Signature Banana Loaf", "Nutella Stuffed Cookies", "Almond Sticks", "Premium Gift Box"],
+    description: "6 items bringing together the bakes that have captured the hearts of our community.",
+    notes: ["6 Premium Items"],
     badge: "Community Choice",
   },
   {
@@ -29,8 +29,8 @@ const hampers: Product[] = [
     category: "Gift Hamper",
     tagline: "The ultimate expression of Bakelette luxury.",
     img: "/assets/hampers/The-icon-new.png",
-    description: "The grandest of them all. The Icon is a lavish celebration of our entire range, featuring our most indulgent loaves, cookies, and bites. A statement piece for weddings, anniversaries, or corporate gifting.",
-    notes: ["Rose & Saffron Loaf", "Matcha & Blueberry Cookies", "Full Range of Nibbles", "Luxury Keepsake Box"],
+    description: "8 items in a lavish celebration of our entire range.",
+    notes: ["8 Premium Items"],
     badge: "Luxury Edition",
   },
 ];
@@ -99,15 +99,6 @@ const Gifting = () => {
               </div>
             </div>
           ))}
-        </div>
-
-        <div className="mt-20 text-center px-4">
-          <div className="inline-block bg-warm-50 px-8 py-4 rounded-2xl border border-warm-100">
-            <p className="text-sm text-muted-foreground">
-              For corporate bulk orders or custom assortments, kindly connect with us on 
-              <strong className="text-ink font-semibold block sm:inline sm:ml-2"> +91 83694 24099</strong>
-            </p>
-          </div>
         </div>
       </div>
 

@@ -132,21 +132,23 @@ const QuickViewDialog = ({ product, onClose }: Props) => {
 
             <p className="mt-5 text-muted-foreground leading-relaxed">{product.description}</p>
 
-            <div className="mt-6">
-              <h4 className="text-xs uppercase tracking-widest text-foreground/70 font-semibold mb-3">
-                What makes it special
-              </h4>
-              <ul className="grid grid-cols-1 gap-2">
-                {product.notes.map((n) => (
-                  <li key={n} className="flex items-start gap-3 text-sm text-foreground">
-                    <span className="mt-1 w-4 h-4 rounded-full bg-gradient-primary text-primary-foreground text-[10px] flex items-center justify-center shrink-0">
-                      ✓
-                    </span>
-                    {n}
-                  </li>
-                ))}
-              </ul>
-            </div>
+            {product.notes.length > 0 && (
+              <div className="mt-6">
+                <h4 className="text-xs uppercase tracking-widest text-foreground/70 font-semibold mb-3">
+                  What makes it special
+                </h4>
+                <ul className="grid grid-cols-1 gap-2">
+                  {product.notes.map((n) => (
+                    <li key={n} className="flex items-start gap-3 text-sm text-foreground">
+                      <span className="mt-1 w-4 h-4 rounded-full bg-gradient-primary text-primary-foreground text-[10px] flex items-center justify-center shrink-0">
+                        ✓
+                      </span>
+                      {n}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
           </div>
 
           {/* Fixed Footer for Action */}
