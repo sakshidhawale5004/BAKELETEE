@@ -31,7 +31,7 @@ export const products: Product[] = [
     badge: "Must Try",
     tagline: "A Molten Hug for Your Soul.",
     description: "Remember the joy of discovering a hidden treasure? That's the magic here. A golden, buttery embrace that gives way to a warm, velvety Nutella heart. It’s more than a treat; it’s that sweet, comforting moment you’ve been waiting for all day.",
-    notes: ["Molten Nutella Core", "Belgian Dark Choco Chips", "Whole Wheat & Jaggery"],
+    notes: ["Molten Nutella Core", "Choco Chips", "Whole Wheat & Jaggery"],
     weight: "250 grams",
   },
   {
