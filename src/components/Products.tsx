@@ -75,7 +75,7 @@ export const products: Product[] = [
     img: matcha,
     badge: "Zen Moment",
     tagline: "A Serene Green Escape.",
-    description: "Premium Japanese Matcha meets the creamy sweetness of white chocolate chunks. A sophisticated, earthy treat that’s as beautiful to look at as it is to eat. Perfect for a mindful tea break.",
+    description: "Matcha meets the creamy sweetness of white chocolate chunks. A sophisticated, earthy treat that’s as beautiful to look at as it is to eat. Perfect for a mindful tea break.",
     notes: ["White Choco Chunks", "Whole Wheat & Jaggery"],
     weight: "250 grams",
   },
