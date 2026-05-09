@@ -286,8 +286,6 @@ const Products = ({ selected, onSelect, searchQuery = "" }: ProductsProps) => {
               onClick={() => {
                 if (c === "Gift Hamper") {
                   document.getElementById("gifting")?.scrollIntoView({ behavior: "smooth" });
-                } else if (c === "Bundles") {
-                  document.getElementById("bundles")?.scrollIntoView({ behavior: "smooth" });
                 } else {
                   onSelect(c as Category);
                 }
