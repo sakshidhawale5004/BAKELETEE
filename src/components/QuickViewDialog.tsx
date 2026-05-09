@@ -71,7 +71,7 @@ const QuickViewDialog = ({ product, onClose }: Props) => {
         className="absolute inset-0 bg-ink/70 backdrop-blur-sm"
       />
 
-      <div className="relative w-full md:max-w-4xl h-full md:h-auto md:max-h-[92vh] bg-background md:rounded-3xl shadow-3d border-t md:border border-border animate-scale-in flex flex-col md:grid md:grid-cols-2">
+      <div className="relative w-full md:max-w-4xl h-full md:h-[85vh] md:max-h-[85vh] bg-background md:rounded-3xl shadow-3d border-t md:border border-border animate-scale-in flex flex-col md:grid md:grid-cols-2">
         {/* Close button */}
         <button
           onClick={onClose}
@@ -82,7 +82,7 @@ const QuickViewDialog = ({ product, onClose }: Props) => {
         </button>
 
         {/* Image - Shorter on mobile */}
-        <div className="relative aspect-[4/3] md:aspect-auto md:min-h-[520px] overflow-hidden bg-white p-4 md:p-8 shrink-0 flex items-center justify-center">
+        <div className="relative aspect-[4/3] md:aspect-auto overflow-hidden bg-white p-4 md:p-8 shrink-0 flex items-center justify-center md:rounded-l-3xl">
           <img src={product.img} alt={product.name} className="w-full h-full object-contain drop-shadow-elegant" />
           {product.badge && (
             <span className="absolute top-4 left-4 bg-gradient-primary text-primary-foreground text-xs font-semibold px-3 py-1.5 rounded-full shadow-glow">
@@ -93,8 +93,8 @@ const QuickViewDialog = ({ product, onClose }: Props) => {
         </div>
 
         {/* Content Area */}
-        <div className="flex flex-col flex-1 min-h-0 overflow-hidden">
-          <div className="p-6 md:p-10 flex-1 overflow-y-auto no-scrollbar">
+        <div className="flex flex-col min-h-0 overflow-hidden">
+          <div className="p-5 md:p-8 flex-1 overflow-y-auto no-scrollbar min-h-0">
             <span className="text-xs text-primary uppercase tracking-[0.25em] font-semibold">
               {product.category}
             </span>
