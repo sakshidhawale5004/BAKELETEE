@@ -224,7 +224,7 @@ export const products: Product[] = [
   },
   {
     name: "Premium Curations Bundle",
-    price: 1800,
+    price: 1550,
     category: "Bundles",
     img: bundle,
     badge: "Artisanal Choice",
@@ -389,9 +389,7 @@ const ProductCard = ({
         
         <div className="mt-4 flex items-baseline justify-between">
           <div className="flex flex-col">
-            {p.category !== "Bundles" && (
-              <span className="text-2xl font-display font-semibold text-primary">₹{currentPrice}</span>
-            )}
+            <span className="text-2xl font-display font-semibold text-primary">₹{currentPrice}</span>
             <div className="flex items-center gap-1.5 mt-1">
               {p.variants ? (
                 p.variants.map((v) => (
