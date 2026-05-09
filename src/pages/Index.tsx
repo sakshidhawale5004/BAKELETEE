@@ -33,18 +33,7 @@ const Index = () => {
     }
   }, [hash]);
 
-  useEffect(() => {
-    if (searchQuery) {
-      // Reset to 'All' category so search results always show
-      setSelected("All");
-      const element = document.getElementById("products");
-      if (element) {
-        const headerOffset = 140; // enough to clear fixed header + marquee
-        const elementPosition = element.getBoundingClientRect().top + window.scrollY;
-        window.scrollTo({ top: elementPosition - headerOffset, behavior: "smooth" });
-      }
-    }
-  }, [searchQuery]);
+
 
   return (
     <main className="min-h-screen bg-background">

@@ -1,8 +1,10 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef, useMemo } from "react";
+import { useNavigate } from "react-router-dom";
 import logo from "@/assets/bakelette-logo.png";
 import { waLink, telLink, PHONE_DISPLAY } from "@/lib/contact";
 import { useCart } from "@/contexts/CartContext";
 import { Search, X, ShoppingBag, Menu } from "lucide-react";
+import { searchAll, type SearchResult } from "@/lib/searchIndex";
 
 interface HeaderProps {
   searchQuery?: string;
@@ -12,6 +14,9 @@ interface HeaderProps {
 const Header = ({ searchQuery = "", onSearchChange }: HeaderProps) => {
   const { totalItems, setIsOpen: setOpenCart } = useCart();
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const navigate = useNavigate();
+  const searchRef = useRef<HTMLDivElement>(null);
+  const mobileSearchRef = useRef<HTMLDivElement>(null);
 
   const [scrolled, setScrolled] = useState(false);
   useEffect(() => {
@@ -21,6 +26,95 @@ const Header = ({ searchQuery = "", onSearchChange }: HeaderProps) => {
   }, []);
 
   const [isOpen, setIsOpen] = useState(false);
+
+  // Global search results
+  const searchResults = useMemo(() => searchAll(searchQuery), [searchQuery]);
+
+  // Group results by section
+  const grouped = useMemo(() => {
+    const map: Record<string, SearchResult[]> = {};
+    searchResults.forEach((r) => {
+      if (!map[r.section]) map[r.section] = [];
+      map[r.section].push(r);
+    });
+    return map;
+  }, [searchResults]);
+
+  const hasResults = searchResults.length > 0;
+
+  // Close search dropdown on outside click
+  useEffect(() => {
+    const handleClick = (e: MouseEvent) => {
+      if (searchRef.current && !searchRef.current.contains(e.target as Node)) {
+        if (!searchQuery) setIsSearchOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClick);
+    return () => document.removeEventListener("mousedown", handleClick);
+  }, [searchQuery]);
+
+  const handleResultClick = (result: SearchResult) => {
+    onSearchChange?.("");
+    setIsSearchOpen(false);
+    setIsOpen(false);
+
+    if (result.action.type === "navigate") {
+      navigate(result.action.url);
+    } else {
+      // Scroll to section
+      const el = document.getElementById(result.action.target);
+      if (el) {
+        const headerOffset = 140;
+        const elementPosition = el.getBoundingClientRect().top + window.scrollY;
+        window.scrollTo({ top: elementPosition - headerOffset, behavior: "smooth" });
+      }
+    }
+  };
+
+  const sectionIcons: Record<string, string> = {
+    "Signature Bakes": "🍪",
+    "Gift Hampers": "🎁",
+    "Blog": "📖",
+    "Pages": "📄",
+  };
+
+  const renderDropdown = (isMobile = false) => {
+    if (!searchQuery) return null;
+
+    return (
+      <div className={`${isMobile ? "mt-2" : "absolute top-full left-0 right-0 mt-2"} bg-white rounded-2xl shadow-elegant border border-border/60 overflow-hidden z-[80] max-h-[60vh] overflow-y-auto no-scrollbar`}>
+        {!hasResults ? (
+          <div className="p-6 text-center">
+            <p className="text-muted-foreground text-sm font-medium">No results found for "{searchQuery}"</p>
+            <p className="text-xs text-muted-foreground/60 mt-1">Try searching for cookies, loaves, hampers, blog…</p>
+          </div>
+        ) : (
+          Object.entries(grouped).map(([section, items]) => (
+            <div key={section}>
+              <div className="px-4 py-2.5 bg-muted/40 border-b border-border/30 flex items-center gap-2">
+                <span className="text-sm">{sectionIcons[section] || "✦"}</span>
+                <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-primary/70">{section}</span>
+                <span className="text-[10px] text-muted-foreground ml-auto">{items.length} {items.length === 1 ? "result" : "results"}</span>
+              </div>
+              {items.map((item) => (
+                <button
+                  key={item.title + item.section}
+                  onClick={() => handleResultClick(item)}
+                  className="w-full text-left px-4 py-3 hover:bg-primary/5 transition-colors flex items-start gap-3 border-b border-border/20 last:border-b-0 group"
+                >
+                  <div className="flex-1 min-w-0">
+                    <p className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors truncate">{item.title}</p>
+                    <p className="text-xs text-muted-foreground mt-0.5 line-clamp-1">{item.subtitle}</p>
+                  </div>
+                  <span className="text-primary/40 group-hover:text-primary text-xs mt-1 shrink-0 transition-colors">→</span>
+                </button>
+              ))}
+            </div>
+          ))
+        )}
+      </div>
+    );
+  };
 
   return (
     <header
@@ -61,7 +155,7 @@ const Header = ({ searchQuery = "", onSearchChange }: HeaderProps) => {
           <a href="/#blog" className="text-primary hover:text-primary-glow transition-colors">Blog</a>
           <a href="/#follow" className="text-primary hover:text-primary-glow transition-colors">Follow</a>
           
-          <div className="relative flex items-center group">
+          <div className="relative flex items-center group" ref={searchRef}>
             <div 
               className={`flex items-center transition-all duration-500 ease-out overflow-hidden ${
                 isSearchOpen 
@@ -77,10 +171,9 @@ const Header = ({ searchQuery = "", onSearchChange }: HeaderProps) => {
                 <input 
                   autoFocus
                   type="text"
-                  placeholder="Search our bakes..."
+                  placeholder="Search everything..."
                   value={searchQuery}
                   onChange={(e) => onSearchChange?.(e.target.value)}
-                  onBlur={() => !searchQuery && setIsSearchOpen(false)}
                   className="bg-transparent border-none focus:border-none focus:ring-0 focus:outline-none text-[13px] w-full text-ink font-semibold placeholder:text-muted-foreground/60 p-0 appearance-none shadow-none"
                 />
               )}
@@ -93,6 +186,7 @@ const Header = ({ searchQuery = "", onSearchChange }: HeaderProps) => {
                 </button>
               )}
             </div>
+            {isSearchOpen && renderDropdown()}
           </div>
 
           <button 
@@ -142,10 +236,10 @@ const Header = ({ searchQuery = "", onSearchChange }: HeaderProps) => {
 
         <nav className="container flex flex-col gap-6 text-lg font-semibold text-primary">
           <div className="flex flex-col gap-4 border-b border-border pb-6 pt-2">
-            <div className="relative mb-2">
+            <div className="relative mb-2" ref={mobileSearchRef}>
               <input 
                 type="text"
-                placeholder="Search bakes..."
+                placeholder="Search everything..."
                 value={searchQuery}
                 onChange={(e) => onSearchChange?.(e.target.value)}
                 className="w-full bg-white/80 border border-primary/20 rounded-2xl px-12 py-4 text-sm focus:ring-2 focus:ring-primary/20 focus:bg-background transition-all outline-none text-ink font-semibold placeholder:text-muted-foreground/60 shadow-soft"
@@ -159,6 +253,7 @@ const Header = ({ searchQuery = "", onSearchChange }: HeaderProps) => {
                   <X className="w-4 h-4 text-primary opacity-50" />
                 </button>
               )}
+              {renderDropdown(true)}
             </div>
             <a href="/#promise" onClick={() => setIsOpen(false)} className="hover:translate-x-2 transition-transform">Founder's Letter</a>
             <a href="/#products" onClick={() => setIsOpen(false)} className="hover:translate-x-2 transition-transform">Signature Bakes</a>
