@@ -148,7 +148,7 @@ const Header = ({ searchQuery = "", onSearchChange }: HeaderProps) => {
           </p>
         </a>
 
-        <nav className="hidden md:flex items-center gap-6 text-sm font-semibold">
+        <nav className={`hidden md:flex items-center transition-all duration-500 text-sm font-semibold whitespace-nowrap ${isSearchOpen ? "gap-3 lg:gap-6" : "gap-6"}`}>
           <a href="/#promise" className="text-primary hover:text-primary-glow transition-colors">Founder's Letter</a>
           <a href="/#products" className="text-primary hover:text-primary-glow transition-colors">Signature Bakes</a>
           <a href="/#categories" className="text-primary hover:text-primary-glow transition-colors">Categories</a>
@@ -207,7 +207,7 @@ const Header = ({ searchQuery = "", onSearchChange }: HeaderProps) => {
         <div className="flex items-center gap-3">
           <a
             href={telLink}
-            className="hidden sm:inline text-sm font-semibold text-primary hover:text-primary-glow transition-colors"
+            className="hidden sm:inline text-sm font-semibold text-primary hover:text-primary-glow transition-colors whitespace-nowrap"
           >
             {PHONE_DISPLAY}
           </a>
