@@ -378,7 +378,7 @@ const ProductCard = ({
             {p.badge}
           </span>
         )}
-        <span className={`absolute inset-x-4 ${p.category === 'Bundles' ? 'bottom-20' : 'bottom-4'} bg-background/95 backdrop-blur-md text-foreground text-sm font-semibold py-3 rounded-full text-center shadow-elegant transition-all duration-300`}>
+        <span className={`absolute inset-x-4 ${p.category === 'Bundles' ? 'bottom-6' : 'bottom-4'} bg-background/95 backdrop-blur-md text-foreground text-sm font-semibold py-3 rounded-full text-center shadow-elegant transition-all duration-300`}>
           Quick View →
         </span>
       </button>
