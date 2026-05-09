@@ -59,17 +59,17 @@ const Gifting = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-6xl mx-auto px-4">
           {hampers.map((h) => {
             const inCart = getQuantity(h.name);
-            
+
             return (
               <div key={h.name} className="group flex flex-col bg-white rounded-[2.5rem] p-5 border border-warm-200/50 shadow-soft hover:shadow-elegant transition-all duration-500 hover:-translate-y-2">
-                <button 
+                <button
                   onClick={() => setActive(h)}
                   className="relative aspect-square rounded-[2rem] overflow-hidden mb-8 shadow-inner border border-warm-100 group/img w-full text-left"
                 >
                   <div className="w-full h-full rounded-[2rem] overflow-hidden bg-white relative">
-                    <img 
-                      src={h.img} 
-                      alt={h.name} 
+                    <img
+                      src={h.img}
+                      alt={h.name}
                       className="w-full h-full object-cover transition-transform duration-700 group-hover/img:scale-110 will-change-transform [backface-visibility:hidden]"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
@@ -81,7 +81,7 @@ const Gifting = () => {
                 <div className="px-2 flex-1 flex flex-col">
                   <h3 className="text-2xl font-display text-ink tracking-tight">{h.name}</h3>
                   <p className="mt-3 text-sm text-muted-foreground leading-relaxed line-clamp-2">{h.tagline}</p>
-                  
+
                   <div className="mt-8 flex items-baseline justify-between">
                     <div className="flex flex-col">
                       <span className="text-[10px] uppercase tracking-widest text-primary font-bold mb-1 opacity-60">Starting at</span>
@@ -100,15 +100,15 @@ const Gifting = () => {
                       Buy Now
                     </button>
                     {inCart > 0 ? (
-                      <button 
-                        onClick={() => setIsOpen(true)} 
+                      <button
+                        onClick={() => setIsOpen(true)}
                         className="rounded-full bg-gradient-primary text-primary-foreground text-sm font-semibold py-2.5 text-center shadow-glow hover:-translate-y-0.5 transition-all"
                       >
                         View Cart
                       </button>
                     ) : (
-                      <button 
-                        onClick={() => addToCart(h, 1)} 
+                      <button
+                        onClick={() => addToCart(h, 1)}
                         className="rounded-full bg-gradient-primary text-primary-foreground text-sm font-semibold py-2.5 text-center shadow-glow hover:-translate-y-0.5 transition-all"
                       >
                         Add to Cart

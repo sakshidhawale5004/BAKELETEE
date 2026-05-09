@@ -130,24 +130,54 @@ const QuickViewDialog = ({ product, onClose }: Props) => {
               </div>
             )}
 
-            <p className="mt-5 text-muted-foreground leading-relaxed">{product.description}</p>
-
-            {product.notes.length > 0 && (
+            {/* Special elevated layout for Bundles & Gift Hampers */}
+            {(product.category === "Bundles" || product.category === "Gift Hamper") ? (
               <div className="mt-6">
-                <h4 className="text-xs uppercase tracking-widest text-foreground/70 font-semibold mb-3">
-                  What makes it special
-                </h4>
-                <ul className="grid grid-cols-1 gap-2">
-                  {product.notes.map((n) => (
-                    <li key={n} className="flex items-start gap-3 text-sm text-foreground">
-                      <span className="mt-1 w-4 h-4 rounded-full bg-gradient-primary text-primary-foreground text-[10px] flex items-center justify-center shrink-0">
-                        ✓
-                      </span>
-                      {n}
-                    </li>
-                  ))}
-                </ul>
+                <p className="text-muted-foreground leading-relaxed">{product.description}</p>
+                <div className="my-6 flex items-center gap-4">
+                  <div className="flex-1 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+                  <span className="text-primary text-lg">✦</span>
+                  <div className="flex-1 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+                </div>
+                <div className="bg-gradient-to-br from-primary/5 via-warm/30 to-primary/5 rounded-2xl p-6 border border-primary/10">
+                  <h4 className="text-xs uppercase tracking-[0.2em] text-primary font-bold mb-4">
+                    The Experience
+                  </h4>
+                  <ul className="space-y-3">
+                    {product.notes.map((n) => (
+                      <li key={n} className="flex items-start gap-3 text-sm text-foreground/90 font-medium">
+                        <span className="text-primary mt-0.5 shrink-0">✦</span>
+                        {n}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <p className="mt-5 text-xs text-center text-primary/50 italic font-medium">
+                  Every piece is a chapter in our story — we invite you to begin yours.
+                </p>
               </div>
+            ) : (
+              <>
+                <p className="mt-5 text-muted-foreground leading-relaxed">{product.description}</p>
+
+                {product.notes.length > 0 && (
+                  <div className="mt-6">
+                    <h4 className="text-xs uppercase tracking-widest text-foreground/70 font-semibold mb-3">
+                      What makes it special
+                    </h4>
+                    <ul className="grid grid-cols-1 gap-2">
+                      {product.notes.map((n) => (
+                        <li key={n} className="flex items-start gap-3 text-sm text-foreground">
+                          <span className="mt-1 w-4 h-4 rounded-full bg-gradient-primary text-primary-foreground text-[10px] flex items-center justify-center shrink-0">
+                            ✓
+                          </span>
+                          {n}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </>
             )}
           </div>
 
