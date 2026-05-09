@@ -1,4 +1,5 @@
 import { waLink } from "@/lib/contact";
+import bundleImg from "@/assets/products/bundle-final.jpeg";
 
 const BundleOffer = () => {
   return (
@@ -22,7 +23,7 @@ const BundleOffer = () => {
               <div className="absolute -inset-4 bg-primary/20 blur-2xl rounded-[2rem] opacity-0 group-hover:opacity-100 transition-opacity" />
               <div className="relative aspect-[3/4] overflow-hidden">
                 <img
-                  src="/bundlefinalimage.png"
+                  src={bundleImg}
                   alt="Premium Curations Bundle - Pistachio Lime Loaf, Mumbai Spice Brew Cookie, Blueberry Yogurt Cookie"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
