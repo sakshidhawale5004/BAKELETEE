@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { waLink } from "@/lib/contact";
 import QuickViewDialog, { type Product } from "./QuickViewDialog";
+import { useCart } from "@/contexts/CartContext";
 
 const hampers: Product[] = [
   {
@@ -37,6 +38,7 @@ const hampers: Product[] = [
 
 const Gifting = () => {
   const [active, setActive] = useState<Product | null>(null);
+  const { addToCart, getQuantity, setIsOpen } = useCart();
 
   return (
     <section id="gifting" className="py-24 md:py-32 bg-background scroll-mt-24">
@@ -52,53 +54,68 @@ const Gifting = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-6xl mx-auto px-4">
-          {hampers.map((h) => (
-            <div key={h.name} className="group flex flex-col bg-white rounded-[2.5rem] p-5 border border-warm-200/50 shadow-soft hover:shadow-elegant transition-all duration-500 hover:-translate-y-2">
-              <button 
-                onClick={() => setActive(h)}
-                className="relative aspect-square rounded-[2rem] overflow-hidden mb-8 shadow-inner border border-warm-100 group/img w-full text-left"
-              >
-                <div className="w-full h-full rounded-[2rem] overflow-hidden bg-white relative">
-                  <img 
-                    src={h.img} 
-                    alt={h.name} 
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover/img:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent pointer-events-none" />
-                  <span className="absolute inset-x-4 bottom-4 bg-background/95 backdrop-blur-md text-foreground text-xs font-semibold py-3 rounded-full text-center shadow-elegant opacity-0 group-hover/img:opacity-100 transition-opacity">
-                    Quick View →
-                  </span>
-                </div>
-              </button>
-              <div className="px-2 flex-1 flex flex-col">
-                <h3 className="text-2xl font-display text-ink tracking-tight">{h.name}</h3>
-                <p className="mt-3 text-sm text-muted-foreground leading-relaxed line-clamp-2">{h.tagline}</p>
-                
-                <div className="mt-auto pt-8 flex items-end justify-between">
-                  <div className="flex flex-col">
-                    <span className="text-[10px] uppercase tracking-widest text-primary font-bold mb-1 opacity-60">Starting at</span>
-                    <span className="text-3xl font-semibold text-primary">₹{h.price}</span>
+          {hampers.map((h) => {
+            const inCart = getQuantity(h.name);
+            
+            return (
+              <div key={h.name} className="group flex flex-col bg-white rounded-[2.5rem] p-5 border border-warm-200/50 shadow-soft hover:shadow-elegant transition-all duration-500 hover:-translate-y-2">
+                <button 
+                  onClick={() => setActive(h)}
+                  className="relative aspect-square rounded-[2rem] overflow-hidden mb-8 shadow-inner border border-warm-100 group/img w-full text-left"
+                >
+                  <div className="w-full h-full rounded-[2rem] overflow-hidden bg-white relative">
+                    <img 
+                      src={h.img} 
+                      alt={h.name} 
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover/img:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent pointer-events-none" />
+                    <span className="absolute inset-x-4 bottom-4 bg-background/95 backdrop-blur-md text-foreground text-xs font-semibold py-3 rounded-full text-center shadow-elegant transition-all">
+                      Quick View →
+                    </span>
                   </div>
-                  <div className="flex gap-2">
+                </button>
+                <div className="px-2 flex-1 flex flex-col">
+                  <h3 className="text-2xl font-display text-ink tracking-tight">{h.name}</h3>
+                  <p className="mt-3 text-sm text-muted-foreground leading-relaxed line-clamp-2">{h.tagline}</p>
+                  
+                  <div className="mt-8 flex items-baseline justify-between">
+                    <div className="flex flex-col">
+                      <span className="text-[10px] uppercase tracking-widest text-primary font-bold mb-1 opacity-60">Starting at</span>
+                      <span className="text-3xl font-semibold text-primary">₹{h.price}</span>
+                    </div>
+                  </div>
+
+                  <div className="mt-6 grid grid-cols-2 gap-3">
                     <button
-                      onClick={() => setActive(h)}
-                      className="w-14 h-14 rounded-full border-2 border-primary/20 text-primary flex items-center justify-center hover:bg-primary/5 transition-all"
+                      onClick={() => {
+                        const message = `Hi Bakelette! I'd like to order the ${h.name} hamper (₹${h.price}).\n\nThank you!`;
+                        window.open(waLink(message), "_blank");
+                      }}
+                      className="rounded-full border-2 border-border text-foreground text-sm font-semibold py-2.5 hover:border-primary hover:text-primary transition-colors"
                     >
-                      <span className="text-sm font-bold">Info</span>
+                      Buy Now
                     </button>
-                    <a
-                      href={waLink(`Hi! I'd like to order ${h.name} hamper`)}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="w-14 h-14 rounded-full bg-primary text-primary-foreground flex items-center justify-center hover:bg-primary-glow transition-all shadow-glow group-hover:scale-105 active:scale-95"
-                    >
-                      <span className="text-2xl">→</span>
-                    </a>
+                    {inCart > 0 ? (
+                      <button 
+                        onClick={() => setIsOpen(true)} 
+                        className="rounded-full bg-gradient-primary text-primary-foreground text-sm font-semibold py-2.5 text-center shadow-glow hover:-translate-y-0.5 transition-all"
+                      >
+                        View Cart
+                      </button>
+                    ) : (
+                      <button 
+                        onClick={() => addToCart(h, 1)} 
+                        className="rounded-full bg-gradient-primary text-primary-foreground text-sm font-semibold py-2.5 text-center shadow-glow hover:-translate-y-0.5 transition-all"
+                      >
+                        Add to Cart
+                      </button>
+                    )}
                   </div>
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
 
