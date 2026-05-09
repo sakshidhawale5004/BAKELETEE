@@ -12,7 +12,7 @@ const hampers: Product[] = [
     img: "/assets/hampers/THE-MUSE-FINAL.jpeg",
     description: "Sometimes, the smallest gestures carry the deepest meaning. The Muse is a delicate collection of four hand-picked bakes, designed to be a gentle whisper of affection. Whether it's a quiet 'thank you' or a simple 'I'm thinking of you,' these treats are crafted to turn a fleeting moment into a lasting memory of warmth.",
     notes: ["4 Hand-picked Artisanal Treats", "Elegant Handcrafted Packaging", "Perfect for Thoughtful Gestures"],
-    badge: "Most Popular",
+    badge: "Signature Choice",
   },
   {
     name: "The Darling",
