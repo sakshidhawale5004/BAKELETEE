@@ -6,6 +6,7 @@ import OurPromise from "@/components/Promise";
 import Products, { type Category } from "@/components/Products";
 import Categories from "@/components/Categories";
 import Gifting from "@/components/Gifting";
+import Subscription from "@/components/Subscription";
 import HowItWorks from "@/components/HowItWorks";
 import Testimonials from "@/components/Testimonials";
 import FollowCrumbs from "@/components/FollowCrumbs";
@@ -41,6 +42,7 @@ const Index = () => {
       <Products selected={selected} onSelect={setSelected} searchQuery={searchQuery} />
       <Categories onSelect={setSelected} />
       <Gifting />
+      <Subscription />
       <HowItWorks />
       <Testimonials />
       <Blog />

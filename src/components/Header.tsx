@@ -59,6 +59,7 @@ const Header = ({ searchQuery = "", onSearchChange }: HeaderProps) => {
           <a href="/#products" className="text-primary hover:text-primary-glow transition-colors">Signature Bakes</a>
           <a href="/#categories" className="text-primary hover:text-primary-glow transition-colors">Categories</a>
           <a href="/#blog" className="text-primary hover:text-primary-glow transition-colors">Blog</a>
+          <a href="/#society" className="text-primary hover:text-primary-glow transition-colors">The Society</a>
           <a href="/#follow" className="text-primary hover:text-primary-glow transition-colors">Follow</a>
           
           <div className="relative flex items-center group">
@@ -164,6 +165,7 @@ const Header = ({ searchQuery = "", onSearchChange }: HeaderProps) => {
             <a href="/#products" onClick={() => setIsOpen(false)} className="hover:translate-x-2 transition-transform">Signature Bakes</a>
             <a href="/#categories" onClick={() => setIsOpen(false)} className="hover:translate-x-2 transition-transform">Categories</a>
             <a href="/#blog" onClick={() => setIsOpen(false)} className="hover:translate-x-2 transition-transform">Blog</a>
+            <a href="/#society" onClick={() => setIsOpen(false)} className="hover:translate-x-2 transition-transform">The Society</a>
             <a href="/#follow" onClick={() => setIsOpen(false)} className="hover:translate-x-2 transition-transform">Follow</a>
           </div>
 
