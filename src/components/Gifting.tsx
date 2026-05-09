@@ -51,7 +51,7 @@ const Gifting = () => {
           <p className="mt-6 text-muted-foreground text-lg max-w-2xl mx-auto">
             Thoughtfully curated hampers for every celebration, wrapped in elegance and baked with love.
           </p>
-          <p className="mt-4 text-xs text-primary/60 font-medium italic">
+          <p className="mt-4 text-xs text-muted-foreground font-medium italic">
             *Images are for representation purposes only and may not reflect the actual products included. Gift hampers are thoughtfully curated each festive season with a fresh selection of our finest artisanal bakes.
           </p>
         </div>
