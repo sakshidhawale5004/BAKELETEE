@@ -66,7 +66,7 @@ const Header = ({ searchQuery = "", onSearchChange }: HeaderProps) => {
             <div 
               className={`flex items-center transition-all duration-500 ease-out overflow-hidden ${
                 isSearchOpen 
-                  ? "w-48 md:w-72 bg-white/90 backdrop-blur-md border border-primary/30 px-4 py-2.5 rounded-full shadow-elegant" 
+                  ? "w-48 md:w-72 bg-white/95 backdrop-blur-md border border-primary/10 px-4 py-2.5 rounded-full shadow-elegant ring-1 ring-primary/5" 
                   : "w-10 h-10 justify-center rounded-full hover:bg-primary/5 cursor-pointer"
               }`}
               onClick={() => !isSearchOpen && setIsSearchOpen(true)}
@@ -82,7 +82,7 @@ const Header = ({ searchQuery = "", onSearchChange }: HeaderProps) => {
                   value={searchQuery}
                   onChange={(e) => onSearchChange?.(e.target.value)}
                   onBlur={() => !searchQuery && setIsSearchOpen(false)}
-                  className="bg-transparent border-none focus:ring-0 text-[13px] w-full text-ink font-semibold placeholder:text-muted-foreground/60 p-0"
+                  className="bg-transparent border-none focus:border-none focus:ring-0 focus:outline-none text-[13px] w-full text-ink font-semibold placeholder:text-muted-foreground/60 p-0 appearance-none shadow-none"
                 />
               )}
               {isSearchOpen && searchQuery && (
