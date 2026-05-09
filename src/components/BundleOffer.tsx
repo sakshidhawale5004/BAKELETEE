@@ -21,11 +21,11 @@ const BundleOffer = () => {
           <div className="bg-white/60 backdrop-blur-sm rounded-[2rem] border border-primary/10 shadow-elegant overflow-hidden flex flex-col">
             <div className="relative group">
               <div className="absolute -inset-4 bg-primary/20 blur-2xl rounded-[2rem] opacity-0 group-hover:opacity-100 transition-opacity" />
-              <div className="relative aspect-[1/1.6] overflow-hidden">
+              <div className="relative aspect-[1/1.6] overflow-hidden bg-[#f0f4f8]">
                 <img
                   src={bundleImg}
                   alt="Premium Curations Bundle - Pistachio Lime Loaf, Mumbai Spice Brew Cookie, Blueberry Yogurt Cookie"
-                  className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
+                  className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700"
                 />
               </div>
             </div>

@@ -370,15 +370,15 @@ const ProductCard = ({
       <button
         type="button"
         onClick={onQuickView}
-        className={`relative ${p.category === 'Bundles' ? 'aspect-[1/1.7]' : 'aspect-square sm:aspect-[4/5]'} overflow-hidden bg-warm text-left`}
+        className={`relative ${p.category === 'Bundles' ? 'aspect-[1/1.65]' : 'aspect-square sm:aspect-[4/5]'} overflow-hidden ${p.category === 'Bundles' ? 'bg-[#f0f4f8]' : 'bg-warm'} text-left`}
       >
-        <img src={p.img} alt={p.name} className={`w-full h-full ${p.category === 'Bundles' ? 'object-top' : 'object-cover'} object-cover group-hover:scale-105 transition-transform duration-700 will-change-transform [backface-visibility:hidden]`} />
+        <img src={p.img} alt={p.name} className={`w-full h-full ${p.category === 'Bundles' ? 'object-contain' : 'object-cover'} group-hover:scale-105 transition-transform duration-700 will-change-transform [backface-visibility:hidden]`} />
         {p.badge && (
           <span className="absolute top-4 left-4 bg-gradient-primary text-primary-foreground text-xs font-semibold px-3 py-1.5 rounded-full shadow-glow">
             {p.badge}
           </span>
         )}
-        <span className="absolute inset-x-4 bottom-4 bg-background/95 backdrop-blur-md text-foreground text-sm font-semibold py-3 rounded-full text-center shadow-elegant opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0">
+        <span className={`absolute inset-x-4 ${p.category === 'Bundles' ? 'bottom-20' : 'bottom-4'} bg-background/95 backdrop-blur-md text-foreground text-sm font-semibold py-3 rounded-full text-center shadow-elegant transition-all duration-300`}>
           Quick View →
         </span>
       </button>
