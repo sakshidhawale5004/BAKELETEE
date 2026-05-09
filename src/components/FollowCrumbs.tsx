@@ -5,7 +5,6 @@ const reels = [
   "https://www.instagram.com/reel/DXlTUiniLsq/",
   "https://www.instagram.com/reel/DXdjWFHioAS/",
   "https://www.instagram.com/reel/DXYZhN6jVNJ/",
-  "https://www.instagram.com/reel/DXBQen2jMTU/",
 ];
 
 const FollowCrumbs = () => {
@@ -34,7 +33,7 @@ const FollowCrumbs = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12 max-w-6xl mx-auto items-start">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 max-w-7xl mx-auto items-start">
           {reels.map((url, i) => (
             <div
               key={i}
