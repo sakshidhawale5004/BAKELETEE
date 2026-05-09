@@ -71,7 +71,7 @@ const QuickViewDialog = ({ product, onClose }: Props) => {
         className="absolute inset-0 bg-ink/70 backdrop-blur-sm"
       />
 
-      <div className="relative w-full md:max-w-4xl h-full md:h-auto md:max-h-[92vh] overflow-y-auto bg-background md:rounded-3xl shadow-3d border-t md:border border-border animate-scale-in flex flex-col md:grid md:grid-cols-2 no-scrollbar">
+      <div className="relative w-full md:max-w-4xl h-full md:h-auto md:max-h-[92vh] bg-background md:rounded-3xl shadow-3d border-t md:border border-border animate-scale-in flex flex-col md:grid md:grid-cols-2">
         {/* Close button */}
         <button
           onClick={onClose}
@@ -93,8 +93,8 @@ const QuickViewDialog = ({ product, onClose }: Props) => {
         </div>
 
         {/* Content Area */}
-        <div className="flex flex-col flex-1 min-h-0">
-          <div className="p-6 md:p-10 flex-1">
+        <div className="flex flex-col flex-1 min-h-0 overflow-hidden">
+          <div className="p-6 md:p-10 flex-1 overflow-y-auto no-scrollbar">
             <span className="text-xs text-primary uppercase tracking-[0.25em] font-semibold">
               {product.category}
             </span>
@@ -181,8 +181,8 @@ const QuickViewDialog = ({ product, onClose }: Props) => {
             )}
           </div>
 
-          {/* Fixed Footer for Action */}
-          <div className="p-6 md:p-10 bg-muted/30 border-t border-border mt-auto">
+          {/* Sticky Footer for Action */}
+          <div className="p-4 md:p-6 bg-background border-t border-border shrink-0">
             <div className="flex items-center justify-between gap-6">
               <div>
                 <span className="text-xs text-muted-foreground uppercase tracking-wider block mb-1">Total Price</span>
@@ -196,7 +196,7 @@ const QuickViewDialog = ({ product, onClose }: Props) => {
             </div>
             <button
               onClick={handleAddToCart}
-              className="w-full mt-6 bg-gradient-primary text-primary-foreground py-4 rounded-full font-bold shadow-glow hover:shadow-elegant transition-all active:scale-[0.98]"
+              className="w-full mt-3 bg-gradient-primary text-primary-foreground py-3 rounded-full font-bold shadow-glow hover:shadow-elegant transition-all active:scale-[0.98]"
             >
               Add to Cart
             </button>
