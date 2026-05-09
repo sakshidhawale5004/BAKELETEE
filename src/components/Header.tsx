@@ -194,7 +194,7 @@ const Header = ({ searchQuery = "", onSearchChange }: HeaderProps) => {
             className="group flex items-center gap-2 text-primary hover:text-primary-glow transition-all relative px-3 py-2 rounded-full hover:bg-primary/5"
           >
             <ShoppingBag className="w-5 h-5 group-hover:-rotate-12 transition-transform" />
-            <span className="hidden lg:inline">Cart</span>
+            <span className={`hidden ${isSearchOpen ? "xl:inline" : "lg:inline"}`}>Cart</span>
             {totalItems > 0 && (
               <span className="absolute -top-1 -right-1 bg-primary text-primary-foreground text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center shadow-glow animate-in zoom-in">
                 {totalItems}
@@ -216,7 +216,7 @@ const Header = ({ searchQuery = "", onSearchChange }: HeaderProps) => {
             href={waLink("Hi Bakelette! I'd like to order.")}
             target="_blank"
             rel="noreferrer"
-            className="hidden sm:inline-flex items-center gap-2 rounded-full bg-gradient-primary text-primary-foreground px-5 py-2.5 text-sm font-semibold shadow-glow hover:shadow-elegant hover:-translate-y-0.5 transition-all"
+            className="hidden sm:inline-flex items-center gap-2 rounded-full bg-gradient-primary text-primary-foreground px-5 py-2.5 text-sm font-semibold shadow-glow hover:shadow-elegant hover:-translate-y-0.5 transition-all whitespace-nowrap"
           >
             Order Now
           </a>
