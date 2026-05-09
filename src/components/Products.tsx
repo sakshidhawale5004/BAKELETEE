@@ -370,7 +370,7 @@ const ProductCard = ({
       <button
         type="button"
         onClick={onQuickView}
-        className="relative aspect-square sm:aspect-[4/5] overflow-hidden bg-warm text-left"
+        className={`relative ${p.category === 'Bundles' ? 'aspect-[3/4]' : 'aspect-square sm:aspect-[4/5]'} overflow-hidden bg-warm text-left`}
       >
         <img src={p.img} alt={p.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 will-change-transform [backface-visibility:hidden]" />
         {p.badge && (
@@ -378,7 +378,7 @@ const ProductCard = ({
             {p.badge}
           </span>
         )}
-        <span className={`absolute inset-x-4 ${p.category === 'Bundles' ? 'top-4' : 'bottom-4'} bg-background/95 backdrop-blur-md text-foreground text-sm font-semibold py-3 rounded-full text-center shadow-elegant`}>
+        <span className="absolute inset-x-4 bottom-4 bg-background/95 backdrop-blur-md text-foreground text-sm font-semibold py-3 rounded-full text-center shadow-elegant">
           Quick View →
         </span>
       </button>

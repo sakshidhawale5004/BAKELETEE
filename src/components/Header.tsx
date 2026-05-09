@@ -122,7 +122,7 @@ const Header = ({ searchQuery = "", onSearchChange }: HeaderProps) => {
         scrolled || isOpen ? "bg-background/95 backdrop-blur-xl shadow-soft" : "bg-transparent"
       }`}
     >
-      <div className="bg-primary text-primary-foreground py-2 overflow-hidden whitespace-nowrap shadow-inner border-b border-primary-deep/20">
+      <div className="bg-primary text-primary-foreground py-2.5 overflow-hidden whitespace-nowrap shadow-inner border-b border-primary-deep/20">
         <div className="flex animate-marquee">
           {[...Array(4)].map((_, i) => (
             <div key={i} className="flex items-center gap-8 px-4 text-[10px] md:text-xs font-bold uppercase tracking-wider md:tracking-[0.2em]">
@@ -134,7 +134,7 @@ const Header = ({ searchQuery = "", onSearchChange }: HeaderProps) => {
           ))}
         </div>
       </div>
-      <div className={`container flex items-center justify-between gap-4 transition-all duration-500 ${scrolled || isOpen ? "py-2" : "py-4"}`}>
+      <div className={`container flex items-center justify-between gap-4 transition-all duration-500 ${scrolled || isOpen ? "py-4" : "py-6"}`}>
         <a href="/" className="flex flex-col items-start gap-0 group shrink-0">
           <div className="flex items-center justify-center gap-3">
             <img
