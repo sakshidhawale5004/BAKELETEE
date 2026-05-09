@@ -9,15 +9,28 @@ const reels = [
 
 const FollowCrumbs = () => {
   useEffect(() => {
-    const existingScript = document.querySelector('script[src="https://www.instagram.com/embed.js"]');
-    if (!existingScript) {
-      const script = document.createElement("script");
-      script.src = "https://www.instagram.com/embed.js";
-      script.async = true;
-      document.body.appendChild(script);
-    } else if ((window as any).instgrm) {
-      (window as any).instgrm.Embeds.process();
-    }
+    const loadInstagram = () => {
+      if ((window as any).instgrm) {
+        (window as any).instgrm.Embeds.process();
+      } else {
+        const existingScript = document.querySelector('script[src="https://www.instagram.com/embed.js"]');
+        if (!existingScript) {
+          const script = document.createElement("script");
+          script.src = "https://www.instagram.com/embed.js";
+          script.async = true;
+          script.onload = () => {
+            if ((window as any).instgrm) {
+              (window as any).instgrm.Embeds.process();
+            }
+          };
+          document.body.appendChild(script);
+        }
+      }
+    };
+
+    // Small delay to ensure React has rendered the blockquotes
+    const timer = setTimeout(loadInstagram, 100);
+    return () => clearTimeout(timer);
   }, []);
 
   return (
