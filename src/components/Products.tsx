@@ -362,7 +362,7 @@ const ProductCard = ({
         onClick={onQuickView}
         className="relative aspect-square sm:aspect-[4/5] overflow-hidden bg-warm text-left"
       >
-        <img src={p.img} alt={p.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+        <img src={p.img} alt={p.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 will-change-transform [backface-visibility:hidden]" />
         {p.badge && (
           <span className="absolute top-4 left-4 bg-gradient-primary text-primary-foreground text-xs font-semibold px-3 py-1.5 rounded-full shadow-glow">
             {p.badge}

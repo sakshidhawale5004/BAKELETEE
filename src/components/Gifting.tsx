@@ -67,9 +67,9 @@ const Gifting = () => {
                     <img 
                       src={h.img} 
                       alt={h.name} 
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover/img:scale-110"
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover/img:scale-110 will-change-transform [backface-visibility:hidden]"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent pointer-events-none" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
                     <span className="absolute inset-x-4 bottom-4 bg-background/95 backdrop-blur-md text-foreground text-xs font-semibold py-3 rounded-full text-center shadow-elegant transition-all">
                       Quick View →
                     </span>
