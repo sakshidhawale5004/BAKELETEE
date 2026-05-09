@@ -52,7 +52,7 @@ const Gifting = () => {
             Thoughtfully curated hampers for every celebration, wrapped in elegance and baked with love.
           </p>
           <p className="mt-4 text-xs text-primary/60 font-medium italic">
-            Note: Images are for representation only. Our gift hampers are bespoke curations that evolve with the festive season to bring you the freshest artisanal experience.
+            *Images are for representation purposes only and may not reflect the actual products included. Gift hampers are thoughtfully curated each festive season with a fresh selection of our finest artisanal bakes.
           </p>
         </div>
 
