@@ -151,7 +151,7 @@ const Header = ({ searchQuery = "", onSearchChange }: HeaderProps) => {
         <nav className={`hidden md:flex items-center transition-all duration-500 text-sm font-semibold whitespace-nowrap ${isSearchOpen ? "gap-3 lg:gap-6" : "gap-6"}`}>
           <a href="/#promise" className="text-primary hover:text-primary-glow transition-colors">Founder's Letter</a>
           <a href="/#products" className="text-primary hover:text-primary-glow transition-colors">Signature Bakes</a>
-          <a href="/subscribe" className="text-primary hover:text-primary-glow transition-colors">Subscriptions</a>
+          <a href="/#society" className="text-primary hover:text-primary-glow transition-colors">Subscriptions</a>
           <a href="/#categories" className="text-primary hover:text-primary-glow transition-colors">Categories</a>
           <a href="/#blog" className="text-primary hover:text-primary-glow transition-colors">Blog</a>
           <a href="/#follow" className="text-primary hover:text-primary-glow transition-colors">Follow</a>
@@ -258,7 +258,7 @@ const Header = ({ searchQuery = "", onSearchChange }: HeaderProps) => {
             </div>
             <a href="/#promise" onClick={() => setIsOpen(false)} className="hover:translate-x-2 transition-transform">Founder's Letter</a>
             <a href="/#products" onClick={() => setIsOpen(false)} className="hover:translate-x-2 transition-transform">Signature Bakes</a>
-            <a href="/subscribe" onClick={() => setIsOpen(false)} className="hover:translate-x-2 transition-transform text-primary font-bold">Subscriptions ✨</a>
+            <a href="/#society" onClick={() => setIsOpen(false)} className="hover:translate-x-2 transition-transform text-primary font-bold">Subscriptions ✨</a>
             <a href="/#categories" onClick={() => setIsOpen(false)} className="hover:translate-x-2 transition-transform">Categories</a>
             <a href="/#blog" onClick={() => setIsOpen(false)} className="hover:translate-x-2 transition-transform">Blog</a>
             <a href="/#follow" onClick={() => setIsOpen(false)} className="hover:translate-x-2 transition-transform">Follow</a>
