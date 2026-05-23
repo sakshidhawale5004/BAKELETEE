@@ -51,6 +51,12 @@ const pages: SearchResult[] = [
     section: "Pages",
     action: { type: "navigate", url: "/terms" },
   },
+  {
+    title: "Subscriptions & Memberships",
+    subtitle: "Join the Bakelette Society: Daily Delight and Weekend Exclusive plans.",
+    section: "Pages",
+    action: { type: "navigate", url: "/subscribe" },
+  },
 ];
 
 // Products — imported dynamically to avoid circular deps
