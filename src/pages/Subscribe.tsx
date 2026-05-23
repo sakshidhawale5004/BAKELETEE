@@ -6,7 +6,8 @@ import { waLink } from "@/lib/contact";
 import { 
   Check, Star, Calendar, MapPin, Pause, Play, Sparkles, 
   Clock, ArrowRight, Lock, HelpCircle, MessageSquare, 
-  Info, Bell, ShoppingBag, ShieldCheck, CheckCircle2, ChevronDown
+  Info, Bell, ShoppingBag, ShieldCheck, CheckCircle2, ChevronDown,
+  Smartphone
 } from "lucide-react";
 import { toast } from "sonner";
 
