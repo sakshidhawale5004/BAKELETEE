@@ -10,6 +10,7 @@ import HowItWorks from "@/components/HowItWorks";
 import Testimonials from "@/components/Testimonials";
 import FollowCrumbs from "@/components/FollowCrumbs";
 import Blog from "@/components/Blog";
+import Subscription from "@/components/Subscription";
 
 import Footer from "@/components/Footer";
 import WhatsAppPopup from "@/components/WhatsAppPopup";
@@ -46,6 +47,7 @@ const Index = () => {
       <HowItWorks />
       <Testimonials />
       <Blog />
+      <Subscription />
 
       <FollowCrumbs />
       <Footer />
