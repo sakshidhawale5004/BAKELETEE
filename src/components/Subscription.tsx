@@ -4,35 +4,33 @@ import { Link } from "react-router-dom";
 
 const plans = [
   {
-    name: "The Weekly Ritual",
-    price: 2499,
+    name: "The Daily Regular",
+    price: 999,
     period: "month",
-    tagline: "Your weekly sanctuary of flavor.",
-    description: "Perfect for families who love fresh bakes. Get a signature loaf and a box of cookies delivered to your doorstep every week.",
-    items: "4 Deliveries per month",
-    perks: ["1 Signature Loaf weekly", "1 Box of Cookies weekly", "Free Delivery", "Early access to new bakes"],
+    tagline: "For our regular daily consumers.",
+    description: "Perfect for regular consumers. Order directly from our website and enjoy seamless daily indulgence.",
+    items: "Regular Access",
+    perks: [
+      "Direct website ordering",
+      "Independent profile & number storage",
+    ],
     icon: <Zap className="w-6 h-6" />,
     popular: true,
   },
   {
-    name: "The Monthly Surprise",
+    name: "The Weekend Exclusive",
     price: 1299,
     period: "month",
-    tagline: "A curated discovery of bliss.",
-    description: "A surprise selection of our newest creations and seasonal favorites, delivered once a month to keep your soul uplifted.",
-    items: "1 Curated Box per month",
-    perks: ["Baker's Choice selection", "1 New seasonal product", "Member-only discounts", "Beautiful gift packaging"],
+    tagline: "A curated weekend discovery.",
+    description: "Join our exclusive WhatsApp community for weekend-specific bakes, special riddles, and surprises.",
+    items: "Weekend Access",
+    perks: [
+      "Exclusive WhatsApp community access",
+      "Order window: Fri 9 AM - Sat 6 PM",
+      "Wed hints/riddles for upcoming bakes",
+      "Complimentary monthly item",
+    ],
     icon: <Star className="w-6 h-6" />,
-  },
-  {
-    name: "The Office Fuel",
-    price: 4999,
-    period: "month",
-    tagline: "Elevate your team's break time.",
-    description: "Keep the energy high with a weekly supply of our signature Ragi, Almond, and Pistachio sticks. The ultimate corporate perk.",
-    items: "4 Large Boxes per month",
-    perks: ["Assorted Sticks & Nibbles", "Bulk quantities", "Priority Monday delivery", "Customized assortment"],
-    icon: <Coffee className="w-6 h-6" />,
   },
 ];
 
@@ -54,7 +52,7 @@ const Subscription = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-7xl mx-auto px-4">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-4xl mx-auto px-4">
           {plans.map((plan, i) => (
             <div 
               key={plan.name} 
@@ -128,7 +126,28 @@ const Subscription = () => {
           ))}
         </div>
 
-        <div className="mt-16 text-center">
+        <div className="mt-16 max-w-4xl mx-auto bg-white/50 backdrop-blur-sm border border-primary/20 rounded-[2rem] p-8 shadow-soft">
+          <h3 className="text-2xl font-display font-semibold text-center mb-8 text-primary-deep">Delivery Zones & Fees</h3>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+            <div className="p-6 rounded-2xl bg-white shadow-sm border border-border/50 hover:shadow-md transition-shadow">
+              <div className="text-muted-foreground text-sm uppercase tracking-wider mb-2 font-semibold">Zone 1</div>
+              <div className="font-bold text-lg text-foreground">Up to 10 Km</div>
+              <div className="text-primary font-display text-2xl mt-2">₹75 <span className="text-sm text-muted-foreground">flat/-</span></div>
+            </div>
+            <div className="p-6 rounded-2xl bg-white shadow-sm border border-border/50 hover:shadow-md transition-shadow">
+              <div className="text-muted-foreground text-sm uppercase tracking-wider mb-2 font-semibold">Zone 2</div>
+              <div className="font-bold text-lg text-foreground">15 Km</div>
+              <div className="text-primary font-display text-2xl mt-2">₹125 <span className="text-sm text-muted-foreground">flat/-</span></div>
+            </div>
+            <div className="p-6 rounded-2xl bg-white shadow-sm border border-border/50 hover:shadow-md transition-shadow">
+              <div className="text-muted-foreground text-sm uppercase tracking-wider mb-2 font-semibold">Zone 3</div>
+              <div className="font-bold text-lg text-foreground">Beyond 15 Kms</div>
+              <div className="text-primary font-display text-xl mt-2 pt-1">Subject to Distance</div>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-12 text-center">
           <Link
             to="/subscribe"
             className="inline-flex items-center gap-2 bg-gradient-primary text-primary-foreground px-10 py-4 rounded-full font-bold text-base shadow-glow hover:shadow-elegant hover:scale-[1.02] transition-all group"
@@ -138,9 +157,9 @@ const Subscription = () => {
           </Link>
         </div>
 
-        <div className="mt-8 text-center">
+        <div className="mt-8 text-center max-w-2xl mx-auto px-4">
           <p className="text-muted-foreground text-sm italic">
-            * Subscription plans are flexible. Pause or cancel anytime via WhatsApp.
+            * Both subscriptions can be paused. Max 15 days or whenever you want to resume, whichever is earlier. Giving you the flexibility you need.
           </p>
         </div>
       </div>
