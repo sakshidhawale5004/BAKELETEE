@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppPopup from "@/components/WhatsAppPopup";
 import { waLink } from "@/lib/contact";
+import subscribeHero from "@/assets/subscribe-hero.png";
 import { 
   Check, Star, Calendar, MapPin, Pause, Play, Sparkles, 
   Clock, ArrowRight, Lock, HelpCircle, MessageSquare, 
@@ -150,39 +151,57 @@ const Subscribe = () => {
       <Header searchQuery={searchQuery} onSearchChange={setSearchQuery} />
 
       {/* Hero Section */}
-      <section className="relative pt-36 pb-20 md:pt-44 md:pb-28 bg-ink text-white overflow-hidden">
-        {/* Background glow effects */}
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/20 blur-[150px] rounded-full -translate-y-1/2 translate-x-1/3 z-0" />
-        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-accent/10 blur-[150px] rounded-full translate-y-1/2 -translate-x-1/3 z-0" />
-        
-        <div className="container relative z-10 mx-auto px-4 text-center max-w-4xl">
-          <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full mb-6 border border-white/10 hover:border-primary-glow/30 transition-all duration-300">
-            <Sparkles className="w-4 h-4 text-primary-glow animate-pulse" />
-            <span className="text-[11px] font-bold uppercase tracking-widest text-primary-foreground">The Bakelette Society</span>
-          </div>
-          
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-display leading-tight tracking-tight">
-            Your Daily Dose of <em className="font-script text-primary-glow non-italic">Bliss</em>, Curated.
-          </h1>
-          
-          <p className="mt-6 text-primary-foreground/80 text-lg md:text-xl max-w-2xl mx-auto font-light leading-relaxed">
-            No binding contracts. Zero worries. Select a plan tailored to your lifestyle and indulge in healthy, premium artisanal bakes.
-          </p>
+      <section className="relative min-h-[70vh] md:min-h-[80vh] flex items-center overflow-hidden">
+        {/* Banner image */}
+        <img
+          src={subscribeHero}
+          alt="Artisanal baked goods spread — cookies, jaggery loaf, pistachio sticks and a gift box"
+          className="absolute inset-0 w-full h-full object-cover scale-105"
+          width={1920}
+          height={1080}
+        />
+        {/* Dark gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-hero" />
+        {/* Subtle teal glow bottom-right */}
+        <div className="absolute -bottom-32 -right-32 w-[420px] h-[420px] rounded-full bg-primary/20 blur-3xl float-anim" />
 
-          <div className="mt-8 flex flex-wrap justify-center gap-4">
-            <a 
-              href="#plans" 
-              className="bg-gradient-primary hover:shadow-glow text-white font-bold py-3.5 px-8 rounded-full transition-all duration-300 transform hover:-translate-y-0.5 text-sm"
-            >
-              Explore Society Plans
-            </a>
-            <a 
-              href="#calculator" 
-              className="bg-white/10 hover:bg-white/20 text-white font-bold py-3.5 px-8 rounded-full transition-all duration-300 border border-white/10 text-sm"
-            >
-              Delivery Zones
-            </a>
+        <div className="container relative z-10 py-32 md:py-40 mx-auto px-4">
+          <div className="max-w-3xl reveal">
+            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full mb-6 border border-white/10">
+              <Sparkles className="w-4 h-4 text-primary-glow animate-pulse" />
+              <span className="text-[11px] font-bold uppercase tracking-widest text-primary-foreground">The Bakelette Society</span>
+            </div>
+
+            <h1 className="text-4xl md:text-6xl lg:text-7xl text-primary-foreground leading-[1.1] font-bold text-balance">
+              Your Daily Dose of{" "}
+              <em className="font-script text-primary-glow not-italic">Bliss</em>,{" "}
+              Curated.
+            </h1>
+
+            <p className="mt-6 text-base md:text-xl text-primary-foreground/85 max-w-xl leading-relaxed font-light">
+              No binding contracts. Zero worries. Select a plan tailored to your lifestyle and indulge in healthy, premium artisanal bakes.
+            </p>
+
+            <div className="mt-10 flex flex-wrap gap-4">
+              <a
+                href="#plans"
+                className="rounded-full bg-gradient-primary text-primary-foreground px-8 py-4 font-semibold shadow-glow hover:shadow-3d hover:-translate-y-1 transition-all"
+              >
+                Explore Society Plans
+              </a>
+              <a
+                href="#calculator"
+                className="rounded-full border-2 border-primary-foreground/40 text-primary-foreground px-8 py-4 font-semibold backdrop-blur-md hover:bg-primary-foreground/10 hover:border-primary-foreground transition-all"
+              >
+                Delivery Zones
+              </a>
+            </div>
           </div>
+        </div>
+
+        {/* Scroll indicator */}
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-primary-foreground/70 text-xs uppercase tracking-widest animate-bounce">
+          Scroll
         </div>
       </section>
 
