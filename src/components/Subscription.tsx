@@ -1,5 +1,6 @@
 import { waLink } from "@/lib/contact";
-import { Check, Star, Zap, Coffee } from "lucide-react";
+import { Check, Star, Zap, Coffee, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const plans = [
   {
@@ -127,7 +128,17 @@ const Subscription = () => {
           ))}
         </div>
 
-        <div className="mt-20 text-center">
+        <div className="mt-16 text-center">
+          <Link
+            to="/subscribe"
+            className="inline-flex items-center gap-2 bg-gradient-primary text-primary-foreground px-10 py-4 rounded-full font-bold text-base shadow-glow hover:shadow-elegant hover:scale-[1.02] transition-all group"
+          >
+            Explore All Plans
+            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+          </Link>
+        </div>
+
+        <div className="mt-8 text-center">
           <p className="text-muted-foreground text-sm italic">
             * Subscription plans are flexible. Pause or cancel anytime via WhatsApp.
           </p>
