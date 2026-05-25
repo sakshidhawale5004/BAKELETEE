@@ -11,6 +11,7 @@ import BlogBrownButter from "./pages/BlogBrownButter.tsx";
 import BlogJaggery from "./pages/BlogJaggery.tsx";
 import BlogChai from "./pages/BlogChai.tsx";
 import Subscribe from "./pages/Subscribe.tsx";
+import TheDailyRegular from "./pages/TheDailyRegular.tsx";
 
 const queryClient = new QueryClient();
 
@@ -28,6 +29,7 @@ const App = () => (
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="/subscribe" element={<Subscribe />} />
             <Route path="/Subscribe" element={<Subscribe />} />
+            <Route path="/the-daily-regular" element={<TheDailyRegular />} />
             <Route path="/founders-letter" element={<FoundersLetter />} />
             <Route path="/terms" element={<Terms />} />
             <Route path="/blog/brown-butter" element={<BlogBrownButter />} />

@@ -255,9 +255,10 @@ interface ProductsProps {
   selected: Category;
   onSelect: (c: Category) => void;
   searchQuery?: string;
+  discountPercentage?: number;
 }
 
-const Products = ({ selected, onSelect, searchQuery = "" }: ProductsProps) => {
+const Products = ({ selected, onSelect, searchQuery = "", discountPercentage = 0 }: ProductsProps) => {
   const [active, setActive] = useState<Product | null>(null);
 
   const filtered = products
@@ -318,6 +319,7 @@ const Products = ({ selected, onSelect, searchQuery = "" }: ProductsProps) => {
               product={p} 
               index={i} 
               onQuickView={() => setActive(p)} 
+              discountPercentage={discountPercentage}
             />
           ))}
         </div>
@@ -335,16 +337,19 @@ const Products = ({ selected, onSelect, searchQuery = "" }: ProductsProps) => {
 const ProductCard = ({ 
   product: p, 
   index: i, 
-  onQuickView 
+  onQuickView,
+  discountPercentage = 0
 }: { 
   product: Product; 
   index: number; 
-  onQuickView: () => void 
+  onQuickView: () => void;
+  discountPercentage?: number;
 }) => {
   const { addToCart, updateQuantity, getQuantity, setIsOpen } = useCart();
   const [selectedVariant, setSelectedVariant] = useState(p.variants ? p.variants[1] : null);
 
   const currentPrice = selectedVariant ? selectedVariant.price : p.price;
+  const discountedPrice = discountPercentage > 0 ? Math.round(currentPrice * (1 - discountPercentage / 100)) : currentPrice;
   const currentWeight = selectedVariant ? selectedVariant.weight : p.weight;
   const targetName = selectedVariant ? `${p.name} (${selectedVariant.weight})` : p.name;
   const currentInCart = getQuantity(targetName);
@@ -355,7 +360,7 @@ const ProductCard = ({
     } else if (delta > 0) {
       addToCart({
         ...p,
-        price: currentPrice,
+        price: discountedPrice,
         weight: currentWeight,
         name: targetName
       }, 1);
@@ -389,7 +394,12 @@ const ProductCard = ({
         
         <div className="mt-4 flex items-baseline justify-between">
           <div className="flex flex-col">
-            <span className="text-2xl font-display font-semibold text-primary">₹{currentPrice}</span>
+            <div className="flex items-center gap-2">
+              <span className="text-2xl font-display font-semibold text-primary">₹{discountedPrice}</span>
+              {discountPercentage > 0 && (
+                <span className="text-sm text-muted-foreground line-through">₹{currentPrice}</span>
+              )}
+            </div>
             <div className="flex items-center gap-1.5 mt-1">
               {p.variants ? (
                 p.variants.map((v) => (
@@ -422,7 +432,7 @@ const ProductCard = ({
           <button
             onClick={() => {
               const qty = Math.max(1, currentInCart);
-              const itemTotal = currentPrice * qty;
+              const itemTotal = discountedPrice * qty;
               const message = `Hi Bakelette! I'd like to order the following:\n\n- ${targetName} x ${qty} (₹${itemTotal})\n\nTotal: ₹${itemTotal}\n\nThank you!`;
               window.open(waLink(message), "_blank");
             }}

@@ -1,6 +1,7 @@
 import { waLink } from "@/lib/contact";
 import { Check, Star, Zap, Coffee, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import { SubscriptionForm } from "./SubscriptionForm";
 
 const plans = [
   {
@@ -110,18 +111,22 @@ const Subscription = () => {
                 ))}
               </ul>
 
-              <a
-                href={waLink(`Hi Bakelette! I'd like to join the Society with the ${plan.name} plan.`)}
-                target="_blank"
-                rel="noreferrer"
-                className={`mt-10 w-full py-4 rounded-full font-bold text-sm text-center transition-all block ${
-                  plan.popular 
-                    ? "bg-gradient-primary text-primary-foreground shadow-glow hover:shadow-elegant hover:scale-[1.02]" 
-                    : "bg-primary-deep text-primary-foreground hover:bg-primary transition-colors"
-                }`}
-              >
-                Join the Society
-              </a>
+              {plan.name === "The Daily Regular" ? (
+                <SubscriptionForm plan={plan} />
+              ) : (
+                <a
+                  href={waLink(`Hi Bakelette! I'd like to join the Society with the ${plan.name} plan.`)}
+                  target="_blank"
+                  rel="noreferrer"
+                  className={`mt-10 w-full py-4 rounded-full font-bold text-sm text-center transition-all block ${
+                    plan.popular 
+                      ? "bg-gradient-primary text-primary-foreground shadow-glow hover:shadow-elegant hover:scale-[1.02]" 
+                      : "bg-primary-deep text-primary-foreground hover:bg-primary transition-colors"
+                  }`}
+                >
+                  Join the Society
+                </a>
+              )}
             </div>
           ))}
         </div>
