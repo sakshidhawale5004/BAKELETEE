@@ -85,7 +85,7 @@ export function SubscriptionForm({ plan }: SubscriptionFormProps) {
                     value={formData.fullName}
                     onChange={(e) => setFormData({...formData, fullName: e.target.value})}
                     className="rounded-xl border-primary/20 focus-visible:ring-primary/30 h-12"
-                    placeholder="Jane Doe"
+                    placeholder="Enter your full name"
                   />
                 </div>
                 <div className="space-y-2">
@@ -97,7 +97,7 @@ export function SubscriptionForm({ plan }: SubscriptionFormProps) {
                     value={formData.mobileNumber}
                     onChange={(e) => setFormData({...formData, mobileNumber: e.target.value})}
                     className="rounded-xl border-primary/20 focus-visible:ring-primary/30 h-12"
-                    placeholder="+91 98765 43210"
+                    placeholder="Enter mobile number"
                   />
                 </div>
                 <div className="space-y-2">
@@ -109,7 +109,7 @@ export function SubscriptionForm({ plan }: SubscriptionFormProps) {
                     value={formData.email}
                     onChange={(e) => setFormData({...formData, email: e.target.value})}
                     className="rounded-xl border-primary/20 focus-visible:ring-primary/30 h-12"
-                    placeholder="jane@example.com"
+                    placeholder="Enter email address"
                   />
                 </div>
                 <div className="space-y-2">
@@ -120,7 +120,7 @@ export function SubscriptionForm({ plan }: SubscriptionFormProps) {
                     value={formData.location}
                     onChange={(e) => setFormData({...formData, location: e.target.value})}
                     className="rounded-xl border-primary/20 focus-visible:ring-primary/30 h-12"
-                    placeholder="Your City / Area"
+                    placeholder="Enter location"
                   />
                 </div>
               </div>
@@ -154,7 +154,7 @@ export function SubscriptionForm({ plan }: SubscriptionFormProps) {
                   value={formData.transactionId}
                   onChange={(e) => setFormData({...formData, transactionId: e.target.value})}
                   className="rounded-xl border-primary/20 focus-visible:ring-primary/30 h-12"
-                  placeholder="Enter your 12-digit UTR number"
+                  placeholder="Enter transaction ID"
                 />
                 <p className="text-xs text-muted-foreground mt-1 px-1">
                   Please complete the payment above and enter the transaction ID to submit.
