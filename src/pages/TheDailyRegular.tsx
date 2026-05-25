@@ -6,6 +6,7 @@ import WhatsAppPopup from "@/components/WhatsAppPopup";
 import Cart from "@/components/Cart";
 import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
+import subscribeHero from "@/assets/subscribe-hero.png";
 
 const TheDailyRegular = () => {
   const [selected, setSelected] = useState<Category>("All");
@@ -19,28 +20,34 @@ const TheDailyRegular = () => {
     <main className="min-h-screen bg-background flex flex-col">
       <Header searchQuery={searchQuery} onSearchChange={setSearchQuery} />
       
-      <div className="flex-1 pt-24 md:pt-32">
-        <div className="container px-4">
-          <Link to="/#society" className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors mb-8">
+      <div className="flex-1 pt-20">
+        {/* Banner Section */}
+        <section className="relative h-[40vh] min-h-[300px] md:h-[50vh] flex items-center justify-center overflow-hidden">
+          <img
+            src={subscribeHero}
+            alt="The Daily Regular Subscription"
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-black/40" /> {/* Overlay for better text readability */}
+          
+          <div className="container relative z-10 px-4 text-center">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-display text-white mb-6 drop-shadow-md">
+              The Daily Regular
+            </h1>
+            <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto mb-8 drop-shadow-sm font-medium">
+              Welcome to your exclusive member area! Enjoy a special <strong>10% discount</strong> on all our signature bakes.
+            </p>
+            <span className="inline-block bg-white text-primary-deep px-6 py-2 rounded-full text-sm md:text-base font-bold tracking-wide shadow-glow">
+              🎉 10% OFF APPLIED TO ALL PRODUCTS
+            </span>
+          </div>
+        </section>
+
+        <div className="container px-4 mt-8 md:mt-12">
+          <Link to="/#society" className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors mb-4 md:mb-8 font-medium">
             <ArrowLeft className="w-4 h-4" />
             Back to Society
           </Link>
-          
-          <div className="bg-primary/5 rounded-[2rem] p-8 md:p-12 mb-12 border border-primary/10 text-center relative overflow-hidden">
-             {/* Decorative background elements */}
-             <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 blur-[100px] rounded-full -translate-y-1/2 translate-x-1/2" />
-             <div className="absolute bottom-0 left-0 w-64 h-64 bg-accent/10 blur-[100px] rounded-full translate-y-1/2 -translate-x-1/2" />
-             
-            <h1 className="text-4xl md:text-5xl font-display text-primary-deep mb-4 relative z-10">
-              The Daily Regular
-            </h1>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-6 relative z-10">
-              Welcome to your exclusive member area! Enjoy a special <strong>10% discount</strong> on all our signature bakes as part of your Daily Regular subscription.
-            </p>
-            <span className="inline-block bg-gradient-primary text-primary-foreground px-4 py-1.5 rounded-full text-sm font-bold tracking-wide shadow-glow relative z-10">
-              10% OFF APPLIED TO ALL PRODUCTS
-            </span>
-          </div>
         </div>
 
         <Products 
