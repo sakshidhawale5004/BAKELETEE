@@ -7,9 +7,11 @@ import { Check, Copy, CheckCircle2 } from "lucide-react";
 
 interface SubscriptionFormProps {
   plan: any;
+  triggerClassName?: string;
+  triggerText?: string;
 }
 
-export function SubscriptionForm({ plan }: SubscriptionFormProps) {
+export function SubscriptionForm({ plan, triggerClassName, triggerText }: SubscriptionFormProps) {
   const [open, setOpen] = useState(false);
   const [formData, setFormData] = useState({
     fullName: "",
@@ -49,13 +51,13 @@ export function SubscriptionForm({ plan }: SubscriptionFormProps) {
     }}>
       <DialogTrigger asChild>
         <button
-          className={`mt-10 w-full py-4 rounded-full font-bold text-sm text-center transition-all block ${
+          className={triggerClassName || `mt-10 w-full py-4 rounded-full font-bold text-sm text-center transition-all block ${
             plan.popular 
               ? "bg-gradient-primary text-primary-foreground shadow-glow hover:shadow-elegant hover:scale-[1.02]" 
               : "bg-primary-deep text-primary-foreground hover:bg-primary transition-colors"
           }`}
         >
-          Join the Society
+          {triggerText || "Join the Society"}
         </button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px] md:max-w-[600px] max-h-[90vh] overflow-y-auto rounded-[2rem] p-6 md:p-8 bg-white/95 backdrop-blur-md border-primary/20">

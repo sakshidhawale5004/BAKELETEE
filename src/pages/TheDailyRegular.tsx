@@ -7,6 +7,7 @@ import Cart from "@/components/Cart";
 import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import subscribeHero from "@/assets/subscribe-hero.png";
+import { SubscriptionForm } from "@/components/SubscriptionForm";
 
 const TheDailyRegular = () => {
   const [selected, setSelected] = useState<Category>("All");
@@ -16,13 +17,18 @@ const TheDailyRegular = () => {
     window.scrollTo(0, 0);
   }, []);
 
+  const plan = {
+    name: "The Daily Regular",
+    popular: true,
+  };
+
   return (
     <main className="min-h-screen bg-background flex flex-col">
       <Header searchQuery={searchQuery} onSearchChange={setSearchQuery} />
       
       <div className="flex-1 pt-20">
         {/* Banner Section */}
-        <section className="relative h-[40vh] min-h-[300px] md:h-[50vh] flex items-center justify-center overflow-hidden">
+        <section className="relative h-[45vh] min-h-[400px] md:h-[55vh] flex items-center justify-center overflow-hidden">
           <img
             src={subscribeHero}
             alt="The Daily Regular Subscription"
@@ -40,6 +46,13 @@ const TheDailyRegular = () => {
             <span className="inline-block bg-white text-primary-deep px-6 py-2 rounded-full text-sm md:text-base font-bold tracking-wide shadow-glow">
               🎉 10% OFF APPLIED TO ALL PRODUCTS
             </span>
+            <div className="mt-8 flex justify-center">
+              <SubscriptionForm 
+                plan={plan}
+                triggerText="Subscribe to The Daily Regular"
+                triggerClassName="px-8 py-4 rounded-full font-bold text-sm transition-all bg-gradient-primary text-primary-foreground shadow-glow hover:shadow-elegant hover:-translate-y-0.5 inline-block"
+              />
+            </div>
           </div>
         </section>
 
