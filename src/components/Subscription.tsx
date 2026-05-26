@@ -178,7 +178,7 @@ const Subscription = () => {
         <div className="mt-32 max-w-3xl mx-auto relative z-10">
           <div className="text-center mb-12">
             <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 text-primary mb-6 shadow-inner">
-              <HelpCircle className="w-8 h-8" />
+              <Coffee className="w-8 h-8" />
             </div>
             <h3 className="text-3xl md:text-4xl font-display text-primary-deep font-bold">Curious Minds Want to Know</h3>
             <p className="text-muted-foreground mt-4 text-base max-w-xl mx-auto">
