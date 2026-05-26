@@ -37,16 +37,16 @@ export function SubscriptionForm({ plan, triggerClassName, triggerText }: Subscr
     e.preventDefault();
     if (formData.transactionId.trim() === "") return;
     
-    if (/^\d+$/.test(formData.fullName.trim())) {
-      toast.error("Name cannot be purely numeric.");
+    if (!/[a-zA-Z]/.test(formData.fullName.trim()) || formData.fullName.trim().length < 3) {
+      toast.error("Please enter a valid Name (must contain letters).");
       return;
     }
-    if (/^\d+$/.test(formData.location.trim())) {
-      toast.error("Location cannot be purely numeric.");
+    if (!/[a-zA-Z]/.test(formData.location.trim()) || formData.location.trim().length < 3) {
+      toast.error("Please enter a valid Location (must contain letters).");
       return;
     }
-    if (formData.transactionId.trim().length < 6) {
-      toast.error("Please enter a valid Transaction ID / UTR Number.");
+    if (formData.transactionId.trim().length < 6 || !/[a-zA-Z0-9]/.test(formData.transactionId)) {
+      toast.error("Please enter a valid Transaction ID / UTR Number (at least 6 alphanumeric characters).");
       return;
     }
 
