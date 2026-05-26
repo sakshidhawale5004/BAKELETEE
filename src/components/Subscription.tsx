@@ -1,5 +1,6 @@
+import { useState } from "react";
 import { waLink } from "@/lib/contact";
-import { Check, Star, Zap, Coffee, ArrowRight } from "lucide-react";
+import { Check, Star, Zap, Coffee, ArrowRight, ChevronDown, Sparkles, HelpCircle } from "lucide-react";
 import { Link } from "react-router-dom";
 import { SubscriptionForm } from "./SubscriptionForm";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
@@ -37,6 +38,32 @@ const plans = [
 ];
 
 const Subscription = () => {
+  const [faqOpen, setFaqOpen] = useState<Record<number, boolean>>({
+    0: false,
+  });
+
+  const toggleFaq = (index: number) => {
+    setFaqOpen(prev => ({
+      ...prev,
+      [index]: !prev[index]
+    }));
+  };
+
+  const faqs = [
+    {
+      q: "How does the flexible pause feature work?",
+      a: "Both subscription tiers offer complete flexibility. You can pause your subscription for up to 15 days or resume it earlier whenever you want. Deliveries will be suspended immediately during this period, and no credits will go to waste. Simply drop us a quick note on WhatsApp!"
+    },
+    {
+      q: "What are the rules for the Weekend Exclusive subscription?",
+      a: "Weekend Sanctuary is highly exclusive. Orders are strictly accepted between Friday 9:00 AM and Saturday 6:00 PM. As a member, you'll also receive our mid-week Wednesday Riddles in the community group, giving you a chance to guess what's baking next!"
+    },
+    {
+      q: "Can I cancel at any time?",
+      a: "Instead of cancelling, we provide the power to pause your subscription whenever you need to. We believe in giving you the flexibility to take a break and resume your daily bliss when you're ready!"
+    }
+  ];
+
   return (
     <section id="society" className="py-24 md:py-32 bg-gradient-warm relative overflow-hidden">
       {/* Decorative background elements */}
@@ -102,7 +129,8 @@ const Subscription = () => {
               <div className="mt-6 flex-1">
                 <Dialog>
                   <DialogTrigger asChild>
-                    <button className="text-sm font-semibold text-primary underline underline-offset-4 hover:text-primary-glow transition-colors">
+                    <button className="inline-flex items-center justify-center gap-2 w-full py-3 px-6 rounded-full border-2 border-primary/20 text-primary font-bold text-sm hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300 shadow-sm hover:shadow-glow group">
+                      <Sparkles className="w-4 h-4 group-hover:scale-110 transition-transform" />
                       Quick View Benefits
                     </button>
                   </DialogTrigger>
@@ -135,32 +163,51 @@ const Subscription = () => {
 
 
 
-        <div className="mt-24 max-w-2xl mx-auto">
-          <div className="relative bg-gradient-to-br from-[#fffdf5] to-[#fffcf0] border border-[#e8ddc5] p-8 md:p-12 rounded-sm shadow-elegant rotate-[-1deg] hover:rotate-0 transition-transform duration-500">
-            {/* Note Tape or Pin illusion */}
-            <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-32 h-8 bg-white/40 backdrop-blur-sm shadow-sm rotate-[-2deg] border border-white/50" />
-            
-            <h3 className="text-4xl font-script text-primary-deep text-center mb-8 italic">A Little Note on How It Works...</h3>
-            
-            <div className="space-y-8">
-              <div className="relative pl-6 before:absolute before:left-0 before:top-2 before:w-2 before:h-2 before:bg-primary before:rounded-full">
-                <h4 className="font-display font-bold text-lg text-primary-deep mb-2">The Pause Feature</h4>
-                <p className="text-muted-foreground text-sm leading-relaxed font-medium">
-                  We know life gets busy! Instead of cancelling, we give you the flexibility to <strong>pause your subscription</strong> for up to 15 days. Just drop us a WhatsApp message, and your deliveries will be suspended without wasting any credits. Resume whenever you're ready!
-                </p>
-              </div>
-
-              <div className="relative pl-6 before:absolute before:left-0 before:top-2 before:w-2 before:h-2 before:bg-primary before:rounded-full">
-                <h4 className="font-display font-bold text-lg text-primary-deep mb-2">Weekend Sanctuary Rules</h4>
-                <p className="text-muted-foreground text-sm leading-relaxed font-medium">
-                  This exclusive club accepts orders strictly between <strong>Friday 9:00 AM and Saturday 6:00 PM</strong>. Members also get to participate in our mid-week Wednesday Riddles in the community group—guess the ingredients for our next bake!
-                </p>
-              </div>
+        <div className="mt-32 max-w-3xl mx-auto relative z-10">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 text-primary mb-6 shadow-inner">
+              <HelpCircle className="w-8 h-8" />
             </div>
-
-            <p className="mt-10 text-center font-script text-2xl text-primary italic">
-              Welcome to the Society!
+            <h3 className="text-3xl md:text-4xl font-display text-primary-deep font-bold">Curious Minds Want to Know</h3>
+            <p className="text-muted-foreground mt-4 text-base max-w-xl mx-auto">
+              Everything you need to know about The Bakelette Society. If you don't see your question here, just ask us on WhatsApp!
             </p>
+          </div>
+          
+          <div className="space-y-6">
+            {faqs.map((faq, index) => (
+              <div 
+                key={index} 
+                className={`group border rounded-[2rem] overflow-hidden transition-all duration-500 ${
+                  faqOpen[index] 
+                    ? "bg-white shadow-elegant border-primary/30 scale-[1.02] -translate-y-1" 
+                    : "bg-white/60 backdrop-blur-sm shadow-soft border-border/60 hover:bg-white hover:border-primary/20 hover:shadow-md"
+                }`}
+              >
+                <button 
+                  onClick={() => toggleFaq(index)}
+                  className="w-full flex justify-between items-center p-6 md:p-8 text-left cursor-pointer"
+                >
+                  <span className={`font-display text-lg md:text-xl font-bold transition-colors duration-300 ${faqOpen[index] ? "text-primary" : "text-primary-deep group-hover:text-primary"}`}>
+                    {faq.q}
+                  </span>
+                  <div className={`shrink-0 ml-4 w-10 h-10 rounded-full flex items-center justify-center transition-colors duration-300 ${faqOpen[index] ? "bg-primary text-primary-foreground" : "bg-primary/10 text-primary group-hover:bg-primary/20"}`}>
+                    <ChevronDown className={`w-5 h-5 transition-transform duration-500 ${faqOpen[index] ? "rotate-180" : ""}`} />
+                  </div>
+                </button>
+                <div 
+                  className={`grid transition-all duration-500 ease-in-out ${
+                    faqOpen[index] ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+                  }`}
+                >
+                  <div className="overflow-hidden">
+                    <p className="px-6 md:px-8 pb-8 text-sm md:text-base text-muted-foreground leading-relaxed">
+                      {faq.a}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
