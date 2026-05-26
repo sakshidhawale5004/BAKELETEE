@@ -1,6 +1,5 @@
-import { useState } from "react";
 import { waLink } from "@/lib/contact";
-import { Check, Star, Zap, Coffee, ArrowRight, ChevronDown } from "lucide-react";
+import { Check, Star, Zap, Coffee, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { SubscriptionForm } from "./SubscriptionForm";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
@@ -38,17 +37,6 @@ const plans = [
 ];
 
 const Subscription = () => {
-  const [faqOpen, setFaqOpen] = useState<Record<number, boolean>>({
-    0: true,
-  });
-
-  const toggleFaq = (index: number) => {
-    setFaqOpen(prev => ({
-      ...prev,
-      [index]: !prev[index]
-    }));
-  };
-
   return (
     <section id="society" className="py-24 md:py-32 bg-gradient-warm relative overflow-hidden">
       {/* Decorative background elements */}
@@ -147,58 +135,32 @@ const Subscription = () => {
 
 
 
-        <div className="mt-20 max-w-3xl mx-auto">
-          <div className="text-center mb-10">
-            <h3 className="text-3xl font-display text-primary">Rules & FAQs</h3>
-            <p className="text-muted-foreground mt-2 text-sm">
-              Everything you need to know about The Bakelette Society.
-            </p>
-          </div>
-          <div className="space-y-4">
-            <div className="border border-border rounded-2xl overflow-hidden bg-white shadow-soft transition-all duration-300">
-              <button 
-                onClick={() => toggleFaq(0)}
-                className="w-full flex justify-between items-center p-6 text-left font-display text-base md:text-lg text-primary-deep font-bold cursor-pointer hover:bg-muted/10"
-              >
-                <span>How does the flexible pause feature work?</span>
-                <ChevronDown className={`w-5 h-5 text-primary transition-transform duration-300 ${faqOpen[0] ? "rotate-180" : ""}`} />
-              </button>
-              {faqOpen[0] && (
-                <div className="px-6 pb-6 text-xs md:text-sm text-muted-foreground leading-relaxed animate-in fade-in slide-in-from-top-1">
-                  Both subscription tiers offer complete flexibility. You can pause your subscription for up to 15 days or resume it earlier whenever you want. Deliveries will be suspended immediately during this period, and no credits will go to waste. Simply drop us a quick note on WhatsApp!
-                </div>
-              )}
+        <div className="mt-24 max-w-2xl mx-auto">
+          <div className="relative bg-gradient-to-br from-[#fffdf5] to-[#fffcf0] border border-[#e8ddc5] p-8 md:p-12 rounded-sm shadow-elegant rotate-[-1deg] hover:rotate-0 transition-transform duration-500">
+            {/* Note Tape or Pin illusion */}
+            <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-32 h-8 bg-white/40 backdrop-blur-sm shadow-sm rotate-[-2deg] border border-white/50" />
+            
+            <h3 className="text-4xl font-script text-primary-deep text-center mb-8 italic">A Little Note on How It Works...</h3>
+            
+            <div className="space-y-8">
+              <div className="relative pl-6 before:absolute before:left-0 before:top-2 before:w-2 before:h-2 before:bg-primary before:rounded-full">
+                <h4 className="font-display font-bold text-lg text-primary-deep mb-2">The Pause Feature</h4>
+                <p className="text-muted-foreground text-sm leading-relaxed font-medium">
+                  We know life gets busy! Instead of cancelling, we give you the flexibility to <strong>pause your subscription</strong> for up to 15 days. Just drop us a WhatsApp message, and your deliveries will be suspended without wasting any credits. Resume whenever you're ready!
+                </p>
+              </div>
+
+              <div className="relative pl-6 before:absolute before:left-0 before:top-2 before:w-2 before:h-2 before:bg-primary before:rounded-full">
+                <h4 className="font-display font-bold text-lg text-primary-deep mb-2">Weekend Sanctuary Rules</h4>
+                <p className="text-muted-foreground text-sm leading-relaxed font-medium">
+                  This exclusive club accepts orders strictly between <strong>Friday 9:00 AM and Saturday 6:00 PM</strong>. Members also get to participate in our mid-week Wednesday Riddles in the community group—guess the ingredients for our next bake!
+                </p>
+              </div>
             </div>
 
-            <div className="border border-border rounded-2xl overflow-hidden bg-white shadow-soft transition-all duration-300">
-              <button 
-                onClick={() => toggleFaq(1)}
-                className="w-full flex justify-between items-center p-6 text-left font-display text-base md:text-lg text-primary-deep font-bold cursor-pointer hover:bg-muted/10"
-              >
-                <span>What are the rules for the Weekend Exclusive subscription?</span>
-                <ChevronDown className={`w-5 h-5 text-primary transition-transform duration-300 ${faqOpen[1] ? "rotate-180" : ""}`} />
-              </button>
-              {faqOpen[1] && (
-                <div className="px-6 pb-6 text-xs md:text-sm text-muted-foreground leading-relaxed animate-in fade-in slide-in-from-top-1">
-                  Weekend Sanctuary is highly exclusive. Orders are strictly accepted between Friday 9:00 AM and Saturday 6:00 PM. As a member, you'll also receive our mid-week Wednesday Riddles in the community group, giving you a chance to guess what's baking next!
-                </div>
-              )}
-            </div>
-            
-            <div className="border border-border rounded-2xl overflow-hidden bg-white shadow-soft transition-all duration-300">
-              <button 
-                onClick={() => toggleFaq(2)}
-                className="w-full flex justify-between items-center p-6 text-left font-display text-base md:text-lg text-primary-deep font-bold cursor-pointer hover:bg-muted/10"
-              >
-                <span>Can I cancel at any time?</span>
-                <ChevronDown className={`w-5 h-5 text-primary transition-transform duration-300 ${faqOpen[2] ? "rotate-180" : ""}`} />
-              </button>
-              {faqOpen[2] && (
-                <div className="px-6 pb-6 text-xs md:text-sm text-muted-foreground leading-relaxed animate-in fade-in slide-in-from-top-1">
-                  Instead of cancelling, we provide the power to pause your subscription whenever you need to. We believe in giving you the flexibility to take a break and resume your daily bliss when you're ready!
-                </div>
-              )}
-            </div>
+            <p className="mt-10 text-center font-script text-2xl text-primary italic">
+              Welcome to the Society!
+            </p>
           </div>
         </div>
       </div>
