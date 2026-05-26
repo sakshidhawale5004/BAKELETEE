@@ -1,7 +1,9 @@
+import { useState } from "react";
 import { waLink } from "@/lib/contact";
-import { Check, Star, Zap, Coffee, ArrowRight } from "lucide-react";
+import { Check, Star, Zap, Coffee, ArrowRight, ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
 import { SubscriptionForm } from "./SubscriptionForm";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 
 const plans = [
   {
@@ -36,6 +38,17 @@ const plans = [
 ];
 
 const Subscription = () => {
+  const [faqOpen, setFaqOpen] = useState<Record<number, boolean>>({
+    0: true,
+  });
+
+  const toggleFaq = (index: number) => {
+    setFaqOpen(prev => ({
+      ...prev,
+      [index]: !prev[index]
+    }));
+  };
+
   return (
     <section id="society" className="py-24 md:py-32 bg-gradient-warm relative overflow-hidden">
       {/* Decorative background elements */}
@@ -98,18 +111,32 @@ const Subscription = () => {
                 {plan.description}
               </p>
 
-              <ul className="mt-8 space-y-4 flex-1">
-                {plan.perks.map((perk) => (
-                  <li key={perk} className="flex items-start gap-3">
-                    <div className={`mt-1 shrink-0 w-4 h-4 rounded-full flex items-center justify-center ${plan.popular ? "bg-gradient-primary text-primary-foreground" : "bg-primary/15 text-primary"}`}>
-                      <Check className="w-2.5 h-2.5" />
-                    </div>
-                    <span className="text-sm text-foreground/80">
-                      {perk}
-                    </span>
-                  </li>
-                ))}
-              </ul>
+              <div className="mt-6 flex-1">
+                <Dialog>
+                  <DialogTrigger asChild>
+                    <button className="text-sm font-semibold text-primary underline underline-offset-4 hover:text-primary-glow transition-colors">
+                      Quick View Benefits
+                    </button>
+                  </DialogTrigger>
+                  <DialogContent className="sm:max-w-[425px] rounded-[2rem] p-6 md:p-8 bg-white/95 backdrop-blur-md border-primary/20">
+                    <DialogHeader>
+                      <DialogTitle className="text-2xl font-display text-primary-deep">{plan.name} Perks</DialogTitle>
+                    </DialogHeader>
+                    <ul className="mt-4 space-y-4">
+                      {plan.perks.map((perk) => (
+                        <li key={perk} className="flex items-start gap-3">
+                          <div className={`mt-1 shrink-0 w-4 h-4 rounded-full flex items-center justify-center ${plan.popular ? "bg-gradient-primary text-primary-foreground" : "bg-primary/15 text-primary"}`}>
+                            <Check className="w-2.5 h-2.5" />
+                          </div>
+                          <span className="text-sm text-foreground/80">
+                            {perk}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                  </DialogContent>
+                </Dialog>
+              </div>
 
               {plan.name === "The Daily Regular" ? (
                 <SubscriptionForm plan={plan} />
@@ -131,41 +158,63 @@ const Subscription = () => {
           ))}
         </div>
 
-        <div className="mt-16 max-w-4xl mx-auto bg-white/50 backdrop-blur-sm border border-primary/20 rounded-[2rem] p-8 shadow-soft">
-          <h3 className="text-2xl font-display font-semibold text-center mb-8 text-primary-deep">Delivery Zones & Fees</h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
-            <div className="p-6 rounded-2xl bg-white shadow-sm border border-border/50 hover:shadow-md transition-shadow">
-              <div className="text-muted-foreground text-sm uppercase tracking-wider mb-2 font-semibold">Zone 1</div>
-              <div className="font-bold text-lg text-foreground">Up to 10 Km</div>
-              <div className="text-primary font-display text-2xl mt-2">₹75 <span className="text-sm text-muted-foreground">flat/-</span></div>
+
+
+
+
+        <div className="mt-20 max-w-3xl mx-auto">
+          <div className="text-center mb-10">
+            <h3 className="text-3xl font-display text-primary">Rules & FAQs</h3>
+            <p className="text-muted-foreground mt-2 text-sm">
+              Everything you need to know about The Bakelette Society.
+            </p>
+          </div>
+          <div className="space-y-4">
+            <div className="border border-border rounded-2xl overflow-hidden bg-white shadow-soft transition-all duration-300">
+              <button 
+                onClick={() => toggleFaq(0)}
+                className="w-full flex justify-between items-center p-6 text-left font-display text-base md:text-lg text-primary-deep font-bold cursor-pointer hover:bg-muted/10"
+              >
+                <span>How does the flexible pause feature work?</span>
+                <ChevronDown className={`w-5 h-5 text-primary transition-transform duration-300 ${faqOpen[0] ? "rotate-180" : ""}`} />
+              </button>
+              {faqOpen[0] && (
+                <div className="px-6 pb-6 text-xs md:text-sm text-muted-foreground leading-relaxed animate-in fade-in slide-in-from-top-1">
+                  Both subscription tiers offer complete flexibility. You can pause your subscription for up to 15 days or resume it earlier whenever you want. Deliveries will be suspended immediately during this period, and no credits will go to waste. Simply drop us a quick note on WhatsApp!
+                </div>
+              )}
             </div>
-            <div className="p-6 rounded-2xl bg-white shadow-sm border border-border/50 hover:shadow-md transition-shadow">
-              <div className="text-muted-foreground text-sm uppercase tracking-wider mb-2 font-semibold">Zone 2</div>
-              <div className="font-bold text-lg text-foreground">15 Km</div>
-              <div className="text-primary font-display text-2xl mt-2">₹125 <span className="text-sm text-muted-foreground">flat/-</span></div>
+
+            <div className="border border-border rounded-2xl overflow-hidden bg-white shadow-soft transition-all duration-300">
+              <button 
+                onClick={() => toggleFaq(1)}
+                className="w-full flex justify-between items-center p-6 text-left font-display text-base md:text-lg text-primary-deep font-bold cursor-pointer hover:bg-muted/10"
+              >
+                <span>What are the rules for the Weekend Exclusive subscription?</span>
+                <ChevronDown className={`w-5 h-5 text-primary transition-transform duration-300 ${faqOpen[1] ? "rotate-180" : ""}`} />
+              </button>
+              {faqOpen[1] && (
+                <div className="px-6 pb-6 text-xs md:text-sm text-muted-foreground leading-relaxed animate-in fade-in slide-in-from-top-1">
+                  Weekend Sanctuary is highly exclusive. Orders are strictly accepted between Friday 9:00 AM and Saturday 6:00 PM. As a member, you'll also receive our mid-week Wednesday Riddles in the community group, giving you a chance to guess what's baking next!
+                </div>
+              )}
             </div>
-            <div className="p-6 rounded-2xl bg-white shadow-sm border border-border/50 hover:shadow-md transition-shadow">
-              <div className="text-muted-foreground text-sm uppercase tracking-wider mb-2 font-semibold">Zone 3</div>
-              <div className="font-bold text-lg text-foreground">Beyond 15 Kms</div>
-              <div className="text-primary font-display text-xl mt-2 pt-1">Subject to Distance</div>
+            
+            <div className="border border-border rounded-2xl overflow-hidden bg-white shadow-soft transition-all duration-300">
+              <button 
+                onClick={() => toggleFaq(2)}
+                className="w-full flex justify-between items-center p-6 text-left font-display text-base md:text-lg text-primary-deep font-bold cursor-pointer hover:bg-muted/10"
+              >
+                <span>Can I cancel at any time?</span>
+                <ChevronDown className={`w-5 h-5 text-primary transition-transform duration-300 ${faqOpen[2] ? "rotate-180" : ""}`} />
+              </button>
+              {faqOpen[2] && (
+                <div className="px-6 pb-6 text-xs md:text-sm text-muted-foreground leading-relaxed animate-in fade-in slide-in-from-top-1">
+                  Instead of cancelling, we provide the power to pause your subscription whenever you need to. We believe in giving you the flexibility to take a break and resume your daily bliss when you're ready!
+                </div>
+              )}
             </div>
           </div>
-        </div>
-
-        <div className="mt-12 text-center">
-          <Link
-            to="/subscribe"
-            className="inline-flex items-center gap-2 bg-gradient-primary text-primary-foreground px-10 py-4 rounded-full font-bold text-base shadow-glow hover:shadow-elegant hover:scale-[1.02] transition-all group"
-          >
-            Explore All Plans
-            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-          </Link>
-        </div>
-
-        <div className="mt-8 text-center max-w-2xl mx-auto px-4">
-          <p className="text-muted-foreground text-sm italic">
-            * Both subscriptions can be paused. Max 15 days or whenever you want to resume, whichever is earlier. Giving you the flexibility you need.
-          </p>
         </div>
       </div>
     </section>

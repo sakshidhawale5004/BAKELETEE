@@ -4,6 +4,7 @@ import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, Di
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Check, Copy, CheckCircle2 } from "lucide-react";
+import { toast } from "sonner";
 
 interface SubscriptionFormProps {
   plan: any;
@@ -36,9 +37,26 @@ export function SubscriptionForm({ plan, triggerClassName, triggerText }: Subscr
     e.preventDefault();
     if (formData.transactionId.trim() === "") return;
     
-    // Simulate backend submission
-    console.log("Form Submitted", formData);
+    if (/^\d+$/.test(formData.fullName.trim())) {
+      toast.error("Name cannot be purely numeric.");
+      return;
+    }
+    if (/^\d+$/.test(formData.location.trim())) {
+      toast.error("Location cannot be purely numeric.");
+      return;
+    }
+    if (formData.transactionId.trim().length < 6) {
+      toast.error("Please enter a valid Transaction ID / UTR Number.");
+      return;
+    }
+
+    const message = `Hi Bakelette! I've just subscribed to the ${plan.name} plan.\n\n*My Details:*\nName: ${formData.fullName}\nPhone: ${formData.mobileNumber}\nEmail: ${formData.email}\nLocation: ${formData.location}\nTransaction ID/UTR: ${formData.transactionId}`;
+    
     setIsSubmitted(true);
+    
+    setTimeout(() => {
+      window.open(`https://wa.me/918369424099?text=${encodeURIComponent(message)}`, "_blank");
+    }, 1500);
   };
 
   return (
@@ -179,7 +197,7 @@ export function SubscriptionForm({ plan, triggerClassName, triggerText }: Subscr
             </div>
             <h3 className="text-3xl font-display text-primary-deep">Subscription Successful!</h3>
             <p className="text-muted-foreground text-lg max-w-sm">
-              Thank you for joining the Bakelette Society. We have received your details and payment information. We will get in touch with you shortly.
+              Thank you for joining the Bakelette Society. We are redirecting you to WhatsApp to send your details. If it doesn't open automatically, please message us your details manually.
             </p>
             <Button 
               onClick={() => setOpen(false)}

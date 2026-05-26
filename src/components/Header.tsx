@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef, useMemo } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import logo from "@/assets/bakelette-logo.png";
 import { waLink, telLink, PHONE_DISPLAY } from "@/lib/contact";
 import { useCart } from "@/contexts/CartContext";
@@ -20,10 +20,13 @@ const Header = ({ searchQuery = "", onSearchChange }: HeaderProps) => {
 
   const [scrolled, setScrolled] = useState(false);
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
+  const onScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  const location = useLocation();
+  const isSubscriberPage = location.pathname === "/the-daily-regular";
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -122,18 +125,20 @@ const Header = ({ searchQuery = "", onSearchChange }: HeaderProps) => {
         scrolled || isOpen ? "bg-background/95 backdrop-blur-xl shadow-soft" : "bg-transparent"
       }`}
     >
-      <div className="bg-primary text-primary-foreground py-2.5 overflow-hidden whitespace-nowrap shadow-inner border-b border-primary-deep/20">
-        <div className="flex animate-marquee">
-          {[...Array(4)].map((_, i) => (
-            <div key={i} className="flex items-center gap-8 px-4 text-[10px] md:text-xs font-bold uppercase tracking-wider md:tracking-[0.2em]">
-              <span>✨ Free delivery on all orders above ₹1000 ✨</span>
-              <span className="opacity-50">|</span>
-              <span>FOR CORPORATE GIFTING & BULK ORDERS, KINDLY CONNECT ON +91 83694 24099.</span>
-              <span className="opacity-50">|</span>
-            </div>
-          ))}
+      {!isSubscriberPage && (
+        <div className="bg-primary text-primary-foreground py-2.5 overflow-hidden whitespace-nowrap shadow-inner border-b border-primary-deep/20">
+          <div className="flex animate-marquee">
+            {[...Array(4)].map((_, i) => (
+              <div key={i} className="flex items-center gap-8 px-4 text-[10px] md:text-xs font-bold uppercase tracking-wider md:tracking-[0.2em]">
+                <span>✨ Free delivery on all orders above ₹1000 ✨</span>
+                <span className="opacity-50">|</span>
+                <span>FOR CORPORATE GIFTING & BULK ORDERS, KINDLY CONNECT ON +91 83694 24099.</span>
+                <span className="opacity-50">|</span>
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
+      )}
       <div className={`container flex items-center justify-between gap-4 transition-all duration-500 ${scrolled || isOpen ? "py-4" : "py-6"}`}>
         <a href="/" className="flex flex-col items-start gap-0 group shrink-0">
           <div className="flex items-center justify-center gap-3">
@@ -151,7 +156,6 @@ const Header = ({ searchQuery = "", onSearchChange }: HeaderProps) => {
         <nav className={`hidden md:flex items-center transition-all duration-500 text-sm font-semibold whitespace-nowrap ${isSearchOpen ? "gap-3 lg:gap-6" : "gap-6"}`}>
           <a href="/#promise" className="text-primary hover:text-primary-glow transition-colors">Founder's Letter</a>
           <a href="/#products" className="text-primary hover:text-primary-glow transition-colors">Signature Bakes</a>
-          <a href="/the-daily-regular" className="text-primary hover:text-primary-glow transition-colors">The Daily Regular</a>
           <a href="/#society" className="text-primary hover:text-primary-glow transition-colors">Subscriptions</a>
           <a href="/#categories" className="text-primary hover:text-primary-glow transition-colors">Categories</a>
           <a href="/#blog" className="text-primary hover:text-primary-glow transition-colors">Blog</a>
@@ -259,7 +263,6 @@ const Header = ({ searchQuery = "", onSearchChange }: HeaderProps) => {
             </div>
             <a href="/#promise" onClick={() => setIsOpen(false)} className="hover:translate-x-2 transition-transform">Founder's Letter</a>
             <a href="/#products" onClick={() => setIsOpen(false)} className="hover:translate-x-2 transition-transform">Signature Bakes</a>
-            <a href="/the-daily-regular" onClick={() => setIsOpen(false)} className="hover:translate-x-2 transition-transform text-primary font-bold">The Daily Regular ✨</a>
             <a href="/#society" onClick={() => setIsOpen(false)} className="hover:translate-x-2 transition-transform text-primary font-bold">Subscriptions ✨</a>
             <a href="/#categories" onClick={() => setIsOpen(false)} className="hover:translate-x-2 transition-transform">Categories</a>
             <a href="/#blog" onClick={() => setIsOpen(false)} className="hover:translate-x-2 transition-transform">Blog</a>

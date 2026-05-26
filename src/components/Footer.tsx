@@ -8,9 +8,15 @@ const Footer = () => (
         <div className="mb-6">
           <img src={logo} alt="Bakelette" className="h-14 md:h-16 w-auto object-contain" />
         </div>
-        <p className="text-primary-foreground/70 max-w-xs text-sm leading-relaxed">
+        <p className="text-primary-foreground/70 max-w-xs text-sm leading-relaxed mb-6">
           Wholesome, handcrafted bakes. Baked fresh, with love.
         </p>
+        <div className="bg-primary/10 border border-primary/20 rounded-xl p-4 max-w-xs">
+          <h5 className="text-primary-glow font-display text-sm mb-1">Delivery Available</h5>
+          <p className="text-primary-foreground/70 text-xs">
+            Free delivery on all orders above ₹1000 ✨
+          </p>
+        </div>
       </div>
 
       <div className="md:col-span-2 lg:col-span-2">
