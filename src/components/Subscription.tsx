@@ -138,22 +138,7 @@ const Subscription = () => {
                 </Dialog>
               </div>
 
-              {plan.name === "The Daily Regular" ? (
-                <SubscriptionForm plan={plan} />
-              ) : (
-                <a
-                  href={waLink(`Hi Bakelette! I'd like to join the Society with the ${plan.name} plan.`)}
-                  target="_blank"
-                  rel="noreferrer"
-                  className={`mt-10 w-full py-4 rounded-full font-bold text-sm text-center transition-all block ${
-                    plan.popular 
-                      ? "bg-gradient-primary text-primary-foreground shadow-glow hover:shadow-elegant hover:scale-[1.02]" 
-                      : "bg-primary-deep text-primary-foreground hover:bg-primary transition-colors"
-                  }`}
-                >
-                  Join the Society
-                </a>
-              )}
+              <SubscriptionForm plan={plan} />
             </div>
           ))}
         </div>

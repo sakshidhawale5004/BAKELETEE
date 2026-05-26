@@ -84,14 +84,18 @@ export function SubscriptionForm({ plan, triggerClassName, triggerText }: Subscr
             <DialogHeader className="mb-6">
               <DialogTitle className="text-3xl font-display text-primary-deep text-center">Subscribe to {plan.name}</DialogTitle>
               <DialogDescription className="text-center text-muted-foreground mt-2">
-                <span className="inline-block bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-semibold mb-2">
-                  🎉 10% off on current price!
-                </span>
-                <br/>
-                <a href="/the-daily-regular" className="text-primary-deep text-sm font-medium hover:underline inline-block mb-4">
-                  View all 10% off eligible products →
-                </a>
-                <br/>
+                {plan.name === "The Daily Regular" && (
+                  <>
+                    <span className="inline-block bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-semibold mb-2">
+                      🎉 10% off on current price!
+                    </span>
+                    <br/>
+                    <a href="/the-daily-regular" className="text-primary-deep text-sm font-medium hover:underline inline-block mb-4">
+                      View all 10% off eligible products →
+                    </a>
+                    <br/>
+                  </>
+                )}
                 Fill in your details below to complete your subscription.
               </DialogDescription>
             </DialogHeader>
