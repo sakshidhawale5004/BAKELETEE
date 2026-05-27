@@ -17,7 +17,6 @@ const plans = [
       "Direct website ordering",
       "Independent profile & number storage",
       "Priority support",
-      "Flexible pause feature (up to 15 days)",
       "Exclusive member-only discounts",
     ],
     icon: <Zap className="w-6 h-6" />,
@@ -58,16 +57,24 @@ const Subscription = () => {
 
   const faqs = [
     {
-      q: "How does the flexible pause feature work?",
-      a: "Both subscription tiers offer complete flexibility. You can pause your subscription for up to 15 days or resume it earlier whenever you want. Deliveries will be suspended immediately during this period, and no credits will go to waste. Simply drop us a quick note on WhatsApp!"
+      q: "How does the flexible pause feature work for The Weekend Sanctuary?",
+      a: "The Weekend Sanctuary is designed with complete flexibility in mind. You can pause your subscription for up to a max time period of 15 days or resume deliveries any time before at your convenience. Just send us a quick message on WhatsApp!"
     },
     {
-      q: "What are the rules for the Weekend Sanctuary subscription?",
-      a: "Weekend Sanctuary is highly exclusive. Orders are strictly accepted between Friday 9:00 AM and Saturday 6:00 PM. As a member, you'll also receive our mid-week Wednesday Riddles in the community group, giving you a chance to guess what's baking next!"
+      q: "What are the rules for The Weekend Sanctuary subscription?",
+      a: "The Weekend Sanctuary is highly exclusive. Orders are strictly accepted between Friday 9:00 AM and Saturday 6:00 PM. As a member, you'll also receive our mid-week Wednesday Riddles in the community group, giving you a chance to guess what's baking next!"
     },
     {
-      q: "Can I cancel at any time?",
-      a: "Instead of cancelling, we provide the power to pause your subscription whenever you need to. We believe in giving you the flexibility to take a break and resume your daily bliss when you're ready!"
+      q: "How does ordering work for The Daily Ritual?",
+      a: "The Daily Ritual offers seamless ordering directly through our website. Once subscribed, you'll have your own profile with stored preferences and contact details, making it quick and easy to place orders whenever you need your daily dose of freshly baked goodness!"
+    },
+    {
+      q: "What makes The Daily Ritual different from regular orders?",
+      a: "As a Daily Ritual member, you get priority support, exclusive member-only discounts, and the convenience of having your profile and preferences saved. It's designed for our regular consumers who want a hassle-free, consistent experience with special perks!"
+    },
+    {
+      q: "Can I cancel my subscription at any time?",
+      a: "For The Weekend Sanctuary, instead of cancelling, we provide the power to pause your subscription whenever you need to. For The Daily Ritual, you can manage your subscription preferences anytime. We believe in giving you flexibility to enjoy our bakes on your terms!"
     }
   ];
 
