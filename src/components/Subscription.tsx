@@ -9,10 +9,10 @@ const plans = [
   {
     name: "The Daily Ritual",
     price: 999,
-    period: "month",
+    period: "60 days",
     tagline: "For our regular daily consumers.",
     description: "Perfect for regular consumers. Order directly from our website and enjoy seamless daily indulgence.",
-    items: "Regular Access",
+    items: "Regular Tribe",
     perks: [
       "Direct website ordering",
       "Independent profile & number storage",
@@ -25,10 +25,10 @@ const plans = [
   {
     name: "The Weekend Sanctuary",
     price: 1299,
-    period: "month",
+    period: "30 days",
     tagline: "A curated weekend discovery.",
     description: "Join our exclusive WhatsApp community for weekend-specific bakes, special riddles, and surprises.",
-    items: "Weekend Access",
+    items: "Exclusive Weekend Fam",
     perks: [
       "Exclusive WhatsApp community access",
       "Order window: Fri 9 AM - Sat 6 PM",
