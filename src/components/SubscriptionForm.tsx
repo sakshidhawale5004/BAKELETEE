@@ -33,16 +33,114 @@ export function SubscriptionForm({ plan, triggerClassName, triggerText }: Subscr
     setTimeout(() => setCopied(false), 2000);
   };
 
+  const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    // Only allow letters and spaces
+    const value = e.target.value.replace(/[^a-zA-Z\s]/g, '');
+    setFormData({...formData, fullName: value});
+  };
+
+  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    // Only allow digits and limit to 10
+    const value = e.target.value.replace(/\D/g, '').slice(0, 10);
+    setFormData({...formData, mobileNumber: value});
+  };
+
+  const handleLocationChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    // Only allow letters, spaces, and common location characters (comma, hyphen)
+    const value = e.target.value.replace(/[^a-zA-Z\s,\-]/g, '');
+    setFormData({...formData, location: value});
+  };
+
+  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    // Allow only valid email characters: letters, numbers, @, ., _, -
+    const value = e.target.value.replace(/[^a-zA-Z0-9@._-]/g, '');
+    setFormData({...formData, email: value});
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (formData.transactionId.trim() === "") return;
     
-    if (!/[a-zA-Z]/.test(formData.fullName.trim()) || formData.fullName.trim().length < 3) {
-      toast.error("Please enter a valid Name (must contain letters).");
+    // Validate Full Name
+    if (!formData.fullName.trim()) {
+      toast.error("Please enter your full name.");
       return;
     }
-    if (!/[a-zA-Z]/.test(formData.location.trim()) || formData.location.trim().length < 3) {
-      toast.error("Please enter a valid Location (must contain letters).");
+    if (!/^[a-zA-Z\s]+$/.test(formData.fullName.trim())) {
+      toast.error("Name should only contain letters and spaces.");
+      return;
+    }
+    if (formData.fullName.trim().length < 3) {
+      toast.error("Name must be at least 3 characters long.");
+      return;
+    }
+    
+    // Validate Mobile Number
+    if (!formData.mobileNumber.trim()) {
+      toast.error("Please enter your mobile number.");
+      return;
+    }
+    if (!/^\d{10}$/.test(formData.mobileNumber.trim())) {
+      toast.error("Mobile number must be exactly 10 digits.");
+      return;
+    }
+    
+    // Validate Email
+    if (!formData.email.trim()) {
+      toast.error("Please enter an email address.");
+      return;
+    }
+    // More strict email validation
+    const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    if (!emailRegex.test(formData.email.trim())) {
+      toast.error("Please enter a valid email address (e.g., name@example.com).");
+      return;
+    }
+    // Check for common typos and invalid patterns
+    const email = formData.email.trim().toLowerCase();
+    if (email.includes('..') || email.startsWith('.') || email.endsWith('.') || 
+        email.includes('@.') || email.includes('.@') ||
+        /^[^@]+@[^@]+\.[a-z]{1}$/.test(email)) {
+      toast.error("Please enter a valid email address (e.g., name@example.com).");
+      return;
+    }
+    // Check for suspicious patterns (all numbers or random characters)
+    const [localPart, domainPart] = email.split('@');
+    // Block if local part is all numbers
+    if (/^\d+$/.test(localPart)) {
+      toast.error("Please enter a valid email address with letters.");
+      return;
+    }
+    // Block if domain is too short or suspicious
+    const domainName = domainPart.split('.')[0];
+    if (domainName.length < 3) {
+      toast.error("Please enter a valid email domain.");
+      return;
+    }
+    // Check for common valid TLDs
+    const validTLDs = ['com', 'org', 'net', 'edu', 'gov', 'co', 'in', 'uk', 'us', 'ca', 'au', 'de', 'fr', 'jp', 'cn', 'br', 'ru', 'it', 'es', 'nl', 'se', 'no', 'dk', 'fi', 'pl', 'be', 'at', 'ch', 'ie', 'nz', 'sg', 'hk', 'za', 'mx', 'ar', 'cl', 'io', 'ai', 'app', 'dev', 'tech', 'info', 'biz', 'me', 'tv', 'cc'];
+    const tld = domainPart.split('.').pop();
+    if (!validTLDs.includes(tld || '')) {
+      toast.error("Please enter a valid email address with a recognized domain.");
+      return;
+    }
+    
+    // Validate Location
+    if (!formData.location.trim()) {
+      toast.error("Please enter your location.");
+      return;
+    }
+    if (!/^[a-zA-Z\s,\-]+$/.test(formData.location.trim())) {
+      toast.error("Location should only contain letters, spaces, commas, and hyphens.");
+      return;
+    }
+    if (formData.location.trim().length < 3) {
+      toast.error("Location must be at least 3 characters long.");
+      return;
+    }
+    
+    // Validate Transaction ID
+    if (!formData.transactionId.trim()) {
+      toast.error("Please enter the transaction ID.");
       return;
     }
     if (formData.transactionId.trim().length < 6 || !/[a-zA-Z0-9]/.test(formData.transactionId)) {
@@ -61,11 +159,12 @@ export function SubscriptionForm({ plan, triggerClassName, triggerText }: Subscr
 
   return (
     <Dialog open={open} onOpenChange={(newOpen) => {
+      setOpen(newOpen);
       if (!newOpen) {
-        setTimeout(() => setIsSubmitted(false), 300); // reset on close
+        // Reset form state when dialog closes
+        setIsSubmitted(false);
         setFormData({ fullName: "", mobileNumber: "", email: "", location: "", transactionId: "" });
       }
-      setOpen(newOpen);
     }}>
       <DialogTrigger asChild>
         <button
@@ -103,7 +202,7 @@ export function SubscriptionForm({ plan, triggerClassName, triggerText }: Subscr
                 Fill in your details below to complete your subscription.
               </DialogDescription>
             </DialogHeader>
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit} noValidate className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <Label htmlFor="fullName" className="text-primary-deep font-semibold">Full Name *</Label>
@@ -111,7 +210,7 @@ export function SubscriptionForm({ plan, triggerClassName, triggerText }: Subscr
                     id="fullName" 
                     required 
                     value={formData.fullName}
-                    onChange={(e) => setFormData({...formData, fullName: e.target.value})}
+                    onChange={handleNameChange}
                     className="rounded-xl border-primary/20 focus-visible:ring-primary/30 h-12"
                     placeholder="Enter your full name"
                   />
@@ -122,11 +221,19 @@ export function SubscriptionForm({ plan, triggerClassName, triggerText }: Subscr
                     id="mobileNumber" 
                     required 
                     type="tel"
+                    inputMode="numeric"
+                    pattern="[0-9]{10}"
+                    maxLength={10}
                     value={formData.mobileNumber}
-                    onChange={(e) => setFormData({...formData, mobileNumber: e.target.value})}
+                    onChange={handlePhoneChange}
                     className="rounded-xl border-primary/20 focus-visible:ring-primary/30 h-12"
-                    placeholder="Enter mobile number"
+                    placeholder="Enter 10-digit mobile number"
                   />
+                  {formData.mobileNumber && formData.mobileNumber.length < 10 && (
+                    <p className="text-xs text-amber-600 mt-1 px-1">
+                      {formData.mobileNumber.length}/10 digits entered
+                    </p>
+                  )}
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="email" className="text-primary-deep font-semibold">Email Address *</Label>
@@ -135,10 +242,15 @@ export function SubscriptionForm({ plan, triggerClassName, triggerText }: Subscr
                     type="email" 
                     required 
                     value={formData.email}
-                    onChange={(e) => setFormData({...formData, email: e.target.value})}
+                    onChange={handleEmailChange}
                     className="rounded-xl border-primary/20 focus-visible:ring-primary/30 h-12"
                     placeholder="Enter email address"
                   />
+                  {formData.email && !/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(formData.email) && (
+                    <p className="text-xs text-amber-600 mt-1 px-1">
+                      Please enter a valid email format (e.g., name@example.com)
+                    </p>
+                  )}
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="location" className="text-primary-deep font-semibold">Location *</Label>
@@ -146,7 +258,7 @@ export function SubscriptionForm({ plan, triggerClassName, triggerText }: Subscr
                     id="location" 
                     required 
                     value={formData.location}
-                    onChange={(e) => setFormData({...formData, location: e.target.value})}
+                    onChange={handleLocationChange}
                     className="rounded-xl border-primary/20 focus-visible:ring-primary/30 h-12"
                     placeholder="Enter location"
                   />
@@ -208,7 +320,11 @@ export function SubscriptionForm({ plan, triggerClassName, triggerText }: Subscr
               Thank you for joining the Bakelette Society. We are redirecting you to WhatsApp to send your details. If it doesn't open automatically, please message us your details manually.
             </p>
             <Button 
-              onClick={() => setOpen(false)}
+              onClick={() => {
+                setIsSubmitted(false);
+                setFormData({ fullName: "", mobileNumber: "", email: "", location: "", transactionId: "" });
+                setOpen(false);
+              }}
               className="mt-8 rounded-full px-8 py-6 font-bold shadow-soft hover:shadow-md transition-all border-primary text-primary hover:bg-primary/5"
               variant="outline"
             >
