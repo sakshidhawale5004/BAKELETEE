@@ -12,10 +12,13 @@ const Footer = () => (
           Wholesome, handcrafted bakes. Baked fresh, with love.
         </p>
         <div className="bg-primary/10 border border-primary/20 rounded-xl p-4 max-w-xs">
-          <h5 className="text-primary-glow font-display text-sm mb-1">Delivery Available</h5>
-          <p className="text-primary-foreground/70 text-xs">
-            Free delivery on all orders above ₹1000 ✨
-          </p>
+          <h5 className="text-primary-glow font-display text-sm mb-2">Delivery Available</h5>
+          <div className="text-primary-foreground/70 text-xs space-y-1">
+            <p>📍 Up to 10 kms – ₹75 flat fee</p>
+            <p>📍 Up to 15 kms – ₹125 flat fee</p>
+            <p>📍 Up to 20 kms – ₹175 flat fee</p>
+            <p className="text-primary-foreground/50 text-[10px] mt-2">*Distance calculated from our location</p>
+          </div>
         </div>
       </div>
 
