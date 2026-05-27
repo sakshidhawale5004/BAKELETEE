@@ -7,7 +7,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from 
 
 const plans = [
   {
-    name: "The Daily Regular",
+    name: "The Daily Ritual",
     price: 999,
     period: "month",
     tagline: "For our regular daily consumers.",
@@ -16,18 +16,15 @@ const plans = [
     perks: [
       "Direct website ordering",
       "Independent profile & number storage",
-      "Priority customer support",
+      "Priority support",
       "Flexible pause feature (up to 15 days)",
-      "Order tracking & delivery updates",
       "Exclusive member-only discounts",
-      "Birthday month special surprise",
-      "Early access to new product launches",
     ],
     icon: <Zap className="w-6 h-6" />,
     popular: true,
   },
   {
-    name: "The Weekend Exclusive",
+    name: "The Weekend Sanctuary",
     price: 1299,
     period: "month",
     tagline: "A curated weekend discovery.",
@@ -36,14 +33,12 @@ const plans = [
     perks: [
       "Exclusive WhatsApp community access",
       "Order window: Fri 9 AM - Sat 6 PM",
-      "Wed hints/riddles for upcoming bakes",
+      "Wednesday hints/riddles for upcoming bakes",
       "Complimentary monthly item",
       "Limited edition weekend-only bakes",
-      "VIP priority delivery slots",
+      "VIP priority delivery",
       "Flexible pause feature (up to 15 days)",
-      "Members-only recipe sharing sessions",
-      "Special seasonal hamper discounts",
-      "First dibs on collaboration products",
+      "Members-only recipe sharing sessions once a month",
     ],
     icon: <Star className="w-6 h-6" />,
   },
@@ -67,7 +62,7 @@ const Subscription = () => {
       a: "Both subscription tiers offer complete flexibility. You can pause your subscription for up to 15 days or resume it earlier whenever you want. Deliveries will be suspended immediately during this period, and no credits will go to waste. Simply drop us a quick note on WhatsApp!"
     },
     {
-      q: "What are the rules for the Weekend Exclusive subscription?",
+      q: "What are the rules for the Weekend Sanctuary subscription?",
       a: "Weekend Sanctuary is highly exclusive. Orders are strictly accepted between Friday 9:00 AM and Saturday 6:00 PM. As a member, you'll also receive our mid-week Wednesday Riddles in the community group, giving you a chance to guess what's baking next!"
     },
     {
