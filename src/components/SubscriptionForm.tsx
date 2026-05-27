@@ -19,6 +19,7 @@ export function SubscriptionForm({ plan, triggerClassName, triggerText }: Subscr
     mobileNumber: "",
     email: "",
     location: "",
+    specialDate: "",
     transactionId: ""
   });
   const [copied, setCopied] = useState(false);
@@ -148,7 +149,7 @@ export function SubscriptionForm({ plan, triggerClassName, triggerText }: Subscr
       return;
     }
 
-    const message = `Hi Bakelette! I've just subscribed to the ${plan.name} plan.\n\n*My Details:*\nName: ${formData.fullName}\nPhone: ${formData.mobileNumber}\nEmail: ${formData.email}\nLocation: ${formData.location}\nTransaction ID/UTR: ${formData.transactionId}`;
+    const message = `Hi Bakelette! I've just subscribed to the ${plan.name} plan.\n\n*My Details:*\nName: ${formData.fullName}\nPhone: ${formData.mobileNumber}\nEmail: ${formData.email}\nLocation: ${formData.location}\nSpecial Date (Birthday/Anniversary): ${formData.specialDate || 'Not provided'}\nTransaction ID/UTR: ${formData.transactionId}`;
     
     setIsSubmitted(true);
     
@@ -163,7 +164,7 @@ export function SubscriptionForm({ plan, triggerClassName, triggerText }: Subscr
       if (!newOpen) {
         // Reset form state when dialog closes
         setIsSubmitted(false);
-        setFormData({ fullName: "", mobileNumber: "", email: "", location: "", transactionId: "" });
+        setFormData({ fullName: "", mobileNumber: "", email: "", location: "", specialDate: "", transactionId: "" });
       }
     }}>
       <DialogTrigger asChild>
@@ -265,6 +266,21 @@ export function SubscriptionForm({ plan, triggerClassName, triggerText }: Subscr
                 </div>
               </div>
 
+              <div className="space-y-2">
+                <Label htmlFor="specialDate" className="text-primary-deep font-semibold">Birthday / Anniversary Date (Optional)</Label>
+                <Input 
+                  id="specialDate" 
+                  type="date"
+                  value={formData.specialDate}
+                  onChange={(e) => setFormData({...formData, specialDate: e.target.value})}
+                  className="rounded-xl border-primary/20 focus-visible:ring-primary/30 h-12"
+                  placeholder="Select date"
+                />
+                <p className="text-xs text-muted-foreground mt-1 px-1">
+                  Help us celebrate your special day with you!
+                </p>
+              </div>
+
               <div className="bg-primary/5 rounded-2xl p-6 border border-primary/10">
                 <h4 className="text-lg font-display text-center mb-4 text-primary-deep">Payment Details</h4>
                 <div className="flex flex-col items-center gap-4">
@@ -322,7 +338,7 @@ export function SubscriptionForm({ plan, triggerClassName, triggerText }: Subscr
             <Button 
               onClick={() => {
                 setIsSubmitted(false);
-                setFormData({ fullName: "", mobileNumber: "", email: "", location: "", transactionId: "" });
+                setFormData({ fullName: "", mobileNumber: "", email: "", location: "", specialDate: "", transactionId: "" });
                 setOpen(false);
               }}
               className="mt-8 rounded-full px-8 py-6 font-bold shadow-soft hover:shadow-md transition-all border-primary text-primary hover:bg-primary/5"
