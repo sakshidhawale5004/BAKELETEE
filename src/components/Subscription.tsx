@@ -176,16 +176,16 @@ const Subscription = () => {
 
         <div className="mt-32 max-w-3xl mx-auto relative z-10">
           <div className="text-center mb-12">
-            <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 text-primary mb-6 shadow-inner">
-              <Coffee className="w-8 h-8" />
+            <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary/10 text-primary mb-4 shadow-inner">
+              <Coffee className="w-6 h-6" />
             </div>
-            <h3 className="text-3xl md:text-4xl font-display text-primary-deep font-bold">Curious Minds Want to Know</h3>
-            <p className="text-muted-foreground mt-4 text-base max-w-xl mx-auto">
+            <h3 className="text-2xl md:text-3xl font-display text-primary-deep font-bold">Curious Minds Want to Know</h3>
+            <p className="text-muted-foreground mt-3 text-sm max-w-xl mx-auto">
               Everything you need to know about The Bakelette Society. If you don't see your question here, just ask us on WhatsApp!
             </p>
           </div>
           
-          <div className="space-y-6">
+          <div className="space-y-4">
             {faqs.map((faq, index) => (
               <div 
                 key={index} 
@@ -197,13 +197,13 @@ const Subscription = () => {
               >
                 <button 
                   onClick={() => toggleFaq(index)}
-                  className="w-full flex justify-between items-center p-6 md:p-8 text-left cursor-pointer"
+                  className="w-full flex justify-between items-center p-5 md:p-6 text-left cursor-pointer"
                 >
-                  <span className={`font-display text-lg md:text-xl font-bold transition-colors duration-300 ${faqOpen[index] ? "text-primary" : "text-primary-deep group-hover:text-primary"}`}>
+                  <span className={`font-display text-base md:text-lg font-bold transition-colors duration-300 ${faqOpen[index] ? "text-primary" : "text-primary-deep group-hover:text-primary"}`}>
                     {faq.q}
                   </span>
-                  <div className={`shrink-0 ml-4 w-10 h-10 rounded-full flex items-center justify-center transition-colors duration-300 ${faqOpen[index] ? "bg-primary text-primary-foreground" : "bg-primary/10 text-primary group-hover:bg-primary/20"}`}>
-                    <ChevronDown className={`w-5 h-5 transition-transform duration-500 ${faqOpen[index] ? "rotate-180" : ""}`} />
+                  <div className={`shrink-0 ml-4 w-8 h-8 rounded-full flex items-center justify-center transition-colors duration-300 ${faqOpen[index] ? "bg-primary text-primary-foreground" : "bg-primary/10 text-primary group-hover:bg-primary/20"}`}>
+                    <ChevronDown className={`w-4 h-4 transition-transform duration-500 ${faqOpen[index] ? "rotate-180" : ""}`} />
                   </div>
                 </button>
                 <div 
@@ -212,7 +212,7 @@ const Subscription = () => {
                   }`}
                 >
                   <div className="overflow-hidden">
-                    <p className="px-6 md:px-8 pb-8 text-sm md:text-base text-muted-foreground leading-relaxed">
+                    <p className="px-5 md:px-6 pb-6 text-xs md:text-sm text-muted-foreground leading-relaxed">
                       {faq.a}
                     </p>
                   </div>
