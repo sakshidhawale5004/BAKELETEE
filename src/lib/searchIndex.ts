@@ -53,7 +53,7 @@ const pages: SearchResult[] = [
   },
   {
     title: "Subscriptions & Memberships",
-    subtitle: "Join the Bakelette Society: Daily Delight and Weekend Exclusive plans.",
+    subtitle: "Join the Bakelette Society: Daily Ritual and Weekend Sanctuary plans.",
     section: "Pages",
     action: { type: "navigate", url: "/subscribe" },
   },
