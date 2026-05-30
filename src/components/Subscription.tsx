@@ -32,8 +32,11 @@ const plans = [
     perks: [
       "Exclusive WhatsApp community access",
       "Order window: Fri 9 AM - Sat 6 PM",
+      "Wednesday Riddles for upcoming bakes",
       "Complimentary monthly item",
       "Limited edition weekend-only bakes",
+      "VIP priority delivery",
+      "Members-only recipe sharing sessions once a month",
       "Flexible pause feature (up to 15 days)",
     ],
     icon: <Star className="w-6 h-6" />,
