@@ -50,6 +50,23 @@ const TheDailyRegular = () => {
           </Link>
         </div>
 
+        {/* Important Notice */}
+        <div className="container px-4 mb-12">
+          <div className="bg-primary/10 border-2 border-primary/30 rounded-2xl p-6 md:p-8 max-w-3xl">
+            <div className="flex gap-4">
+              <div className="text-2xl shrink-0">⚠️</div>
+              <div>
+                <h3 className="text-lg md:text-xl font-display text-primary-deep font-bold mb-2">
+                  Important: Use Your Registered Mobile Number
+                </h3>
+                <p className="text-sm md:text-base text-foreground/80 leading-relaxed">
+                  When placing orders, please use the <strong>same mobile number</strong> that you registered for your Daily Ritual subscription. This helps us verify your membership and apply your 10% discount correctly.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <Products 
           selected={selected} 
           onSelect={setSelected} 
