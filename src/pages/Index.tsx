@@ -44,10 +44,10 @@ const Index = () => {
       <Products selected={selected} onSelect={setSelected} searchQuery={searchQuery} />
       <Categories onSelect={setSelected} />
       <Gifting />
+      <Subscription />
       <HowItWorks />
       <Testimonials />
       <Blog />
-      <Subscription />
 
       <FollowCrumbs />
       <Footer />
