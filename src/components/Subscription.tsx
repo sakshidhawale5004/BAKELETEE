@@ -133,11 +133,11 @@ const Subscription = () => {
                 {plan.tagline}
               </p>
               
-              <p className="mt-6 text-sm leading-relaxed text-muted-foreground">
+              <p className="mt-6 text-sm leading-relaxed text-muted-foreground flex-grow">
                 {plan.description}
               </p>
 
-              <div className="mt-6 flex-1">
+              <div className="mt-8 w-full">
                 <Dialog>
                   <DialogTrigger asChild>
                     <button className="inline-flex items-center justify-center gap-2 w-full py-3 px-6 rounded-full border-2 border-primary/20 text-primary font-bold text-sm hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300 shadow-sm hover:shadow-glow group">
@@ -165,7 +165,9 @@ const Subscription = () => {
                 </Dialog>
               </div>
 
-              <SubscriptionForm plan={plan} />
+              <div className="mt-6">
+                <SubscriptionForm plan={plan} />
+              </div>
             </div>
           ))}
         </div>
