@@ -6,7 +6,7 @@ const steps = [
 ];
 
 const HowItWorks = () => (
-  <section id="how-it-works" className="py-24 md:py-32 bg-gradient-warm">
+  <section id="how-it-works" className="py-24 md:py-32 bg-primary/5">
     <div className="container">
       <div className="max-w-3xl mx-auto text-center mb-16">
         <span className="text-primary uppercase tracking-[0.25em] text-xs font-semibold">How It Works</span>
