@@ -9,7 +9,7 @@ const plans = [
   {
     name: "The Daily Ritual",
     price: 999,
-    period: "60 days",
+    period: "180 days",
     tagline: "Your everyday indulgence, simplified.",
     description: "Perfect for regular consumers. Order directly from our website and enjoy seamless daily indulgence.",
     items: "Regular Tribe",
@@ -18,6 +18,7 @@ const plans = [
       "Independent profile & number storage",
       "Priority support",
       "Exclusive member-only discounts",
+      "10% off on the products",
     ],
     icon: <Zap className="w-6 h-6" />,
     popular: true,
