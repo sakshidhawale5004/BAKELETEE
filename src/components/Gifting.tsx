@@ -29,7 +29,7 @@ const hampers: Product[] = [
     price: 1999,
     category: "Gift Hamper",
     tagline: "The ultimate expression of artisanal love.",
-    img: "/assets/hampers/THE-ICON-FINAL.jpeg",
+    img: "/assets/hampers/the-icon-final-new.png",
     description: "A lavish tribute to life’s grandest celebrations and most profound connections. The Icon is our ultimate expression of artisanal love, featuring some of our most indulgent and sophisticated bakes. It is a grand gesture of abundance, designed to honor the milestones that define us and the people who inspire us. A truly iconic gift for truly iconic moments.",
     notes: ["Indulgent Masterpieces", "Luxury Commemorative Packaging", "The Full Bakelette Experience"],
     badge: "Luxury Edition",
