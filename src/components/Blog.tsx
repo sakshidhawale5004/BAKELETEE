@@ -23,7 +23,7 @@ const blogs = [
 ];
 
 const Blog = () => (
-  <section id="blog" className="py-24 md:py-32 bg-background">
+  <section id="blog" className="py-24 md:py-32 bg-white">
     <div className="container">
       <div className="text-center mb-16">
         <span className="text-primary uppercase tracking-[0.25em] text-xs font-semibold">Our Stories</span>
