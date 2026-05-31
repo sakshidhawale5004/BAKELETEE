@@ -11,7 +11,7 @@ const plans = [
     price: 999,
     period: "180 days",
     tagline: "Your everyday indulgence, simplified.",
-    description: "Perfect for regular consumers. Order directly from our website and enjoy seamless daily indulgence.",
+    description: "Once subscribed a new link will be shared where you can see the discounted prices and enjoy seamless daily indulgence.",
     items: "Regular Tribe",
     perks: [
       "Direct website ordering",
