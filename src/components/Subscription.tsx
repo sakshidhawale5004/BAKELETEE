@@ -27,7 +27,7 @@ const plans = [
     price: 1299,
     period: "30 days",
     tagline: "Exclusive weekend treats, just for you.",
-    description: "Join our exclusive WhatsApp community for weekend-specific bakes, special riddles, and surprises.",
+    description: "Join our exclusive WhatsApp community for exclusive weekend-specific bakes, special riddles, and surprises.",
     items: "Exclusive Weekend Fam",
     perks: [
       "Exclusive WhatsApp community access",
@@ -54,7 +54,7 @@ const Subscription = () => {
         <div className="max-w-3xl mx-auto text-center mb-16 px-4">
           <span className="text-primary uppercase tracking-[0.25em] text-xs font-semibold">The Bakelette Society</span>
           <h2 className="mt-4 text-4xl md:text-6xl text-balance">
-            Your Daily Dose of <em className="font-script text-primary">Bliss</em>
+            Your Dose of <em className="font-script text-primary">Bliss</em>
           </h2>
           <p className="mt-6 text-muted-foreground text-lg max-w-2xl mx-auto">
             Join an exclusive community of artisanal lovers. Freshness, early access, and pure joy — delivered on your schedule.
