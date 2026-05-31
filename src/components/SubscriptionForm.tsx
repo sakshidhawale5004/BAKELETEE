@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Check, Copy, CheckCircle2 } from "lucide-react";
 import { toast } from "sonner";
+import { useSubscription } from "@/contexts/SubscriptionContext";
 
 interface SubscriptionFormProps {
   plan: any;
@@ -14,6 +15,7 @@ interface SubscriptionFormProps {
 
 export function SubscriptionForm({ plan, triggerClassName, triggerText }: SubscriptionFormProps) {
   const [open, setOpen] = useState(false);
+  const { setIsSubscribed, setSubscriberPhone } = useSubscription();
   const [formData, setFormData] = useState({
     fullName: "",
     mobileNumber: "",
@@ -150,6 +152,10 @@ export function SubscriptionForm({ plan, triggerClassName, triggerText }: Subscr
     }
 
     const message = `Hi Bakelette! I've just subscribed to the ${plan.name} plan.\n\n*My Details:*\nName: ${formData.fullName}\nPhone: ${formData.mobileNumber}\nEmail: ${formData.email}\nLocation: ${formData.location}\nSpecial Date (Birthday/Anniversary): ${formData.specialDate || 'Not provided'}\nTransaction ID/UTR: ${formData.transactionId}`;
+    
+    // Set subscription status and phone number
+    setIsSubscribed(true);
+    setSubscriberPhone(formData.mobileNumber);
     
     setIsSubmitted(true);
     

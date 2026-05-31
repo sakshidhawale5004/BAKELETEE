@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Products, { type Category } from "@/components/Products";
@@ -7,14 +8,24 @@ import Cart from "@/components/Cart";
 import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import subscribeHero from "@/assets/subscribe-hero.png";
+import { useSubscription } from "@/contexts/SubscriptionContext";
 
 const TheDailyRegular = () => {
   const [selected, setSelected] = useState<Category>("All");
   const [searchQuery, setSearchQuery] = useState("");
+  const navigate = useNavigate();
+  const { isSubscribed } = useSubscription();
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  // Redirect to home if not subscribed
+  useEffect(() => {
+    if (!isSubscribed) {
+      navigate('/');
+    }
+  }, [isSubscribed, navigate]);
 
   return (
     <main className="min-h-screen bg-background flex flex-col">
