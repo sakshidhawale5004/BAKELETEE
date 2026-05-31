@@ -17,7 +17,6 @@ const plans = [
       "Direct website ordering",
       "Independent profile & number storage",
       "Priority support",
-      "Exclusive member-only discounts",
       "10% off on the products",
     ],
     icon: <Zap className="w-6 h-6" />,
