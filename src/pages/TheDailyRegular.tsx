@@ -36,14 +36,14 @@ const TheDailyRegular = () => {
         <section className="relative h-[45vh] min-h-[400px] md:h-[55vh] flex items-center justify-center overflow-hidden">
           <img
             src={subscribeHero}
-            alt="The Daily Ritual Subscription"
+            alt="Inside The Daily Ritual Subscription"
             className="absolute inset-0 w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-black/40" /> {/* Overlay for better text readability */}
           
           <div className="container relative z-10 px-4 text-center">
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-display text-white mb-6 drop-shadow-md">
-              The Daily Ritual
+              Inside The Daily Ritual
             </h1>
             <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto mb-8 drop-shadow-sm font-medium">
               Welcome to your exclusive member area! Enjoy a special <strong>10% discount</strong> on all our signature bakes.

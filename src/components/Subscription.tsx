@@ -7,7 +7,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from 
 
 const plans = [
   {
-    name: "The Daily Ritual",
+    name: "Inside The Daily Ritual",
     price: 999,
     period: "180 days",
     tagline: "Your everyday indulgence, simplified.",
@@ -23,7 +23,7 @@ const plans = [
     popular: true,
   },
   {
-    name: "The Weekend Sanctuary",
+    name: "Inside The Weekend Sanctuary",
     price: 1299,
     period: "30 days",
     tagline: "Exclusive weekend treats, just for you.",

@@ -190,7 +190,7 @@ export function SubscriptionForm({ plan, triggerClassName, triggerText }: Subscr
             <DialogHeader className="mb-6">
               <DialogTitle className="text-3xl font-display text-primary-deep text-center">Subscribe to {plan.name}</DialogTitle>
               <DialogDescription className="text-center text-muted-foreground mt-2">
-                {plan.name === "The Daily Ritual" && (
+                {plan.name === "Inside The Daily Ritual" && (
                   <>
                     <span className="inline-block bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-semibold mb-3">
                       🎉 10% off on current price!

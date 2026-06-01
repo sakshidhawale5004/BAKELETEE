@@ -15,16 +15,16 @@ const FAQ = () => {
 
   const faqs = [
     {
-      q: "How does the flexible pause feature work for The Weekend Sanctuary?",
-      a: "The Weekend Sanctuary is designed with complete flexibility in mind. You can pause your subscription for up to a max time period of 15 days or resume deliveries any time before at your convenience. Just send us a quick message on WhatsApp!"
+      q: "How does the flexible pause feature work for Inside The Weekend Sanctuary?",
+      a: "Inside The Weekend Sanctuary is designed with complete flexibility in mind. You can pause your subscription for up to a max time period of 15 days or resume deliveries any time before at your convenience. Just send us a quick message on WhatsApp!"
     },
     {
-      q: "What are the order rules for The Weekend Sanctuary?",
-      a: "The Weekend Sanctuary is highly exclusive. Orders are strictly accepted between Friday 9:00 AM and Saturday 6:00 PM. As a member, you'll also receive our mid-week Wednesday Riddles in the community group, giving you a chance to guess what's baking next!"
+      q: "What are the order rules for Inside The Weekend Sanctuary?",
+      a: "Inside The Weekend Sanctuary is highly exclusive. Orders are strictly accepted between Friday 9:00 AM and Saturday 6:00 PM. As a member, you'll also receive our mid-week Wednesday Riddles in the community group, giving you a chance to guess what's baking next!"
     },
     {
       q: "How does ordering work with Bakelette?",
-      a: "Bakelette offers seamless ordering through our website for Daily Ritual members. Simply place your order, and we'll bake it fresh to order. We also accept orders via WhatsApp for all customers. A 25% advance confirms your order, and the rest is paid on delivery."
+      a: "Bakelette offers seamless ordering through our website for Inside The Daily Ritual members. Simply place your order, and we'll bake it fresh to order. We also accept orders via WhatsApp for all customers. A 25% advance confirms your order, and the rest is paid on delivery."
     },
     {
       q: "What makes Bakelette different from regular bakeries?",
@@ -32,7 +32,7 @@ const FAQ = () => {
     },
     {
       q: "Can I cancel or pause my subscription anytime?",
-      a: "For The Weekend Sanctuary, instead of cancelling, we provide the power to pause your subscription whenever you need to. For The Daily Ritual, you can manage your subscription preferences anytime. We believe in giving you flexibility to enjoy our bakes on your terms!"
+      a: "For Inside The Weekend Sanctuary, instead of cancelling, we provide the power to pause your subscription whenever you need to. For Inside The Daily Ritual, you can manage your subscription preferences anytime. We believe in giving you flexibility to enjoy our bakes on your terms!"
     }
   ];
 
