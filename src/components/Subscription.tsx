@@ -111,12 +111,12 @@ const Subscription = () => {
                   <DialogTrigger asChild>
                     <button className="inline-flex items-center justify-center gap-2 w-full py-3 px-6 rounded-full border-2 border-primary/20 text-primary font-bold text-sm hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300 shadow-sm hover:shadow-glow group">
                       <Sparkles className="w-4 h-4 group-hover:scale-110 transition-transform" />
-                      Quick View Benefits
+                      Quick View
                     </button>
                   </DialogTrigger>
                   <DialogContent className="sm:max-w-[425px] rounded-[2rem] p-6 md:p-8 bg-white/95 backdrop-blur-md border-primary/20">
                     <DialogHeader>
-                      <DialogTitle className="text-2xl font-display text-primary-deep">{plan.name} Perks</DialogTitle>
+                      <DialogTitle className="text-2xl font-display text-primary-deep">Inside {plan.name}</DialogTitle>
                     </DialogHeader>
                     <ul className="mt-4 space-y-4">
                       {plan.perks.map((perk) => (
