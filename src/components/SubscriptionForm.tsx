@@ -317,7 +317,7 @@ export function SubscriptionForm({ plan, triggerClassName, triggerText }: Subscr
 
               <div className="bg-primary/5 rounded-xl p-4 border border-primary/10">
                 <p className="text-xs text-muted-foreground leading-relaxed">
-                  <span className="font-semibold text-primary-deep">Note:</span> Bakelette will validate the transaction ID and activate your subscription within 24 hours from the time of payment received.
+                  <span className="font-semibold text-primary-deep">Note:</span> Your subscription will be activated within 24 hours once we verify your payment. You'll receive a confirmation via WhatsApp.
                 </p>
               </div>
 

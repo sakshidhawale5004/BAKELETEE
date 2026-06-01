@@ -9,6 +9,7 @@ export interface Product {
   img: string;
   badge?: string;
   tagline: string;
+  mainCharacter?: string;
   description: string;
   notes: string[];
   weight?: string;
@@ -102,6 +103,11 @@ const QuickViewDialog = ({ product, onClose }: Props) => {
             <h3 className="mt-3 font-script text-3xl md:text-4xl text-primary leading-tight italic">
               {product.tagline}
             </h3>
+            {product.mainCharacter && (
+              <p className="mt-2 text-xs text-primary uppercase tracking-[0.25em] font-semibold">
+                {product.mainCharacter}
+              </p>
+            )}
             <h2 className="mt-2 text-2xl md:text-3xl font-display text-foreground leading-tight">
               {product.name}
             </h2>
