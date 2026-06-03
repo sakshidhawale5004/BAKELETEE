@@ -134,7 +134,7 @@ const Header = ({ searchQuery = "", onSearchChange }: HeaderProps) => {
                 <span className="opacity-50">|</span>
                 <span>✨ Free delivery on all orders above ₹1000 ✨</span>
                 <span className="opacity-50">|</span>
-                <span>🎉 Delivered to 750+ customers successfully</span>
+                <span>🎉 Delivered to 750+ customers successfully 🎉</span>
                 <span className="opacity-50">|</span>
                 <span>FOR CORPORATE GIFTING & BULK ORDERS, KINDLY CONNECT ON +91 83694 24099.</span>
                 <span className="opacity-50">|</span>
