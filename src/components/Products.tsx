@@ -396,6 +396,11 @@ const ProductCard = ({
       <div className="p-5 flex flex-col flex-1">
         <h3 className="mt-2 text-xl text-foreground leading-tight">{p.name}</h3>
         <p className="mt-2 text-sm font-script text-primary italic leading-snug">{p.tagline}</p>
+        {p.mainCharacter && (
+          <p className="mt-2 text-xs text-primary uppercase tracking-[0.25em] font-semibold">
+            {p.mainCharacter}
+          </p>
+        )}
         
         <div className="mt-4 flex items-baseline justify-between">
           <div className="flex flex-col">
