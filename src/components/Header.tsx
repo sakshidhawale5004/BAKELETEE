@@ -130,9 +130,9 @@ const Header = ({ searchQuery = "", onSearchChange }: HeaderProps) => {
           <div className="flex animate-marquee">
             {[...Array(4)].map((_, i) => (
               <div key={i} className="flex items-center gap-8 px-4 text-[10px] md:text-xs font-bold uppercase tracking-wider md:tracking-[0.2em]">
-                <span>✨ Your favorite artisanal bakes are now available for subscription ✨</span>
+                <span>🎉 Your favorite artisanal bakes are now available for subscription 🎉</span>
                 <span className="opacity-50">|</span>
-                <span>✨ Free delivery on all orders above ₹1000 ✨</span>
+                <span>🎉 Free delivery on all orders above ₹1000 🎉</span>
                 <span className="opacity-50">|</span>
                 <span>🎉 Delivered to 750+ customers successfully 🎉</span>
                 <span className="opacity-50">|</span>
