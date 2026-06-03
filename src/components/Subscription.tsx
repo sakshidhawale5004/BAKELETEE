@@ -96,7 +96,7 @@ const Subscription = () => {
               </div>
 
               <h3 className="text-2xl font-display leading-tight text-foreground">
-                {plan.name}
+                {plan.name.replace("Inside ", "")}
               </h3>
               <p className={`mt-2 text-sm italic font-script ${plan.popular ? "text-primary" : "text-primary"}`}>
                 {plan.tagline}
@@ -116,7 +116,7 @@ const Subscription = () => {
                   </DialogTrigger>
                   <DialogContent className="sm:max-w-[425px] rounded-[2rem] p-6 md:p-8 bg-white/95 backdrop-blur-md border-primary/20">
                     <DialogHeader>
-                      <DialogTitle className="text-2xl font-display text-primary-deep">Inside {plan.name}</DialogTitle>
+                      <DialogTitle className="text-2xl font-display text-primary-deep">{plan.name.replace("Inside ", "")}</DialogTitle>
                     </DialogHeader>
                     <ul className="mt-4 space-y-4">
                       {plan.perks.map((perk) => (
