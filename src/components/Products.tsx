@@ -396,7 +396,7 @@ const ProductCard = ({
       <button
         type="button"
         onClick={onQuickView}
-        className={`relative ${p.category === 'Bundles' ? 'aspect-[1/1.65]' : 'aspect-square sm:aspect-[4/5]'} overflow-hidden ${p.category === 'Bundles' ? 'bg-[#f0f4f8]' : 'bg-warm'} text-left`}
+        className={`relative ${p.category === 'Bundles' ? 'aspect-[1/1.65]' : p.category === 'Brownie' ? 'aspect-[3/5]' : 'aspect-square sm:aspect-[4/5]'} overflow-hidden ${p.category === 'Bundles' ? 'bg-[#f0f4f8]' : 'bg-warm'} text-left`}
       >
         <img src={p.img} alt={p.name} className={`w-full h-full ${p.category === 'Bundles' ? 'object-contain' : 'object-cover'} group-hover:scale-105 transition-transform duration-700 will-change-transform [backface-visibility:hidden]`} />
         {p.badge && (
