@@ -17,6 +17,7 @@ import gingerbread from "@/assets/products/gingerbread.png";
 import gheeCake from "@/assets/products/ghee-cake.png";
 import oatmealCarrot from "@/assets/products/oatmeal-carrot.png";
 import chocolateBrownie from "@/assets/products/chocolate-brownie.png";
+import fudgelogy from "@/assets/products/chocolate-hazelnut-fudgelogy.jpeg";
 import bundle from "@/assets/products/bundle-final.jpeg";
 
 
@@ -228,6 +229,18 @@ export const products: Product[] = [
     ],
   },
   {
+    name: "Chocolate Hazelnut Fudgelogy",
+    price: 325,
+    category: "Brownie",
+    img: fudgelogy,
+    badge: "Fudgy Goodness",
+    tagline: "Hazelnut Heaven Unleashed.",
+    description: "Rich, velvety fudgelogy meets the toasted elegance of premium hazelnuts. A gooey, decadent center encased in dark chocolate—pure indulgence in every bite. This is for those who believe in the transformative power of true chocolate.",
+    notes: ["Roasted Hazelnuts", "Gooey Center", "Dark Chocolate Crafted", "Refined Sugar-Free"],
+    weight: "4 pcs",
+    minOrderQuantity: 2,
+  },
+  {
     name: "Premium Curations Bundle",
     price: 1800,
     category: "Bundles",
@@ -359,16 +372,19 @@ const ProductCard = ({
   const targetName = selectedVariant ? `${p.name} (${selectedVariant.weight})` : p.name;
   const currentInCart = getQuantity(targetName);
 
+  const minOrderQty = p.minOrderQuantity || 1;
+
   const handleQuantity = (delta: number) => {
     if (currentInCart > 0) {
-      updateQuantity(targetName, currentInCart + delta);
+      const newQty = Math.max(minOrderQty, currentInCart + delta);
+      updateQuantity(targetName, newQty);
     } else if (delta > 0) {
       addToCart({
         ...p,
         price: discountedPrice,
         weight: currentWeight,
         name: targetName
-      }, 1);
+      }, minOrderQty);
     }
   };
 
@@ -433,7 +449,7 @@ const ProductCard = ({
 
           <div className="flex items-center bg-muted rounded-full p-1 border border-border/50">
             <button onClick={() => handleQuantity(-1)} className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-background transition-colors">-</button>
-            <span className="w-8 text-center text-sm font-bold">{currentInCart || 1}</span>
+            <span className="w-8 text-center text-sm font-bold">{currentInCart || minOrderQty}</span>
             <button onClick={() => handleQuantity(1)} className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-background transition-colors">+</button>
           </div>
         </div>
@@ -441,7 +457,7 @@ const ProductCard = ({
         <div className="mt-6 grid grid-cols-2 gap-3">
           <button
             onClick={() => {
-              const qty = Math.max(1, currentInCart);
+              const qty = Math.max(minOrderQty, currentInCart);
               const itemTotal = discountedPrice * qty;
               const message = `Hi Bakelette! I'd like to order the following:\n\n- ${targetName} x ${qty} (₹${itemTotal})\n\nTotal: ₹${itemTotal}\n\nThank you!`;
               window.open(waLink(message), "_blank");

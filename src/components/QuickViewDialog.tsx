@@ -13,6 +13,7 @@ export interface Product {
   description: string;
   notes: string[];
   weight?: string;
+  minOrderQuantity?: number;
   variants?: {
     weight: string;
     price: number;
@@ -25,13 +26,13 @@ interface Props {
 }
 
 const QuickViewDialog = ({ product, onClose }: Props) => {
-  const [qty, setQty] = useState(1);
+  const [qty, setQty] = useState(product?.minOrderQuantity || 1);
   const [selectedVariant, setSelectedVariant] = useState(product?.variants?.[1] || null); // Default to 500g if exists
   const { addToCart } = useCart();
 
   useEffect(() => {
     if (!product) return;
-    setQty(1); 
+    setQty(product?.minOrderQuantity || 1); 
     setSelectedVariant(product.variants?.[1] || null);
     const onKey = (e: KeyboardEvent) => e.key === "Escape" && onClose();
     document.body.style.overflow = "hidden";
@@ -184,6 +185,14 @@ const QuickViewDialog = ({ product, onClose }: Props) => {
                   </div>
                 )}
               </>
+            )}
+
+            {product.minOrderQuantity && (
+              <div className="mt-6 bg-primary/10 border border-primary/20 rounded-xl p-3">
+                <p className="text-xs text-primary font-semibold">
+                  ⚠ Minimum Order Quantity: {product.minOrderQuantity}
+                </p>
+              </div>
             )}
           </div>
 
