@@ -5,7 +5,7 @@ const LoyaltyCard = () => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
-    <div className="fixed left-4 bottom-20 z-40 md:left-1/2 md:-translate-x-1/2 md:bottom-auto md:top-1/2 md:-translate-y-1/2">
+    <div className="fixed left-4 bottom-20 z-40 md:left-4">
       {/* Collapsed Icon Button */}
       {!isExpanded && (
         <button
@@ -23,18 +23,18 @@ const LoyaltyCard = () => {
           {/* Mobile Overlay Background */}
           <button
             onClick={() => setIsExpanded(false)}
-            className="fixed inset-0 bg-black/40 z-40"
+            className="fixed inset-0 bg-black/40 z-40 md:hidden"
             aria-label="Close loyalty card"
           />
 
-          {/* Card Container - Centered and Properly Sized */}
-          <div className="fixed inset-0 md:inset-auto md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 md:w-[420px] md:max-h-[85vh] md:rounded-3xl bg-background overflow-y-auto animate-fade-in z-50 rounded-none md:shadow-2xl md:border md:border-border flex flex-col">
+          {/* Card Container - Left Positioned and Properly Sized */}
+          <div className="fixed inset-0 md:inset-auto md:left-4 md:bottom-20 md:w-[420px] md:max-h-[85vh] md:rounded-3xl bg-background overflow-y-auto animate-fade-in z-50 rounded-none md:shadow-2xl md:border md:border-border flex flex-col">
             {/* Orange Header with Close Button */}
             <div className="bg-gradient-to-r from-orange-400 to-orange-500 p-5 md:p-6 relative text-white md:rounded-t-3xl flex-shrink-0">
-              {/* Close Button - More Prominent */}
+              {/* Close Button - Clearly Visible */}
               <button
                 onClick={() => setIsExpanded(false)}
-                className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/20 hover:bg-white/40 flex items-center justify-center transition-colors backdrop-blur-sm"
+                className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/25 hover:bg-white/40 flex items-center justify-center transition-colors backdrop-blur-sm border border-white/30"
                 aria-label="Close loyalty card"
               >
                 <X className="w-6 h-6 text-white" strokeWidth={3} />
