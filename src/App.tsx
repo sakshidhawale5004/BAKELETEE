@@ -5,6 +5,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { CartProvider } from "@/contexts/CartContext";
 import { SubscriptionProvider } from "@/contexts/SubscriptionContext";
+import LoyaltyCard from "@/components/LoyaltyCard";
 import Index from "./pages/Index.tsx";
 import NotFound from "./pages/NotFound.tsx";
 import FoundersLetter from "./pages/FoundersLetter.tsx";
@@ -23,6 +24,7 @@ const App = () => (
         <CartProvider>
           <Toaster />
           <Sonner />
+          <LoyaltyCard />
           <BrowserRouter>
             <Routes>
               <Route path="/" element={<Index />} />
