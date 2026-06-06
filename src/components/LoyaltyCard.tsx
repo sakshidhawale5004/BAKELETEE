@@ -19,69 +19,95 @@ const LoyaltyCard = () => {
 
       {/* Expanded Card */}
       {isExpanded && (
-        <div className="bg-gradient-to-br from-orange-400 to-orange-500 rounded-2xl shadow-xl border-2 border-orange-300 p-5 w-64 text-white animate-fade-in">
-          {/* Close Button */}
-          <button
-            onClick={() => setIsExpanded(false)}
-            className="absolute top-2 right-2 text-white/80 hover:text-white transition-colors"
-            aria-label="Close loyalty card"
-          >
-            <X className="w-5 h-5" />
-          </button>
+        <div className="fixed inset-0 md:fixed md:left-6 md:bottom-20 md:w-96 md:max-h-screen md:rounded-3xl bg-background overflow-y-auto animate-fade-in z-50 md:z-40 rounded-none md:shadow-2xl border-0 md:border md:border-border">
+          {/* Orange Header */}
+          <div className="bg-gradient-to-r from-orange-400 to-orange-500 p-6 relative text-white md:rounded-t-3xl">
+            <button
+              onClick={() => setIsExpanded(false)}
+              className="absolute top-6 right-6 text-white/90 hover:text-white transition-colors"
+              aria-label="Close loyalty card"
+            >
+              <X className="w-6 h-6" />
+            </button>
 
-          {/* Header */}
-          <div className="flex items-center gap-2 mb-3">
-            <Gift className="w-6 h-6" />
-            <h3 className="text-lg font-bold">Bakelette Rewards</h3>
+            {/* Header Content */}
+            <div className="flex items-center gap-4 pr-8">
+              <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm border border-white/30">
+                <Gift className="w-8 h-8 text-white" />
+              </div>
+              <div>
+                <h3 className="text-2xl md:text-3xl font-bold">Bakelette Rewards</h3>
+                <p className="text-sm md:text-base font-medium text-orange-100">
+                  Savor more, earn free treats
+                </p>
+              </div>
+            </div>
           </div>
 
-          <p className="text-sm font-medium text-orange-50 mb-4">
-            Savor more, earn free treats
-          </p>
+          {/* Main Content */}
+          <div className="p-6 md:p-8 space-y-8 bg-background">
+            {/* Digital Stamp Card */}
+            <div className="bg-gradient-to-br from-orange-50 to-amber-50 rounded-3xl border-2 border-orange-200/50 p-8 text-center">
+              <p className="text-xs md:text-sm font-bold text-orange-500 uppercase tracking-widest mb-6">
+                Your Digital Stamp Card
+              </p>
+              <div className="flex justify-center items-center gap-3">
+                {[1, 2, 3, 4, 5].map((i) => (
+                  <div
+                    key={i}
+                    className="text-4xl md:text-5xl text-orange-400 drop-shadow-lg"
+                  >
+                    ✦
+                  </div>
+                ))}
+                <div className="w-8 h-8 md:w-10 md:h-10 rounded-full border-3 border-gray-300 bg-white/50" />
+              </div>
+            </div>
 
-          {/* Digital Stamp Card */}
-          <div className="bg-white/20 rounded-lg p-3 mb-4 backdrop-blur-sm">
-            <p className="text-xs font-semibold text-orange-100 uppercase tracking-wider mb-2">
-              Your Digital Stamp Card
-            </p>
-            <div className="flex gap-2">
-              {[1, 2, 3, 4, 5].map((i) => (
-                <div
-                  key={i}
-                  className="w-6 h-6 rounded-full bg-gradient-to-br from-orange-300 to-orange-400 flex items-center justify-center text-xs font-bold text-white shadow-md"
-                >
-                  ✦
+            {/* How it works */}
+            <div className="space-y-6">
+              <h4 className="text-2xl md:text-3xl font-bold text-gray-900">
+                How it works:
+              </h4>
+              <div className="space-y-5">
+                {/* Step 1 */}
+                <div className="flex gap-4">
+                  <div className="flex-shrink-0">
+                    <span className="inline-flex items-center justify-center w-8 h-8 md:w-10 md:h-10 rounded-full bg-orange-400 text-white font-bold text-lg">
+                      1
+                    </span>
+                  </div>
+                  <div className="pt-1">
+                    <p className="text-base md:text-lg text-gray-600 leading-relaxed">
+                      Earn 1 stamp for every signature box or loaf added to your delivery orders.
+                    </p>
+                  </div>
                 </div>
-              ))}
-              <div className="w-6 h-6 rounded-full bg-white/30 border-2 border-white/50" />
-            </div>
-          </div>
 
-          {/* How it works */}
-          <div className="space-y-2 mb-4">
-            <h4 className="text-xs font-bold uppercase tracking-wide mb-2">
-              How it works:
-            </h4>
-            <div className="space-y-1.5 text-xs">
-              <div className="flex gap-2">
-                <span className="font-bold text-orange-200 min-w-fit">1.</span>
-                <span className="text-orange-50">
-                  Earn 1 stamp for every signature box or loaf added to your delivery orders.
-                </span>
-              </div>
-              <div className="flex gap-2">
-                <span className="font-bold text-orange-200 min-w-fit">2.</span>
-                <span className="text-orange-50">
-                  Collect 5 stamps to unlock a premium surprise bake on your 6th order.
-                </span>
+                {/* Step 2 */}
+                <div className="flex gap-4">
+                  <div className="flex-shrink-0">
+                    <span className="inline-flex items-center justify-center w-8 h-8 md:w-10 md:h-10 rounded-full bg-orange-400 text-white font-bold text-lg">
+                      2
+                    </span>
+                  </div>
+                  <div className="pt-1">
+                    <p className="text-base md:text-lg text-gray-600 leading-relaxed">
+                      Collect 5 stamps to unlock a premium surprise bake on your 6th order.
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
 
-          {/* CTA Button */}
-          <button className="w-full bg-white text-orange-500 font-bold py-2.5 rounded-full hover:bg-orange-50 transition-colors shadow-lg">
-            Check My Stamps
-          </button>
+            {/* CTA Button */}
+            <button className="w-full bg-gradient-to-r from-orange-400 to-orange-500 text-white font-bold py-4 md:py-5 px-6 rounded-full hover:shadow-xl transition-all active:scale-95 text-lg md:text-xl">
+              Check My Stamps
+            </button>
+
+            {/* Extra spacing for mobile scrolling */}
+            <div className="h-4" />
+          </div>
         </div>
       )}
     </div>
