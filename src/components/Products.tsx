@@ -400,9 +400,16 @@ const ProductCard = ({
       >
         <img src={p.img} alt={p.name} className={`w-full h-full ${p.category === 'Bundles' ? 'object-contain' : 'object-cover'} group-hover:scale-105 transition-transform duration-700 will-change-transform [backface-visibility:hidden]`} />
         {p.badge && (
-          <span className="absolute top-4 left-4 bg-gradient-primary text-primary-foreground text-xs font-semibold px-3 py-1.5 rounded-full shadow-glow">
-            {p.badge}
-          </span>
+          <div className="absolute top-4 left-4 flex flex-col gap-2">
+            <span className="bg-gradient-primary text-primary-foreground text-xs font-semibold px-3 py-1.5 rounded-full shadow-glow">
+              {p.badge}
+            </span>
+            {p.mainCharacter && (
+              <span className="bg-primary/90 text-primary-foreground text-xs font-semibold px-3 py-1.5 rounded-full shadow-glow">
+                {p.mainCharacter}
+              </span>
+            )}
+          </div>
         )}
         <span className={`absolute inset-x-4 ${p.category === 'Bundles' ? 'bottom-6' : 'bottom-4'} bg-background/95 backdrop-blur-md text-foreground text-sm font-semibold py-3 rounded-full text-center shadow-elegant transition-all duration-300`}>
           Quick View →
@@ -412,11 +419,6 @@ const ProductCard = ({
       <div className="p-5 flex flex-col flex-1">
         <h3 className="mt-2 text-xl text-foreground leading-tight">{p.name}</h3>
         <p className="mt-2 text-sm font-script text-primary italic leading-snug">{p.tagline}</p>
-        {p.mainCharacter && (
-          <p className="mt-2 text-xs text-primary uppercase tracking-[0.25em] font-semibold">
-            {p.mainCharacter}
-          </p>
-        )}
         
         <div className="mt-4 flex items-baseline justify-between">
           <div className="flex flex-col">
