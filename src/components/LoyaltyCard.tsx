@@ -11,7 +11,7 @@ const LoyaltyCard = () => {
   };
 
   return (
-    <div className="fixed left-4 bottom-20 z-40 md:left-4">
+    <div className="fixed left-4 bottom-6 z-40 md:left-4">
       {/* Collapsed Icon Button - WhatsApp Style */}
       {!isExpanded && (
         <button
@@ -35,7 +35,7 @@ const LoyaltyCard = () => {
           />
 
           {/* Card Container - Compact Modal */}
-          <div className="fixed inset-0 md:inset-auto md:left-4 md:bottom-20 z-50 flex items-center justify-center md:items-end md:justify-start p-2 sm:p-4 md:p-0">
+          <div className="fixed inset-0 md:inset-auto md:left-4 md:bottom-6 z-50 flex items-center justify-center md:items-end md:justify-start p-2 sm:p-4 md:p-0">
             <div className="w-11/12 sm:max-w-md md:max-w-sm max-h-[92vh] md:max-h-auto bg-white rounded-2xl shadow-xl border border-border overflow-hidden flex flex-col animate-fade-in">
               
               {/* Compact Teal Header */}
