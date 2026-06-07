@@ -56,7 +56,7 @@ const LoyaltyCard = () => {
               </div>
 
               {/* Main Content - Compact */}
-              <div className="flex-1 overflow-y-auto p-2 md:p-4 space-y-2.5 md:space-y-3 bg-white"
+              <div className="flex-1 overflow-y-auto p-2 md:p-4 space-y-2.5 md:space-y-3 bg-white">
                 
                 {/* Important Note - Compact */}
                 <div className="bg-primary/5 rounded-lg border border-primary/20 p-2.5">
