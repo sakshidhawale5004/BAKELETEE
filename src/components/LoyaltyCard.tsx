@@ -35,28 +35,28 @@ const LoyaltyCard = () => {
           />
 
           {/* Card Container - Compact Modal */}
-          <div className="fixed inset-0 md:inset-auto md:left-4 md:bottom-20 z-50 flex items-center justify-center md:items-end md:justify-start p-3 md:p-0">
-            <div className="w-[calc(100%-1.5rem)] sm:w-[calc(100%-2rem)] md:w-80 max-h-[90vh] md:max-h-auto bg-white rounded-2xl shadow-xl border border-border overflow-hidden flex flex-col animate-fade-in">
+          <div className="fixed inset-0 md:inset-auto md:left-4 md:bottom-20 z-50 flex items-center justify-center md:items-end md:justify-start p-2 md:p-0">
+            <div className="w-full sm:w-96 md:w-80 max-h-[95vh] md:max-h-auto bg-white rounded-2xl shadow-xl border border-border overflow-hidden flex flex-col animate-fade-in mx-2 sm:mx-0">
               
               {/* Compact Teal Header */}
-              <div className="bg-gradient-primary p-3 md:p-4 relative text-primary-foreground flex-shrink-0 rounded-t-2xl">
+              <div className="bg-gradient-primary p-2.5 md:p-4 relative text-primary-foreground flex-shrink-0 rounded-t-2xl">
                 {/* Close Button */}
                 <button
                   onClick={() => setIsExpanded(false)}
-                  className="absolute top-2.5 right-2.5 w-7 h-7 rounded-full bg-primary-foreground/20 hover:bg-primary-foreground/30 flex items-center justify-center transition-colors z-50"
+                  className="absolute top-2 right-2 w-6 h-6 md:w-7 md:h-7 rounded-full bg-primary-foreground/20 hover:bg-primary-foreground/30 flex items-center justify-center transition-colors z-50"
                   aria-label="Close loyalty card"
                 >
-                  <X className="w-4 h-4 text-primary-foreground" strokeWidth={3} />
+                  <X className="w-3.5 h-3.5 md:w-4 md:h-4 text-primary-foreground" strokeWidth={3} />
                 </button>
 
                 {/* Header Content - Centered */}
                 <div className="text-center pr-6">
-                  <h3 className="text-lg font-bold leading-tight">Bakelette Loyalty Card</h3>
+                  <h3 className="text-base md:text-lg font-bold leading-tight">Bakelette Loyalty Card</h3>
                 </div>
               </div>
 
               {/* Main Content - Compact */}
-              <div className="flex-1 overflow-y-auto p-3 md:p-4 space-y-3 md:space-y-4 bg-white">
+              <div className="flex-1 overflow-y-auto p-2 md:p-4 space-y-2.5 md:space-y-3 bg-white"
                 
                 {/* Important Note - Compact */}
                 <div className="bg-primary/5 rounded-lg border border-primary/20 p-2.5">
