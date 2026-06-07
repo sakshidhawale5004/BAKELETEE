@@ -460,31 +460,42 @@ const ProductCard = ({
                 <span className="text-sm text-muted-foreground line-through">₹{currentPrice}</span>
               )}
             </div>
-            {minOrderQty > 1 && (
+            {minOrderQty > 1 && !p.variants && (
               <div className="mt-1 text-xs text-primary font-semibold">
-                {p.variants ? `MOQ: 2 pieces (₹${selectedVariant?.price || discountedPrice})` : `MOQ: ${minOrderQty} pieces (₹${discountedPrice * minOrderQty})`}
+                MOQ: {minOrderQty} pieces (₹{discountedPrice * minOrderQty})
               </div>
             )}
-            <div className="flex items-center gap-1.5 mt-1">
-              {p.variants ? (
-                p.variants.map((v) => (
-                  <button
-                    key={v.weight}
-                    onClick={() => setSelectedVariant(v)}
-                    className={`text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-md transition-all ${
-                      selectedVariant?.weight === v.weight
-                        ? "bg-primary text-primary-foreground font-bold"
-                        : "bg-muted text-muted-foreground hover:bg-muted-foreground/20"
-                    }`}
-                  >
-                    {v.weight.replace(" grams", "g")}
-                  </button>
-                ))
-              ) : (
-                <span className="text-[10px] text-muted-foreground uppercase tracking-wider">{p.weight ?? "per box"}</span>
-              )}
-            </div>
           </div>
+        </div>
+
+        {/* Variant Selection & MOQ Display */}
+        <div className="mt-3 flex items-center justify-between gap-2">
+          <div className="flex items-center gap-1.5">
+            {p.variants ? (
+              p.variants.map((v) => (
+                <button
+                  key={v.weight}
+                  onClick={() => setSelectedVariant(v)}
+                  className={`text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-md transition-all ${
+                    selectedVariant?.weight === v.weight
+                      ? "bg-primary text-primary-foreground font-bold"
+                      : "bg-muted text-muted-foreground hover:bg-muted-foreground/20"
+                  }`}
+                >
+                  {v.weight.replace(" grams", "g").replace(" piece", "")}
+                </button>
+              ))
+            ) : (
+              <span className="text-[10px] text-muted-foreground uppercase tracking-wider">{p.weight ?? "per box"}</span>
+            )}
+          </div>
+
+          {/* MOQ Label for Variants */}
+          {p.variants && minOrderQty > 1 && (
+            <div className="text-xs text-primary font-semibold whitespace-nowrap">
+              MOQ: 1 piece (₹{selectedVariant?.price || discountedPrice})
+            </div>
+          )}
 
           {/* Only show increment controls for non-fudge products or fudges without variants */}
           {!isQuantityLocked && (
