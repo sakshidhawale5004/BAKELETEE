@@ -35,8 +35,8 @@ const LoyaltyCard = () => {
           />
 
           {/* Card Container - Modal Style with Proper Mobile Sizing */}
-          <div className="fixed inset-0 md:inset-auto md:left-4 md:bottom-20 z-50 flex items-center justify-center md:items-end md:justify-start p-4 md:p-0">
-            <div className="w-full md:w-[420px] max-h-[90vh] md:max-h-[85vh] bg-background rounded-3xl shadow-2xl border border-border overflow-hidden flex flex-col animate-fade-in">
+          <div className="fixed inset-0 md:inset-auto md:left-4 md:bottom-20 z-50 flex items-center justify-center md:items-end md:justify-start p-3 md:p-0">
+            <div className="w-[calc(100%-1.5rem)] sm:w-[calc(100%-2rem)] md:w-[420px] max-h-[85vh] md:max-h-[85vh] bg-background rounded-3xl shadow-2xl border border-border overflow-hidden flex flex-col animate-fade-in">
               {/* Teal Header with Close Button */}
               <div className="bg-gradient-to-r from-teal-400 to-teal-500 p-5 md:p-6 relative text-white flex-shrink-0">
                 {/* Close Button - Clearly Visible */}
