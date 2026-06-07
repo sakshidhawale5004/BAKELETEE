@@ -33,60 +33,6 @@ const HowItWorks = () => (
         ))}
       </div>
 
-      {/* Loyalty Card Section */}
-      <div className="mt-16 pt-12 border-t border-border">
-        <div className="max-w-3xl mx-auto">
-          <div className="text-center mb-12">
-            <span className="text-primary uppercase tracking-[0.25em] text-xs font-semibold">Earn Rewards</span>
-            <h3 className="mt-4 text-3xl md:text-4xl text-foreground">
-              Bakelette <em className="font-script text-primary">Loyalty Card</em>
-            </h3>
-            <p className="mt-4 text-muted-foreground text-base">
-              Every order brings you closer to amazing rewards!
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-8 items-center">
-            {/* Left - Info */}
-            <div className="space-y-4">
-              <div className="bg-gradient-to-br from-primary/5 via-primary/3 to-transparent rounded-2xl p-6 border border-primary/10">
-                <h4 className="text-lg font-bold text-primary mb-4">How the Loyalty Program Works:</h4>
-                <ul className="space-y-3">
-                  <li className="flex gap-3">
-                    <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-primary text-primary-foreground text-sm font-bold flex-shrink-0">✓</span>
-                    <span className="text-foreground"><strong>First order:</strong> Receive a physical loyalty card</span>
-                  </li>
-                  <li className="flex gap-3">
-                    <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-primary text-primary-foreground text-sm font-bold flex-shrink-0">✓</span>
-                    <span className="text-foreground"><strong>Every order:</strong> Get a stamp on one circle</span>
-                  </li>
-                  <li className="flex gap-3">
-                    <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-primary text-primary-foreground text-sm font-bold flex-shrink-0">✓</span>
-                    <span className="text-foreground"><strong>Complete 4 stamps:</strong> WhatsApp us the card photo</span>
-                  </li>
-                  <li className="flex gap-3">
-                    <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-primary text-primary-foreground text-sm font-bold flex-shrink-0">✓</span>
-                    <span className="text-foreground"><strong>5th order:</strong> Unlock a premium surprise bake or exclusive discount</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-            {/* Right - Highlight */}
-            <div className="bg-gradient-to-br from-primary via-primary-glow to-primary/80 rounded-3xl p-8 shadow-glow text-primary-foreground">
-              <div className="text-center">
-                <p className="text-sm font-semibold uppercase tracking-wider opacity-90 mb-3">Your Rewards</p>
-                <h5 className="text-4xl font-bold mb-4">1 Order</h5>
-                <p className="text-lg font-semibold mb-6 opacity-95">= 1 Stamp</p>
-                <div className="h-px bg-primary-foreground/30 my-6"></div>
-                <h5 className="text-3xl font-bold mb-2">4 Stamps</h5>
-                <p className="text-lg font-semibold opacity-95">= Premium Reward</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
       <p className="mt-12 text-center text-muted-foreground">
         💡 <strong className="text-foreground">Note:</strong> 25% advance is required to confirm all orders.
       </p>
