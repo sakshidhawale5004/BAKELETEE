@@ -240,6 +240,10 @@ export const products: Product[] = [
     notes: ["Premium Dark Chocolate", "Roasted Hazelnut Pieces", "Smooth & Creamy Texture", "Refined Sugar-Free"],
     weight: "2 pieces",
     minOrderQuantity: 2,
+    variants: [
+      { weight: "1 piece", price: 120 },
+      { weight: "2 pieces", price: 240 },
+    ],
   },
   {
     name: "Monk & Berries Fudge",
@@ -252,6 +256,10 @@ export const products: Product[] = [
     notes: ["Rich Chocolate Base", "Monk Fruit Sweetener", "Berry Infusion", "Naturally Sweetened"],
     weight: "2 pieces",
     minOrderQuantity: 2,
+    variants: [
+      { weight: "1 piece", price: 120 },
+      { weight: "2 pieces", price: 240 },
+    ],
   },
   {
     name: "Premium Curations Bundle",
@@ -379,7 +387,7 @@ const ProductCard = ({
   discountPercentage?: number;
 }) => {
   const { addToCart, updateQuantity, getQuantity, setIsOpen } = useCart();
-  const [selectedVariant, setSelectedVariant] = useState(p.variants ? p.variants[1] : null);
+  const [selectedVariant, setSelectedVariant] = useState(p.variants ? p.variants[p.variants.length - 1] : null);
 
   const currentPrice = selectedVariant ? selectedVariant.price : p.price;
   const discountedPrice = discountPercentage > 0 ? Math.round(currentPrice * (1 - discountPercentage / 100)) : currentPrice;
@@ -388,15 +396,13 @@ const ProductCard = ({
   const currentInCart = getQuantity(targetName);
 
   const minOrderQty = p.minOrderQuantity || 1;
-  const maxOrderQty = p.minOrderQuantity === 2 ? 2 : undefined; // Limit fudges to max 2 pieces
+  // For fudges with variants, don't limit quantity (user can buy 1 or 2 as separate variants)
+  const maxOrderQty = undefined;
 
   const handleQuantity = (delta: number) => {
     if (currentInCart > 0) {
-      let newQty = Math.max(minOrderQty, currentInCart + delta);
-      // Limit maximum quantity for fudge products (MOQ 2)
-      if (maxOrderQty && newQty > maxOrderQty) {
-        newQty = maxOrderQty;
-      }
+      let newQty = currentInCart + delta;
+      if (newQty < 1) newQty = 1;
       updateQuantity(targetName, newQty);
     } else if (delta > 0) {
       addToCart({
@@ -404,7 +410,7 @@ const ProductCard = ({
         price: discountedPrice,
         weight: currentWeight,
         name: targetName
-      }, minOrderQty);
+      }, 1);
     }
   };
 
@@ -448,7 +454,7 @@ const ProductCard = ({
                 <span className="text-sm text-muted-foreground line-through">₹{currentPrice}</span>
               )}
             </div>
-            {minOrderQty > 1 && (
+            {minOrderQty > 1 && !p.variants && (
               <div className="mt-1 text-xs text-primary font-semibold">
                 MOQ: {minOrderQty} pieces (₹{discountedPrice * minOrderQty})
               </div>
