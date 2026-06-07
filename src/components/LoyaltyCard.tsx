@@ -96,33 +96,33 @@ const LoyaltyCard = () => {
                   </div>
                 </div>
 
-                {/* How it works - Compact */}
+                {/* Loyalty Program Steps - Clear & Distinct */}
                 <div className="space-y-1 sm:space-y-1.5">
-                  <h4 className="text-xs font-bold text-foreground uppercase tracking-wider">How it works:</h4>
+                  <h4 className="text-xs font-bold text-foreground uppercase tracking-wider mb-2">Your Loyalty Journey:</h4>
                   
-                  <div className="space-y-0.5 sm:space-y-1 text-xs">
-                    {/* Step 1 */}
-                    <div className="flex gap-1.5 items-start">
+                  <div className="space-y-1 sm:space-y-1.5 text-xs">
+                    {/* Step 1 - First Order */}
+                    <div className="flex gap-1.5 items-start bg-primary/5 p-2 rounded-lg">
                       <span className="inline-flex items-center justify-center w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-primary text-primary-foreground font-bold text-xs flex-shrink-0 text-white">1</span>
-                      <span className="text-foreground leading-tight"><span className="font-semibold">Place tick</span> on circles with every order</span>
+                      <span className="text-foreground leading-tight"><span className="font-semibold">First order:</span> Receive a physical loyalty card</span>
                     </div>
 
-                    {/* Step 2 */}
-                    <div className="flex gap-1.5 items-start">
+                    {/* Step 2 - Every Order */}
+                    <div className="flex gap-1.5 items-start bg-primary/5 p-2 rounded-lg">
                       <span className="inline-flex items-center justify-center w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-primary text-primary-foreground font-bold text-xs flex-shrink-0 text-white">2</span>
-                      <span className="text-foreground leading-tight"><span className="font-semibold">Complete 4 stamps</span> on your card</span>
+                      <span className="text-foreground leading-tight"><span className="font-semibold">Every order:</span> Get a stamp on one circle</span>
                     </div>
 
-                    {/* Step 3 */}
-                    <div className="flex gap-1.5 items-start">
+                    {/* Step 3 - Complete 4 */}
+                    <div className="flex gap-1.5 items-start bg-primary/5 p-2 rounded-lg">
                       <span className="inline-flex items-center justify-center w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-primary text-primary-foreground font-bold text-xs flex-shrink-0 text-white">3</span>
-                      <span className="text-foreground leading-tight"><span className="font-semibold">WhatsApp</span> your loyalty card image</span>
+                      <span className="text-foreground leading-tight"><span className="font-semibold">Complete 4 stamps:</span> WhatsApp us the card photo</span>
                     </div>
 
-                    {/* Step 4 */}
-                    <div className="flex gap-1.5 items-start">
-                      <span className="inline-flex items-center justify-center w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-primary text-primary-foreground font-bold text-xs flex-shrink-0 text-white">✓</span>
-                      <span className="text-foreground leading-tight"><span className="font-semibold">Unlock</span> reward on 5th order</span>
+                    {/* Step 4 - 5th Order Reward */}
+                    <div className="flex gap-1.5 items-start bg-primary/5 p-2 rounded-lg">
+                      <span className="inline-flex items-center justify-center w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-primary text-primary-foreground font-bold text-xs flex-shrink-0 text-white">4</span>
+                      <span className="text-foreground leading-tight"><span className="font-semibold">5th order:</span> Unlock a premium surprise bake or exclusive discount</span>
                     </div>
                   </div>
                 </div>
