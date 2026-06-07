@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Sparkles, X } from "lucide-react";
+import { MessageCircle, X } from "lucide-react";
 
 const LoyaltyCard = () => {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -12,15 +12,15 @@ const LoyaltyCard = () => {
 
   return (
     <div className="fixed left-4 bottom-20 z-40 md:left-4">
-      {/* Collapsed Icon Button */}
+      {/* Collapsed Icon Button - WhatsApp Style */}
       {!isExpanded && (
         <button
           onClick={() => setIsExpanded(true)}
-          className="w-14 h-14 bg-gradient-to-br from-teal-400 to-teal-500 rounded-full shadow-xl border-2 border-teal-300 flex items-center justify-center text-white hover:scale-110 transition-transform duration-300 hover:shadow-2xl"
+          className="w-14 h-14 bg-green-500 rounded-full shadow-xl flex items-center justify-center text-white hover:scale-110 transition-transform duration-300 hover:shadow-2xl hover:bg-green-600"
           aria-label="Open loyalty card"
-          title="Loyalty Rewards Program"
+          title="Bakelette Loyalty Card"
         >
-          <Sparkles className="w-7 h-7" />
+          <MessageCircle className="w-7 h-7" />
         </button>
       )}
 
@@ -34,125 +34,72 @@ const LoyaltyCard = () => {
             aria-label="Close loyalty card"
           />
 
-          {/* Card Container - Modal Style with Proper Mobile Sizing */}
+          {/* Card Container - Compact Modal */}
           <div className="fixed inset-0 md:inset-auto md:left-4 md:bottom-20 z-50 flex items-center justify-center md:items-end md:justify-start p-3 md:p-0">
-            <div className="w-[calc(100%-1.5rem)] sm:w-[calc(100%-2rem)] md:w-[420px] max-h-[85vh] md:max-h-[85vh] bg-background rounded-3xl shadow-2xl border border-border overflow-hidden flex flex-col animate-fade-in">
-              {/* Teal Header with Close Button */}
-              <div className="bg-gradient-to-r from-teal-400 to-teal-500 p-5 md:p-6 relative text-white flex-shrink-0">
-                {/* Close Button - Clearly Visible */}
+            <div className="w-[calc(100%-1.5rem)] sm:w-[calc(100%-2rem)] md:w-96 max-h-[70vh] md:max-h-[75vh] bg-white rounded-2xl shadow-xl border border-gray-200 overflow-hidden flex flex-col animate-fade-in">
+              {/* Green Header with Close Button */}
+              <div className="bg-gradient-to-r from-green-500 to-green-600 p-3 md:p-4 relative text-white flex-shrink-0 rounded-t-2xl">
+                {/* Close Button */}
                 <button
                   onClick={() => setIsExpanded(false)}
-                  className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/30 hover:bg-white/50 flex items-center justify-center transition-colors backdrop-blur-sm border border-white/40 z-50"
+                  className="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/30 hover:bg-white/50 flex items-center justify-center transition-colors z-50"
                   aria-label="Close loyalty card"
                 >
-                  <X className="w-6 h-6 text-white" strokeWidth={3} />
+                  <X className="w-5 h-5 text-white" strokeWidth={3} />
                 </button>
 
                 {/* Header Content */}
-                <div className="flex items-center gap-3 pr-12">
-                  <div className="w-14 h-14 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm border border-white/30 flex-shrink-0">
-                    <Sparkles className="w-7 h-7 text-white" />
-                  </div>
-                  <div className="min-w-0">
-                    <h3 className="text-xl md:text-2xl font-bold leading-tight">Bakelette Loyalty Card</h3>
-                    <p className="text-xs md:text-sm font-medium text-teal-100">
-                      Earn rewards with every purchase
-                    </p>
-                  </div>
+                <div className="pr-10">
+                  <h3 className="text-lg font-bold leading-tight">Bakelette Loyalty</h3>
+                  <p className="text-xs font-medium text-green-100 mt-0.5">
+                    Earn rewards on every order
+                  </p>
                 </div>
               </div>
 
-              {/* Main Content - Scrollable */}
-              <div className="flex-1 overflow-y-auto p-4 md:p-6 space-y-4 md:space-y-6 bg-background">
-                {/* Loyalty Card Info Box */}
-                <div className="bg-gradient-to-br from-teal-50 to-cyan-50 rounded-2xl border-2 border-teal-200/50 p-4 md:p-5">
-                  <div className="space-y-2 md:space-y-3 text-center">
-                    <p className="text-sm md:text-base font-bold text-teal-700">
-                      📋 1 ORDER = 1 TICK
+              {/* Main Content - Compact */}
+              <div className="flex-1 overflow-y-auto p-3 md:p-4 space-y-3 md:space-y-4 bg-white">
+                {/* Info Box */}
+                <div className="bg-green-50 rounded-lg border border-green-200 p-3">
+                  <div className="space-y-1 text-center">
+                    <p className="text-sm font-bold text-green-700">
+                      1 ORDER = 1 TICK
                     </p>
-                    <p className="text-base md:text-lg font-bold text-teal-600">
-                      4 TICKS = 1 REWARD
+                    <p className="text-base font-bold text-green-600">
+                      4 TICKS = REWARD
                     </p>
-                    <p className="text-xs md:text-xs text-teal-600 italic">
-                      (Physical loyalty card provided with your first order)
+                    <p className="text-xs text-green-600 mt-1">
+                      Physical card with 1st order
                     </p>
                   </div>
                 </div>
 
-                {/* How it works */}
-                <div className="space-y-3 md:space-y-4">
-                  <h4 className="text-base md:text-lg font-bold text-gray-900">
-                    How it works:
-                  </h4>
-                  <div className="space-y-2.5 md:space-y-3">
+                {/* How it works - Compact */}
+                <div className="space-y-2">
+                  <h4 className="text-sm font-bold text-gray-900">How it works:</h4>
+                  <div className="space-y-1.5 text-xs">
                     {/* Step 1 */}
-                    <div className="flex gap-2.5 md:gap-3">
-                      <div className="flex-shrink-0 pt-0.5">
-                        <span className="inline-flex items-center justify-center w-6 h-6 md:w-8 md:h-8 rounded-full bg-teal-500 text-white font-bold text-xs md:text-base">
-                          1
-                        </span>
-                      </div>
-                      <div>
-                        <p className="text-xs md:text-sm text-gray-600 leading-tight md:leading-snug font-medium">
-                          <span className="font-bold">First time customer?</span> A physical loyalty card will be provided with your first order.
-                        </p>
-                      </div>
+                    <div className="flex gap-2">
+                      <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-green-500 text-white font-bold text-xs flex-shrink-0">1</span>
+                      <span className="text-gray-700 leading-tight"><span className="font-semibold">Place tick</span> on circle with every order</span>
                     </div>
 
                     {/* Step 2 */}
-                    <div className="flex gap-2.5 md:gap-3">
-                      <div className="flex-shrink-0 pt-0.5">
-                        <span className="inline-flex items-center justify-center w-6 h-6 md:w-8 md:h-8 rounded-full bg-teal-500 text-white font-bold text-xs md:text-base">
-                          2
-                        </span>
-                      </div>
-                      <div>
-                        <p className="text-xs md:text-sm text-gray-600 leading-tight md:leading-snug font-medium">
-                          <span className="font-bold">Place a tick</span> on one of the circles on your loyalty card with every purchase.
-                        </p>
-                      </div>
+                    <div className="flex gap-2">
+                      <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-green-500 text-white font-bold text-xs flex-shrink-0">2</span>
+                      <span className="text-gray-700 leading-tight"><span className="font-semibold">Complete 4</span> circles on card</span>
                     </div>
 
                     {/* Step 3 */}
-                    <div className="flex gap-2.5 md:gap-3">
-                      <div className="flex-shrink-0 pt-0.5">
-                        <span className="inline-flex items-center justify-center w-6 h-6 md:w-8 md:h-8 rounded-full bg-teal-500 text-white font-bold text-xs md:text-base">
-                          3
-                        </span>
-                      </div>
-                      <div>
-                        <p className="text-xs md:text-sm text-gray-600 leading-tight md:leading-snug font-medium">
-                          <span className="font-bold">Complete 4 circles</span> by placing ticks on your loyalty card.
-                        </p>
-                      </div>
+                    <div className="flex gap-2">
+                      <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-green-500 text-white font-bold text-xs flex-shrink-0">3</span>
+                      <span className="text-gray-700 leading-tight"><span className="font-semibold">WhatsApp</span> photo to redeem</span>
                     </div>
 
                     {/* Step 4 */}
-                    <div className="flex gap-2.5 md:gap-3">
-                      <div className="flex-shrink-0 pt-0.5">
-                        <span className="inline-flex items-center justify-center w-6 h-6 md:w-8 md:h-8 rounded-full bg-teal-500 text-white font-bold text-xs md:text-base">
-                          4
-                        </span>
-                      </div>
-                      <div>
-                        <p className="text-xs md:text-sm text-gray-600 leading-tight md:leading-snug font-medium">
-                          <span className="font-bold">Take a photo</span> of your completed loyalty card and WhatsApp it to us.
-                        </p>
-                      </div>
-                    </div>
-
-                    {/* Step 5 */}
-                    <div className="flex gap-2.5 md:gap-3">
-                      <div className="flex-shrink-0 pt-0.5">
-                        <span className="inline-flex items-center justify-center w-6 h-6 md:w-8 md:h-8 rounded-full bg-green-500 text-white font-bold text-xs md:text-base">
-                          🎉
-                        </span>
-                      </div>
-                      <div>
-                        <p className="text-xs md:text-sm text-gray-600 leading-tight md:leading-snug font-medium">
-                          <span className="font-bold">Unlock your reward!</span> Get a premium surprise bake or special discount on your 5th order.
-                        </p>
-                      </div>
+                    <div className="flex gap-2">
+                      <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-green-500 text-white font-bold text-xs flex-shrink-0">✓</span>
+                      <span className="text-gray-700 leading-tight"><span className="font-semibold">Unlock</span> reward on 5th order</span>
                     </div>
                   </div>
                 </div>
@@ -160,20 +107,10 @@ const LoyaltyCard = () => {
                 {/* CTA Button */}
                 <button
                   onClick={handleCheckStamps}
-                  className="w-full bg-gradient-to-r from-teal-500 to-cyan-500 text-white font-bold py-2.5 md:py-3.5 px-4 md:px-6 rounded-full hover:shadow-lg transition-all active:scale-95 text-sm md:text-base"
+                  className="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-3 rounded-lg transition-all active:scale-95 text-sm"
                 >
-                  Redeem My Reward
+                  Redeem Now
                 </button>
-
-                {/* Info Note */}
-                <div className="bg-teal-50 border border-teal-200 rounded-lg p-2.5 md:p-3">
-                  <p className="text-xs md:text-xs text-teal-700 leading-snug">
-                    <span className="font-semibold">📸 How to redeem:</span> Click "Redeem My Reward" or WhatsApp us a photo of your completed loyalty card to claim your premium bake or discount!
-                  </p>
-                </div>
-
-                {/* Extra spacing for mobile scrolling */}
-                <div className="h-1" />
               </div>
             </div>
           </div>
