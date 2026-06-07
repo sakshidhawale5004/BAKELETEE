@@ -18,6 +18,8 @@ import gheeCake from "@/assets/products/ghee-cake.png";
 import oatmealCarrot from "@/assets/products/oatmeal-carrot.png";
 import chocolateBrownie from "@/assets/products/chocolate-brownie.png";
 import fudgelogy from "@/assets/products/chocolate-hazelnut-fudgelogy.jpeg";
+import chocolateHazelnutFudge from "@/assets/products/chocolate-hazelnut-fudge.jpeg";
+import monkBerriesFudge from "@/assets/products/monk-berries-fudge.jpeg";
 import bundle from "@/assets/products/bundle-final.jpeg";
 
 
@@ -241,6 +243,30 @@ export const products: Product[] = [
     minOrderQuantity: 2,
   },
   {
+    name: "Chocolate Hazelnut Fudge",
+    price: 120,
+    category: "Brownie",
+    img: chocolateHazelnutFudge,
+    badge: "Pure Indulgence",
+    tagline: "Silky Chocolate Bliss.",
+    description: "A decadent fudge crafted with premium chocolate and roasted hazelnuts. Rich, smooth, and utterly irresistible. Each piece melts on your tongue with layers of intense chocolate flavor and toasted hazelnut elegance.",
+    notes: ["Premium Dark Chocolate", "Roasted Hazelnut Pieces", "Smooth & Creamy Texture", "Refined Sugar-Free"],
+    weight: "1 piece",
+    minOrderQuantity: 2,
+  },
+  {
+    name: "Monk & Berries Fudge",
+    price: 120,
+    category: "Brownie",
+    img: monkBerriesFudge,
+    badge: "Fruity Delight",
+    tagline: "Berry Bliss in Every Bite.",
+    description: "A unique fusion of rich chocolate fudge infused with the tartness of monk fruit and the sweetness of berries. This sophisticated treat offers a perfect balance of indulgence and natural fruit flavors, creating a memorable taste experience.",
+    notes: ["Rich Chocolate Base", "Monk Fruit Sweetener", "Berry Infusion", "Naturally Sweetened"],
+    weight: "1 piece",
+    minOrderQuantity: 2,
+  },
+  {
     name: "Premium Curations Bundle",
     price: 1800,
     category: "Bundles",
@@ -430,6 +456,11 @@ const ProductCard = ({
                 <span className="text-sm text-muted-foreground line-through">₹{currentPrice}</span>
               )}
             </div>
+            {minOrderQty > 1 && (
+              <div className="mt-1 text-xs text-primary font-semibold">
+                MOQ: {minOrderQty} pieces (₹{discountedPrice * minOrderQty})
+              </div>
+            )}
             <div className="flex items-center gap-1.5 mt-1">
               {p.variants ? (
                 p.variants.map((v) => (
