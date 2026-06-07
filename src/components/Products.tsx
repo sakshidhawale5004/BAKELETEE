@@ -462,7 +462,7 @@ const ProductCard = ({
             </div>
             {minOrderQty > 1 && (
               <div className="mt-1 text-xs text-primary font-semibold">
-                MOQ: {minOrderQty} pieces (₹{discountedPrice * minOrderQty})
+                {p.variants ? `MOQ: 2 pieces (₹${selectedVariant?.price || discountedPrice})` : `MOQ: ${minOrderQty} pieces (₹${discountedPrice * minOrderQty})`}
               </div>
             )}
             <div className="flex items-center gap-1.5 mt-1">
