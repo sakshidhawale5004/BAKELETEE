@@ -69,20 +69,24 @@ const LoyaltyCard = () => {
                 <div className="relative">
                   {/* Card Content with subtle border */}
                   <div className="relative bg-gradient-warm rounded-2xl p-5 border-2 border-primary/20">
-                    {/* Card Title */}
+                    {/* Card Title with Tick Emoji */}
                     <div className="text-center mb-5">
-                      <h4 className="text-primary font-bold text-sm tracking-wider uppercase">
-                        Your Loyalty Stamps
-                      </h4>
+                      <div className="flex items-center justify-center gap-2">
+                        <span className="text-2xl">✅</span>
+                        <h4 className="text-primary font-bold text-sm tracking-wider uppercase">
+                          Your Loyalty Stamps
+                        </h4>
+                        <span className="text-2xl">✅</span>
+                      </div>
                     </div>
 
                     {/* Stamps Display - 5 positions */}
-                    <div className="flex justify-center items-center gap-4 px-2">
+                    <div className="flex justify-center items-center gap-3 md:gap-4 px-2">
                       {[1, 2, 3, 4, 5].map((index) => (
                         <div key={index} className="flex flex-col items-center">
                           {index <= 4 ? (
-                            // Filled stamps (teal stars)
-                            <span className="text-4xl text-primary transform transition-transform hover:scale-110">✦</span>
+                            // Filled stamps (tick emojis)
+                            <span className="text-3xl md:text-4xl transform transition-transform hover:scale-110 cursor-pointer">✅</span>
                           ) : (
                             // 5th stamp (empty circle - next reward)
                             <div className="w-8 h-8 rounded-full border-3 border-primary/40 flex items-center justify-center bg-primary/5">
