@@ -48,18 +48,23 @@ const LoyaltyCard = () => {
                   <X className="w-5 h-5 text-primary-foreground" strokeWidth={3} />
                 </button>
 
-                {/* Header Content */}
-                <div className="pr-10">
+                {/* Header Content with aligned gift emoji */}
+                <div className="flex items-center gap-3 pr-10">
+                  <span className="text-2xl leading-none">🎁</span>
                   <h3 className="text-xl font-bold leading-tight">Bakelette Rewards</h3>
-                  <p className="text-xs font-medium text-primary-foreground/90 mt-1">
-                    Savor more, earn free treats
-                  </p>
                 </div>
               </div>
 
               {/* Main Content */}
               <div className="flex-1 overflow-y-auto p-4 md:p-5 space-y-4 md:space-y-5 bg-white">
                 
+                {/* Important Note */}
+                <div className="bg-primary/5 rounded-lg border border-primary/20 p-3">
+                  <p className="text-xs text-primary font-semibold leading-snug">
+                    🎯 <strong>First-time customers</strong> receive a physical loyalty card with their first order
+                  </p>
+                </div>
+
                 {/* Digital Stamp Card Display */}
                 <div className="relative">
                   {/* Card Content with subtle border */}
@@ -99,9 +104,6 @@ const LoyaltyCard = () => {
                     <p className="text-lg font-bold text-primary">
                       4 STAMPS = REWARD
                     </p>
-                    <p className="text-xs text-primary/70 mt-2">
-                      Receive physical card with 1st order
-                    </p>
                   </div>
                 </div>
 
@@ -112,33 +114,34 @@ const LoyaltyCard = () => {
                   {/* Step 1 */}
                   <div className="flex gap-2">
                     <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-primary text-primary-foreground font-bold text-xs flex-shrink-0">1</span>
-                    <span className="text-foreground leading-tight text-xs md:text-sm"><span className="font-semibold">Place stamp</span> on circle with every order</span>
+                    <span className="text-foreground leading-tight text-xs md:text-sm"><span className="font-semibold">Place tick</span> on one of the circles with every order</span>
                   </div>
 
                   {/* Step 2 */}
                   <div className="flex gap-2">
                     <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-primary text-primary-foreground font-bold text-xs flex-shrink-0">2</span>
-                    <span className="text-foreground leading-tight text-xs md:text-sm"><span className="font-semibold">Complete 4</span> stamps on card</span>
+                    <span className="text-foreground leading-tight text-xs md:text-sm"><span className="font-semibold">Complete 4 circles</span> on your card</span>
                   </div>
 
                   {/* Step 3 */}
                   <div className="flex gap-2">
                     <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-primary text-primary-foreground font-bold text-xs flex-shrink-0">3</span>
-                    <span className="text-foreground leading-tight text-xs md:text-sm"><span className="font-semibold">WhatsApp</span> photo to redeem</span>
+                    <span className="text-foreground leading-tight text-xs md:text-sm"><span className="font-semibold">WhatsApp</span> the image of your loyalty card</span>
                   </div>
 
                   {/* Step 4 */}
                   <div className="flex gap-2">
                     <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-primary text-primary-foreground font-bold text-xs flex-shrink-0">✓</span>
-                    <span className="text-foreground leading-tight text-xs md:text-sm"><span className="font-semibold">Unlock</span> premium surprise or discount</span>
+                    <span className="text-foreground leading-tight text-xs md:text-sm"><span className="font-semibold">Unlock</span> premium surprise bake or discount on your 5th order</span>
                   </div>
                 </div>
 
-                {/* CTA Button */}
+                {/* CTA Button - aligned with WhatsApp */}
                 <button
                   onClick={handleRedeemReward}
-                  className="w-full bg-gradient-primary hover:shadow-glow text-primary-foreground font-bold py-2.5 px-3 rounded-xl transition-all active:scale-95 text-sm mt-2"
+                  className="w-full bg-gradient-primary hover:shadow-glow text-primary-foreground font-bold py-2.5 px-3 rounded-xl transition-all active:scale-95 text-sm mt-2 flex items-center justify-center gap-2"
                 >
+                  <MessageCircle className="w-4 h-4" />
                   Redeem Now
                 </button>
               </div>
