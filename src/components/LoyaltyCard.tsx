@@ -96,18 +96,6 @@ const LoyaltyCard = () => {
                   </div>
                 </div>
 
-                {/* Quick Info - Compact */}
-                <div className="bg-primary/5 rounded-lg p-1.5 sm:p-2.5 border border-primary/15">
-                  <div className="space-y-0.5 text-center">
-                    <p className="text-xs font-bold text-primary">
-                      Per Piece: ₹120
-                    </p>
-                    <p className="text-xs font-semibold text-primary/80">
-                      2 Pieces: ₹240
-                    </p>
-                  </div>
-                </div>
-
                 {/* How it works - Compact */}
                 <div className="space-y-1 sm:space-y-1.5">
                   <h4 className="text-xs font-bold text-foreground uppercase tracking-wider">How it works:</h4>
