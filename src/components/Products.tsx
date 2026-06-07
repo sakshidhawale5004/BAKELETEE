@@ -231,35 +231,27 @@ export const products: Product[] = [
   },
   {
     name: "Chocolate Hazelnut Fudge",
-    price: 120,
+    price: 240,
     category: "Brownie",
     img: chocolateHazelnutFudge,
     badge: "Pure Indulgence",
     tagline: "Silky Chocolate Bliss.",
     description: "A decadent fudge crafted with premium chocolate and roasted hazelnuts. Rich, smooth, and utterly irresistible. Each piece melts on your tongue with layers of intense chocolate flavor and toasted hazelnut elegance.",
     notes: ["Premium Dark Chocolate", "Roasted Hazelnut Pieces", "Smooth & Creamy Texture", "Refined Sugar-Free"],
-    weight: "1 piece",
+    weight: "2 pieces",
     minOrderQuantity: 2,
-    variants: [
-      { weight: "1 piece", price: 120 },
-      { weight: "2 pieces", price: 240 },
-    ],
   },
   {
     name: "Monk & Berries Fudge",
-    price: 120,
+    price: 240,
     category: "Brownie",
     img: monkBerriesFudge,
     badge: "Fruity Delight",
     tagline: "Berry Bliss in Every Bite.",
     description: "A unique fusion of rich chocolate fudge infused with the tartness of monk fruit and the sweetness of berries. This sophisticated treat offers a perfect balance of indulgence and natural fruit flavors, creating a memorable taste experience.",
     notes: ["Rich Chocolate Base", "Monk Fruit Sweetener", "Berry Infusion", "Naturally Sweetened"],
-    weight: "1 piece",
+    weight: "2 pieces",
     minOrderQuantity: 2,
-    variants: [
-      { weight: "1 piece", price: 120 },
-      { weight: "2 pieces", price: 240 },
-    ],
   },
   {
     name: "Premium Curations Bundle",
@@ -396,10 +388,15 @@ const ProductCard = ({
   const currentInCart = getQuantity(targetName);
 
   const minOrderQty = p.minOrderQuantity || 1;
+  const maxOrderQty = p.minOrderQuantity === 2 ? 2 : undefined; // Limit fudges to max 2 pieces
 
   const handleQuantity = (delta: number) => {
     if (currentInCart > 0) {
-      const newQty = Math.max(minOrderQty, currentInCart + delta);
+      let newQty = Math.max(minOrderQty, currentInCart + delta);
+      // Limit maximum quantity for fudge products (MOQ 2)
+      if (maxOrderQty && newQty > maxOrderQty) {
+        newQty = maxOrderQty;
+      }
       updateQuantity(targetName, newQty);
     } else if (delta > 0) {
       addToCart({
