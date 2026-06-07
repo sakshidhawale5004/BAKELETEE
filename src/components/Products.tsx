@@ -493,7 +493,7 @@ const ProductCard = ({
           {/* MOQ Label for Variants */}
           {p.variants && minOrderQty > 1 && (
             <div className="text-xs text-primary font-semibold whitespace-nowrap">
-              MOQ: 1 piece (₹{selectedVariant?.price || discountedPrice})
+              MOQ: {selectedVariant?.weight === "2 pieces" ? "2 pieces" : "1 piece"} (₹{selectedVariant?.price || discountedPrice})
             </div>
           )}
 
