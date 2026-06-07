@@ -460,7 +460,7 @@ const ProductCard = ({
                 <span className="text-sm text-muted-foreground line-through">₹{currentPrice}</span>
               )}
             </div>
-            {minOrderQty > 1 && !p.variants && (
+            {minOrderQty > 1 && (
               <div className="mt-1 text-xs text-primary font-semibold">
                 MOQ: {minOrderQty} pieces (₹{discountedPrice * minOrderQty})
               </div>
@@ -486,41 +486,26 @@ const ProductCard = ({
             </div>
           </div>
 
-          <div className="flex items-center gap-2">
-            <div className="flex items-center bg-muted rounded-full p-1 border border-border/50">
-              <button 
-                onClick={() => handleQuantity(-1)} 
-                disabled={isQuantityLocked && currentInCart > 0}
-                className={`w-8 h-8 flex items-center justify-center rounded-full transition-colors ${
-                  isQuantityLocked && currentInCart > 0 
-                    ? 'opacity-50 cursor-not-allowed' 
-                    : 'hover:bg-background'
-                }`}
-              >
-                -
-              </button>
-              <span className="w-8 text-center text-sm font-bold">{currentInCart || minOrderQty}</span>
-              <button 
-                onClick={() => handleQuantity(1)} 
-                disabled={isQuantityLocked && currentInCart > 0}
-                className={`w-8 h-8 flex items-center justify-center rounded-full transition-colors ${
-                  isQuantityLocked && currentInCart > 0 
-                    ? 'opacity-50 cursor-not-allowed' 
-                    : 'hover:bg-background'
-                }`}
-              >
-                +
-              </button>
-            </div>
-            {isQuantityLocked && currentInCart > 0 && (
-              <div className="flex items-center gap-1 text-xs text-primary font-semibold px-2 py-1 bg-primary/10 rounded-full">
-                <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 1L9 6H6a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h12a3 3 0 0 0 3-3V9a3 3 0 0 0-3-3h-3l-3-5z" />
-                </svg>
-                Max
+          {/* Only show increment controls for non-fudge products or fudges without variants */}
+          {!isQuantityLocked && (
+            <div className="flex items-center gap-2">
+              <div className="flex items-center bg-muted rounded-full p-1 border border-border/50">
+                <button 
+                  onClick={() => handleQuantity(-1)} 
+                  className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-background transition-colors"
+                >
+                  -
+                </button>
+                <span className="w-8 text-center text-sm font-bold">{currentInCart || minOrderQty}</span>
+                <button 
+                  onClick={() => handleQuantity(1)} 
+                  className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-background transition-colors"
+                >
+                  +
+                </button>
               </div>
-            )}
-          </div>
+            </div>
+          )}
         </div>
 
         <div className="mt-6 grid grid-cols-2 gap-3">
