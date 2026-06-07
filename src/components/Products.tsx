@@ -17,7 +17,6 @@ import gingerbread from "@/assets/products/gingerbread.png";
 import gheeCake from "@/assets/products/ghee-cake.png";
 import oatmealCarrot from "@/assets/products/oatmeal-carrot.png";
 import chocolateBrownie from "@/assets/products/chocolate-brownie.png";
-import fudgelogy from "@/assets/products/chocolate-hazelnut-fudgelogy.jpeg";
 import chocolateHazelnutFudge from "@/assets/products/chocolate-hazelnut-fudge.jpeg";
 import monkBerriesFudge from "@/assets/products/monk-berries-fudge.jpeg";
 import bundle from "@/assets/products/bundle-final.jpeg";
@@ -229,18 +228,6 @@ export const products: Product[] = [
       { weight: "250 grams", price: 465 },
       { weight: "500 grams", price: 930 },
     ],
-  },
-  {
-    name: "Chocolate Hazelnut Fudgelogy",
-    price: 325,
-    category: "Brownie",
-    img: fudgelogy,
-    badge: "Fudgy Goodness",
-    tagline: "Hazelnut Heaven Unleashed.",
-    description: "Rich, velvety fudgelogy meets the toasted elegance of premium hazelnuts. A gooey, decadent center encased in dark chocolate—pure indulgence in every bite. This is for those who believe in the transformative power of true chocolate.",
-    notes: ["Roasted Hazelnuts", "Gooey Center", "Dark Chocolate Crafted", "Refined Sugar-Free"],
-    weight: "4 pcs",
-    minOrderQuantity: 2,
   },
   {
     name: "Chocolate Hazelnut Fudge",
