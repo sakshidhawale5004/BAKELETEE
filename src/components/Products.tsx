@@ -304,6 +304,8 @@ const Products = ({ selected, onSelect, searchQuery = "", discountPercentage = 0
           <p className="mt-6 text-muted-foreground text-lg font-medium">
             {selected === "All"
               ? "A handcrafted collection where tradition meets modern artistry. Every bake is a labor of love, using heritage grains and artisanal techniques to create moments of pure indulgence."
+              : selected === "Brownie"
+              ? "Showing our brownie & fudge — handcrafted with love and curated for your soul."
               : `Showing our ${selected.toLowerCase()} — handcrafted with love and curated for your soul.`}
           </p>
         </div>
@@ -325,7 +327,7 @@ const Products = ({ selected, onSelect, searchQuery = "", discountPercentage = 0
                   : "bg-background text-foreground border-border hover:border-primary hover:text-primary"
               }`}
             >
-              {c}
+              {c === "Brownie" ? "Brownie and Fudge" : c}
             </button>
           ))}
         </div>
