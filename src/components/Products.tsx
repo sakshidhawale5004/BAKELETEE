@@ -237,7 +237,7 @@ export const products: Product[] = [
     img: chocolateHazelnutFudge,
     badge: "Pure Indulgence",
     tagline: "Silky Chocolate Bliss.",
-    description: "A decadent fudge crafted with premium chocolate and roasted hazelnuts. Rich, smooth, and utterly irresistible. Each piece melts on your tongue with layers of intense chocolate flavor and toasted hazelnut elegance.",
+    description: "A decadent fudge crafted with premium chocolate and roasted hazelnuts. Rich, smooth, and utterly irresistible. Each piece melts in your mouth with layers of intense chocolate flavor and toasted hazelnut elegance.",
     notes: ["Premium Dark Chocolate", "Roasted Hazelnut Pieces", "Smooth & Creamy Texture", "Refined Sugar-Free", "Healthy Indulgence"],
     weight: "2 pcs",
     minOrderQuantity: 1,
