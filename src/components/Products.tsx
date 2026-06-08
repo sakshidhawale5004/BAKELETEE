@@ -239,7 +239,7 @@ export const products: Product[] = [
     tagline: "Silky Chocolate Bliss.",
     description: "A decadent fudge crafted with premium chocolate and roasted hazelnuts. Rich, smooth, and utterly irresistible. Each piece melts on your tongue with layers of intense chocolate flavor and toasted hazelnut elegance.",
     notes: ["Premium Dark Chocolate", "Roasted Hazelnut Pieces", "Smooth & Creamy Texture", "Refined Sugar-Free", "Healthy Indulgence"],
-    weight: "2 pieces",
+    weight: "2 pcs",
     minOrderQuantity: 1,
   },
   {
@@ -251,7 +251,7 @@ export const products: Product[] = [
     tagline: "Berry Bliss in Every Bite.",
     description: "A unique fusion of rich chocolate fudge infused with the warmth of non-alcoholic Old Monk rum flavour and the sweetness of berries. This sophisticated treat offers a perfect balance of indulgence and natural fruit flavors, creating a memorable taste experience. No monk fruit or sugar is used.",
     notes: ["Rich Chocolate Base", "Old Monk Rum Flavour", "Berry Infusion", "No Monk Fruit", "No Sugar", "Healthy Indulgence"],
-    weight: "2 pieces",
+    weight: "2 pcs",
     minOrderQuantity: 1,
   },
   {
@@ -500,12 +500,6 @@ const ProductCard = ({
             {p.variants && minOrderQty > 1 && (
               <div className="text-xs text-primary font-semibold whitespace-nowrap">
                 MOQ: {selectedVariant?.weight === "2 pieces" ? "2 pieces" : "1 piece"}
-              </div>
-            )}
-            {/* For fudges without minOrderQty label, show weight info */}
-            {p.name.includes("Fudge") && !p.variants && (
-              <div className="text-xs text-primary font-semibold whitespace-nowrap">
-                {p.weight}
               </div>
             )}
           </div>
