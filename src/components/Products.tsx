@@ -325,14 +325,14 @@ const Products = ({ selected, onSelect, searchQuery = "", discountPercentage = 0
           <p className="mt-6 text-muted-foreground text-lg font-medium">
             {selected === "All"
               ? "A handcrafted collection where tradition meets modern artistry. Every bake is a labor of love, using heritage grains and artisanal techniques to create moments of pure indulgence."
-              : selected === "Brownie"
+              : selected === "Brownie and Fudge"
               ? "Showing our brownie & fudge — handcrafted with love and curated for your soul."
               : `Showing our ${selected.toLowerCase()} — handcrafted with love and curated for your soul.`}
           </p>
         </div>
 
         <div className="flex overflow-x-auto no-scrollbar md:flex-wrap md:justify-center gap-3 mb-12 pb-4 md:pb-0 px-4 md:px-0 -mx-4 md:mx-0">
-          {(["All", "Cookies", "Brownie", "Loaves", "Bites", "Bundles"] as Category[]).map((c) => (
+          {(["All", "Cookies", "Brownie and Fudge", "Loaves", "Bites", "Bundles"] as Category[]).map((c) => (
             <button
               key={c}
               onClick={() => {
