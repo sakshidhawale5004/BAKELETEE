@@ -6,7 +6,7 @@ const LoyaltyCard = () => {
 
   const handleRedeemReward = () => {
     // Open WhatsApp link to redeem rewards
-    const message = encodeURIComponent("Hi Bakelette! I've completed my loyalty card with 4 stamps and would like to redeem my reward!");
+    const message = encodeURIComponent("Hi Bakelette! I've completed my loyalty card with 4 stamps and would like to redeem my reward on current order!");
     window.open(`https://wa.me/919876543210?text=${message}`, "_blank");
   };
 
