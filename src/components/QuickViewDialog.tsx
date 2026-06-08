@@ -5,7 +5,7 @@ import { useCart } from "@/contexts/CartContext";
 export interface Product {
   name: string;
   price: number;
-  category: "Cookies" | "Loaves" | "Bites" | "Brownie" | "Brownie and Fudge" | "Bundles" | "Gift Hamper";
+  category: "Cookies" | "Loaves" | "Bites" | "Brownie and Fudge" | "Bundles" | "Gift Hamper";
   img: string;
   badge?: string;
   tagline: string;

@@ -106,11 +106,11 @@ export const products: Product[] = [
     weight: "250 grams",
   },
 
-  // Brownies
+  // Brownies and Fudges
   {
     name: "Chocolate Brownie",
     price: 275,
-    category: "Brownie",
+    category: "Brownie and Fudge",
     img: chocolateBrownie,
     badge: "Fudgy Goodness",
     tagline: "The Ultimate Fudgy Escape.",
@@ -284,7 +284,6 @@ import { useCart } from "@/contexts/CartContext";
 export type Category =
   | "All"
   | "Cookies"
-  | "Brownie"
   | "Brownie and Fudge"
   | "Loaves"
   | "Bites"
