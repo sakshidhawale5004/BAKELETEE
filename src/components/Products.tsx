@@ -19,7 +19,7 @@ import oatmealCarrot from "@/assets/products/oatmeal-carrot.png";
 import chocolateBrownie from "@/assets/products/chocolate-brownie.png";
 import chocolateHazelnutFudge from "@/assets/products/chocolate-hazelnut-fudge-new.jpeg";
 import monkBerriesFudge from "@/assets/products/monk-berries-fudge-new.jpeg";
-import bundle from "@/assets/products/premium-curations-bundle-new.jpeg";
+import bundle from "@/assets/products/premium-curations-bundle-final.jpg";
 
 
 
