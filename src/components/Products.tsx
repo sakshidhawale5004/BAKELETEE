@@ -17,8 +17,8 @@ import gingerbread from "@/assets/products/gingerbread.png";
 import gheeCake from "@/assets/products/ghee-cake.png";
 import oatmealCarrot from "@/assets/products/oatmeal-carrot.png";
 import chocolateBrownie from "@/assets/products/chocolate-brownie.png";
-import chocolateHazelnutFudge from "@/assets/products/chocolate-hazelnut-fudge.jpeg";
-import monkBerriesFudge from "@/assets/products/monk-berries-fudge.jpeg";
+import chocolateHazelnutFudge from "@/assets/products/chocolate-hazelnut-fudge-new.jpeg";
+import monkBerriesFudge from "@/assets/products/monk-berries-fudge-new.jpeg";
 import bundle from "@/assets/products/bundle-final.jpeg";
 
 
