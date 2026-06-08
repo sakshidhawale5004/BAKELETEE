@@ -450,6 +450,14 @@ const ProductCard = ({
         )}
       </button>
 
+      {p.category === 'Bundles' && p.badge && (
+        <div className="px-5 pt-3 pb-0 flex justify-start">
+          <span className="bg-gradient-primary text-primary-foreground text-xs font-semibold px-3 py-1 rounded-full shadow-glow">
+            {p.badge}
+          </span>
+        </div>
+      )}
+
       <div className="p-5 flex flex-col flex-1 justify-between gap-4">
         <div className="flex-1 flex flex-col">
           <h3 className="text-lg leading-tight font-semibold text-foreground line-clamp-3">{p.name}</h3>
