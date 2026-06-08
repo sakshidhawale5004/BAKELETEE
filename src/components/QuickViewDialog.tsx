@@ -187,13 +187,24 @@ const QuickViewDialog = ({ product, onClose }: Props) => {
               </>
             )}
 
-            {product.minOrderQuantity && (
+            {product.minOrderQuantity && !product.variants && (
               <div className="mt-6 bg-primary/10 border border-primary/20 rounded-xl p-4">
                 <p className="text-xs text-primary font-semibold mb-2">
                   ⚠ Minimum Order Quantity (MOQ)
                 </p>
                 <p className="text-sm text-primary font-bold">
                   {product.minOrderQuantity} pieces × ₹{currentPrice} = ₹{currentPrice * product.minOrderQuantity}
+                </p>
+              </div>
+            )}
+            
+            {product.minOrderQuantity && product.variants && (
+              <div className="mt-6 bg-primary/10 border border-primary/20 rounded-xl p-4">
+                <p className="text-xs text-primary font-semibold mb-2">
+                  ℹ Minimum Order Quantity
+                </p>
+                <p className="text-sm text-primary font-bold">
+                  MOQ: {selectedVariant?.weight === "2 pieces" ? "2 pieces" : "1 piece"} (₹{currentPrice})
                 </p>
               </div>
             )}
