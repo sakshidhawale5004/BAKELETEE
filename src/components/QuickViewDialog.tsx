@@ -26,14 +26,14 @@ interface Props {
 }
 
 const QuickViewDialog = ({ product, onClose }: Props) => {
-  const [qty, setQty] = useState(product?.minOrderQuantity || 1);
-  const [selectedVariant, setSelectedVariant] = useState(product?.variants?.[1] || null); // Default to 500g if exists
+  const [qty, setQty] = useState(product?.variants ? 1 : (product?.minOrderQuantity || 1));
+  const [selectedVariant, setSelectedVariant] = useState(product?.variants ? product.variants[product.variants.length - 1] : null); // Default to last variant (2 pieces)
   const { addToCart } = useCart();
 
   useEffect(() => {
     if (!product) return;
-    setQty(product?.minOrderQuantity || 1); 
-    setSelectedVariant(product.variants?.[1] || null);
+    setQty(product?.variants ? 1 : (product?.minOrderQuantity || 1)); 
+    setSelectedVariant(product?.variants ? product.variants[product.variants.length - 1] : null);
     const onKey = (e: KeyboardEvent) => e.key === "Escape" && onClose();
     document.body.style.overflow = "hidden";
     window.addEventListener("keydown", onKey);

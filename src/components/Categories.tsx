@@ -24,8 +24,8 @@ const cats: {
     tagline: "One bite. Pure drama.",
   },
   {
-    name: "Brownie",
-    icon: <img src={chocolateBrownie} alt="Brownie" className="w-full h-full object-cover rounded-2xl" />,
+    name: "Brownie and Fudge",
+    icon: <img src={chocolateBrownie} alt="Brownie and Fudge" className="w-full h-full object-cover rounded-2xl" />,
     count: "Classic Fudgy",
     desc: "Rich, fudgy, decadent",
     tagline: "The ultimate indulgence.",
