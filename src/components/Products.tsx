@@ -431,7 +431,7 @@ const ProductCard = ({
         className={`relative w-full ${p.category === 'Bundles' ? 'aspect-auto' : 'aspect-square'} overflow-hidden ${p.category === 'Bundles' ? 'bg-[#f0f4f8]' : 'bg-warm'} text-left flex-shrink-0`}
       >
         <img src={p.img} alt={p.name} className={`w-full h-full ${p.category === 'Bundles' ? 'object-contain' : 'object-cover'} group-hover:scale-105 transition-transform duration-700 will-change-transform [backface-visibility:hidden]`} />
-        {p.badge && (
+        {p.badge && p.category !== 'Bundles' && (
           <div className="absolute top-4 left-4 flex flex-col gap-2">
             <span className="bg-gradient-primary text-primary-foreground text-xs font-semibold px-3 py-1.5 rounded-full shadow-glow">
               {p.badge}
@@ -443,9 +443,11 @@ const ProductCard = ({
             )}
           </div>
         )}
-        <span className="absolute inset-x-4 bottom-4 bg-background/95 backdrop-blur-md text-foreground text-sm font-semibold py-3 rounded-full text-center shadow-elegant transition-all duration-300">
-          Quick View →
-        </span>
+        {p.category !== 'Bundles' && (
+          <span className="absolute inset-x-4 bottom-4 bg-background/95 backdrop-blur-md text-foreground text-sm font-semibold py-3 rounded-full text-center shadow-elegant transition-all duration-300">
+            Quick View →
+          </span>
+        )}
       </button>
 
       <div className="p-5 flex flex-col flex-1 justify-between gap-4">
