@@ -231,27 +231,33 @@ export const products: Product[] = [
   },
   {
     name: "Chocolate Hazelnut Fudge",
-    price: 240,
+    price: 120,
     category: "Brownie and Fudge",
     img: chocolateHazelnutFudge,
     badge: "Pure Indulgence",
     tagline: "Silky Chocolate Bliss.",
     description: "A decadent fudge crafted with premium chocolate and roasted hazelnuts. Rich, smooth, and utterly irresistible. Each piece melts on your tongue with layers of intense chocolate flavor and toasted hazelnut elegance.",
     notes: ["Premium Dark Chocolate", "Roasted Hazelnut Pieces", "Smooth & Creamy Texture", "Refined Sugar-Free", "Healthy Indulgence"],
-    weight: "2 pieces",
-    minOrderQuantity: 2,
+    weight: "1 piece",
+    variants: [
+      { weight: "1 piece", price: 120 },
+      { weight: "2 pieces", price: 240 },
+    ],
   },
   {
     name: "Monk & Berries Fudge",
-    price: 240,
+    price: 120,
     category: "Brownie and Fudge",
     img: monkBerriesFudge,
     badge: "Fruity Delight",
     tagline: "Berry Bliss in Every Bite.",
     description: "A unique fusion of rich chocolate fudge infused with the warmth of non-alcoholic Old Monk rum flavour and the sweetness of berries. This sophisticated treat offers a perfect balance of indulgence and natural fruit flavors, creating a memorable taste experience. No monk fruit or sugar is used.",
     notes: ["Rich Chocolate Base", "Old Monk Rum Flavour", "Berry Infusion", "No Monk Fruit", "No Sugar", "Healthy Indulgence"],
-    weight: "2 pieces",
-    minOrderQuantity: 2,
+    weight: "1 piece",
+    variants: [
+      { weight: "1 piece", price: 120 },
+      { weight: "2 pieces", price: 240 },
+    ],
   },
   {
     name: "Premium Curations Bundle",
@@ -394,9 +400,8 @@ const ProductCard = ({
 
   const handleQuantity = (delta: number) => {
     if (currentInCart > 0) {
-      // For MOQ products, increment by minOrderQty
-      let newQty = currentInCart + (delta * minOrderQty);
-      if (newQty < minOrderQty) newQty = minOrderQty;
+      let newQty = currentInCart + delta;
+      if (newQty < 1) newQty = 1;
       // Respect max quantity if set
       if (maxOrderQty && newQty > maxOrderQty) return;
       updateQuantity(targetName, newQty);
@@ -406,7 +411,7 @@ const ProductCard = ({
         price: discountedPrice,
         weight: currentWeight,
         name: targetName
-      }, minOrderQty);
+      }, 1);
     }
   };
 
@@ -509,8 +514,8 @@ const ProductCard = ({
             )}
           </div>
 
-          {/* Only show increment controls for products with MOQ or no variants */}
-          {(minOrderQty > 1 || !p.variants) && (
+          {/* Only show increment controls for products with variants */}
+          {p.variants && (
             <div className="flex items-center gap-2">
               <div className="flex items-center bg-muted rounded-full p-1 border border-border/50">
                 <button 
@@ -519,7 +524,7 @@ const ProductCard = ({
                 >
                   -
                 </button>
-                <span className="w-8 text-center text-sm font-bold">{currentInCart || minOrderQty}</span>
+                <span className="w-8 text-center text-sm font-bold">{currentInCart || 1}</span>
                 <button 
                   onClick={() => handleQuantity(1)} 
                   className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-background transition-colors"
