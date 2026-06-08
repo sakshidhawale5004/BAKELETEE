@@ -37,7 +37,7 @@ const LoyaltyCard = () => {
 
           {/* Card Container - Compact Modal */}
           <div className="fixed inset-0 md:inset-auto md:left-4 md:bottom-6 z-50 flex items-center justify-center md:items-end md:justify-start p-2 sm:p-4 md:p-0">
-            <div className="w-11/12 sm:max-w-md md:max-w-sm max-h-[92vh] md:max-h-auto bg-white rounded-2xl shadow-xl border border-border overflow-hidden flex flex-col animate-fade-in">
+            <div className="w-11/12 sm:max-w-md md:max-w-sm max-h-[85vh] md:max-h-auto bg-white rounded-2xl shadow-xl border border-border overflow-hidden flex flex-col animate-fade-in">
               
               {/* Compact Teal Header */}
               <div className="bg-gradient-primary p-2 sm:p-3 md:p-4 relative text-primary-foreground flex-shrink-0 rounded-t-2xl">
@@ -56,11 +56,11 @@ const LoyaltyCard = () => {
                 </div>
               </div>
 
-              {/* Main Content - Compact */}
-              <div className="flex-1 overflow-y-auto p-1.5 sm:p-3 md:p-4 space-y-1.5 sm:space-y-2.5 md:space-y-3 bg-white">
+              {/* Main Content - Scrollable */}
+              <div className="flex-1 overflow-y-auto p-2 sm:p-3 md:p-4 space-y-1 sm:space-y-2 md:space-y-3 bg-white">
                 
                 {/* Important Note - Compact */}
-                <div className="bg-primary/5 rounded-lg border border-primary/20 p-1.5 sm:p-2.5">
+                <div className="bg-primary/5 rounded-lg border border-primary/20 p-1 sm:p-2">
                   <p className="text-xs leading-tight sm:leading-snug text-primary font-semibold">
                     📍 <strong>First-time customers</strong> receive a physical loyalty card with their first order
                   </p>
@@ -69,14 +69,14 @@ const LoyaltyCard = () => {
                 {/* Loyalty Progress Display - Compact */}
                 <div className="bg-gradient-warm rounded-xl p-2 sm:p-3 md:p-4 border-2 border-primary/20">
                   {/* Stamps Title with Icons */}
-                  <div className="text-center mb-2">
+                  <div className="text-center mb-1.5">
                     <h4 className="text-primary font-bold text-xs sm:text-xs md:text-sm tracking-wider uppercase">
                       Stamps Earned
                     </h4>
                   </div>
 
                   {/* Stamps Display - 4 + 1 */}
-                  <div className="flex justify-center items-center gap-1 sm:gap-1.5 md:gap-2 px-1 mb-2">
+                  <div className="flex justify-center items-center gap-0.5 sm:gap-1 md:gap-2 px-1 mb-1.5">
                     {[1, 2, 3, 4].map((index) => (
                       <div key={index} className="flex flex-col items-center flex-shrink-0">
                         {/* Filled stamps with checkmark */}
@@ -90,7 +90,7 @@ const LoyaltyCard = () => {
                   </div>
 
                   {/* Progress Text */}
-                  <div className="text-center bg-primary/10 rounded-lg p-1.5">
+                  <div className="text-center bg-primary/10 rounded-lg p-1">
                     <p className="text-xs md:text-sm font-bold text-primary leading-snug">
                       4 Stamps Completed → Ready to Redeem! 🎉
                     </p>
@@ -98,30 +98,30 @@ const LoyaltyCard = () => {
                 </div>
 
                 {/* Loyalty Program Steps - Clear & Distinct */}
-                <div className="space-y-1 sm:space-y-1.5">
-                  <h4 className="text-xs font-bold text-foreground uppercase tracking-wider mb-2">Your Loyalty Journey:</h4>
+                <div className="space-y-0.5 sm:space-y-1">
+                  <h4 className="text-xs font-bold text-foreground uppercase tracking-wider mb-1">Your Loyalty Journey:</h4>
                   
-                  <div className="space-y-1 sm:space-y-1.5 text-xs">
+                  <div className="space-y-0.5 sm:space-y-1 text-xs">
                     {/* Step 1 - First Order */}
-                    <div className="flex gap-1.5 items-start bg-primary/5 p-2 rounded-lg">
+                    <div className="flex gap-1 items-start bg-primary/5 p-1.5 rounded-lg">
                       <span className="inline-flex items-center justify-center w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-primary text-primary-foreground font-bold text-xs flex-shrink-0 text-white">1</span>
                       <span className="text-foreground leading-tight"><span className="font-semibold">First order:</span> Receive a physical loyalty card</span>
                     </div>
 
                     {/* Step 2 - Every Order */}
-                    <div className="flex gap-1.5 items-start bg-primary/5 p-2 rounded-lg">
+                    <div className="flex gap-1 items-start bg-primary/5 p-1.5 rounded-lg">
                       <span className="inline-flex items-center justify-center w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-primary text-primary-foreground font-bold text-xs flex-shrink-0 text-white">2</span>
                       <span className="text-foreground leading-tight"><span className="font-semibold">Every order:</span> Get a stamp on one circle</span>
                     </div>
 
                     {/* Step 3 - Complete 4 */}
-                    <div className="flex gap-1.5 items-start bg-primary/5 p-2 rounded-lg">
+                    <div className="flex gap-1 items-start bg-primary/5 p-1.5 rounded-lg">
                       <span className="inline-flex items-center justify-center w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-primary text-primary-foreground font-bold text-xs flex-shrink-0 text-white">3</span>
                       <span className="text-foreground leading-tight"><span className="font-semibold">Complete 4 stamps:</span> WhatsApp us the card photo</span>
                     </div>
 
                     {/* Step 4 - 5th Order Reward */}
-                    <div className="flex gap-1.5 items-start bg-primary/5 p-2 rounded-lg">
+                    <div className="flex gap-1 items-start bg-primary/5 p-1.5 rounded-lg">
                       <span className="inline-flex items-center justify-center w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-primary text-primary-foreground font-bold text-xs flex-shrink-0 text-white">4</span>
                       <span className="text-foreground leading-tight"><span className="font-semibold">5th order:</span> Unlock a premium surprise bake or exclusive discount</span>
                     </div>
@@ -129,7 +129,7 @@ const LoyaltyCard = () => {
                 </div>
 
                 {/* CTA Buttons - Compact */}
-                <div className="space-y-1 sm:space-y-1.5 mt-1.5">
+                <div className="space-y-1 mt-1">
                   <button
                     onClick={handleRedeemReward}
                     className="w-full bg-gradient-primary hover:shadow-glow text-primary-foreground font-bold py-1.5 sm:py-2 px-3 rounded-lg transition-all active:scale-95 text-xs sm:text-sm flex items-center justify-center gap-1.5 sm:gap-2"
