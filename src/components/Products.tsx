@@ -422,15 +422,15 @@ const ProductCard = ({
 
   return (
     <article
-      className="card-3d group bg-gradient-card rounded-3xl overflow-hidden shadow-soft border border-border/60 fade-up flex flex-col"
+      className="card-3d group bg-gradient-card rounded-3xl overflow-hidden shadow-soft border border-border/60 fade-up flex flex-col h-full"
       style={{ animationDelay: `${(i % 4) * 0.08}s` }}
     >
       <button
         type="button"
         onClick={onQuickView}
-        className={`relative ${p.category === 'Bundles' ? 'aspect-[1/1.65]' : p.category === 'Brownie' ? 'aspect-[3/5]' : 'aspect-square sm:aspect-[4/5]'} overflow-hidden ${p.category === 'Bundles' ? 'bg-[#f0f4f8]' : 'bg-warm'} text-left`}
+        className={`relative w-full aspect-square sm:aspect-square overflow-hidden ${p.category === 'Bundles' ? 'bg-[#f0f4f8]' : 'bg-warm'} text-left flex-shrink-0`}
       >
-        <img src={p.img} alt={p.name} className={`w-full h-full ${p.category === 'Bundles' ? 'object-contain' : 'object-cover'} group-hover:scale-105 transition-transform duration-700 will-change-transform [backface-visibility:hidden]`} />
+        <img src={p.img} alt={p.name} className={`w-full h-full ${p.category === 'Bundles' ? 'object-contain p-4' : 'object-cover'} group-hover:scale-105 transition-transform duration-700 will-change-transform [backface-visibility:hidden]`} />
         {p.badge && (
           <div className="absolute top-4 left-4 flex flex-col gap-2">
             <span className="bg-gradient-primary text-primary-foreground text-xs font-semibold px-3 py-1.5 rounded-full shadow-glow">
@@ -443,59 +443,63 @@ const ProductCard = ({
             )}
           </div>
         )}
-        <span className={`absolute inset-x-4 ${p.category === 'Bundles' ? 'bottom-6' : 'bottom-4'} bg-background/95 backdrop-blur-md text-foreground text-sm font-semibold py-3 rounded-full text-center shadow-elegant transition-all duration-300`}>
+        <span className="absolute inset-x-4 bottom-4 bg-background/95 backdrop-blur-md text-foreground text-sm font-semibold py-3 rounded-full text-center shadow-elegant transition-all duration-300">
           Quick View →
         </span>
       </button>
 
-      <div className="p-5 flex flex-col flex-1">
-        <h3 className="mt-2 text-xl text-foreground leading-tight">{p.name}</h3>
-        <p className="mt-2 text-sm font-script text-primary italic leading-snug">{p.tagline}</p>
-        
-        <div className="mt-4 flex items-baseline justify-between">
-          <div className="flex flex-col">
-            <div className="flex items-center gap-2">
-              <span className="text-2xl font-display font-semibold text-primary">₹{discountedPrice}</span>
-              {discountPercentage > 0 && (
-                <span className="text-sm text-muted-foreground line-through">₹{currentPrice}</span>
+      <div className="p-5 flex flex-col flex-1 justify-between gap-4">
+        <div className="flex-1 flex flex-col">
+          <h3 className="text-lg leading-tight font-semibold text-foreground line-clamp-3">{p.name}</h3>
+          <p className="mt-1 text-xs font-script text-primary italic leading-snug line-clamp-2">{p.tagline}</p>
+          
+          <div className="mt-3 flex items-baseline justify-between">
+            <div className="flex flex-col gap-1">
+              <div className="flex items-center gap-2">
+                <span className="text-xl font-display font-semibold text-primary">₹{discountedPrice}</span>
+                {discountPercentage > 0 && (
+                  <span className="text-xs text-muted-foreground line-through">₹{currentPrice}</span>
+                )}
+              </div>
+              {minOrderQty > 1 && !p.variants && (
+                <div className="text-xs text-primary font-semibold">
+                  MOQ: {minOrderQty} pieces (₹{discountedPrice * minOrderQty})
+                </div>
               )}
             </div>
-            {minOrderQty > 1 && !p.variants && (
-              <div className="mt-1 text-xs text-primary font-semibold">
-                MOQ: {minOrderQty} pieces (₹{discountedPrice * minOrderQty})
-              </div>
-            )}
           </div>
         </div>
 
-        {/* Variant Selection & MOQ Display */}
-        <div className="mt-3 flex items-center justify-between gap-2">
-          <div className="flex items-center gap-1.5">
-            {p.variants ? (
-              p.variants.map((v) => (
-                <button
-                  key={v.weight}
-                  onClick={() => setSelectedVariant(v)}
-                  className={`text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-md transition-all ${
-                    selectedVariant?.weight === v.weight
-                      ? "bg-primary text-primary-foreground font-bold"
-                      : "bg-muted text-muted-foreground hover:bg-muted-foreground/20"
-                  }`}
-                >
-                  {v.weight.replace(" grams", "g").replace(" piece", "")}
-                </button>
-              ))
-            ) : (
-              <span className="text-[10px] text-muted-foreground uppercase tracking-wider">{p.weight ?? "per box"}</span>
+          <div className="space-y-3">
+          {/* Variant Selection & MOQ Display */}
+          <div className="flex items-center justify-between gap-2 flex-wrap">
+            <div className="flex items-center gap-1.5">
+              {p.variants ? (
+                p.variants.map((v) => (
+                  <button
+                    key={v.weight}
+                    onClick={() => setSelectedVariant(v)}
+                    className={`text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-md transition-all ${
+                      selectedVariant?.weight === v.weight
+                        ? "bg-primary text-primary-foreground font-bold"
+                        : "bg-muted text-muted-foreground hover:bg-muted-foreground/20"
+                    }`}
+                  >
+                    {v.weight.replace(" grams", "g").replace(" piece", "")}
+                  </button>
+                ))
+              ) : (
+                <span className="text-[10px] text-muted-foreground uppercase tracking-wider">{p.weight ?? "per box"}</span>
+              )}
+            </div>
+
+            {/* MOQ Label for Variants */}
+            {p.variants && minOrderQty > 1 && (
+              <div className="text-xs text-primary font-semibold whitespace-nowrap">
+                MOQ: {selectedVariant?.weight === "2 pieces" ? "2 pieces" : "1 piece"}
+              </div>
             )}
           </div>
-
-          {/* MOQ Label for Variants */}
-          {p.variants && minOrderQty > 1 && (
-            <div className="text-xs text-primary font-semibold whitespace-nowrap">
-              MOQ: {selectedVariant?.weight === "2 pieces" ? "2 pieces" : "1 piece"} (₹{selectedVariant?.price || discountedPrice})
-            </div>
-          )}
 
           {/* Only show increment controls for non-fudge products or fudges without variants */}
           {!isQuantityLocked && (
@@ -517,25 +521,26 @@ const ProductCard = ({
               </div>
             </div>
           )}
-        </div>
 
-        <div className="mt-6 grid grid-cols-2 gap-3">
-          <button
-            onClick={() => {
-              const qty = Math.max(minOrderQty, currentInCart);
-              const itemTotal = discountedPrice * qty;
-              const message = `Hi Bakelette! I'd like to order the following:\n\n- ${targetName} x ${qty} (₹${itemTotal})\n\nTotal: ₹${itemTotal}\n\nThank you!`;
-              window.open(waLink(message), "_blank");
-            }}
-            className="rounded-full border-2 border-border text-foreground text-sm font-semibold py-2.5 hover:border-primary hover:text-primary transition-colors"
-          >
-            Buy Now
-          </button>
-          {currentInCart > 0 ? (
-            <button onClick={() => setIsOpen(true)} className="rounded-full bg-gradient-primary text-primary-foreground text-sm font-semibold py-2.5 text-center shadow-glow hover:-translate-y-0.5 transition-all">View Cart</button>
-          ) : (
-            <button onClick={() => handleQuantity(1)} className="rounded-full bg-gradient-primary text-primary-foreground text-sm font-semibold py-2.5 text-center shadow-glow hover:-translate-y-0.5 transition-all">Add to Cart</button>
-          )}
+          {/* Action Buttons */}
+          <div className="grid grid-cols-2 gap-3">
+            <button
+              onClick={() => {
+                const qty = Math.max(minOrderQty, currentInCart);
+                const itemTotal = discountedPrice * qty;
+                const message = `Hi Bakelette! I'd like to order the following:\n\n- ${targetName} x ${qty} (₹${itemTotal})\n\nTotal: ₹${itemTotal}\n\nThank you!`;
+                window.open(waLink(message), "_blank");
+              }}
+              className="rounded-full border-2 border-border text-foreground text-sm font-semibold py-2.5 hover:border-primary hover:text-primary transition-colors"
+            >
+              Buy Now
+            </button>
+            {currentInCart > 0 ? (
+              <button onClick={() => setIsOpen(true)} className="rounded-full bg-gradient-primary text-primary-foreground text-sm font-semibold py-2.5 text-center shadow-glow hover:-translate-y-0.5 transition-all">View Cart</button>
+            ) : (
+              <button onClick={() => handleQuantity(1)} className="rounded-full bg-gradient-primary text-primary-foreground text-sm font-semibold py-2.5 text-center shadow-glow hover:-translate-y-0.5 transition-all">Add to Cart</button>
+            )}
+          </div>
         </div>
       </div>
     </article>
