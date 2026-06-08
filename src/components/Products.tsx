@@ -455,7 +455,7 @@ const ProductCard = ({
           <h3 className="text-lg leading-tight font-semibold text-foreground line-clamp-3">{p.name}</h3>
           <p className="mt-1 text-xs font-script text-primary italic leading-snug line-clamp-2">{p.tagline}</p>
           
-          <div className="mt-3 flex items-baseline justify-between">
+          <div className="mt-3 flex items-baseline justify-between gap-2">
             <div className="flex flex-col gap-1">
               <div className="flex items-center gap-2">
                 <span className="text-xl font-display font-semibold text-primary">₹{discountedPrice}</span>
@@ -469,6 +469,14 @@ const ProductCard = ({
                 </div>
               )}
             </div>
+            {p.category === 'Bundles' && (
+              <button
+                onClick={onQuickView}
+                className="px-3 py-1.5 bg-gradient-primary text-primary-foreground text-xs font-semibold rounded-full shadow-glow hover:-translate-y-0.5 transition-all whitespace-nowrap flex-shrink-0"
+              >
+                Quick View →
+              </button>
+            )}
           </div>
         </div>
 
