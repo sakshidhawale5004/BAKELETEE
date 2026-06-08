@@ -389,16 +389,17 @@ const ProductCard = ({
   const currentInCart = getQuantity(targetName);
 
   const minOrderQty = p.minOrderQuantity || 1;
-  // For fudges with variants, lock quantity at 1 per variant (user can select 1 or 2 pieces as variant)
-  const maxOrderQty = p.variants && p.minOrderQuantity === 2 ? 1 : undefined;
-  const isQuantityLocked = maxOrderQty === 1;
+  // For fudges (Hazelnut & Monk & Berries), lock quantity at 1
+  const isFudge = p.name.includes("Fudge") && !p.name.includes("Chocolate Brownie");
+  const isQuantityLocked = isFudge;
 
   const handleQuantity = (delta: number) => {
+    // Don't allow quantity changes if locked (for fudges)
+    if (isQuantityLocked && currentInCart > 0) return;
+    
     if (currentInCart > 0) {
       let newQty = currentInCart + delta;
       if (newQty < 1) newQty = 1;
-      // Respect max quantity if set
-      if (maxOrderQty && newQty > maxOrderQty) return;
       updateQuantity(targetName, newQty);
     } else if (delta > 0) {
       addToCart({
