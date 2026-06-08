@@ -193,7 +193,7 @@ const QuickViewDialog = ({ product, onClose }: Props) => {
                   ⚠ Minimum Order Quantity (MOQ)
                 </p>
                 <p className="text-sm text-primary font-bold">
-                  {product.minOrderQuantity} pieces × ₹{currentPrice} = ₹{currentPrice * product.minOrderQuantity}
+                  {product.minOrderQuantity} unit × {product.minOrderQuantity} unit = ₹{currentPrice * product.minOrderQuantity}
                 </p>
               </div>
             )}
