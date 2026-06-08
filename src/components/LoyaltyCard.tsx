@@ -1,13 +1,14 @@
 import { useState } from "react";
 import { MessageCircle, X, CheckCircle2 } from "lucide-react";
+import { waLink } from "@/lib/contact";
 
 const LoyaltyCard = () => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   const handleRedeemReward = () => {
     // Open WhatsApp link to redeem rewards
-    const message = encodeURIComponent("Hi Bakelette! I've completed my loyalty card with 4 stamps and would like to redeem my reward on current order!");
-    window.open(`https://wa.me/919876543210?text=${message}`, "_blank");
+    const message = "Hi Bakelette! I've completed my loyalty card with 4 stamps and would like to redeem my reward on current order!";
+    window.open(waLink(message), "_blank");
   };
 
   return (
