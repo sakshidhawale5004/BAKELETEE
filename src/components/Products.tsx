@@ -428,9 +428,9 @@ const ProductCard = ({
       <button
         type="button"
         onClick={onQuickView}
-        className={`relative w-full aspect-square sm:aspect-square overflow-hidden ${p.category === 'Bundles' ? 'bg-[#f0f4f8]' : 'bg-warm'} text-left flex-shrink-0`}
+        className={`relative w-full ${p.category === 'Bundles' ? 'aspect-auto' : 'aspect-square'} overflow-hidden ${p.category === 'Bundles' ? 'bg-[#f0f4f8]' : 'bg-warm'} text-left flex-shrink-0`}
       >
-        <img src={p.img} alt={p.name} className={`w-full h-full ${p.category === 'Bundles' ? 'object-contain p-4' : 'object-cover'} group-hover:scale-105 transition-transform duration-700 will-change-transform [backface-visibility:hidden]`} />
+        <img src={p.img} alt={p.name} className={`w-full h-full ${p.category === 'Bundles' ? 'object-contain' : 'object-cover'} group-hover:scale-105 transition-transform duration-700 will-change-transform [backface-visibility:hidden]`} />
         {p.badge && (
           <div className="absolute top-4 left-4 flex flex-col gap-2">
             <span className="bg-gradient-primary text-primary-foreground text-xs font-semibold px-3 py-1.5 rounded-full shadow-glow">
