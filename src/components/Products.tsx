@@ -443,15 +443,15 @@ const ProductCard = ({
         )}
       </button>
 
-      <div className="p-5 flex flex-col flex-1 justify-between gap-4">
+      <div className="p-3 sm:p-5 flex flex-col flex-1 justify-between gap-3 sm:gap-4">
         <div className="flex-1 flex flex-col">
-          <h3 className="text-lg leading-tight font-semibold text-foreground line-clamp-3">{p.name}</h3>
-          <p className="mt-1 text-xs font-script text-primary italic leading-snug line-clamp-2">{p.tagline}</p>
+          <h3 className="text-base sm:text-lg leading-tight font-semibold text-foreground line-clamp-3">{p.name}</h3>
+          <p className="mt-0.5 sm:mt-1 text-xs font-script text-primary italic leading-snug line-clamp-2">{p.tagline}</p>
           
-          <div className="mt-3 flex items-baseline justify-between gap-2">
-            <div className="flex flex-col gap-1">
-              <div className="flex items-center gap-2">
-                <span className="text-xl font-display font-semibold text-primary">₹{discountedPrice}</span>
+          <div className="mt-2 sm:mt-3 flex items-baseline justify-between gap-2">
+            <div className="flex flex-col gap-0.5 sm:gap-1">
+              <div className="flex items-center gap-1.5 sm:gap-2">
+                <span className="text-lg sm:text-xl font-display font-semibold text-primary">₹{discountedPrice}</span>
                 {discountPercentage > 0 && (
                   <span className="text-xs text-muted-foreground line-through">₹{currentPrice}</span>
                 )}
@@ -465,7 +465,7 @@ const ProductCard = ({
             {p.category === 'Bundles' && (
               <button
                 onClick={onQuickView}
-                className="px-3 py-1.5 bg-gradient-primary text-primary-foreground text-xs font-semibold rounded-full shadow-glow hover:-translate-y-0.5 transition-all whitespace-nowrap flex-shrink-0"
+                className="px-2 sm:px-3 py-1 sm:py-1.5 bg-gradient-primary text-primary-foreground text-xs font-semibold rounded-full shadow-glow hover:-translate-y-0.5 transition-all whitespace-nowrap flex-shrink-0"
               >
                 Quick View →
               </button>
@@ -473,16 +473,16 @@ const ProductCard = ({
           </div>
         </div>
 
-          <div className="space-y-3">
+          <div className="space-y-2 sm:space-y-3">
           {/* Variant Selection & MOQ Display */}
           <div className="flex items-center justify-between gap-2 flex-wrap">
-            <div className="flex items-center gap-1.5">
+            <div className="flex items-center gap-1">
               {p.variants ? (
                 p.variants.map((v) => (
                   <button
                     key={v.weight}
                     onClick={() => setSelectedVariant(v)}
-                    className={`text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-md transition-all ${
+                    className={`text-[9px] sm:text-[10px] uppercase tracking-wider px-1.5 sm:px-2 py-0.5 rounded-md transition-all ${
                       selectedVariant?.weight === v.weight
                         ? "bg-primary text-primary-foreground font-bold"
                         : "bg-muted text-muted-foreground hover:bg-muted-foreground/20"
@@ -492,7 +492,7 @@ const ProductCard = ({
                   </button>
                 ))
               ) : (
-                <span className="text-[10px] text-muted-foreground uppercase tracking-wider">{p.weight ?? "per box"}</span>
+                <span className="text-[9px] sm:text-[10px] text-muted-foreground uppercase tracking-wider">{p.weight ?? "per box"}</span>
               )}
             </div>
 
@@ -506,18 +506,18 @@ const ProductCard = ({
 
           {/* Only show increment controls for products with minOrderQuantity */}
           {minOrderQty > 0 && (
-            <div className="flex items-center gap-2">
-              <div className="flex items-center bg-muted rounded-full p-1 border border-border/50">
+            <div className="flex items-center gap-1.5 sm:gap-2">
+              <div className="flex items-center bg-muted rounded-full p-0.5 sm:p-1 border border-border/50">
                 <button 
                   onClick={() => handleQuantity(-1)} 
-                  className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-background transition-colors"
+                  className="w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center rounded-full hover:bg-background transition-colors text-sm"
                 >
                   -
                 </button>
-                <span className="w-8 text-center text-sm font-bold">{currentInCart || 1}</span>
+                <span className="w-6 sm:w-8 text-center text-xs sm:text-sm font-bold">{currentInCart || 1}</span>
                 <button 
                   onClick={() => handleQuantity(1)} 
-                  className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-background transition-colors"
+                  className="w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center rounded-full hover:bg-background transition-colors text-sm"
                 >
                   +
                 </button>
@@ -526,7 +526,7 @@ const ProductCard = ({
           )}
 
           {/* Action Buttons */}
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-2 gap-2 sm:gap-3">
             <button
               onClick={() => {
                 const qty = Math.max(minOrderQty, currentInCart);
@@ -534,14 +534,14 @@ const ProductCard = ({
                 const message = `Hi Bakelette! I'd like to order the following:\n\n- ${targetName} x ${qty} (₹${itemTotal})\n\nTotal: ₹${itemTotal}\n\nThank you!`;
                 window.open(waLink(message), "_blank");
               }}
-              className="rounded-full border-2 border-border text-foreground text-sm font-semibold py-2.5 hover:border-primary hover:text-primary transition-colors"
+              className="rounded-full border-2 border-border text-foreground text-xs sm:text-sm font-semibold py-1.5 sm:py-2.5 hover:border-primary hover:text-primary transition-colors"
             >
               Buy Now
             </button>
             {currentInCart > 0 ? (
-              <button onClick={() => setIsOpen(true)} className="rounded-full bg-gradient-primary text-primary-foreground text-sm font-semibold py-2.5 text-center shadow-glow hover:-translate-y-0.5 transition-all">View Cart</button>
+              <button onClick={() => setIsOpen(true)} className="rounded-full bg-gradient-primary text-primary-foreground text-xs sm:text-sm font-semibold py-1.5 sm:py-2.5 text-center shadow-glow hover:-translate-y-0.5 transition-all">View Cart</button>
             ) : (
-              <button onClick={() => handleQuantity(1)} className="rounded-full bg-gradient-primary text-primary-foreground text-sm font-semibold py-2.5 text-center shadow-glow hover:-translate-y-0.5 transition-all">Add to Cart</button>
+              <button onClick={() => handleQuantity(1)} className="rounded-full bg-gradient-primary text-primary-foreground text-xs sm:text-sm font-semibold py-1.5 sm:py-2.5 text-center shadow-glow hover:-translate-y-0.5 transition-all">Add to Cart</button>
             )}
           </div>
         </div>
