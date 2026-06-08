@@ -232,7 +232,7 @@ export const products: Product[] = [
   {
     name: "Chocolate Hazelnut Fudge",
     price: 240,
-    category: "Brownie",
+    category: "Brownie and Fudge",
     img: chocolateHazelnutFudge,
     badge: "Pure Indulgence",
     tagline: "Silky Chocolate Bliss.",
@@ -248,12 +248,12 @@ export const products: Product[] = [
   {
     name: "Monk & Berries Fudge",
     price: 240,
-    category: "Brownie",
+    category: "Brownie and Fudge",
     img: monkBerriesFudge,
     badge: "Fruity Delight",
     tagline: "Berry Bliss in Every Bite.",
     description: "A unique fusion of rich chocolate fudge infused with the tartness of monk fruit and the sweetness of berries. This sophisticated treat offers a perfect balance of indulgence and natural fruit flavors, creating a memorable taste experience.",
-    notes: ["Rich Chocolate Base", "Monk Fruit Sweetener", "Berry Infusion", "Guilt-Free", "Naturally Sweetened", "Healthy Indulgence"],
+    notes: ["Rich Chocolate Base", "Real Monk Fruit Juice", "Berry Infusion", "Guilt-Free", "Naturally Sweetened", "Healthy Indulgence"],
     weight: "2 pieces",
     minOrderQuantity: 2,
     variants: [
@@ -285,6 +285,7 @@ export type Category =
   | "All"
   | "Cookies"
   | "Brownie"
+  | "Brownie and Fudge"
   | "Loaves"
   | "Bites"
   | "Bundles"
