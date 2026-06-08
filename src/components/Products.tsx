@@ -431,15 +431,23 @@ const ProductCard = ({
         className={`relative w-full ${p.category === 'Bundles' ? 'aspect-auto' : 'aspect-square'} overflow-hidden ${p.category === 'Bundles' ? 'bg-[#f0f4f8]' : 'bg-warm'} text-left flex-shrink-0`}
       >
         <img src={p.img} alt={p.name} className={`w-full h-full ${p.category === 'Bundles' ? 'object-contain' : 'object-cover'} group-hover:scale-105 transition-transform duration-700 will-change-transform [backface-visibility:hidden]`} />
-        {p.badge && p.category !== 'Bundles' && (
+        {p.badge && (
           <div className="absolute top-4 left-4 flex flex-col gap-2">
-            <span className="bg-gradient-primary text-primary-foreground text-xs font-semibold px-3 py-1.5 rounded-full shadow-glow">
-              {p.badge}
-            </span>
-            {p.mainCharacter && (
-              <span className="bg-primary/90 text-primary-foreground text-xs font-semibold px-3 py-1.5 rounded-full shadow-glow">
-                {p.mainCharacter}
+            {p.category === 'Bundles' ? (
+              <span className="bg-gradient-primary text-primary-foreground text-[10px] font-semibold px-2 py-0.5 rounded-full shadow-glow whitespace-nowrap">
+                {p.badge}
               </span>
+            ) : (
+              <>
+                <span className="bg-gradient-primary text-primary-foreground text-xs font-semibold px-3 py-1.5 rounded-full shadow-glow">
+                  {p.badge}
+                </span>
+                {p.mainCharacter && (
+                  <span className="bg-primary/90 text-primary-foreground text-xs font-semibold px-3 py-1.5 rounded-full shadow-glow">
+                    {p.mainCharacter}
+                  </span>
+                )}
+              </>
             )}
           </div>
         )}
@@ -449,14 +457,6 @@ const ProductCard = ({
           </span>
         )}
       </button>
-
-      {p.category === 'Bundles' && p.badge && (
-        <div className="px-5 pt-3 pb-0 flex justify-start">
-          <span className="bg-gradient-primary text-primary-foreground text-xs font-semibold px-3 py-1 rounded-full shadow-glow">
-            {p.badge}
-          </span>
-        </div>
-      )}
 
       <div className="p-5 flex flex-col flex-1 justify-between gap-4">
         <div className="flex-1 flex flex-col">
