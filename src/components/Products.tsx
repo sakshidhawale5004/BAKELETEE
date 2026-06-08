@@ -118,6 +118,7 @@ export const products: Product[] = [
     description: "Intensely chocolatey, remarkably fudgy, and crafted with naturally unsweetened cocoa powder. A decadent treat that melts in your mouth and stays in your heart.",
     notes: ["Naturally Unsweetened Cocoa Powder", "Gooey Center", "Refined Sugar-Free", "Khapli Atta"],
     weight: "4 pcs",
+    minOrderQuantity: 1,
   },
 
   // Bites
@@ -239,10 +240,7 @@ export const products: Product[] = [
     description: "A decadent fudge crafted with premium chocolate and roasted hazelnuts. Rich, smooth, and utterly irresistible. Each piece melts on your tongue with layers of intense chocolate flavor and toasted hazelnut elegance.",
     notes: ["Premium Dark Chocolate", "Roasted Hazelnut Pieces", "Smooth & Creamy Texture", "Refined Sugar-Free", "Healthy Indulgence"],
     weight: "1 piece",
-    variants: [
-      { weight: "1 piece", price: 120 },
-      { weight: "2 pieces", price: 240 },
-    ],
+    minOrderQuantity: 1,
   },
   {
     name: "Monk & Berries Fudge",
@@ -254,10 +252,7 @@ export const products: Product[] = [
     description: "A unique fusion of rich chocolate fudge infused with the warmth of non-alcoholic Old Monk rum flavour and the sweetness of berries. This sophisticated treat offers a perfect balance of indulgence and natural fruit flavors, creating a memorable taste experience. No monk fruit or sugar is used.",
     notes: ["Rich Chocolate Base", "Old Monk Rum Flavour", "Berry Infusion", "No Monk Fruit", "No Sugar", "Healthy Indulgence"],
     weight: "1 piece",
-    variants: [
-      { weight: "1 piece", price: 120 },
-      { weight: "2 pieces", price: 240 },
-    ],
+    minOrderQuantity: 1,
   },
   {
     name: "Premium Curations Bundle",
@@ -514,8 +509,8 @@ const ProductCard = ({
             )}
           </div>
 
-          {/* Only show increment controls for products with variants */}
-          {p.variants && (
+          {/* Only show increment controls for products with minOrderQuantity */}
+          {minOrderQty > 0 && (
             <div className="flex items-center gap-2">
               <div className="flex items-center bg-muted rounded-full p-1 border border-border/50">
                 <button 
