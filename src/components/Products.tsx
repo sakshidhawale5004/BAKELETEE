@@ -237,7 +237,7 @@ export const products: Product[] = [
     badge: "Pure Indulgence",
     tagline: "Silky Chocolate Bliss.",
     description: "A decadent fudge crafted with premium chocolate and roasted hazelnuts. Rich, smooth, and utterly irresistible. Each piece melts on your tongue with layers of intense chocolate flavor and toasted hazelnut elegance.",
-    notes: ["Premium Dark Chocolate", "Roasted Hazelnut Pieces", "Smooth & Creamy Texture", "Guilt-Free", "Refined Sugar-Free", "Healthy Indulgence"],
+    notes: ["Premium Dark Chocolate", "Roasted Hazelnut Pieces", "Smooth & Creamy Texture", "Refined Sugar-Free", "Healthy Indulgence"],
     weight: "2 pieces",
     minOrderQuantity: 2,
     variants: [
@@ -253,7 +253,7 @@ export const products: Product[] = [
     badge: "Fruity Delight",
     tagline: "Berry Bliss in Every Bite.",
     description: "A unique fusion of rich chocolate fudge infused with the tartness of monk fruit and the sweetness of berries. This sophisticated treat offers a perfect balance of indulgence and natural fruit flavors, creating a memorable taste experience.",
-    notes: ["Rich Chocolate Base", "Real Monk Fruit Juice", "Berry Infusion", "Guilt-Free", "Naturally Sweetened", "Healthy Indulgence"],
+    notes: ["Rich Chocolate Base", "Real Monk Fruit Juice", "Berry Infusion", "Naturally Sweetened", "Healthy Indulgence"],
     weight: "2 pieces",
     minOrderQuantity: 2,
     variants: [
