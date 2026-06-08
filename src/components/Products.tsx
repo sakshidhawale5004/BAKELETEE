@@ -232,26 +232,26 @@ export const products: Product[] = [
   },
   {
     name: "Chocolate Hazelnut Fudge",
-    price: 120,
+    price: 240,
     category: "Brownie and Fudge",
     img: chocolateHazelnutFudge,
     badge: "Pure Indulgence",
     tagline: "Silky Chocolate Bliss.",
     description: "A decadent fudge crafted with premium chocolate and roasted hazelnuts. Rich, smooth, and utterly irresistible. Each piece melts on your tongue with layers of intense chocolate flavor and toasted hazelnut elegance.",
     notes: ["Premium Dark Chocolate", "Roasted Hazelnut Pieces", "Smooth & Creamy Texture", "Refined Sugar-Free", "Healthy Indulgence"],
-    weight: "1 piece",
+    weight: "2 pieces",
     minOrderQuantity: 1,
   },
   {
     name: "Monk & Berries Fudge",
-    price: 120,
+    price: 240,
     category: "Brownie and Fudge",
     img: monkBerriesFudge,
     badge: "Fruity Delight",
     tagline: "Berry Bliss in Every Bite.",
     description: "A unique fusion of rich chocolate fudge infused with the warmth of non-alcoholic Old Monk rum flavour and the sweetness of berries. This sophisticated treat offers a perfect balance of indulgence and natural fruit flavors, creating a memorable taste experience. No monk fruit or sugar is used.",
     notes: ["Rich Chocolate Base", "Old Monk Rum Flavour", "Berry Infusion", "No Monk Fruit", "No Sugar", "Healthy Indulgence"],
-    weight: "1 piece",
+    weight: "2 pieces",
     minOrderQuantity: 1,
   },
   {
@@ -389,16 +389,17 @@ const ProductCard = ({
   const currentInCart = getQuantity(targetName);
 
   const minOrderQty = p.minOrderQuantity || 1;
-  // For fudges with variants, lock quantity at 1 per variant (user can select 1 or 2 pieces as variant)
-  const maxOrderQty = p.variants && p.minOrderQuantity === 2 ? 1 : undefined;
-  const isQuantityLocked = maxOrderQty === 1;
+  // For fudges (Hazelnut & Monk & Berries), lock quantity at 1
+  const isFudge = p.name.includes("Fudge") && !p.name.includes("Chocolate Brownie");
+  const isQuantityLocked = isFudge;
 
   const handleQuantity = (delta: number) => {
+    // Don't allow quantity changes if locked (for fudges)
+    if (isQuantityLocked && currentInCart > 0) return;
+    
     if (currentInCart > 0) {
       let newQty = currentInCart + delta;
       if (newQty < 1) newQty = 1;
-      // Respect max quantity if set
-      if (maxOrderQty && newQty > maxOrderQty) return;
       updateQuantity(targetName, newQty);
     } else if (delta > 0) {
       addToCart({
