@@ -389,14 +389,8 @@ const ProductCard = ({
   const currentInCart = getQuantity(targetName);
 
   const minOrderQty = p.minOrderQuantity || 1;
-  // For fudges (Hazelnut & Monk & Berries), lock quantity at 1
-  const isFudge = p.name.includes("Fudge") && !p.name.includes("Chocolate Brownie");
-  const isQuantityLocked = isFudge;
 
   const handleQuantity = (delta: number) => {
-    // Don't allow quantity changes if locked (for fudges)
-    if (isQuantityLocked && currentInCart > 0) return;
-    
     if (currentInCart > 0) {
       let newQty = currentInCart + delta;
       if (newQty < 1) newQty = 1;
@@ -502,10 +496,16 @@ const ProductCard = ({
               )}
             </div>
 
-            {/* MOQ Label for Variants */}
+            {/* Weight/MOQ Label */}
             {p.variants && minOrderQty > 1 && (
               <div className="text-xs text-primary font-semibold whitespace-nowrap">
                 MOQ: {selectedVariant?.weight === "2 pieces" ? "2 pieces" : "1 piece"}
+              </div>
+            )}
+            {/* For fudges without minOrderQty label, show weight info */}
+            {p.name.includes("Fudge") && !p.variants && (
+              <div className="text-xs text-primary font-semibold whitespace-nowrap">
+                {p.weight}
               </div>
             )}
           </div>
