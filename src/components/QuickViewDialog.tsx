@@ -217,11 +217,14 @@ const QuickViewDialog = ({ product, onClose }: Props) => {
                 <span className="text-xs text-muted-foreground uppercase tracking-wider block mb-1">Total Price</span>
                 <span className="text-3xl font-display font-bold text-primary">₹{currentPrice * qty}</span>
               </div>
-              <div className="flex items-center bg-background rounded-full p-1 border border-border">
-                <button onClick={() => setQty(Math.max(1, qty - 1))} className="w-8 h-8 rounded-full hover:bg-muted transition-colors">-</button>
-                <span className="w-8 text-center font-bold">{qty}</span>
-                <button onClick={() => setQty(qty + 1)} className="w-8 h-8 rounded-full hover:bg-muted transition-colors">+</button>
-              </div>
+              {/* Only show increment for non-variant products */}
+              {!product.variants && (
+                <div className="flex items-center bg-background rounded-full p-1 border border-border">
+                  <button onClick={() => setQty(Math.max(1, qty - 1))} className="w-8 h-8 rounded-full hover:bg-muted transition-colors">-</button>
+                  <span className="w-8 text-center font-bold">{qty}</span>
+                  <button onClick={() => setQty(qty + 1)} className="w-8 h-8 rounded-full hover:bg-muted transition-colors">+</button>
+                </div>
+              )}
             </div>
             <button
               onClick={handleAddToCart}
