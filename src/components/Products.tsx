@@ -240,9 +240,6 @@ export const products: Product[] = [
     notes: ["Premium Dark Chocolate", "Roasted Hazelnut Pieces", "Smooth & Creamy Texture", "Refined Sugar-Free", "Healthy Indulgence"],
     weight: "2 pieces",
     minOrderQuantity: 2,
-    variants: [
-      { weight: "2 pieces", price: 240 },
-    ],
   },
   {
     name: "Monk & Berries Fudge",
@@ -255,9 +252,6 @@ export const products: Product[] = [
     notes: ["Rich Chocolate Base", "Old Monk Rum Flavour", "Berry Infusion", "No Monk Fruit", "No Sugar", "Healthy Indulgence"],
     weight: "2 pieces",
     minOrderQuantity: 2,
-    variants: [
-      { weight: "2 pieces", price: 240 },
-    ],
   },
   {
     name: "Premium Curations Bundle",
@@ -399,12 +393,10 @@ const ProductCard = ({
   const isQuantityLocked = maxOrderQty === 1;
 
   const handleQuantity = (delta: number) => {
-    // Don't allow quantity changes if locked
-    if (isQuantityLocked && currentInCart > 0) return;
-    
     if (currentInCart > 0) {
-      let newQty = currentInCart + delta;
-      if (newQty < 1) newQty = 1;
+      // For MOQ products, increment by minOrderQty
+      let newQty = currentInCart + (delta * minOrderQty);
+      if (newQty < minOrderQty) newQty = minOrderQty;
       // Respect max quantity if set
       if (maxOrderQty && newQty > maxOrderQty) return;
       updateQuantity(targetName, newQty);
@@ -414,7 +406,7 @@ const ProductCard = ({
         price: discountedPrice,
         weight: currentWeight,
         name: targetName
-      }, 1);
+      }, minOrderQty);
     }
   };
 
@@ -517,8 +509,8 @@ const ProductCard = ({
             )}
           </div>
 
-          {/* Only show increment controls for non-fudge products or fudges without variants */}
-          {!isQuantityLocked && (
+          {/* Only show increment controls for products with MOQ or no variants */}
+          {(minOrderQty > 1 || !p.variants) && (
             <div className="flex items-center gap-2">
               <div className="flex items-center bg-muted rounded-full p-1 border border-border/50">
                 <button 
