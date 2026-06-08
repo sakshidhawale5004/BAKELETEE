@@ -241,7 +241,6 @@ export const products: Product[] = [
     weight: "2 pieces",
     minOrderQuantity: 2,
     variants: [
-      { weight: "1 piece", price: 120 },
       { weight: "2 pieces", price: 240 },
     ],
   },
@@ -252,12 +251,11 @@ export const products: Product[] = [
     img: monkBerriesFudge,
     badge: "Fruity Delight",
     tagline: "Berry Bliss in Every Bite.",
-    description: "A unique fusion of rich chocolate fudge infused with the tartness of monk fruit and the sweetness of berries. This sophisticated treat offers a perfect balance of indulgence and natural fruit flavors, creating a memorable taste experience.",
-    notes: ["Rich Chocolate Base", "Real Monk Fruit Juice", "Berry Infusion", "Naturally Sweetened", "Healthy Indulgence"],
+    description: "A unique fusion of rich chocolate fudge infused with the warmth of non-alcoholic Old Monk rum flavour and the sweetness of berries. This sophisticated treat offers a perfect balance of indulgence and natural fruit flavors, creating a memorable taste experience. No monk fruit or sugar is used.",
+    notes: ["Rich Chocolate Base", "Old Monk Rum Flavour", "Berry Infusion", "No Monk Fruit", "No Sugar", "Healthy Indulgence"],
     weight: "2 pieces",
     minOrderQuantity: 2,
     variants: [
-      { weight: "1 piece", price: 120 },
       { weight: "2 pieces", price: 240 },
     ],
   },
