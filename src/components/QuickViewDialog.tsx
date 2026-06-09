@@ -140,7 +140,7 @@ const QuickViewDialog = ({ product, onClose }: Props) => {
             {/* Special elevated layout for Bundles & Gift Hampers */}
             {(product.category === "Bundles" || product.category === "Gift Hamper") ? (
               <div className="mt-6">
-                <p className="text-muted-foreground leading-relaxed">{product.description}</p>
+                <p className="text-muted-foreground leading-relaxed no-underline">{product.description}</p>
                 <div className="my-6 flex items-center gap-4">
                   <div className="flex-1 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
                   <span className="text-primary text-lg">✦</span>
@@ -165,7 +165,7 @@ const QuickViewDialog = ({ product, onClose }: Props) => {
               </div>
             ) : (
               <>
-                <p className="mt-5 text-muted-foreground leading-relaxed">{product.description}</p>
+                <p className="mt-5 text-muted-foreground leading-relaxed no-underline">{product.description}</p>
 
                 {product.notes.length > 0 && (
                   <div className="mt-6">
