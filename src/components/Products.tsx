@@ -249,7 +249,7 @@ export const products: Product[] = [
     img: monkBerriesFudge,
     badge: "Fruity Delight",
     tagline: "Berry Bliss in Every Bite.",
-    description: "A unique fusion of rich chocolate fudge infused with the warmth of non-alcoholic Old Monk rum flavour and the sweetness of berries. This sophisticated treat offers a perfect balance of indulgence and natural fruit flavors, creating a memorable taste experience. No monk fruit or sugar is used.",
+    description: "A unique fusion of rich chocolate fudge infused with the warmth of non-alcoholic Old Monk rum flavour and the sweetness of berries. This sophisticated treat offers a perfect balance of indulgence and natural fruit flavors, creating a memorable taste experience.",
     notes: ["Rich Chocolate Base", "Old Monk Rum Flavour", "Berry Infusion", "No Sugar", "Healthy Indulgence"],
     weight: "Combo of 2",
     minOrderQuantity: 1,
