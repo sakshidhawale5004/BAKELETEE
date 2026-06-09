@@ -129,17 +129,10 @@ const Header = ({ searchQuery = "", onSearchChange }: HeaderProps) => {
         <div className="bg-primary text-primary-foreground overflow-hidden shadow-inner border-b border-primary-deep/20">
           {/* Mobile view - single line scrolling */}
           <div className="md:hidden py-1.5 overflow-hidden">
-            <div className="flex animate-marquee gap-16">
+            <div className="flex animate-marquee gap-8">
               {[...Array(6)].map((_, i) => (
-                <span key={i} className="inline-flex items-center gap-3 text-[8px] font-bold uppercase tracking-wider flex-shrink-0 whitespace-nowrap">
-                  <span>🎉 Artisanal bakes</span>
-                  <span>•</span>
-                  <span>Free delivery above ₹1000</span>
-                  <span>•</span>
-                  <span>750+ Customers</span>
-                  <span>•</span>
-                  <span>Corporate gifting +91 83694 24099</span>
-                  <span>🎉</span>
+                <span key={i} className="inline-block text-[8px] font-bold uppercase tracking-wider flex-shrink-0 whitespace-nowrap">
+                  🎉 Artisanal bakes on subscription🎉•🎉Free delivery above ₹1000🎉•🎉 750+ Happy Customers🎉•🎉 Corporate gifting and bulk orders +91 83694 24099🎉•
                 </span>
               ))}
             </div>
@@ -147,18 +140,11 @@ const Header = ({ searchQuery = "", onSearchChange }: HeaderProps) => {
           
           {/* Desktop view - full messages */}
           <div className="hidden md:block py-2.5 overflow-hidden">
-            <div className="flex animate-marquee gap-20">
+            <div className="flex animate-marquee gap-8">
               {[...Array(4)].map((_, i) => (
-                <div key={i} className="flex items-center gap-5 px-6 text-xs font-bold uppercase tracking-wider flex-shrink-0 whitespace-nowrap">
-                  <span>🎉 Artisanal bakes on subscription</span>
-                  <span className="opacity-50">•</span>
-                  <span>🎉 Free delivery above ₹1000</span>
-                  <span className="opacity-50">•</span>
-                  <span>🎉 750+ Happy Customers</span>
-                  <span className="opacity-50">•</span>
-                  <span>🎉 Corporate gifting and bulk orders +91 83694 24099</span>
-                  <span>🎉</span>
-                </div>
+                <span key={i} className="inline-block text-xs font-bold uppercase tracking-wider flex-shrink-0 whitespace-nowrap">
+                  🎉 Artisanal bakes on subscription🎉•🎉Free delivery above ₹1000🎉•🎉 750+ Happy Customers🎉•🎉 Corporate gifting and bulk orders +91 83694 24099🎉•
+                </span>
               ))}
             </div>
           </div>
