@@ -239,7 +239,7 @@ export const products: Product[] = [
     tagline: "Silky Chocolate Bliss.",
     description: "A decadent fudge crafted with premium chocolate and roasted hazelnuts. Rich, smooth, and utterly irresistible. Each piece melts in your mouth with layers of intense chocolate flavor and toasted hazelnut elegance.",
     notes: ["Premium Dark Chocolate", "Roasted Hazelnut Pieces", "Smooth & Creamy Texture", "Refined Sugar-Free", "Healthy Indulgence"],
-    weight: "2 unit",
+    weight: "Combo of 2",
     minOrderQuantity: 1,
   },
   {
@@ -251,7 +251,7 @@ export const products: Product[] = [
     tagline: "Berry Bliss in Every Bite.",
     description: "A unique fusion of rich chocolate fudge infused with the warmth of non-alcoholic Old Monk rum flavour and the sweetness of berries. This sophisticated treat offers a perfect balance of indulgence and natural fruit flavors, creating a memorable taste experience. No monk fruit or sugar is used.",
     notes: ["Rich Chocolate Base", "Old Monk Rum Flavour", "Berry Infusion", "No Sugar", "Healthy Indulgence"],
-    weight: "2 unit",
+    weight: "Combo of 2",
     minOrderQuantity: 1,
   },
   {
