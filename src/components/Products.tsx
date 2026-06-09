@@ -341,7 +341,7 @@ const Products = ({ selected, onSelect, searchQuery = "", discountPercentage = 0
                   : "bg-background text-foreground border-border hover:border-primary hover:text-primary"
               }`}
             >
-              {c === "Brownie" ? "Brownie and Fudge" : c}
+              {c}
             </button>
           ))}
         </div>
