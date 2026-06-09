@@ -126,25 +126,32 @@ const Header = ({ searchQuery = "", onSearchChange }: HeaderProps) => {
       }`}
     >
       {!isSubscriberPage && (
-        <div className="bg-primary text-primary-foreground py-2 md:py-2.5 overflow-hidden shadow-inner border-b border-primary-deep/20">
-          <div className="flex animate-marquee gap-20 md:gap-24">
-            <div className="flex items-center gap-6 px-4 text-[10px] md:text-xs font-bold uppercase tracking-wider flex-shrink-0">
-              <span className="whitespace-nowrap">🎉 Artisanal bakes on subscription 🎉</span>
-              <span className="opacity-50">•</span>
-              <span className="whitespace-nowrap">🎉 Free delivery above ₹1000 🎉</span>
-              <span className="opacity-50">•</span>
-              <span className="whitespace-nowrap">🎉 750+ Happy Customers 🎉</span>
-              <span className="opacity-50">•</span>
-              <span className="whitespace-nowrap">🎉 Corporate Gifting: +91 83694 24099 🎉</span>
+        <div className="bg-primary text-primary-foreground overflow-hidden shadow-inner border-b border-primary-deep/20">
+          {/* Mobile view - single line scrolling */}
+          <div className="md:hidden py-2 overflow-hidden">
+            <div className="flex animate-marquee gap-8 whitespace-nowrap">
+              {[...Array(4)].map((_, i) => (
+                <span key={i} className="inline-block text-[9px] font-bold uppercase tracking-wider flex-shrink-0">
+                  🎉 Artisanal bakes • Free delivery • 750+ Customers • +91 83694 24099 🎉
+                </span>
+              ))}
             </div>
-            <div className="flex items-center gap-6 px-4 text-[10px] md:text-xs font-bold uppercase tracking-wider flex-shrink-0">
-              <span className="whitespace-nowrap">🎉 Artisanal bakes on subscription 🎉</span>
-              <span className="opacity-50">•</span>
-              <span className="whitespace-nowrap">🎉 Free delivery above ₹1000 🎉</span>
-              <span className="opacity-50">•</span>
-              <span className="whitespace-nowrap">🎉 750+ Happy Customers 🎉</span>
-              <span className="opacity-50">•</span>
-              <span className="whitespace-nowrap">🎉 Corporate Gifting: +91 83694 24099 🎉</span>
+          </div>
+          
+          {/* Desktop view - full messages */}
+          <div className="hidden md:block py-2.5 overflow-hidden">
+            <div className="flex animate-marquee gap-24">
+              {[...Array(2)].map((_, i) => (
+                <div key={i} className="flex items-center gap-6 px-4 text-xs font-bold uppercase tracking-wider flex-shrink-0">
+                  <span className="whitespace-nowrap">🎉 Artisanal bakes on subscription 🎉</span>
+                  <span className="opacity-50">•</span>
+                  <span className="whitespace-nowrap">🎉 Free delivery above ₹1000 🎉</span>
+                  <span className="opacity-50">•</span>
+                  <span className="whitespace-nowrap">🎉 750+ Happy Customers 🎉</span>
+                  <span className="opacity-50">•</span>
+                  <span className="whitespace-nowrap">🎉 Corporate Gifting: +91 83694 24099 🎉</span>
+                </div>
+              ))}
             </div>
           </div>
         </div>
