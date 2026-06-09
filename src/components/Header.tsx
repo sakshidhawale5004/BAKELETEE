@@ -126,19 +126,26 @@ const Header = ({ searchQuery = "", onSearchChange }: HeaderProps) => {
       }`}
     >
       {!isSubscriberPage && (
-        <div className="bg-primary text-primary-foreground py-2 md:py-3 overflow-hidden shadow-inner border-b border-primary-deep/20">
-          <div className="flex animate-marquee gap-12 md:gap-16">
-            {[...Array(6)].map((_, i) => (
-              <div key={i} className="flex items-center gap-4 md:gap-6 px-3 md:px-5 text-[11px] md:text-sm font-bold uppercase tracking-wider md:tracking-[0.12em] flex-shrink-0 whitespace-nowrap">
-                <span>🎉 Artisanal bakes on subscription 🎉</span>
-                <span className="opacity-50">•</span>
-                <span>🎉 Free delivery above ₹1000 🎉</span>
-                <span className="opacity-50">•</span>
-                <span>🎉 750+ Happy Customers 🎉</span>
-                <span className="opacity-50">•</span>
-                <span>🎉 Corporate Gifting & Bulk Orders: +91 83694 24099 🎉</span>
-              </div>
-            ))}
+        <div className="bg-primary text-primary-foreground py-2 md:py-2.5 overflow-hidden shadow-inner border-b border-primary-deep/20">
+          <div className="flex animate-marquee gap-20 md:gap-24">
+            <div className="flex items-center gap-6 px-4 text-[10px] md:text-xs font-bold uppercase tracking-wider flex-shrink-0">
+              <span className="whitespace-nowrap">🎉 Artisanal bakes on subscription 🎉</span>
+              <span className="opacity-50">•</span>
+              <span className="whitespace-nowrap">🎉 Free delivery above ₹1000 🎉</span>
+              <span className="opacity-50">•</span>
+              <span className="whitespace-nowrap">🎉 750+ Happy Customers 🎉</span>
+              <span className="opacity-50">•</span>
+              <span className="whitespace-nowrap">🎉 Corporate Gifting: +91 83694 24099 🎉</span>
+            </div>
+            <div className="flex items-center gap-6 px-4 text-[10px] md:text-xs font-bold uppercase tracking-wider flex-shrink-0">
+              <span className="whitespace-nowrap">🎉 Artisanal bakes on subscription 🎉</span>
+              <span className="opacity-50">•</span>
+              <span className="whitespace-nowrap">🎉 Free delivery above ₹1000 🎉</span>
+              <span className="opacity-50">•</span>
+              <span className="whitespace-nowrap">🎉 750+ Happy Customers 🎉</span>
+              <span className="opacity-50">•</span>
+              <span className="whitespace-nowrap">🎉 Corporate Gifting: +91 83694 24099 🎉</span>
+            </div>
           </div>
         </div>
       )}
