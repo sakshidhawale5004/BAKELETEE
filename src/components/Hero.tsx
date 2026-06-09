@@ -48,7 +48,7 @@ const Hero = () => (
       </div>
     </div>
 
-    <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-primary-foreground/70 text-xs uppercase tracking-widest animate-bounce">
+    <div className="hidden md:flex absolute bottom-6 left-1/2 -translate-x-1/2 text-primary-foreground/70 text-xs uppercase tracking-widest animate-bounce">
       Scroll
     </div>
   </section>
