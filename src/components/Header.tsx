@@ -126,18 +126,17 @@ const Header = ({ searchQuery = "", onSearchChange }: HeaderProps) => {
       }`}
     >
       {!isSubscriberPage && (
-        <div className="bg-primary text-primary-foreground py-3.5 overflow-hidden whitespace-nowrap shadow-inner border-b border-primary-deep/20">
-          <div className="flex animate-marquee">
+        <div className="bg-primary text-primary-foreground py-2 md:py-3 overflow-hidden shadow-inner border-b border-primary-deep/20">
+          <div className="flex animate-marquee gap-6 md:gap-8">
             {[...Array(4)].map((_, i) => (
-              <div key={i} className="flex items-center gap-8 px-4 text-[10px] md:text-xs font-bold uppercase tracking-wider md:tracking-[0.2em]">
-                <span>🎉 Your favorite artisanal bakes are now available for subscription 🎉</span>
-                <span className="opacity-50">|</span>
-                <span>🎉 Free delivery on all orders above ₹1000 🎉</span>
-                <span className="opacity-50">|</span>
-                <span>🎉 Delivered to 750+ customers successfully 🎉</span>
-                <span className="opacity-50">|</span>
-                <span>🎉 FOR CORPORATE GIFTING & BULK ORDERS, KINDLY CONNECT ON +91 83694 24099 🎉</span>
-                <span className="opacity-50">|</span>
+              <div key={i} className="flex items-center gap-3 md:gap-6 px-2 md:px-4 text-[9px] md:text-xs font-bold uppercase tracking-widest md:tracking-[0.15em] flex-shrink-0">
+                <span className="whitespace-nowrap">🎉 Artisanal bakes now on subscription</span>
+                <span className="opacity-40 hidden sm:inline">•</span>
+                <span className="whitespace-nowrap hidden sm:inline">🎉 Free delivery above ₹1000</span>
+                <span className="opacity-40 hidden md:inline">•</span>
+                <span className="whitespace-nowrap hidden md:inline">🎉 750+ Happy Customers</span>
+                <span className="opacity-40 hidden lg:inline">•</span>
+                <span className="whitespace-nowrap hidden lg:inline">🎉 Corporate Gifting: +91 83694 24099</span>
               </div>
             ))}
           </div>
