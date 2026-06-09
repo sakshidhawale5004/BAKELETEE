@@ -95,7 +95,7 @@ export const products: Product[] = [
     weight: "250 grams",
   },
   {
-    name: "Oatmeal & Carrot Cookies",
+    name: "Oatmeal & Carrotcake Cookies",
     price: 465,
     category: "Cookies",
     img: oatmealCarrot,
