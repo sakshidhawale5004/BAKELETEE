@@ -132,7 +132,7 @@ const Header = ({ searchQuery = "", onSearchChange }: HeaderProps) => {
             <div className="flex animate-marquee gap-24">
               {[...Array(12)].map((_, i) => (
                 <span key={i} className="inline-block text-[8px] font-bold uppercase tracking-wider flex-shrink-0 whitespace-nowrap">
-                  🎉 Artisanal bakes on subscription 🎉   •   🎉 Free delivery above ₹1000 🎉   •   🎉 750+ Happy Customers 🎉   •   🎉 Corporate gifting and bulk orders +91 83694 24099 🎉   •
+                  🎉 Artisanal bakes 🎉   •   🎉 Free delivery ₹1000+ 🎉   •   🎉 750+ Customers 🎉   •   🎉 Corporate +91 83694 24099 🎉   •
                 </span>
               ))}
             </div>
