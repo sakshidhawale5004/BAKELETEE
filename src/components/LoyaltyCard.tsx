@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { MessageCircle, X, CheckCircle2 } from "lucide-react";
+import { CreditCard, X, CheckCircle2, MessageCircle } from "lucide-react";
 import { waLink } from "@/lib/contact";
 
 const LoyaltyCard = () => {
@@ -21,7 +21,7 @@ const LoyaltyCard = () => {
           aria-label="Open loyalty card"
           title="Bakelette Loyalty Card"
         >
-          <MessageCircle className="w-7 h-7" />
+          <CreditCard className="w-7 h-7" />
         </button>
       )}
 
